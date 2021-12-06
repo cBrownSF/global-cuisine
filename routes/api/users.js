@@ -4,7 +4,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/test", (req, res) => {
-    res.json({ msg: "This is the user route" });
+    res.json({ msg: "This is the user route " });
   });
 
 router.post('/register', (req, res) => {
