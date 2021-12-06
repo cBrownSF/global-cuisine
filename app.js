@@ -13,7 +13,8 @@ mongoose
 
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
-
+  app.use("/api/users", users)
+  
 app.get("/", (req, res) => {
   const user = new User({
     username: "jim",
@@ -21,7 +22,7 @@ app.get("/", (req, res) => {
     password: "jim1234"
   })
   user.save()
-  res.send("helloword");
+  res.send("helloworld");
 })
 
 
