@@ -18,3 +18,5 @@ export const logout = () => dispatch => {
     // Dispatch a logout action
     dispatch(logoutUser())
 };
+
+
