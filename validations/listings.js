@@ -1,6 +1,5 @@
 const Validator = require("validator");
 const validText = require("./valid-text");
-const validArray = require("./valid-array");
 
 module.exports = function validateListingInput(data){
     let errors = {};
@@ -11,29 +10,29 @@ module.exports = function validateListingInput(data){
        errors.title = "Title is required";
      }
 
-    data.ingredients = validArray(data.ingredients) ? data.ingredients : [];
+    data.ingredients = validText(data.ingredients) ? data.ingredients : "";
 
-      if(data.ingredients.length === 0){
-          errors.ingredients = "Ingredients are required"
-      }
+     if (Validator.isEmpty(data.ingredients)) {
+       errors.ingredients = "Ingredients are required";
+     }
 
-    data.author_name = validText(data.author_name) ? author_name : "";
+    data.name = validText(data.name) ? data.name : "";
 
-     if (Validator.isEmpty(data.author_name)) {
-       errors.author_name = "Author name is required";
+     if (Validator.isEmpty(data.name)) {
+       errors.name = "Name is required";
      }
 
     data.difficulty = validText(data.difficulty) ? data.difficulty : "";
 
       if (Validator.isEmpty(data.difficulty)) {
-        errors.difficulty = "Difficulty is required";
+        errors.difficulty = "Level of difficulty is required";
       }
 
-    data.instruction = validArray(data.instruction) ? data.instruction : [];
+     data.instruction = validText(data.instruction) ? data.instruction : "";
 
-       if (data.instruction.length === 0) {
-         errors.instruction = "Instruction are required";
-       }
+     if (Validator.isEmpty(data.instruction)) {
+       errors.instruction = "Instruction is required";
+     }
 
     data.servings = validText(data.servings) ? data.servings : "";
 
@@ -51,7 +50,11 @@ module.exports = function validateListingInput(data){
 
       if (Validator.isEmpty(data.picture)) {
         errors.picture = "Picture is required";
-      }   
+      } 
+    data.country = validText(data.country) ? data.country : "";
+       if (Validator.isEmpty(data.country)) {
+         errors.country = "Country is required";
+       } 
 
      return {
          errors, 

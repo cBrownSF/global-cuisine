@@ -2,16 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ListingSchema = new Schema({
-  author: {
+  author_id: {
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
-  author_name: {
+  name: {
     type: String,
     required: true
   },
   ingredients: {
-    type: Array,
+    type: String,
     required: true,
   },
   details: {
@@ -28,7 +28,7 @@ const ListingSchema = new Schema({
   },
   instruction: {
     type: String,
-    required: true,
+    required: true
   },
   date: {
     type: Date,
