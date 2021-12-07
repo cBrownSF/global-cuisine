@@ -8,32 +8,24 @@ class SignupForm extends React.Component {
       email: '',
       username: '',
       password: '',
-      password2: '',
-      errors: {}
+      password2: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearedErrors = false;
   }
 
   componentDidUpdate(prevProps){
-    console.log(prevProps)
-    console.log(this.props)
+
     if (prevProps.signedIn !== this.props.signedIn) {
-      debugger;
       this.props.history.push('/login');
     }
   }
-  // componentWillReceiveProps(nextProps) {
-  //   if (prevProps.signedIn !== this.props.signedIn) {
-  //     debugger;
-  //     this.props.history.push('/login');
-  //   }
-
-  //   this.setState({ errors: nextProps.errors })
-  // }
-
-
+ 
+   componentDidMount() {
+     debugger;
+     this.props.clearErrors()
+   }
+ 
   handleInput(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -48,9 +40,9 @@ class SignupForm extends React.Component {
   renderErrors() {
     return (
       <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
+        {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
-            {this.state.errors[error]}
+            {error}
           </li>
         ))}
       </ul>
@@ -60,6 +52,8 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="login-form-container">
+        {/* {console.log(this.props.errors)} */}
+        {console.log(this.state.errors)}
         <form onSubmit={this.handleSubmit}>
           <div className="login-form">
             <br />

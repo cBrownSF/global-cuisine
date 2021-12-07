@@ -13,7 +13,10 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
-
+  
+  componentDidMount() {
+    this.props.clearErrors()
+  }
   // componentWillReceiveProps(nextProps) {
   //   if (nextProps.currentUser === true) {
   //     this.props.history.push('/tweets');

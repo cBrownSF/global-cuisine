@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    debugger;
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
   }
@@ -17,8 +16,6 @@ class NavBar extends React.Component {
 
 
   getLinks() {
-    console.log(this.props)
-    debugger;
     if (this.props.loggedIn) {
       return (
         <div>
