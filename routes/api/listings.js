@@ -58,5 +58,12 @@ router.post("/",
     }
 )
 
+router.delete("/delete", (req, res) => {
+    Listing
+    .findById(req.params.id)
+    .then(listing => res.json(listing))
+    .catch(err => res.status(400).json(err));
+})
+
 
 module.exports = router;
