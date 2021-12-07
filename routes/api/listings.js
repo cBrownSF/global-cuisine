@@ -6,10 +6,10 @@ const Listing = require('../../models/Listing')
 
 router.get("/", (req, res) => {
     Listing.find()
-    // .then((listings) => {
-    //     res.json(listings).catch((err) => res.status(404).json({ nolistingsfound: "No listings found" }));
-    // })
-    // res.json({ msg: "This is the listing route" })
+    .then((listings) => {
+        res.json(listings).catch((err) => res.status(404).json({ nolistingsfound: "No listings found" }));
+    })
+    res.json({ msg: "This is the listing route" })
 });
 
 router.post("/",

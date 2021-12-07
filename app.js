@@ -6,7 +6,8 @@ const User = require("./models/User");
 const users = require("./routes/api/users");
 const bodyParser = require('body-parser');
 const listings = require("./routes/api/listings");
-const passport = require("passport")
+const passport = require("passport");
+const Listing = require("./models/Listing")
 
 mongoose
   .connect(db, { useNewUrlParser: true })
