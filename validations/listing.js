@@ -6,7 +6,8 @@ module.exports = function validateListingInput(date) {
     let errors = {};
 
     data.title = validText(data.title) ? data.title : '';
-    data.authername = validText(data.authername) ? data.authername : '';
+    data.country = validText(data.country) ? data.country : '';
+    data.authorname = validText(data.authorname) ? data.authorname : '';
     data.difficulty = validText(data.difficulty) ? data.difficulty : '';
     data.servings = validInteger(data.servings) ? data.servings : '';
     data.details = validText(data.details) ? data.details : '';
@@ -21,12 +22,12 @@ module.exports = function validateListingInput(date) {
         errors.title = "title is required"
     }
 
-    if(!Validator.isLength(data.authername, {min: 5, max: 30})){
-        errors.authername = 'Authername must be between 5 and 30 characters'
+    if(Validator.isEmpty(data.country)){
+        errors.country = "Country name is required"
     }
 
-    if(Validator.isEmpty(data.authername)){
-        errors.authername = "Authername is required"
+    if(Validator.isEmpty(data.authorname)){
+        errors.authorname = "Authorname is required"
     }
 
     if(Validator.isEmpty(data.difficulty)){

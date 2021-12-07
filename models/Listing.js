@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ListingSchema = new Schema({
-    auther: {
+    author: {
         type: Schema.Types.ObjectId,
         ref: 'users'
     },
@@ -14,7 +14,7 @@ const ListingSchema = new Schema({
         type: String,
         required: true
     },
-    authername: {
+    authorname: {
         type: String,
        required: true
     },
@@ -23,7 +23,7 @@ const ListingSchema = new Schema({
        required: true
     },
     servings: {
-        type: Integer,
+        type: Number,
        required: true
     },
     details: {

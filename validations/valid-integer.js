@@ -1,5 +1,5 @@
 const validInteger = int => {
-    return typeof str === 'integer' 
+    return typeof int === 'number' 
 }
 
 module.exports = validInteger;
