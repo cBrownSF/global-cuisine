@@ -11,19 +11,20 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch((err) => console.log(err));
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use("/api/users", users);
-
+  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.json());
+  app.use("/api/users", users)
+  
 app.get("/", (req, res) => {
   const user = new User({
     username: "jim",
     email: "jim@jim.com",
-    password: "jim1234",
-  });
-  user.save();
+    password: "jim1234"
+  })
+  user.save()
   res.send("helloworld");
-});
+})
+
 
 const port = process.env.PORT || 5000;
 
