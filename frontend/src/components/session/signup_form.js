@@ -8,23 +8,24 @@ class SignupForm extends React.Component {
       email: '',
       username: '',
       password: '',
-      password2: '',
-      errors: {}
+      password2: ''
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearedErrors = false;
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
-    }
-
-    this.setState({ errors: nextProps.errors })
+  componentDidMount() {
+    this.props.clearErrors()
   }
 
-  update(field) {
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.signedIn === true) {
+  //     this.props.history.push('/login');
+  //   }
+
+  //   this.setState({ errors: nextProps.errors })
+  // }
+
+  handleInput(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
@@ -32,23 +33,16 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let user = {
-      email: this.state.email,
-      username: this.state.username,
-      password: this.state.password,
-      password2: this.state.password2
-    };
-
-    this.props.signup(user);
+    this.props.signup(this.state);
     this.props.history.push('/')
   }
 
   renderErrors() {
     return (
       <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
+        {Object.keys(this.props.errors).map((error, i) => (
           <li key={`error-${i}`}>
-            {this.state.errors[error]}
+            {this.props.errors[error]}
           </li>
         ))}
       </ul>
@@ -63,25 +57,25 @@ class SignupForm extends React.Component {
             <br />
             <input type="text"
               value={this.state.email}
-              onChange={this.update('email')}
+              onChange={this.handleInput('email')}
               placeholder="Email"
             />
             <br />
             <input type="text"
               value={this.state.username}
-              onChange={this.update('username')}
-              placeholder="Handle"
+              onChange={this.handleInput('username')}
+              placeholder="Username"
             />
             <br />
             <input type="password"
               value={this.state.password}
-              onChange={this.update('password')}
+              onChange={this.handleInput('password')}
               placeholder="Password"
             />
             <br />
             <input type="password"
               value={this.state.password2}
-              onChange={this.update('password2')}
+              onChange={this.handleInput('password2')}
               placeholder="Confirm Password"
             />
             <br />

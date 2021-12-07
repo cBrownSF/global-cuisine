@@ -8,22 +8,21 @@ class LoginForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      errors: {}
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
-      this.props.history.push('/tweets');
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.currentUser === true) {
+  //     this.props.history.push('/tweets');
+  //   }
 
-    this.setState({ errors: nextProps.errors })
-  }
+  //   this.setState({ errors: nextProps.errors })
+  // }
 
-  update(field) {
+  handleInput(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
@@ -31,22 +30,16 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
-    let user = {
-      email: this.state.email,
-      password: this.state.password
-    };
-
-    this.props.login(user);
+    this.props.login(this.state);
     this.props.history.push('/')
   }
 
   renderErrors() {
     return (
       <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
+        {Object.keys(this.props.errors).map((error, i) => (
           <li key={`error-${i}`}>
-            {this.state.errors[error]}
+            {this.props.errors[error]}
           </li>
         ))}
       </ul>
@@ -61,13 +54,13 @@ class LoginForm extends React.Component {
             <br />
             <input type="text"
               value={this.state.email}
-              onChange={this.update('email')}
+              onChange={this.handleInput('email')}
               placeholder="Email"
             />
             <br />
             <input type="password"
               value={this.state.password}
-              onChange={this.update('password')}
+              onChange={this.handleInput('password')}
               placeholder="Password"
             />
             <br />

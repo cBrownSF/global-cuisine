@@ -16,6 +16,8 @@ class NavBar extends React.Component {
 
 
   getLinks() {
+    console.log(this.props)
+    debugger;
     if (this.props.loggedIn) {
       return (
         <div>

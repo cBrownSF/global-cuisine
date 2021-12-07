@@ -45,10 +45,10 @@ export const signup = user => dispatch => (
 
 export const login = user => dispatch => (
   APIUtil.login(user).then(res => {
-    debugger;
+    
     const { token } = res.data;
     console.log(token)
-    debugger;
+    
     localStorage.setItem('jwtToken', token);
     APIUtil.setAuthToken(token);
     const decoded = jwt_decode(token);
