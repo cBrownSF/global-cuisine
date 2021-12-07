@@ -3,11 +3,10 @@ const app = express();
 const mongoose = require("mongoose");
 const db = require("./config/keys").mongoURI;
 const User = require("./models/User");
-const users = require("./routes/api/users");
-const bodyParser = require('body-parser');
 const listings = require("./routes/api/listings");
-const passport = require("passport");
-const Listing = require("./models/Listing")
+const users = require("./routes/api/users");
+const bodyParser = require("body-parser");
+const passport = require("passport")
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -16,11 +15,12 @@ mongoose
 
   app.use(passport.initialize());
   require("./config/passport")(passport);
+  
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
-  app.use("/api/users", users);
-  app.use("/api/listings", listings);
-
+  app.use("/api/users", users)
+  app.use("/api/listings", listings)
+  
 app.get("/", (req, res) => {
   const user = new User({
     username: "jim",
