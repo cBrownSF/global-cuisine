@@ -4,6 +4,7 @@ export const RECEIVE_LISTINGS = "RECEIVE_LISTINGS";
 export const RECEIVE_LISTING = "RECEIVE_LISTING"
 export const RECEIVE_USER_LISTINGS = "RECEIVE_USER_LISTINGS";
 export const RECEIVE_NEW_LISTING = "RECEIVE_NEW_LISTING";
+export const REMOVE_LISTING = "REMOVE_LISTING";
 
 export const receiveListings = listings => ({
   type: RECEIVE_LISTINGS,
@@ -19,6 +20,16 @@ export const receiveUserListings = listings => ({
 export const receiveNewListing = listing => ({
   type: RECEIVE_NEW_LISTING,
   listing
+})
+
+export const removeListing = id => ({
+    type: REMOVE_LISTING,
+    id
+})
+
+export const receiveListing = listing => ({
+    type: RECEIVE_LISTING,
+    listing
 })
 
 export const getListings = () => dispatch => {
@@ -39,4 +50,14 @@ export const getUserListings = id => dispatch => {
 export const writeListing = data => dispatch => {
     return APIUtil.writeListing(data)
     .then(listing => dispatch(receiveNewListing(listing)))
+}
+
+export const updateListing = listing => dispatch => {
+    return APIUtil.updateListing(listing)
+    .then(listing => dispatch(receiveListing(listing)))
+}
+
+export const deleteListing = id => dispatch => {
+    return APIUtil.deleteListing(id)
+    .then(() => dispatch(removeListing(id)))
 }
