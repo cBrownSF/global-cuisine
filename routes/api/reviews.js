@@ -4,6 +4,10 @@ const passport = require("passport");
 const Review = require("../../models/Review");
 const validateReviewInput = require("../../validations/reviews")
 
+router.get("/test", (req, res) => {
+    res.json({ msg: "This is the review route" });
+})
+
 router.get("/", (req, res) => {
     Review.find()
       .then((reviews) => res.json(reviews))
