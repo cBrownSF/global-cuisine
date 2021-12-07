@@ -12,12 +12,14 @@ const initialState = {
 const SessionAPIReducer = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
+      debugger;
       return {
         ...state,
         isAuthenticated: !!action.currentUser,
         user: action.currentUser
       };
     case RECEIVE_USER_LOGOUT:
+      debugger;
       return {
         isAuthenticated: false,
         user: undefined

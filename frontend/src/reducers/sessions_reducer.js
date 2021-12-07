@@ -6,8 +6,10 @@ const initialState = {
 };
 
 const sessionReducer = (state = initialState, action) => {
+  debugger;
   switch (action.type) {
     case RECEIVE_USER_LOGOUT:
+      debugger;
       return {
         isAuthenticated: false,
         user: undefined
