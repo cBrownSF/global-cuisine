@@ -1,33 +1,31 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       email: '',
       password: '',
-      errors: {}
     };
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.submitForm(this.state);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
-
-  handleInput(type) {
-    return e => {
-      this.setState({ [type]: e.currentTarget.value })
-    }
-  }
+  
   componentDidMount() {
     this.props.clearErrors()
   }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.currentUser === true) {
+  //     this.props.history.push('/tweets');
+  //   }
 
-  update(field) {
+  //   this.setState({ errors: nextProps.errors })
+  // }
+
+  handleInput(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
@@ -35,15 +33,16 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.login(this.staet);
+    this.props.login(this.state);
+    this.props.history.push('/')
   }
 
   renderErrors() {
     return (
       <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
+        {Object.keys(this.props.errors).map((error, i) => (
           <li key={`error-${i}`}>
-            {this.state.errors[error]}
+            {this.props.errors[error]}
           </li>
         ))}
       </ul>
@@ -55,16 +54,17 @@ class LoginForm extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
+            <br />
             <input type="text"
               value={this.state.email}
               onChange={this.handleInput('email')}
-              placeholder="Email..."
+              placeholder="Email"
             />
             <br />
             <input type="password"
               value={this.state.password}
               onChange={this.handleInput('password')}
-              placeholder="Password..."
+              placeholder="Password"
             />
             <br />
             <input type="submit" value="Submit" />

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class MainPage extends React.Component {
+class HomePage extends React.Component {
 
   render() {
     return (
@@ -13,4 +13,4 @@ class MainPage extends React.Component {
   }
 }
 
-export default MainPage;
+export default HomePage;
