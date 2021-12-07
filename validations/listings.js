@@ -20,7 +20,7 @@ module.exports = function validateListingInput(data){
     data.author_name = validText(data.author_name) ? author_name : "";
 
      if (Validator.isEmpty(data.author_name)) {
-       errors.author_name = "Author is required";
+       errors.author_name = "Author name is required";
      }
 
     data.difficulty = validText(data.difficulty) ? data.difficulty : "";

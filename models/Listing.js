@@ -6,8 +6,12 @@ const ListingSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
-  ingredients: {
+  author_name: {
     type: String,
+    required: true
+  },
+  ingredients: {
+    type: Array,
     required: true,
   },
   details: {
