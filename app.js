@@ -5,8 +5,10 @@ const db = require("./config/keys").mongoURI;
 const User = require("./models/User");
 const listings = require("./routes/api/listings");
 const users = require("./routes/api/users");
+const reviews = require("./routes/api/reviews")
 const bodyParser = require("body-parser");
-const passport = require("passport")
+const passport = require("passport");
+const Listing = require("./models/Listing");
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -20,6 +22,7 @@ mongoose
   app.use(bodyParser.json());
   app.use("/api/users", users)
   app.use("/api/listings", listings)
+  app.use("/api/reviews", reviews)
   
 app.get("/", (req, res) => {
   const user = new User({
