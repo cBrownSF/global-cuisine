@@ -14,11 +14,11 @@ class SignupForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidUpdate(prevProps){
-    if (prevProps.signedIn !== this.props.signedIn) {
-      this.props.history.push('/login');
-    }
-  }
+  // componentDidUpdate(prevProps){
+  //   if (prevProps.signedIn !== this.props.signedIn) {
+  //     this.props.history.push('/login');
+  //   }
+  // }
  
    componentDidMount() {
      this.props.clearErrors()
@@ -32,7 +32,13 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signup(this.state);
+    this.props.signup(this.state)
+    .then( res =>{
+      if(res.type !== 'RECIEVE SESSION ERRORS'){
+        this.props.login(this.state)
+      }
+      }
+    )
   }
 
   renderErrors() {
