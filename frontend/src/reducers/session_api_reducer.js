@@ -9,7 +9,7 @@ const initialState = {
   user: {}
 };
 
-export default function (state = initialState, action) {
+const SessionAPIReducer = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       return {
@@ -23,6 +23,7 @@ export default function (state = initialState, action) {
         user: undefined
       };
     case RECEIVE_USER_SIGN_IN:
+      debugger;
       return {
         ...state,
         isSignedIn: true
@@ -31,3 +32,5 @@ export default function (state = initialState, action) {
       return state;
   }
 }
+
+export default SessionAPIReducer;
