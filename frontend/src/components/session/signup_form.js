@@ -51,8 +51,6 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="login-form-container">
-        {/* {console.log(this.props.errors)} */}
-        {console.log(this.state.errors)}
         <form onSubmit={this.handleSubmit}>
           <div className="login-form">
             <br />
