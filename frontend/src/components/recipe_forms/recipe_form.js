@@ -6,14 +6,14 @@ class ListingForm extends React.Component{
     super(props)
     debugger;
     this.state = {
-      name: '',
+      name: 'asdg',
       author_id: this.props.currentUser.id,
-      ingredients: '',
-      instructions: '',
-      details: '',
+      ingredients: 'agds',
+      instruction: 'adsg',
+      details: 'asdg',
       difficulty: 'Easy',
       servings: '4',
-      title: '',
+      title: 'adsg',
       picture: '333',
       country: 'Italy'
     }
@@ -33,6 +33,7 @@ class ListingForm extends React.Component{
     console.log(this.state.name)
     return (
       <div>
+        <p> <Link to={`/listings/${listing.id}/edit`}>Edit</Link></p>
         <form onSubmit={this.handleSubmit}>
           <div>
             <br />
@@ -68,8 +69,8 @@ class ListingForm extends React.Component{
             />
             <br />
             <textarea
-              value={this.state.instructions}
-              onChange={this.handleInput('instructions')}
+              value={this.state.instruction}
+              onChange={this.handleInput('instruction')}
               placeholder="Add your instructions here"
             />
             <br />
@@ -79,7 +80,7 @@ class ListingForm extends React.Component{
               <option value="France">France</option>
               <option value="India">India</option>
           </select>
-              <select value={this.state.difficulty} onChange={this.handleInput('country')}>
+              <select value={this.state.difficulty} onChange={this.handleInput('difficulty')}>
                 <option value="Easy">Easy</option>
                 <option value="Medium">Medium</option>
                 <option value="Hard">Hard</option>

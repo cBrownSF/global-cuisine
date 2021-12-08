@@ -21,7 +21,7 @@ class RecipeIndex extends React.Component {
         <h1>All Recipes: </h1>
         {Array.map(listing => (
           <RecipeIndexItem
-            listings={listing}
+            listing={listing}
             key={listing.id}
           />
         ))}

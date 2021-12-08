@@ -11,8 +11,7 @@ const ListingsReducer = (state = { all: {}, user: {}, new: undefined }, action) 
         newState.user = action.listings.data;
         return newState;
       case RECEIVE_NEW_LISTING:
-        newState.new = action.listings.data
-        debugger;
+        newState.new = action.listing.data
         return newState;
         case RECEIVE_LISTING:
         newState[action.listing.data._id] = action.listing.data;
