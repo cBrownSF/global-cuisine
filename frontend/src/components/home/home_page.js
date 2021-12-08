@@ -5,7 +5,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
-        {/* <h1>Global cuisine</h1> */}
+        <p>A place for food</p>
         <footer>
         </footer>
       </div>

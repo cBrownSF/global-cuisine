@@ -41,6 +41,7 @@ router.post("/",
             return res.status(400).json(errors);
         }
         const newListing = new Listing({
+          
             author_id: req.user.id,
             name: req.body.name,
             ingredients: req.body.ingredients,
