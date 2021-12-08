@@ -14,6 +14,7 @@ class RecipeIndex extends React.Component {
     // if (!this.props.listing) {
     //   return null;
     // }
+
     const Array = Object.values(this.props.listings)
 
     return (
@@ -21,7 +22,7 @@ class RecipeIndex extends React.Component {
         <h1>All Recipes: </h1>
         {Array.map(listing => (
           <RecipeIndexItem
-            listings={listing}
+            listing={listing}
             key={listing.id}
           />
         ))}

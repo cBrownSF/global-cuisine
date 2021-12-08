@@ -60,7 +60,7 @@ export const getUserListings = id => dispatch => {
 
 export const writeListing = data => dispatch => {
     return APIUtil.writeListing(data).then(listing => {
-      dispatch(receiveNewListing(listing))},
+      dispatch(receiveListing(listing))},
       err => (dispatch(receiveListingErrors(err.response.data)))
       )
 }

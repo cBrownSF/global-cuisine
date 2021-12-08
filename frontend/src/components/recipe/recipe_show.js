@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 
 class RecipeShow extends React.Component {
 
@@ -27,10 +27,24 @@ class RecipeShow extends React.Component {
    
       return null;
     }
+
+    const listing = this.props.listing
+    debugger;
   return (
   
   <div>
     <h1>Show page</h1>
+      <p><Link to={`/listings/${this.props.listing._id}/edit`}>Edit</Link></p>
+      <ul>
+        <li>{listing.name}</li>
+        <li>{listing.ingredients}</li>
+        <li>{listing.details}</li>
+        <li>{listing.country}</li>
+        <li>{listing.title}</li>
+        <li>{listing.difficulty}</li>
+        <li>{listing.instruction}</li>
+        <li>{listing.picture}</li>
+        </ul>
     </div>
   )
   }
