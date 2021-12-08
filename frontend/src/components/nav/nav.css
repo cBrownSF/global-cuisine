@@ -1,0 +1,50 @@
+.signupbtn, .loginbtn{
+    text-decoration: none;
+}
+
+.navbar-top{
+    display: flex;
+    height: 13vh;
+    background-color: black;
+}
+
+.signUp{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 65vw;
+    height: 10vh;
+}
+
+.signup-div, .login-div{
+    border: 1px solid white;
+    background-color: black;
+    position: relative;
+    border: 1px solid white;
+    width:8vw;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 1.2vh;
+}
+
+.global-link{
+    color: pink;
+}
+
+.homelink-global{
+    color: gray;
+    font-size: 4vw;
+    position: relative;
+    left: 20%;
+    bottom: 15%;
+}
+
+.signup-div{
+    background-color: black;
+}
+.p-signup, .p-login{
+    color: gray;
+    font-size: 2vw;
+}
