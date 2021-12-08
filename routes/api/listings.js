@@ -37,10 +37,12 @@ router.post("/",
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
         const {isValid, errors} = validateListingInput(req.body);
+      console.log("ERROR HERE", errors)
         if(!isValid){
             return res.status(400).json(errors);
         }
         const newListing = new Listing({
+          
             author_id: req.user.id,
             name: req.body.name,
             ingredients: req.body.ingredients,

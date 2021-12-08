@@ -12,11 +12,15 @@ module.exports = function validateReviewInput(data){
        errors.review = "Review is required";
      }
 
-     data.score = validInteger(data.score) ? data.score : "";
+     data.score = validInteger(data.score) ? data.score : 5;
 
      if(Validator.isEmpty(data.score)) {
          errors.score = "Please enter a score"
      }
+
+    //  if(Validator.isFloat(data.score, {min:1, max:5})) {
+    //      errors.score = "Score must be between 1 and 5"
+    //  }
 
      data.reviewer_name = validText(data.reviewer_name) ? data.reviewer_name : "";
 

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
-// import './navbar.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./nav.css";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -14,24 +14,31 @@ class NavBar extends React.Component {
     this.props.logout();
   }
 
-
   getLinks() {
     if (this.props.loggedIn) {
       return (
-        <div>
-          <Link to={'/recipes'}>All Recipes</Link>
-          <Link to={'/profile'}>Profile</Link>
-          <Link to={'/new_recipe'}>Create New Recipe</Link>
-          <button onClick={this.logoutUser}>Logout</button>
+        <div className="loggedIn">
+          <Link to={"/recipes"}>All Recipes</Link>
+          <Link to={"/profile"}>Profile</Link>
+          <Link to={"/new_recipe"}>Create New Recipe</Link>
+          <button onClick={this.logoutUser} className="logoutbtn">
+            Logout
+          </button>
         </div>
       );
     } else {
       return (
-        
-        <div>
-          <Link to={'/signup'}>Signup</Link>
-          <Link to={'/login'}>Login</Link>
-          <Link onClick = {this.props.login} to ={'./'}>DemoLogin</Link>
+        <div className="signUp">
+          <div className="signup-div">
+            <Link to={"/signup"} className="signupbtn">
+              <p className="p-signup">Signup</p>
+            </Link>
+          </div>
+          <div className="login-div">
+            <Link to={"/login"} className="loginbtn">
+              <p className="p-login">Login</p>
+            </Link>
+          </div>
         </div>
       );
     }
@@ -39,9 +46,12 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Global Cuisine</h1>
-        {this.getLinks()}
+      <div className="navbar-top">
+        <div>
+          <i className="fas fa-globe-americas" id="global-link"></i>
+          <p className="homelink-global">Global Cuisine</p>
+        </div>
+        <div>{this.getLinks()}</div>
       </div>
     );
   }
