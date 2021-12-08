@@ -1,13 +1,21 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
+import { logout,login } from '../../actions/session_actions';
 
 import NavBar from './navbar';
 
 const mapStateToProps = state => ({
   loggedIn: state.session.isAuthenticated
 });
-
+const dispatchStatetoProps = dispatch => ({
+  logout: () => dispatch(logout()),
+  login: user => dispatch(login({
+    email: 'demoUser3@gmail.com',
+    username: 'testUser',
+    password: '123456',
+    password2: '123456'
+  }))
+})
 export default connect(
   mapStateToProps,
-  { logout }
+  dispatchStatetoProps
 )(NavBar);

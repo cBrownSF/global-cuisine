@@ -2,16 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ListingSchema = new Schema({
-  author: {
+  author_id: {
     type: Schema.Types.ObjectId,
-    ref: 'users'
+    ref: "users",
   },
-  author_name: {
+  name: {
     type: String,
-    required: true
+    required: true,
   },
   ingredients: {
-    type: Array,
+    type: String,
     required: true,
   },
   details: {
@@ -29,6 +29,18 @@ const ListingSchema = new Schema({
   instruction: {
     type: String,
     required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  servings:{
+    type: String,
+    required: true
+  },
+  picture:{
+    type: String,
+    required: true
   },
   date: {
     type: Date,
