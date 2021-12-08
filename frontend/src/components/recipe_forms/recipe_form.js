@@ -4,12 +4,15 @@ import { Link, withRouter } from "react-router-dom";
 class ListingForm extends React.Component{
   constructor(props){
     super(props)
+    debugger;
     this.state = {
       name: '',
+      author_id: this.props.currentUser.id,
       ingredients: '',
       instructions: '',
       details: '',
       difficulty: 'Easy',
+      servings: '4',
       title: '',
       picture: '333',
       country: 'Italy'
@@ -41,6 +44,11 @@ class ListingForm extends React.Component{
             <input type="text"
               value={this.state.ingredients}
               onChange={this.handleInput('ingredients')}
+            />
+            <br />
+            <input type="text"
+              value={this.state.servings}
+              onChange={this.handleInput('servings')}
             />
             <br />
             <input type = "text"

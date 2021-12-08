@@ -4,7 +4,7 @@ import RecipeIndexItem from "./recipe_index_item";
 class RecipeIndex extends React.Component {
   constructor(props) {
     super(props)
-    debugger;
+    
   }
   componentDidMount() {
     this.props.receiveListings()
