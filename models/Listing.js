@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 const ListingSchema = new Schema({
   author_id: {
     type: Schema.Types.ObjectId,
-    ref: 'users'
+    ref: "users",
   },
   name: {
     type: String,
-    required: true
+    required: true,
   },
   ingredients: {
     type: String,
@@ -27,6 +27,18 @@ const ListingSchema = new Schema({
     required: true,
   },
   instruction: {
+    type: String,
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  servings:{
+    type: String,
+    required: true
+  },
+  picture:{
     type: String,
     required: true
   },
