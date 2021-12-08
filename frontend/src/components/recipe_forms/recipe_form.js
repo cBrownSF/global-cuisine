@@ -4,7 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 class ListingForm extends React.Component{
   constructor(props){
     super(props)
-   
+   debugger;
     this.state = {
       name: 'asdg',
       author_id: this.props.currentUser.id,

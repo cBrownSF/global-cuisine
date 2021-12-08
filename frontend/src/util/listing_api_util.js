@@ -17,6 +17,7 @@ export const writeListing = data => {
 }
 
 export const updateListing = listing => {
+  debugger;
     return axios.patch(`/api/listings/${listing.id}`)
 }
 
