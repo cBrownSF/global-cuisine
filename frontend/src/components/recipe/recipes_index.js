@@ -14,6 +14,7 @@ class RecipeIndex extends React.Component {
     // if (!this.props.listing) {
     //   return null;
     // }
+
     const Array = Object.values(this.props.listings)
 
     return (

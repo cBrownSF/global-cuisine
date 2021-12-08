@@ -4,7 +4,7 @@ import { getListings } from '../../actions/listing_actions'
 
 const mapStateToProps = state => {
   return {
-    listings: state.listings.all
+    listings: state.listings
   }
 }
 

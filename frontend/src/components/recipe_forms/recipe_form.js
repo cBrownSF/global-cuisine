@@ -4,7 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 class ListingForm extends React.Component{
   constructor(props){
     super(props)
-    debugger;
+   
     this.state = {
       name: 'asdg',
       author_id: this.props.currentUser.id,
@@ -31,9 +31,10 @@ class ListingForm extends React.Component{
   }
   render() {
     console.log(this.state.name)
+
     return (
       <div>
-        <p> <Link to={`/listings/${listing.id}/edit`}>Edit</Link></p>
+        {/* <p> <Link to={`/listings/${listing.id}/edit`}>Edit</Link></p> */}
         <form onSubmit={this.handleSubmit}>
           <div>
             <br />

@@ -2,9 +2,10 @@ import { getListing, deleteListing } from "../../actions/listing_actions"
 import { connect } from "react-redux"
 import RecipeShow from './recipe_show'
 const mapStateToProps = (state, ownProps) => {
+  debugger;
   return {
     // currentUser: state.entities.users[state.sessions.currentUser],
-    listing: state.listings.all[ownProps.match.params.listingId]
+    listing: state.listings[ownProps.match.params.listingId]
   }
 }
 
