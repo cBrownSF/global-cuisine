@@ -24,10 +24,14 @@ class RecipeShow extends React.Component {
 
   render() {
     if (!this.props.listing) {
+   
       return null;
     }
-  return(
-  'hello'
+  return (
+  
+  <div>
+    <h1>Show page</h1>
+    </div>
   )
   }
 }
