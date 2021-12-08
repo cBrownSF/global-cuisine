@@ -50,7 +50,7 @@ export const getListings = () => dispatch => {
 
 export const getListing = id => dispatch => {
     return APIUtil.getListing(id)
-    .then(listing => dispatch(receiveNewListing(listing)))
+    .then(listing => dispatch(receiveListing(listing)))
 }
 
 export const getUserListings = id => dispatch => {
