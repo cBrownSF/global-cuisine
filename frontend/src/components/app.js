@@ -1,6 +1,8 @@
 import React from 'react';
 import { AuthRoute} from '../util/route_util';
-import { Switch } from 'react-router-dom';
+import { Switch,Route } from 'react-router-dom';
+import CreateFormContainer from './recipe_forms/create_form_container'
+import EditFormContainer from './recipe_forms/edit_form_container' 
 
 import NavBarContainer from './nav/navbar_container'
 
@@ -15,6 +17,8 @@ const App = () => (
       <AuthRoute exact path="/" component={HomePage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <Route exact path = "/listings/new" component ={CreateFormContainer} />
+      <Route exact path = "/listings/:listingId/edit" component={EditFormContainer} />
     </Switch>
   </div>
 );

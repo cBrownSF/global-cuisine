@@ -48,6 +48,7 @@ export const getUserListings = id => dispatch => {
 }
 
 export const writeListing = data => dispatch => {
+  debugger;
     return APIUtil.writeListing(data)
     .then(listing => dispatch(receiveNewListing(listing)))
 }

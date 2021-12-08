@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
-import { writeListing, removeListingErrors } from "../../actions/listing_actions";
-import ListingForm from './listing_form';
+import { updateListing, deleteListing} from "../../actions/listing_actions";
+import ListingForm from './recipe_form';
 import { withRouter } from 'react-router';
 const mapStateToProps = (state) => {
   return {
-    errors: state.errors.listing,
-    currentUser: state.sessions.user,
+    currentUser: state.session.user,
     formType: 'update'
   }
 }
@@ -13,6 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchtoProps = (dispatch) => {
   return {
     submitForm: id => dispatch(updateListing(id)),
+    deleteListing: id => dispatch(deleteListing(id)),
     // clearErrors: () => dispatch(removeListingErrors())
   }
 }

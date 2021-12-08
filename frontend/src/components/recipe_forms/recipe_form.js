@@ -5,11 +5,11 @@ class ListingForm extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      name: this.props.currentUser,
+      name: '',
       ingredients: '',
       instructions: '',
       details: '',
-      difficulty: '',
+      difficulty: 'Easy',
       title: '',
       picture: '333',
       country: 'Italy'
@@ -27,44 +27,58 @@ class ListingForm extends React.Component{
     });
   }
   render() {
+    console.log(this.state.name)
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
             <br />
-            <input type = "file"
-              //picture
-            />
-            <input type="text"
-              value={`By: ${this.state.name}`}
-              onChange={this.handleInput('name')}
-            />
-            <input type="text"
-              value=''
-              onChange={this.handleInput('details')}
-              placeholder="Add a succinct description"
-            />
             <input type="text"
               value={this.state.title}
               onChange={this.handleInput('title')}
             />
-
-            <input type="textarea"
+            <br />
+            <input type="text"
+              value={this.state.ingredients}
+              onChange={this.handleInput('ingredients')}
+            />
+            <br />
+            <input type = "text"
+              value={this.state.picture}
+              onChange = {this.handleInput('picture')}
+            />
+            <br />
+            <input type="text"
+              value= {this.state.name}
+              onChange={this.handleInput('name')}
+            />
+            <br />
+            <input type="text"
+              value={this.state.details}
+              onChange={this.handleInput('details')}
+              placeholder="Add a succinct description"
+            />
+            <br />
+            <textarea
               value={this.state.instructions}
               onChange={this.handleInput('instructions')}
               placeholder="Add your instructions here"
             />
             <br />
             <label>
-          <select value ={this.state.country} onChange ={props.handleInput('country')}>
-              <option value="Italy">3 months in advance</option>
-              <option value="France">6 months in advance</option>
-              <option value="India">9 months in advance</option>
+          <select value ={this.state.country} onChange ={this.handleInput('country')}>
+              <option value="Italy">Italy</option>
+              <option value="France">France</option>
+              <option value="India">India</option>
           </select>
+              <select value={this.state.difficulty} onChange={this.handleInput('country')}>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
           </label>
             <br />
             <input type="submit" value="Submit" />
-            {this.renderErrors()}
           </div>
         </form>
       </div>
@@ -73,4 +87,4 @@ class ListingForm extends React.Component{
 }
 
 
-export default ListingForm
+export default ListingForm;
