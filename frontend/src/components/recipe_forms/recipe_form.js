@@ -4,7 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 class ListingForm extends React.Component{
   constructor(props){
     super(props)
-   debugger;
+    debugger;
     this.state = {
       name: 'asdg',
       author_id: this.props.currentUser.id,
@@ -22,7 +22,7 @@ class ListingForm extends React.Component{
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    debugger;
+   
     formData.append('listing[id]', this.props.listing._id)
     formData.append('listing[host_id]', this.state.author_id)
     formData.append('listing[name]', this.state.name)
