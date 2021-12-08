@@ -17,7 +17,7 @@ const ListingsReducer = (state = { user: {}}, action) => {
         return newState
       default:
         return state;
-    }
+    }  
   };
   
 //const listingsReducer = (oldState = {},action) =>{
