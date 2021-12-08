@@ -48,6 +48,11 @@ export const getListings = () => dispatch => {
     .then(listings => dispatch(receiveListings(listings)))
 }
 
+export const getListing = id => dispatch => {
+    return APIUtil.getListing(id)
+    .then(listing => dispatch(receiveListing(listing)))
+}
+
 export const getUserListings = id => dispatch => {
     return APIUtil.getUserListings(id)
     .then(listings => dispatch(getUserListings(listings)))
