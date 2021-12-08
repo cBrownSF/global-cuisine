@@ -1,12 +1,11 @@
-import React from 'react';
-import Listing from '../listings/listings';
+import React from "react";
 
 class HomePage extends React.Component {
-
   render() {
     return (
       <div>
-       <Listing />
+        <p>A place for food</p>
+        <footer></footer>
       </div>
     );
   }
