@@ -24,7 +24,6 @@ mongoose
   app.use("/api/listings", listings)
   app.use("/api/reviews", reviews)
   app.use(express.static("public"));
-
  
 app.get("/", (req, res) => {
   const user = new User({

@@ -1,12 +1,12 @@
 import React from 'react';
+import Listing from '../listings/listings';
 
 class HomePage extends React.Component {
 
   render() {
     return (
       <div>
-        <footer>
-        </footer>
+       <Listing />
       </div>
     );
   }
