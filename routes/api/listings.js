@@ -56,4 +56,17 @@ router.post("/",
     }
 )
 
+router.deleteOne("/:id/delete",
+passport.authenticate('jwt', {session:false}),
+(req, res) => {
+    // const {isValid, errors} = validateListingInput(req.body);
+    // if(!isValid){
+    //     return res.status(400).json(errors);
+    // }
+    Listing
+    .findById(req.params.id)
+    .then(listing => res.json(listing))
+    .catch(err => res.status(400).json(err));
+})
+
 module.exports = router;
