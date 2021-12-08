@@ -10,16 +10,10 @@ class SignupForm extends React.Component {
       password: '',
       password2: ''
     };
-
+  
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidUpdate(prevProps){
-
-    if (prevProps.signedIn !== this.props.signedIn) {
-      this.props.history.push('/login');
-    }
-  }
  
    componentDidMount() {
      this.props.clearErrors()
@@ -33,19 +27,25 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signup(this.state);
+    this.props.signup(this.state)
+    .then( res =>{
+      if (res.type !== 'RECEIVE_SESSION_ERRORS'){
+        this.props.login(this.state)
+      }
+      }
+    )
   }
 
   renderErrors() {
     return (
       <ul>
-        {this.props.errors.map((error, i) => (
+        {Object.values(this.props.errors).map((error, i) => (
           <li key={`error-${i}`}>
             {error}
           </li>
         ))}
       </ul>
-    );
+   )
   }
 
   render() {
