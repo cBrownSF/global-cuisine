@@ -5,6 +5,8 @@ export const RECEIVE_LISTING = "RECEIVE_LISTING"
 export const RECEIVE_USER_LISTINGS = "RECEIVE_USER_LISTINGS";
 export const RECEIVE_NEW_LISTING = "RECEIVE_NEW_LISTING";
 export const REMOVE_LISTING = "REMOVE_LISTING";
+export const RECEIVE_LISTING_ERRORS = 'RECEIVE_LISTING_ERRORS'
+export const REMOVE_LISTING_ERRORS = 'REMOVE_LISTING_ERRORS'
 
 export const receiveListings = listings => ({
   type: RECEIVE_LISTINGS,
@@ -32,6 +34,15 @@ export const receiveListing = listing => ({
     listing
 })
 
+export const receiveListingErrors = errors => ({
+  type: RECEIVE_LISTING_ERRORS,
+  errors
+})
+
+export const removeListingErrors = () => ({
+  type: REMOVE_LISTING_ERRORS
+})
+
 export const getListings = () => dispatch => {
     return APIUtil.getListings()
     .then(listings => dispatch(receiveListings(listings)))
@@ -39,7 +50,7 @@ export const getListings = () => dispatch => {
 
 export const getListing = id => dispatch => {
     return APIUtil.getListing(id)
-    .then(listing => dispatch(receiveNewListing(listing)))
+    .then(listing => dispatch(receiveListing(listing)))
 }
 
 export const getUserListings = id => dispatch => {
@@ -48,8 +59,10 @@ export const getUserListings = id => dispatch => {
 }
 
 export const writeListing = data => dispatch => {
-    return APIUtil.writeListing(data)
-    .then(listing => dispatch(receiveNewListing(listing)))
+    return APIUtil.writeListing(data).then(listing => {
+      dispatch(receiveNewListing(listing))},
+      err => (dispatch(receiveListingErrors(err.response.data)))
+      )
 }
 
 export const updateListing = listing => dispatch => {
