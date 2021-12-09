@@ -14,7 +14,7 @@ const mapDispatchtoProps = (dispatch) => {
   return {
     submitForm: id => dispatch(updateListing(id)),
     deleteListing: id => dispatch(deleteListing(id)),
-    // clearErrors: () => dispatch(removeListingErrors())
+    receiveListing: id => dispatch(getListing(id)),
   }
 }
 export default withRouter(connect(mapStateToProps, mapDispatchtoProps)(ListingForm))
