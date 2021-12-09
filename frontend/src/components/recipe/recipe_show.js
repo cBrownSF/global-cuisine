@@ -1,6 +1,7 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
-import "./recipe_show.css";
+// import "./recipe_show.css";
+import IngredientIndexItem from './ingredients_index_item';
 class RecipeShow extends React.Component {
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId);
@@ -10,13 +11,25 @@ class RecipeShow extends React.Component {
       this.props.receiveListing(this.props.match.params.listingId);
     }
   }
+  
   render() {
     if (!this.props.listing) {
       return null;
     }
     const listing = this.props.listing
+    debugger;
+    let ingredArray = listing.ingredients.split(',')
     return (
+     
       <div>
+        <div>
+       {ingredArray.map(ingredient => (
+         <IngredientIndexItem
+         ingredient={ingredient}
+           key={Math.random()}
+       />
+       ))}
+       </div>  
         {/* <p><Link to={`/listings/${this.props.listing._id}/edit`}>Edit</Link></p> */}
         {/* <ul>
         <li>{listing.name}</li>
@@ -38,6 +51,8 @@ class RecipeShow extends React.Component {
         <div className="right-left">
           <div className="left-show">
             <div>
+              <ul>{this.ingredients}
+              </ul>
               <img src={listing.picture} className="show-img" alt="food"></img>
             </div>
             <div>
