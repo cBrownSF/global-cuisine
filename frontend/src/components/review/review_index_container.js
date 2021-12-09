@@ -3,9 +3,11 @@ import ReviewIndex from './reviews_index'
 import { getReviews } from '../../actions/review_actions'
 
 const mapStateToProps = state => {
-  return {
-    reviews: state.reviews
-  }
+    return {
+        reviews: Object.values(state.entities.reviews),
+        user_id: state.session.id,
+        listing_id: ownProps.match.params.listingId
+        }
 }
 
 const mapDispatchToProps = dispatch => ({
