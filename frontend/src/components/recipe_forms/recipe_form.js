@@ -4,8 +4,9 @@ import { Link, withRouter } from "react-router-dom";
 class ListingForm extends React.Component{
   constructor(props){
     super(props)
-    debugger;
+ 
     const listing = this.props.listing
+   
     this.state = {
       name: listing.name || '',
       author_id: this.props.currentUser.id,
@@ -16,15 +17,16 @@ class ListingForm extends React.Component{
       servings: listing.servings|| '',
       title: listing.title || '',
       picture: listing.picture || '',
-      country: listing.country || 'Italy'
+      country: listing.country || 'Italy',
+      editId: this.props.listing._id || ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleSubmit(e) {
     e.preventDefault();
  
-    debugger;
-    this.props.submitForm(this.state);
+debugger;
+    this.props.submitForm(this.props.listing);
   }
 
   handleInput(field) {
@@ -33,8 +35,10 @@ class ListingForm extends React.Component{
     });
   }
   render() {
-    console.log(this.state.name)
-
+ 
+    if (this.props.listing === undefined) {
+      return null;
+    }
     return (
       <div>
         {/* <p> <Link to={`/listings/${listing.id}/edit`}>Edit</Link></p> */}
@@ -44,6 +48,7 @@ class ListingForm extends React.Component{
             <input type="text"
               value={this.state.title}
               onChange={this.handleInput('title')}
+              placeholder = "title of recipe"
             />
             <br />
             <input type="text"
@@ -82,13 +87,15 @@ class ListingForm extends React.Component{
               placeholder="Add your instructions here"
             />
             <br />
-            <label>
+            <label>Country
           <select value ={this.state.country} onChange ={this.handleInput('country')}>
               <option value="Italy">Italy</option>
               <option value="France">France</option>
               <option value="India">India</option>
           </select>
-              <select value={this.state.difficulty} onChange={this.handleInput('difficulty')}>
+          </label>
+          <label>Difficulty
+              <select value ={this.state.difficulty} onChange={this.handleInput('difficulty')}>
                 <option value="Easy">Easy</option>
                 <option value="Medium">Medium</option>
                 <option value="Hard">Hard</option>

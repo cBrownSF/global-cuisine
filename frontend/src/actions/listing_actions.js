@@ -66,8 +66,11 @@ export const writeListing = data => dispatch => {
 }
 
 export const updateListing = listing => dispatch => {
-    return APIUtil.updateListing(listing)
-    .then(listing => dispatch(receiveListing(listing)))
+    return APIUtil.updateListing(listing).then(listing =>{
+      debugger;
+    dispatch(receiveListing(listing))},
+      err => (dispatch(receiveListingErrors(err.response.data)))
+      )
 }
 
 export const deleteListing = id => dispatch => {
