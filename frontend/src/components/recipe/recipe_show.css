@@ -1,0 +1,28 @@
+.right-left{
+    height: 100vh;
+    width: 100%;
+}
+
+.left-show{
+    border: 1px solid black;
+    width: 41%;
+    height: 68%;
+    padding: 1%;
+    position: relative;
+    left: 7%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: black;
+}
+
+.show-img{
+    width: 40vw;
+}
+
+.listing-detail{
+    font-size: 16px;
+    font-family: sans-serif;
+    line-height: 1.5;
+    color: white;
+}

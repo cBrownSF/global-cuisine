@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import "./recipe_show.css";
 
 class RecipeShow extends React.Component {
 
@@ -21,7 +21,6 @@ class RecipeShow extends React.Component {
     }
   }
 
-
   render() {
     if (!this.props.listing) {
    
@@ -30,11 +29,9 @@ class RecipeShow extends React.Component {
 
     const listing = this.props.listing
   return (
-  
-  <div>
-    <h1>Show page</h1>
-      <p><Link to={`/listings/${this.props.listing._id}/edit`}>Edit</Link></p>
-      <ul>
+    <div>
+      {/* <p><Link to={`/listings/${this.props.listing._id}/edit`}>Edit</Link></p> */}
+      {/* <ul>
         <li>{listing.name}</li>
         <li>{listing.ingredients}</li>
         <li>{listing.details}</li>
@@ -43,9 +40,22 @@ class RecipeShow extends React.Component {
         <li>{listing.difficulty}</li>
         <li>{listing.instruction}</li>
         <li>{listing.picture}</li>
-        </ul>
+        </ul> */}
+
+      <div className="right-left">
+        <div className="left-show">
+          <div>
+            <img src={listing.picture} className="show-img"></img>
+          </div>
+          <div>
+            <p className="listing-detail">{listing.details}</p>
+          </div>
+        </div>
+        <div className="right-show"></div>
+      </div>
+      <div className="bottom-show"></div>
     </div>
-  )
+  );
   }
 }
    
