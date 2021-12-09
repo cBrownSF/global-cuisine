@@ -37,11 +37,11 @@ class RecipeShow extends React.Component {
     if (!this.props.listing) {
       return null;
     }
-
+debugger;
     const listing = this.props.listing
-    if (this.props.currentUser.id !== this.props.listing.host_id){
+    if (this.props.currentUser.id === this.props.listing.author_id){
+      debugger;
       return (
-  
   <div>
     <h1>Show page</h1>
       <p><Link to={`/recipes`}>Back to Recipes</Link></p>
@@ -59,10 +59,12 @@ class RecipeShow extends React.Component {
     </div>
   )
       }else{
+        debugger;
         return(
           <div>
           <h1>Show page</h1>
-      <p>A cook</p>
+      <p><Link to={`/recipes`}>Back to Recipes</Link></p>
+      <p>    </p>
       <ul>
         <li>{listing.name}</li>
         <li>{listing.ingredients}</li>
