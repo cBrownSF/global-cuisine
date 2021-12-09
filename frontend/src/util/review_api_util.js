@@ -21,8 +21,8 @@ export const writeReview = review => {
 }
 
 export const updateReview = review => {
-  debugger;
-  return axios.patch(`/api/reviews/ ${review.get('review[id]')}`)
+  
+  return axios.patch(`/api/reviews/ ${review.editId}/update`, listing)
 }
 
 export const deleteReview = id => {
