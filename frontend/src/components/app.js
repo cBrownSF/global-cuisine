@@ -18,10 +18,10 @@ const App = () => (
       <AuthRoute exact path="/" component={HomePage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <Route exact path = "/listings/new" component ={CreateFormContainer} />
-      <Route exact path = "/listings/:listingId/edit" component={EditFormContainer} />
-      <Route exact path="/listings/:listingId" component={RecipeShowContainer} />
-      <Route exact path="/listings/" component={RecipeIndexContainer} />
+      <Route exact path = "/recipes/new" component ={CreateFormContainer} />
+      <Route exact path = "/recipes/:listingId/edit" component={EditFormContainer} />
+      <Route exact path="/recipes/:listingId" component={RecipeShowContainer} />
+      <Route exact path="/recipes/" component={RecipeIndexContainer} />
     </Switch>
   </div>
 );

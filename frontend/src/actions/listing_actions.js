@@ -1,5 +1,5 @@
 import * as APIUtil from '../util/listing_api_util';
-
+import {hashHistory} from "react-router"
 export const RECEIVE_LISTINGS = "RECEIVE_LISTINGS";
 export const RECEIVE_LISTING = "RECEIVE_LISTING"
 export const RECEIVE_USER_LISTINGS = "RECEIVE_USER_LISTINGS";
@@ -59,15 +59,17 @@ export const getUserListings = id => dispatch => {
 }
 
 export const writeListing = data => dispatch => {
-    return APIUtil.writeListing(data).then(listing => {
-      dispatch(receiveListing(listing))},
-      err => (dispatch(receiveListingErrors(err.response.data)))
+    return APIUtil.writeListing(data).then(createdListing => {
+      debugger;
+      dispatch(receiveListing(createdListing))
+      hashHistory.push(`/recipes/${createdListing.data._id}`)
+    })
+      .catch(err => (dispatch(receiveListingErrors(err.response.data)))
       )
 }
 
 export const updateListing = listing => dispatch => {
     return APIUtil.updateListing(listing).then(listing =>{
-      debugger;
     dispatch(receiveListing(listing))},
       err => (dispatch(receiveListingErrors(err.response.data)))
       )
@@ -75,5 +77,9 @@ export const updateListing = listing => dispatch => {
 
 export const deleteListing = id => dispatch => {
     return APIUtil.deleteListing(id)
-    .then(() => dispatch(removeListing(id)))
+    .then(() => {
+    dispatch(removeListing(id))
+      hashHistory.push(`/recipes`)
+    })
+
 }

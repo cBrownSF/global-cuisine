@@ -1,37 +1,40 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import {browserHistory} from "react-router"
 
-class CreateRecipeForm extends React.Component {
+class EditRecipeForm extends React.Component {
   constructor(props) {
     super(props)
 
+      const listing = this.props.listing
     this.state = {
-      name: '',
+      name: listing.name,
       author_id: this.props.currentUser.id,
-      ingredients: '',
-      instruction: '',
-      details: '',
-      difficulty: 'Easy',
-      servings: '',
-      title: '',
-      picture: '',
-      country: 'Italy'
+      ingredients: listing.ingredients,
+      instruction: listing.instruction,
+      details: listing.details,
+      difficulty: listing.difficulty,
+      servings: listing.servings,
+      title: listing.title,
+      picture: listing.picture,
+      country: 'Italy',
+      editId:this.props.listing._id
     }
-    this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   componentDidMount() {
-    this.props.clearErrors()
+    this.props.receiveListing(this.props.match.params.listingId);
   }
-  handleKeyPress(e)  {
-    console.log(this.state)
-    if (e.key === 'Enter'){
-      this.state.instruction += '\n\n'
+
+  componentDidUpdate() {
+    if (!this.props.listing) {
+      this.props.receiveListing(this.props.match.params.listingId);
     }
   }
+
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitForm(this.state)
+    this.props.submitForm(this.state);
   }
 
   handleInput(field) {
@@ -40,12 +43,12 @@ class CreateRecipeForm extends React.Component {
     });
   }
   render() {
-
-    if (this.props.listing === undefined) {
+    if (!this.props.listing) {
       return null;
     }
     return (
       <div>
+        {/* <p> <Link to={`/listings/${listing.id}/edit`}>Edit</Link></p> */}
         <form onSubmit={this.handleSubmit}>
           <div>
             <br />
@@ -85,7 +88,7 @@ class CreateRecipeForm extends React.Component {
               placeholder="Add a succinct description"
             />
             <br />
-            <textarea onKeyPress={this.handleKeyPress}
+            <textarea
               value={this.state.instruction}
               onChange={this.handleInput('instruction')}
               placeholder="Add your instructions here"
@@ -106,6 +109,7 @@ class CreateRecipeForm extends React.Component {
               </select>
             </label>
             <br />
+            <button onClick={() => this.props.deleteListing(this.props.listing._id)}>delete listing</button>
             <input type="submit" value="Submit" />
           </div>
         </form>
@@ -115,4 +119,4 @@ class CreateRecipeForm extends React.Component {
 }
 
 
-export default CreateRecipeForm;
+export default EditRecipeForm;
