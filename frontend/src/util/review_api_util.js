@@ -13,7 +13,7 @@ export const getUserReviews = id => {
 };
 
 export const getListingReviews = id => {
-    return axios.get(`/api/reviews/listing/${id}`)
+    return axios.get(`/api/reviews/review/${id}`)
   };
 
 export const writeReview = review => {
@@ -22,7 +22,7 @@ export const writeReview = review => {
 
 export const updateReview = review => {
   
-  return axios.patch(`/api/reviews/ ${review.editId}/update`, listing)
+  return axios.patch(`/api/reviews/ ${review.editId}/update`, review)
 }
 
 export const deleteReview = id => {
