@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import "./recipe_show.css";
 
 class RecipeShow extends React.Component {
@@ -18,7 +18,6 @@ class RecipeShow extends React.Component {
     if (!this.props.listing) {
       return null;
     }
-
     const listing = this.props.listing
   return (
     <div>
@@ -57,7 +56,9 @@ class RecipeShow extends React.Component {
           <div>
             <p>{listing.title}</p>
           </div>
-          <div></div>
+          <div>
+            <li style={{ whiteSpace: "pre-wrap" }}>{listing.instruction}</li>
+          </div>
         </div>
       </div>
       <div className="bottom-show"></div>

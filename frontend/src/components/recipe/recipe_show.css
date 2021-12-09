@@ -33,7 +33,7 @@
     color: white;
     position: relative;
     left: 4%;
-    bottom: 12%;
+    bottom: 18%;
 
     /* border: 2px solid pink; */
     /* padding: 1%; */
@@ -42,8 +42,12 @@
 
 .show-author{
     position: relative;
+    left: 11vh;
+    
 }
 
 .show-author-p{
     color: white;
+    font-size: 1.5vh;
+    
 }

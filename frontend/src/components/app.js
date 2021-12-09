@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthRoute} from '../util/route_util';
-import { Switch,Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from "react-router-dom";
 import CreateFormContainer from './recipe_forms/create_form_container'
 import EditFormContainer from './recipe_forms/edit_form_container' 
 import RecipeShowContainer from './recipe/recipe_show_container'
@@ -16,13 +16,22 @@ const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
-      <AuthRoute exact path="/" component={HomePage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <Route exact path = "/listings/new" component ={CreateFormContainer} />
-      <Route exact path = "/listings/:listingId/edit" component={EditFormContainer} />
-      <Route exact path="/listings/:listingId" component={RecipeShowContainer} />
+      <Route exact path="/" component={HomePage} />
+      <Route exact path="/listings/new" component={CreateFormContainer} />
+      <Route
+        exact
+        path="/listings/:listingId/edit"
+        component={EditFormContainer}
+      />
+      <Route
+        exact
+        path="/listings/:listingId"
+        component={RecipeShowContainer}
+      />
       <Route exact path="/listings" component={RecipeIndexContainer} />
+      <Route render={() => <Redirect to={{ pathname: "/" }} />} />
     </Switch>
   </div>
 );
