@@ -63,11 +63,14 @@
     width: 26%;
 }
 
-#globe-spinning{
-    position: relative;
-    bottom: 10px;
-}
-
 .text-global{
     color: gray;
+    position: relative;
+    top: 7vh;
+}
+
+#global-link{
+    position: relative;
+    top: 20%;
+    color: pink;
 }

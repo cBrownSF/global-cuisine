@@ -45,13 +45,19 @@ class RecipeShow extends React.Component {
       <div className="right-left">
         <div className="left-show">
           <div>
-            <img src={listing.picture} className="show-img"></img>
+            <img src={listing.picture} className="show-img" alt="food"></img>
           </div>
           <div>
             <p className="listing-detail">{listing.details}</p>
           </div>
+          <div className="show-author"><p className="show-author-p">Recipe by: {listing.name}</p></div>
         </div>
-        <div className="right-show"></div>
+        <div className="right-show">
+          <div>
+            <p>{listing.title}</p>
+          </div>
+          <div></div>
+        </div>
       </div>
       <div className="bottom-show"></div>
     </div>
