@@ -1,31 +1,39 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import {browserHistory} from "react-router"
 
-class CreateRecipeForm extends React.Component {
+class EditRecipeForm extends React.Component {
   constructor(props) {
     super(props)
 
-    const listing = this.props.listing
-
+      const listing = this.props.listing
     this.state = {
-      name: '',
+      name: listing.name,
       author_id: this.props.currentUser.id,
-      ingredients: '',
-      instruction: '',
-      details: '',
-      difficulty: 'Easy',
-      servings: '',
-      title: '',
-      picture: '',
-      country: 'Italy'
+      ingredients: listing.ingredients,
+      instruction: listing.instruction,
+      details: listing.details,
+      difficulty: listing.difficulty,
+      servings: listing.servings,
+      title: listing.title,
+      picture: listing.picture,
+      country: 'Italy',
+      editId:this.props.listing._id
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-  
+  componentDidMount() {
+    this.props.receiveListing(this.props.match.params.listingId);
+  }
+
+  componentDidUpdate() {
+    if (!this.props.listing) {
+      this.props.receiveListing(this.props.match.params.listingId);
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-
-    debugger;
     this.props.submitForm(this.state);
   }
 
@@ -35,8 +43,7 @@ class CreateRecipeForm extends React.Component {
     });
   }
   render() {
-
-    if (this.props.listing === undefined) {
+    if (!this.props.listing) {
       return null;
     }
     return (
@@ -111,4 +118,4 @@ class CreateRecipeForm extends React.Component {
 }
 
 
-export default CreateRecipeForm;
+export default EditRecipeForm;
