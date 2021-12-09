@@ -21,12 +21,24 @@ class CreateRecipeForm extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-  
+  componentDidMount() {
+    this.props.clearErrors()
+  }
   handleSubmit(e) {
     e.preventDefault();
 
     debugger;
-    this.props.submitForm(this.state);
+    this.props.submitForm(this.state)
+    .then(res => {
+      debugger;
+      if (res.type === 'RECEIVE_LISTING_ERRORS') {
+        debugger;
+      }else{
+        debugger;
+        this.props.history.push('/')
+      }
+    }
+    )
   }
 
   handleInput(field) {

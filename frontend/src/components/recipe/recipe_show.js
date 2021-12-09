@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Redirect,Link } from 'react-router-dom'
 
 class RecipeShow extends React.Component {
 
@@ -21,6 +21,7 @@ class RecipeShow extends React.Component {
       return <p>not a user</p>
     }
   }
+
   onDelete() {
     if (this.props.currentUser.id !== this.props.listing.host_id) {
       this.props.deleteListing(this.props.listing.id)
@@ -28,7 +29,9 @@ class RecipeShow extends React.Component {
       return <p>not a user</p>
     }
   }
-
+  // backButton(){
+  //   <Redirect to ={`/recipes`}/>
+  // }
 
   render() {
     if (!this.props.listing) {
@@ -41,6 +44,7 @@ class RecipeShow extends React.Component {
   
   <div>
     <h1>Show page</h1>
+      <p><Link to={`/recipes`}>Back to Recipes</Link></p>
       <p><Link to={`/recipes/${this.props.listing._id}/edit`}>Edit</Link></p>
       <ul>
         <li>{listing.name}</li>
