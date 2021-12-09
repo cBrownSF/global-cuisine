@@ -4,36 +4,29 @@ import { Link, withRouter } from "react-router-dom";
 class ListingForm extends React.Component{
   constructor(props){
     super(props)
-    debugger;
+ 
+    const listing = this.props.listing
+   
     this.state = {
-      name: 'asdg',
+      name: listing.name || '',
       author_id: this.props.currentUser.id,
-      ingredients: 'agds',
-      instruction: 'adsg',
-      details: 'asdg',
-      difficulty: 'Easy',
-      servings: '4',
-      title: 'adsg',
-      picture: '333',
-      country: 'Italy'
+      ingredients: listing.ingredients || '',
+      instruction: listing.instruction || '',
+      details: listing.details || '',
+      difficulty: listing.difficulty || 'Easy',
+      servings: listing.servings|| '',
+      title: listing.title || '',
+      picture: listing.picture || '',
+      country: listing.country || 'Italy',
+      editId: this.props.listing._id || ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleSubmit(e) {
     e.preventDefault();
-    const formData = new FormData();
-   
-    formData.append('listing[id]', this.props.listing._id)
-    formData.append('listing[host_id]', this.state.author_id)
-    formData.append('listing[name]', this.state.name)
-    formData.append('listing[title]', this.state.title)
-    formData.append('listing[picture]', this.state.picture)
-    formData.append('listing[servings]', this.state.servings)
-    formData.append('listing[difficulty]', this.state.difficulty)
-    formData.append('listing[country]', this.state.country)
-    formData.append('listing[details]', this.state.details)
-
-    this.props.submitForm(formData);
+ 
+debugger;
+    this.props.submitForm(this.props.listing);
   }
 
   handleInput(field) {
@@ -42,8 +35,10 @@ class ListingForm extends React.Component{
     });
   }
   render() {
-    console.log(this.state.name)
-
+ 
+    if (this.props.listing === undefined) {
+      return null;
+    }
     return (
       <div>
         {/* <p> <Link to={`/listings/${listing.id}/edit`}>Edit</Link></p> */}
@@ -53,26 +48,31 @@ class ListingForm extends React.Component{
             <input type="text"
               value={this.state.title}
               onChange={this.handleInput('title')}
+              placeholder = "title of recipe"
             />
             <br />
             <input type="text"
               value={this.state.ingredients}
               onChange={this.handleInput('ingredients')}
+              placeholder="ingredients"
             />
             <br />
             <input type="text"
               value={this.state.servings}
               onChange={this.handleInput('servings')}
+              placeholder = "how many servings"
             />
             <br />
             <input type = "text"
               value={this.state.picture}
               onChange = {this.handleInput('picture')}
+              placeholder="Add a picture"
             />
             <br />
             <input type="text"
               value= {this.state.name}
               onChange={this.handleInput('name')}
+              placeholder="your name"
             />
             <br />
             <input type="text"
@@ -87,13 +87,15 @@ class ListingForm extends React.Component{
               placeholder="Add your instructions here"
             />
             <br />
-            <label>
+            <label>Country
           <select value ={this.state.country} onChange ={this.handleInput('country')}>
               <option value="Italy">Italy</option>
               <option value="France">France</option>
               <option value="India">India</option>
           </select>
-              <select value={this.state.difficulty} onChange={this.handleInput('difficulty')}>
+          </label>
+          <label>Difficulty
+              <select value ={this.state.difficulty} onChange={this.handleInput('difficulty')}>
                 <option value="Easy">Easy</option>
                 <option value="Medium">Medium</option>
                 <option value="Hard">Hard</option>

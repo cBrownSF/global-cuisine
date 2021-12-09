@@ -29,7 +29,6 @@ class RecipeShow extends React.Component {
     }
 
     const listing = this.props.listing
-    debugger;
   return (
   
   <div>

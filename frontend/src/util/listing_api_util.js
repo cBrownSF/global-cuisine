@@ -18,7 +18,7 @@ export const writeListing = listing => {
 
 export const updateListing = listing => {
   debugger;
-  return axios.patch(`/api/listings/ ${listing.get('listing[id]')}`)
+  return axios.patch(`/api/listings/${listing._id}/update`)
 }
 
 export const deleteListing = id => {

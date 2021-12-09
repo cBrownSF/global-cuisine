@@ -5,7 +5,8 @@ import { withRouter } from 'react-router';
 const mapStateToProps = (state) => {
   return {
     currentUser: state.session.user,
-    formType: 'create'
+    formType: 'create',
+    listing:''
   }
 }
 
