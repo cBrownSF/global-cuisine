@@ -18,18 +18,18 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route exact path="/" component={HomePage} />
-      <Route exact path="/listings/new" component={CreateFormContainer} />
+      <Route exact path="/recipes/new" component={CreateFormContainer} />
       <Route
         exact
-        path="/listings/:listingId/edit"
+        path="/recipes/:listingId/edit"
         component={EditFormContainer}
       />
       <Route
         exact
-        path="/listings/:listingId"
+        path="/recipes/:listingId"
         component={RecipeShowContainer}
       />
-      <Route exact path="/listings" component={RecipeIndexContainer} />
+      <Route exact path="/recipes" component={RecipeIndexContainer} />
       <Route render={() => <Redirect to={{ pathname: "/" }} />} />
     </Switch>
   </div>
