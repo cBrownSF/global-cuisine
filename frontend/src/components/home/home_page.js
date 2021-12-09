@@ -1,11 +1,12 @@
 import React from "react";
+import NavBarContainer from "../nav/navbar_container";
+import "./home.css";
 
 class HomePage extends React.Component {
   render() {
     return (
-      <div>
-        <p>A place for food</p>
-        <footer></footer>
+      <div classname="outer-div-home">
+        
       </div>
     );
   }

@@ -5,13 +5,20 @@
 .navbar-top{
     display: flex;
     height: 13vh;
+    background-color: black;
+    width: 100vw;
+    position: relative;
+    padding: 3px;
+    right: 0.4%;
+    bottom: 1vh;
+    /* box-shadow: 10px 10px 8px #888888; */
 }
 
 .signUp{
     display: flex;
     flex-direction: column;
     position: relative;
-    left: 65vw;
+    left: 64vw;
     height: 10vh;
 }
 
@@ -28,16 +35,21 @@
     top: 1.2vh;
 }
 
-.global-link{
+#global-link{
     color: pink;
+    font-size: 4vw;
+    position: relative;
+    top: 20%;
+    left: 5%;
 }
 
 .homelink-global{
     color: gray;
-    font-size: 4vw;
+    font-size: 3vw;
     position: relative;
-    left: 20%;
-    bottom: 15%;
+    left: 25%;
+    /* bottom: 42%; */
+    top: -40%
 }
 
 .signup-div{
@@ -45,5 +57,9 @@
 }
 .p-signup, .p-login{
     color: gray;
-    font-size: 2vw;
+    font-size: 20px;
+}
+
+.icon-app-name{
+    width: 26%;
 }

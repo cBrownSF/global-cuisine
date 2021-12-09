@@ -47,9 +47,9 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className="navbar-top">
-        <div>
+        <div className="icon-app-name">
           <i className="fas fa-globe-americas" id="global-link"></i>
-          <p className="homelink-global">Global Cuisine</p>
+          <div className="homelink-global">Global Cuisine</div>
         </div>
         <div>{this.getLinks()}</div>
       </div>
