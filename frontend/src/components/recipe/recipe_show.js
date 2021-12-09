@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import "./recipe_show.css";
 
 class RecipeShow extends React.Component {
@@ -13,17 +14,8 @@ class RecipeShow extends React.Component {
     }
   }
 
-  onDelete() {
-    if (this.props.currentUser.id === this.props.listing.host_id) {
-      this.props.deleteListing(this.props.listing.id)
-    } else {
-      return ''
-    }
-  }
-
   render() {
     if (!this.props.listing) {
-   
       return null;
     }
 
@@ -41,6 +33,13 @@ class RecipeShow extends React.Component {
         <li>{listing.instruction}</li>
         <li>{listing.picture}</li>
         </ul> */}
+      {/* <p>
+        {this.props.currentUser.id === listing.author_id ? (
+          <Link to={`/recipes/${listing._id}/edit`}>Edit</Link>
+        ) : (
+          ""
+        )}
+      </p> */}
 
       <div className="right-left">
         <div className="left-show">
@@ -50,7 +49,9 @@ class RecipeShow extends React.Component {
           <div>
             <p className="listing-detail">{listing.details}</p>
           </div>
-          <div className="show-author"><p className="show-author-p">Recipe by: {listing.name}</p></div>
+          <div className="show-author">
+            <p className="show-author-p">Recipe by: {listing.name}</p>
+          </div>
         </div>
         <div className="right-show">
           <div>
