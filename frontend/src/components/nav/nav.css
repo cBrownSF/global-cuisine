@@ -36,7 +36,6 @@
 }
 
 #global-link{
-    color: pink;
     font-size: 4vw;
     position: relative;
     top: 20%;
@@ -47,7 +46,7 @@
     color: gray;
     font-size: 3vw;
     position: relative;
-    left: 25%;
+    left: 27%;
     /* bottom: 42%; */
     top: -40%
 }
@@ -62,4 +61,9 @@
 
 .icon-app-name{
     width: 26%;
+}
+
+#globe-spinning{
+    position: relative;
+    bottom: 120%;
 }

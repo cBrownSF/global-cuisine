@@ -50,6 +50,18 @@ class NavBar extends React.Component {
         <div className="icon-app-name">
           <i className="fas fa-globe-americas" id="global-link"></i>
           <div className="homelink-global">Global Cuisine</div>
+          <iframe
+            src="https://giphy.com/embed/4NPT1ipEUoiMo"
+            width="130"
+            height="140"
+            frameBorder="0"
+            class="giphy-embed"
+            id="globe-spinning"
+            allowFullScreen
+          ></iframe>
+          <p>
+            <a href="https://giphy.com/gifs/earth-4NPT1ipEUoiMo"></a>
+          </p>
         </div>
         <div>{this.getLinks()}</div>
       </div>
