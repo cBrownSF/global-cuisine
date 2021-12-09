@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { updateListing, deleteListing} from "../../actions/listing_actions";
-import ListingForm from './recipe_form';
+import { updateListing, deleteListing,getListing} from "../../actions/listing_actions";
+import EditForm from './edit_recipe_form';
 import { withRouter } from 'react-router';
 const mapStateToProps = (state,ownProps) => {
   return {
@@ -17,4 +17,4 @@ const mapDispatchtoProps = (dispatch) => {
     receiveListing: id => dispatch(getListing(id)),
   }
 }
-export default withRouter(connect(mapStateToProps, mapDispatchtoProps)(ListingForm))
+export default withRouter(connect(mapStateToProps, mapDispatchtoProps)(EditForm))

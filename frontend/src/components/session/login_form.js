@@ -20,7 +20,7 @@ class LoginForm extends React.Component {
 
   componentDidUpdate(){
     if (this.props.currentUser !== undefined){
-      this.props.history.push('/recipes');
+      this.props.history.push('/');
     }
   }
  
