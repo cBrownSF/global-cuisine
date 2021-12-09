@@ -11,7 +11,6 @@ import HomePage from './home/home_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_container.js';
 
-
 const App = () => (
   <div>
     <NavBarContainer />
