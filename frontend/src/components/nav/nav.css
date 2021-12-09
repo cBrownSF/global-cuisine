@@ -4,7 +4,7 @@
 
 .navbar-top{
     display: flex;
-    height: 13vh;
+    height: 14vh;
     background-color: black;
     width: 100vw;
     position: relative;
@@ -44,11 +44,11 @@
 
 .homelink-global{
     color: gray;
-    font-size: 3vw;
+    font-size: 2.5vw;
     position: relative;
-    left: 27%;
+    left: 30%;
     /* bottom: 42%; */
-    top: -40%
+    bottom: 16vh;
 }
 
 .signup-div{
@@ -65,5 +65,9 @@
 
 #globe-spinning{
     position: relative;
-    bottom: 120%;
+    bottom: 10px;
+}
+
+.text-global{
+    color: gray;
 }

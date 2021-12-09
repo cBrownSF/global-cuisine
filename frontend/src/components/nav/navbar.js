@@ -48,8 +48,8 @@ class NavBar extends React.Component {
     return (
       <div className="navbar-top">
         <div className="icon-app-name">
-          <i className="fas fa-globe-americas" id="global-link"></i>
-          <div className="homelink-global">Global Cuisine</div>
+          {/* <i className="fas fa-globe-americas" id="global-link"></i> */}
+          <div>
           <iframe
             src="https://giphy.com/embed/4NPT1ipEUoiMo"
             width="130"
@@ -62,6 +62,8 @@ class NavBar extends React.Component {
           <p>
             <a href="https://giphy.com/gifs/earth-4NPT1ipEUoiMo"></a>
           </p>
+          </div>
+          <div className="homelink-global"><Link to="/"><p className="text-global">Global Cuisine</p></Link></div>
         </div>
         <div>{this.getLinks()}</div>
       </div>
