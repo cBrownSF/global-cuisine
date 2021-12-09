@@ -22,7 +22,7 @@ const App = () => (
       <Route exact path = "/listings/new" component ={CreateFormContainer} />
       <Route exact path = "/listings/:listingId/edit" component={EditFormContainer} />
       <Route exact path="/listings/:listingId" component={RecipeShowContainer} />
-      <Route exact path="/listings/" component={RecipeIndexContainer} />
+      <Route exact path="/listings" component={RecipeIndexContainer} />
     </Switch>
   </div>
 );

@@ -9,9 +9,8 @@
     width: 100vw;
     position: relative;
     padding: 3px;
-    right: 0.4%;
-    bottom: 1vh;
-    /* box-shadow: 10px 10px 8px #888888; */
+    /* right: 0.4%; */
+    /* bottom: 1vh; */
 }
 
 .signUp{
@@ -19,20 +18,20 @@
     flex-direction: column;
     position: relative;
     left: 64vw;
-    height: 10vh;
+    height: 11vh;
+    justify-content: space-between;
 }
 
-.signup-div, .login-div{
-    border: 1px solid white;
+.signup-div, .login-div, .demoLogin, .all-recipes{
     background-color: black;
     position: relative;
-    border: 1px solid white;
+    border: 1px solid gray;
     width:8vw;
-    height: 5vh;
+    height: 4vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 1.2vh;
+    top: 1vh;
 }
 
 #global-link{
@@ -54,23 +53,37 @@
 .signup-div{
     background-color: black;
 }
-.p-signup, .p-login{
+.p-signup, .p-login, .linktorecipes, .demoLogin{
     color: gray;
-    font-size: 20px;
+    font-size: 2vh;
 }
 
 .icon-app-name{
-    width: 26%;
+    width: 25vw;
+    height: 10vh;
+    position: relative;
+    top: 10%;
 }
 
 .text-global{
     color: gray;
     position: relative;
-    top: 7vh;
+    top: 110px;
 }
 
 #global-link{
     position: relative;
-    top: 20%;
+    top: 7%;
     color: pink;
+
+}
+
+/* .demoLogin{
+    color: gray;
+    position: relative;
+} */
+
+.linktorecipes{
+    color: gray;
+    text-decoration: none;
 }

@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 });
 const dispatchStatetoProps = dispatch => ({
   logout: () => dispatch(logout()),
-  login: user => dispatch(login({
+  loginDemoUser: () => dispatch(login({
     email: 'demoUser3@gmail.com',
     username: 'testUser',
     password: '123456',

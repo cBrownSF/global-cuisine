@@ -7,8 +7,10 @@ class HomePage extends React.Component {
       <div className="outer-div-home">
         <div className="inner-div">
           {/* <h1 className="app-name">Welcome to Global Cuisine</h1> */}
-          <h1 className="home-phase">Explore the world</h1>
-          <h2 className="below-home-phase">through food</h2>
+          <div className="detail-home">
+            <h1 className="home-phase">Explore the world</h1>
+            <h2 className="below-home-phase">through food</h2>
+          </div>
         </div>
       </div>
     );
