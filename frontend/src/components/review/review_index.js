@@ -10,22 +10,22 @@ class ReviewIndex extends React.Component {
     this.props.receiveReviews()
   }
 
-  render() {
-
-    const Array = Object.values(this.props.reviews)
-
+  render(){
+    const { reviews, listing_id, user_id } = this.props
     return (
-      <div>
-        <h1>All Recipes: </h1>
-        {Array.map(listing => (
-          <RecipeIndexItem
-            listing={listing}
-            key={listing.id}
-          />
-        ))}
-      </div>
-    )
-  }
+        <div className="reviews-list-class">
+            <div className="title-of-all-reviews">
+            <h1>Reviews</h1>
+            </div>
+            <ul>
+                {
+                    reviews.map(review => <ReviewIndexItem review={review} user_id={user_id} listing_id={listing_id}  key={review.id}/>)
+                }
+            </ul> 
+            <br/>
+        </div>
+        )
+    }
 }
 
-export default RecipeIndex;
+export default ReviewIndex;
