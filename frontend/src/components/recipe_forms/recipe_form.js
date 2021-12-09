@@ -5,35 +5,26 @@ class ListingForm extends React.Component{
   constructor(props){
     super(props)
     debugger;
+    const listing = this.props.listing
     this.state = {
-      name: 'asdg',
+      name: listing.name || '',
       author_id: this.props.currentUser.id,
-      ingredients: 'agds',
-      instruction: 'adsg',
-      details: 'asdg',
-      difficulty: 'Easy',
-      servings: '4',
-      title: 'adsg',
-      picture: '333',
-      country: 'Italy'
+      ingredients: listing.ingredients || '',
+      instruction: listing.instruction || '',
+      details: listing.details || '',
+      difficulty: listing.difficulty || 'Easy',
+      servings: listing.servings|| '',
+      title: listing.title || '',
+      picture: listing.picture || '',
+      country: listing.country || 'Italy'
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleSubmit(e) {
     e.preventDefault();
-    const formData = new FormData();
-   
-    formData.append('listing[id]', this.props.listing._id)
-    formData.append('listing[host_id]', this.state.author_id)
-    formData.append('listing[name]', this.state.name)
-    formData.append('listing[title]', this.state.title)
-    formData.append('listing[picture]', this.state.picture)
-    formData.append('listing[servings]', this.state.servings)
-    formData.append('listing[difficulty]', this.state.difficulty)
-    formData.append('listing[country]', this.state.country)
-    formData.append('listing[details]', this.state.details)
-
-    this.props.submitForm(formData);
+ 
+    debugger;
+    this.props.submitForm(this.state);
   }
 
   handleInput(field) {
@@ -58,21 +49,25 @@ class ListingForm extends React.Component{
             <input type="text"
               value={this.state.ingredients}
               onChange={this.handleInput('ingredients')}
+              placeholder="ingredients"
             />
             <br />
             <input type="text"
               value={this.state.servings}
               onChange={this.handleInput('servings')}
+              placeholder = "how many servings"
             />
             <br />
             <input type = "text"
               value={this.state.picture}
               onChange = {this.handleInput('picture')}
+              placeholder="Add a picture"
             />
             <br />
             <input type="text"
               value= {this.state.name}
               onChange={this.handleInput('name')}
+              placeholder="your name"
             />
             <br />
             <input type="text"
