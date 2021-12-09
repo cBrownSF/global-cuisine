@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect,Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class RecipeShow extends React.Component {
 
@@ -32,7 +32,7 @@ class RecipeShow extends React.Component {
             <li>{listing.country}</li>
             <li>{listing.title}</li>
             <li>{listing.difficulty}</li>
-            <li>{listing.instruction}</li>
+            <li style = {{whiteSpace: 'pre-wrap'}}>{listing.instruction}</li>
             <li>{listing.picture}</li>
           </ul>
       </div>

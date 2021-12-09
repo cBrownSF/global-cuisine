@@ -5,8 +5,6 @@ class CreateRecipeForm extends React.Component {
   constructor(props) {
     super(props)
 
-    const listing = this.props.listing
-
     this.state = {
       name: '',
       author_id: this.props.currentUser.id,
@@ -19,10 +17,17 @@ class CreateRecipeForm extends React.Component {
       picture: '',
       country: 'Italy'
     }
+    this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   componentDidMount() {
     this.props.clearErrors()
+  }
+  handleKeyPress(e)  {
+    console.log(this.state)
+    if (e.key === 'Enter'){
+      this.state.instruction += '\n\n'
+    }
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -41,7 +46,6 @@ class CreateRecipeForm extends React.Component {
     }
     return (
       <div>
-        {/* <p> <Link to={`/listings/${listing.id}/edit`}>Edit</Link></p> */}
         <form onSubmit={this.handleSubmit}>
           <div>
             <br />
@@ -81,7 +85,7 @@ class CreateRecipeForm extends React.Component {
               placeholder="Add a succinct description"
             />
             <br />
-            <textarea
+            <textarea onKeyPress={this.handleKeyPress}
               value={this.state.instruction}
               onChange={this.handleInput('instruction')}
               placeholder="Add your instructions here"
