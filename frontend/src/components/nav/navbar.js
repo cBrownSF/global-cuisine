@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./nav.css";
+// import "./nav.css";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -18,9 +18,9 @@ class NavBar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div className="loggedIn">
-          <Link to={"/recipes"}>All Recipes</Link>
+          <Link to={"/listings/"}>All Recipes</Link>
           <Link to={"/profile"}>Profile</Link>
-          <Link to={"/new_recipe"}>Create New Recipe</Link>
+          <Link to={"/listings/new"}>Create New Recipe</Link>
           <button onClick={this.logoutUser} className="logoutbtn">
             Logout
           </button>

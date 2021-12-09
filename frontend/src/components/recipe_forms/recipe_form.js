@@ -26,7 +26,7 @@ class ListingForm extends React.Component{
     e.preventDefault();
  
 debugger;
-    this.props.submitForm(this.props.listing);
+    this.props.submitForm(this.state);
   }
 
   handleInput(field) {
