@@ -53,11 +53,19 @@ class RecipeShow extends React.Component {
           </div>
         </div>
         <div className="right-show">
-          <div>
-            <p>{listing.title}</p>
+          <div className="show-title">
+            <p className="show-title-p">{listing.title}</p>
+          </div>
+          <div className='below-title'>
+          <div
+            className="lishing-show-ingredient"
+          >
+            <div className="ingredients-word">Ingredients</div>
+            <div className="show-ingredient-inner"  style={{ whiteSpace: "pre-wrap" }}>{listing.ingredients}</div>
           </div>
           <div>
-            <li style={{ whiteSpace: "pre-wrap" }}>{listing.instruction}</li>
+            <div style={{ whiteSpace: "pre-wrap" }}>{listing.instruction}</div>
+          </div>
           </div>
         </div>
       </div>

@@ -41,6 +41,10 @@
     left: 5%;
 }
 
+.loginbtn, .demoLogin, .logoutbtn{
+    cursor: pointer;
+}
+
 .homelink-global{
     color: gray;
     font-size: 2.5vw;
