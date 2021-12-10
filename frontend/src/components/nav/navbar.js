@@ -1,11 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-<<<<<<< HEAD
-// import "./nav.css";
-=======
 import "./nav.css";
 
->>>>>>> updatelisting
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -17,36 +13,22 @@ class NavBar extends React.Component {
     e.preventDefault();
     this.props.logout();
   }
-<<<<<<< HEAD
-  demoLogin(e) {
-    e.preventDefault();
-    this.props.loginDemoUser().then(() => this.props.history.push("/"))
-  }
-=======
   
   demoLogin(e){
     e.preventDefault();
     this.props.loginDemoUser().then(() => this.props.history.push("/"))
   }
 
->>>>>>> updatelisting
   getLinks() {
     if (this.props.loggedIn) {
       return (
         <div className="loggedIn">
           <Link to={"/recipes"} className="all-recipes">All Recipes</Link>
           <Link to={"/profile"} className="profile">Profile</Link>
-<<<<<<< HEAD
           <Link to={"/recipes/new"} className="create">Create Recipe</Link>
-          <button onClick={this.logoutUser} className="logoutbtn">
-            <p className="logout-p">Logout</p>
-          </button>
-=======
-          <Link to={"/recipes/new"}className="create">Create Recipe</Link>
           <div onClick={this.logoutUser} className="logoutbtn">
            <p className="logout-p">Logout</p>
           </div>
->>>>>>> updatelisting
         </div>
       );
     } else {
@@ -66,11 +48,7 @@ class NavBar extends React.Component {
             <p>Demo Login</p>
           </div>
           <div className="all-recipes">
-<<<<<<< HEAD
-            <Link to="/recipes" className="linktorecipes">All Recipes</Link>
-=======
           <Link to="/recipes" className="linktorecipes">All Recipes</Link>
->>>>>>> updatelisting
           </div>
         </div>
       );
@@ -88,9 +66,5 @@ class NavBar extends React.Component {
     );
   }
 }
-<<<<<<< HEAD
-export default withRouter(NavBar);
-=======
 
 export default withRouter(NavBar);
->>>>>>> updatelisting
