@@ -3,22 +3,18 @@ import { Link } from 'react-router-dom'
 import CreateReviewFormContainer from '../review/review_form_create_container'
 
 class RecipeShow extends React.Component {
-
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId);
   }
-
   componentDidUpdate() {
     if (!this.props.listing) {
       this.props.receiveListing(this.props.match.params.listingId);
     }
   }
- 
   render() {
     if (!this.props.listing) {
       return null;
     }
-
     const listing = this.props.listing
     debugger
     return (
@@ -38,8 +34,7 @@ class RecipeShow extends React.Component {
           </ul> 
          <h1> <CreateReviewFormContainer listing_id={listing._id} /></h1>
       </div>
-    )
+    );
   }
 }
-   
 export default RecipeShow;
