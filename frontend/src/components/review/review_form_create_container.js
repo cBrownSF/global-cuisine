@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { writeReview } from '../../actions/review_actions';
 import ReviewForm from './review_form';
-import {withRouter} from "react-router-dom"
+import {withRouter} from "react-router-dom";
 
 const mSTP = (state, ownProps) => ({
     review: {
@@ -12,11 +12,11 @@ const mSTP = (state, ownProps) => ({
     },
     formType: 'Create Review',
     currentUser: state.session.id,
-    listing: state.entities.events[ownProps.listingId]
+    listing: state.listings[ownProps.listingId]
 })
 
 const mDTP = dispatch => ({
     submitReview: review => dispatch(writeReview(review))
 })
 
-export default withRouter(connect(mSTP, mDTP)(ReviewForm))
+export default connect(mSTP, mDTP)(ReviewForm)

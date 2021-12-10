@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
-import ReviewIndex from './reviews_index'
+import ReviewIndex from './review_index'
 import { getReviews } from '../../actions/review_actions'
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     return {
         reviews: Object.values(state.entities.reviews),
         user_id: state.session.id,

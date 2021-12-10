@@ -21,6 +21,5 @@ export const updateListing = listing => {
 }
 
 export const deleteListing = id => {
-  debugger;
     return axios.delete(`/api/listings/${id}/delete`)
 }

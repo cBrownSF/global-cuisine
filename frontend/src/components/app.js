@@ -5,7 +5,9 @@ import CreateFormContainer from './recipe_forms/create_form_container'
 import EditFormContainer from './recipe_forms/edit_form_container' 
 import RecipeShowContainer from './recipe/recipe_show_container'
 import RecipeIndexContainer from './recipe/recipe_index_container'
-import NavBarContainer from './nav/navbar_container'
+import NavBarContainer from './nav/navbar_container';
+import CreateReviewFormContainer from './review/review_form_create_container';
+import ReviewIndexContainer from './review/review_index_container';
 
 import HomePage from './home/home_page';
 import LoginFormContainer from './session/login_form_container';
@@ -22,6 +24,8 @@ const App = () => (
       <Route exact path = "/recipes/:listingId/edit" component={EditFormContainer} />
       <Route exact path="/recipes/:listingId" component={RecipeShowContainer} />
       <Route exact path="/recipes/" component={RecipeIndexContainer} />
+      <Route exact path="/reviews/new" component={CreateReviewFormContainer} />
+      <Route exact path="/recipes/:recipeId/reviews" component={ReviewIndexContainer}/>
     </Switch>
   </div>
 );
