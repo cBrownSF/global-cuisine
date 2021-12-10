@@ -30,6 +30,7 @@ class ReviewForm extends React.Component {
         <h3>Leave a review</h3>
         <form onSubmit={this.handleSubmit}>
           <br />
+          <p>{this.props.review.reviewer_name}</p>
           <label>Review
             <textarea
               value={this.state.review}
