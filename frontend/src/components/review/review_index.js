@@ -8,6 +8,7 @@ class ReviewIndex extends React.Component {
   }
 
   render(){
+    if (!this.props.reviews) return null
     const { reviews, listing_id, user_id } = this.props
     return (
         <div className="reviews-list-class">

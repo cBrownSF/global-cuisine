@@ -5,15 +5,16 @@ class ReviewForm extends React.Component {
     super(props);
     this.state = this.props.review;
     this.handleSubmit = this.handleSubmit.bind(this)
-    debugger;
   }
   handleSubmit(e) {
     e.preventDefault()
-    const listingId = this.props.listingId
+    const listing_id = this.props.listingId
     const review = Object.assign({}, this.state, {
-      listingId
+      listing_id
     });
-    if (this.props.currentUser) {
+    debugger
+    if (this.props.currentUser && this.props.currentUser.id !== this.props.listing.author_id) {
+      debugger;
       this.props.submitReview(review)
       // .then(() => this.props.history.push("/"));
     }
