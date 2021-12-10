@@ -1,4 +1,4 @@
-import { RECEIVE_LISTINGS, RECEIVE_LISTING, RECEIVE_NEW_LISTING, RECEIVE_USER_LISTINGS, REMOVE_LISTING } from '../actions/listing_actions';
+import { RECEIVE_LISTINGS, RECEIVE_LISTING, RECEIVE_USER_LISTINGS, REMOVE_LISTING } from '../actions/listing_actions';
 
 const ListingsReducer = (state = { user: {}}, action) => {
     Object.freeze(state);

@@ -1,0 +1,41 @@
+.outer-div-home{
+  background-image: url(https://global-cuisine.s3.us-west-1.amazonaws.com/bkg2.jpeg);
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 55%;
+  position: relative;
+  bottom: 1vh;
+}
+
+.inner-div{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.2);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    /* top: 0;
+    left: 0; */
+}
+
+
+.home-phase{
+    font-size: 50px;
+}
+
+.below-home-phase{
+    font-size: 34px;
+    position: relative;
+    left: 25%;
+}
+
+
+.detail-home{
+    position: relative;
+    top: 3%;
+}
