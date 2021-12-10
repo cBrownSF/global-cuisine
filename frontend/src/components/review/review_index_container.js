@@ -6,7 +6,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         reviews: Object.values(state.entities.reviews),
         user_id: state.session.id,
-        listing_id: ownProps.match.params.listingId
+        listing_id: ownProps.listingId
         }
 }
 
