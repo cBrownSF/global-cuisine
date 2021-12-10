@@ -31,6 +31,8 @@ const App = () => (
       />
       <Route exact path="/recipes" component={RecipeIndexContainer} />
       <Route render={() => <Redirect to={{ pathname: "/" }} />} />
+      <Route exact path="/reviews/new" component={CreateReviewFormContainer} />
+      <Route exact path="/recipes/:recipeId/reviews" component={ReviewIndexContainer}/>
     </Switch>
   </div>
 );
