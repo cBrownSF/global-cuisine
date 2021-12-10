@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import CreateReviewFormContainer from '../review/review_form_create_container'
 
 class RecipeShow extends React.Component {
 
@@ -19,7 +20,7 @@ class RecipeShow extends React.Component {
     }
 
     const listing = this.props.listing
-
+    debugger
     return (
       <div>
         <h1>Show page</h1>
@@ -34,7 +35,8 @@ class RecipeShow extends React.Component {
             <li>{listing.difficulty}</li>
             <li style = {{whiteSpace: 'pre-wrap'}}>{listing.instruction}</li>
             <li>{listing.picture}</li>
-          </ul>
+          </ul> 
+         <h1> <CreateReviewFormContainer listing_id={listing._id} /></h1>
       </div>
     )
   }
