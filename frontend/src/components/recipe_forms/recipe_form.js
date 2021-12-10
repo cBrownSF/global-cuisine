@@ -3,44 +3,50 @@ import React from "react";
 
 class CreateRecipeForm extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      name: '',
+      name: "",
       author_id: this.props.currentUser.id,
-      ingredients: '',
-      instruction: '',
-      details: '',
-      difficulty: 'Easy',
-      servings: '',
-      title: '',
-      picture: '',
-      country: 'Italy'
-    }
-    this.handleKeyPress = this.handleKeyPress.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+      ingredients: "",
+      instruction: "",
+      details: "",
+      difficulty: "Easy",
+      servings: "",
+      title: "",
+      picture:
+        "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
+      country: "Italy",
+    };
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    this.props.clearErrors()
+    this.props.clearErrors();
   }
-  handleKeyPress(e)  {
-    console.log(this.state)
-    if (e.key === 'Enter'){
-      this.state.instruction += '\n\n'
-    }
+
+  handleKeyPress(instruction) {
+    return (e) => {
+      if (e.key === "Enter") {
+        this.setState({
+          [instruction]: e.currentTarget.value + "\n",
+        });
+      }
+    };
   }
+
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitForm(this.state)
+    this.props.submitForm(this.state);
   }
 
   handleInput(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return (e) =>
+      this.setState({
+        [field]: e.currentTarget.value,
+      });
   }
   render() {
-
     if (this.props.listing === undefined) {
       return null;
     }
@@ -49,57 +55,72 @@ class CreateRecipeForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             <br />
-            <input type="text"
+            <input
+              type="text"
               value={this.state.title}
-              onChange={this.handleInput('title')}
+              onChange={this.handleInput("title")}
               placeholder="title of recipe"
             />
             <br />
-            <input type="text"
+            <input
+              type="text"
               value={this.state.ingredients}
-              onChange={this.handleInput('ingredients')}
+              onChange={this.handleInput("ingredients")}
               placeholder="ingredients"
             />
             <br />
-            <input type="text"
+            <input
+              type="text"
               value={this.state.servings}
-              onChange={this.handleInput('servings')}
+              onChange={this.handleInput("servings")}
               placeholder="how many servings"
             />
             <br />
-            <input type="text"
+            <input
+              type="text"
               value={this.state.picture}
-              onChange={this.handleInput('picture')}
+              onChange={this.handleInput("picture")}
               placeholder="Add a picture"
             />
             <br />
-            <input type="text"
+            <input
+              type="text"
               value={this.state.name}
-              onChange={this.handleInput('name')}
+              onChange={this.handleInput("name")}
               placeholder="your name"
             />
             <br />
-            <input type="text"
+            <input
+              type="text"
               value={this.state.details}
-              onChange={this.handleInput('details')}
+              onChange={this.handleInput("details")}
               placeholder="Add a succinct description"
             />
             <br />
-            <textarea onKeyPress={this.handleKeyPress}
+            <textarea
+              onKeyPress={this.handleKeyPress("instruction")}
               value={this.state.instruction}
-              onChange={this.handleInput('instruction')}
+              onChange={this.handleInput("instruction")}
               placeholder="Add your instructions here"
             />
             <br />
-            <label>Country
-              <select value={this.state.country} onChange={this.handleInput('country')}>
+            <label>
+              Country
+              <select
+                value={this.state.country}
+                onChange={this.handleInput("country")}
+              >
                 <option value="Italy">Italy</option>
                 <option value="France">France</option>
                 <option value="India">India</option>
               </select>
             </label>
-            <label>Difficulty
-              <select value={this.state.difficulty} onChange={this.handleInput('difficulty')}>
+            <label>
+              Difficulty
+              <select
+                value={this.state.difficulty}
+                onChange={this.handleInput("difficulty")}
+              >
                 <option value="Easy">Easy</option>
                 <option value="Medium">Medium</option>
                 <option value="Hard">Hard</option>

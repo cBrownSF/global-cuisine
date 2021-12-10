@@ -60,7 +60,6 @@ export const getUserListings = id => dispatch => {
 
 export const writeListing = data => dispatch => {
     return APIUtil.writeListing(data).then(createdListing => {
-      debugger;
       dispatch(receiveListing(createdListing))
       hashHistory.push(`/recipes/${createdListing.data._id}`)
     })
@@ -79,7 +78,7 @@ export const deleteListing = id => dispatch => {
     return APIUtil.deleteListing(id)
     .then(() => {
     dispatch(removeListing(id))
-      hashHistory.push(`/recipes`)
+      hashHistory.push(`/recipe`)
     })
 
 }

@@ -1,12 +1,11 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import {browserHistory} from "react-router"
+import { withRouter } from "react-router-dom";
 
 class EditRecipeForm extends React.Component {
   constructor(props) {
     super(props)
 
-      const listing = this.props.listing
+    const listing = this.props.listing
     this.state = {
       name: listing.name,
       author_id: this.props.currentUser.id,
@@ -16,10 +15,11 @@ class EditRecipeForm extends React.Component {
       difficulty: listing.difficulty,
       servings: listing.servings,
       title: listing.title,
-      picture: listing.picture,
-      country: 'Italy',
-      editId:this.props.listing._id
-    }
+      picture:
+        "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
+      country: "Italy",
+      editId: this.props.listing._id,
+    };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   componentDidMount() {
@@ -34,7 +34,9 @@ class EditRecipeForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitForm(this.state);
+    this.props
+      .submitForm(this.state)
+      .then(this.props.history.push("/"));
   }
 
   handleInput(field) {
@@ -119,4 +121,4 @@ class EditRecipeForm extends React.Component {
 }
 
 
-export default EditRecipeForm;
+export default withRouter(EditRecipeForm);
