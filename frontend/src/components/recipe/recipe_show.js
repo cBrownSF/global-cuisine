@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import "./recipe_show.css";
-import CreateReviewFormContainer from '../review/review_form_create_container'
+// import CreateReviewFormContainer from '../review/review_form_create_container'
 
 class RecipeShow extends React.Component {
   componentDidMount() {
