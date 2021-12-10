@@ -24,7 +24,6 @@ class CreateRecipeForm extends React.Component {
     this.props.clearErrors()
   }
   handleKeyPress(e)  {
-    console.log(this.state)
     if (e.key === 'Enter'){
       this.state.instruction += '\n\n'
     }

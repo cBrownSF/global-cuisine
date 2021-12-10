@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { writeReview } from '../../actions/review_actions';
 import ReviewForm from './review_form';
-import {withRouter} from "react-router-dom";
 
 const mSTP = (state, ownProps) => ({
     review: {
