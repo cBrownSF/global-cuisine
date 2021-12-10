@@ -12,7 +12,7 @@ class ReviewForm extends React.Component {
     const review = Object.assign({}, this.state, {
       listing_id
     });
-    debugger
+    debugger;
     if (this.props.currentUser && this.props.currentUser.id !== this.props.listing.author_id) {
       debugger;
       this.props.submitReview(review)
