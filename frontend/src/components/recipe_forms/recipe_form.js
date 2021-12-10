@@ -38,6 +38,17 @@ class CreateRecipeForm extends React.Component {
       [field]: e.currentTarget.value
     });
   }
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ photoFile: file, photoURL: fileReader.result });
+    };
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
   render() {
 
     if (this.props.listing === undefined) {
