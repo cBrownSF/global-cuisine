@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import "./nav.css";
-
+import SearchContainer from "../search/search_container";
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -23,11 +23,9 @@ class NavBar extends React.Component {
         <div className="loggedIn">
           <Link to={"/recipes"} className="all-recipes">All Recipes</Link>
           <Link to={"/profile"} className="profile">Profile</Link>
-          <Link to={"/recipes/new"}className="create">Create Recipe</Link>
-          <Link to='/reviews'>Review</Link>
-          
+          <Link to={"/recipes/new"} className="create">Create Recipe</Link>
           <div onClick={this.logoutUser} className="logoutbtn">
-           <p className="logout-p">Logout</p>
+            <p className="logout-p">Logout</p>
           </div>
         </div>
       );
@@ -48,7 +46,7 @@ class NavBar extends React.Component {
             <p>Demo Login</p>
           </div>
           <div className="all-recipes">
-          <Link to="/recipes" className="linktorecipes">All Recipes</Link>
+            <Link to="/recipes" className="linktorecipes">All Recipes</Link>
           </div>
         </div>
       );
@@ -62,9 +60,9 @@ class NavBar extends React.Component {
           <div className="homelink-global"><Link to="/"><p className="text-global">Global Cuisine</p></Link></div>
         </div>
         <div>{this.getLinks()}</div>
+        <SearchContainer />
       </div>
     );
   }
 }
-
 export default withRouter(NavBar);
