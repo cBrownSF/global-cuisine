@@ -11,6 +11,7 @@ class RecipeShow extends React.Component {
   }
   componentDidUpdate() {
     if (!this.props.listing) {
+      debugger;
       this.props.receiveListing(this.props.match.params.listingId);
     }
   }
