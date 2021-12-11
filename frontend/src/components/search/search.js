@@ -62,6 +62,13 @@ function Search(props) {
               >
                 <p>{listing.title}</p>
               </Link>
+              // <div
+              //   className="dataItem"
+              //   onClick={() => clearListingShow(listing._id)}
+              //   key={listing._id}
+              // >
+              //   <p>{listing.title}</p>
+              // </div>
             );
           })}
         </div>
