@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router";
+// import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 import "./search.css";
+import { hashHistory } from "react-router";
 
 function Search(props) {
   useEffect(() => {
@@ -29,7 +30,7 @@ function Search(props) {
   };
 
   const clearListingShow = (listingId) => {
-    props.history.push(`/recipes/${listingId}`);
+    hashHistory.push(`/recipes/${listingId}`);
     clearField();
   };
 
@@ -55,20 +56,20 @@ function Search(props) {
         <div className="listingResult">
           {filteredListing.slice(0, 5).map((listing) => {
             return (
-              <Link to={`/recipes/${listing._id}`}
-                className="dataItem"
-                // onClick={() => clearListingShow(listing._id)}
-                key={listing._id}
-              >
-                <p>{listing.title}</p>
-              </Link>
-              // <div
+              // <Link to={`/recipes/${listing._id}`}
               //   className="dataItem"
-              //   onClick={() => clearListingShow(listing._id)}
+                // onClick={() => clearListingShow(listing._id)}
               //   key={listing._id}
               // >
               //   <p>{listing.title}</p>
-              // </div>
+              // </Link>
+              <div
+                className="dataItem"
+                onClick={() => clearListingShow(listing._id)}
+                key={listing._id}
+              >
+                <p>{listing.title}</p>
+              </div>
             );
           })}
         </div>
@@ -77,4 +78,4 @@ function Search(props) {
   );
 }
 
-export default withRouter(Search);
+export default Search;
