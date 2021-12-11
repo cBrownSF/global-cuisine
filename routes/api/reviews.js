@@ -55,7 +55,7 @@ router.get("/listing/:listingId", (req, res) => {
           }
           const newReview = new Review({
               author_id: req.user.id,
-              listing_id: req.params.listingId,
+              listing_id: req.body.listing_id,
               reviewer_name: req.body.reviewer_name,
               score: req.body.score,
               review: req.body.review

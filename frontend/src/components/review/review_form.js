@@ -8,11 +8,13 @@ class ReviewForm extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault()
-    const listingId = this.props.listingId
+    const listing_id = this.props.listingId
     const review = Object.assign({}, this.state, {
-      listingId
+      listing_id
     });
-    if (this.props.currentUser) {
+    debugger;
+    if (this.props.currentUser && this.props.currentUser.id !== this.props.listing.author_id) {
+      debugger;
       this.props.submitReview(review)
       // .then(() => this.props.history.push("/"));
     }
@@ -21,12 +23,14 @@ class ReviewForm extends React.Component {
     return e => this.setState({ [field]: e.currentTarget.value })
   }
   render() {
+    
     if (!this.props.review) return null
     return (
       <div className="Main-Review-Form">
         <h3>Leave a review</h3>
         <form onSubmit={this.handleSubmit}>
           <br />
+          <p>{this.props.review.reviewer_name}</p>
           <label>Review
             <textarea
               value={this.state.review}
