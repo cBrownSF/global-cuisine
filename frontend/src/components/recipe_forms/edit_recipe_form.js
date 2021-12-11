@@ -54,7 +54,6 @@ class EditRecipeForm extends React.Component {
     if (!this.props.listing) {
       return null;
     }
-    console.log(this.state.instruction)
     return (
       <div>
         {/* <p> <Link to={`/listings/${listing.id}/edit`}>Edit</Link></p> */}
