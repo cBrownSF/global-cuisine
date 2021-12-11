@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CreateReviewFormContainer from '../review/review_form_create_container';
 import ReviewIndexContainer from '../review/review_index_container';
-import ReviewIndex from '../review/review_index';
 class RecipeShow extends React.Component {
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId);
