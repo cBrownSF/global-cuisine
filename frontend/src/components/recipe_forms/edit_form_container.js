@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateListing, deleteListing,getListing} from "../../actions/listing_actions";
+import { updateListing, deleteListing, getListing} from "../../actions/listing_actions";
 import EditForm from './edit_recipe_form';
 import { withRouter } from 'react-router';
 const mapStateToProps = (state,ownProps) => {

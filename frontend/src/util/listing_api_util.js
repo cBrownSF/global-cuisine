@@ -23,3 +23,4 @@ export const updateListing = listing => {
 export const deleteListing = id => {
     return axios.delete(`/api/listings/${id}/delete`)
 }
+

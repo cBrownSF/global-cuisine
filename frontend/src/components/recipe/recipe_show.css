@@ -1,0 +1,146 @@
+.right-left{
+    height: 105vh;
+    width: 100%;
+    background-color: gray;
+    display: flex;
+    justify-content: space-around;
+}
+
+.left-show{
+    border: 1px solid red;
+    width: 35%;
+    height: 70%;
+    padding: 1%;
+    position: relative;
+    left: 7%;
+    top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: black;
+}
+
+.show-img{
+    width: 92%;
+    height: 90%;
+    position: relative;
+    left: 4%;
+    top: 3.5%;
+}
+
+.listing-detail{
+    font-size: 1.7vh;
+    font-family: sans-serif;
+    line-height: 1.5;
+    color: white;
+    position: relative;
+    bottom: 12%;
+}
+
+.show-author{
+    position: relative;
+    left: 2.6vh;
+    bottom: 1vh;
+}
+
+.show-author-p{
+    color: white;
+    font-size: 1vw;
+}
+
+.right-show{
+    width: 40%;
+    height: 100%;
+    /* padding: 1%; */
+    position: relative;
+    top: 2%;
+}
+
+.show-title{
+    width: 100%;
+    background-color: black;
+    color: gray;
+    position: relative;
+}
+
+.show-title-p{
+    position: relative;
+    font-size: 3vh;
+    left: 35%;
+    
+}
+
+.lishing-show-ingredient{
+    display: flex;
+    flex-direction: column;
+    line-height: 3vh;
+}
+
+.ingredients-word, .instruction-word{
+    font-size: 3.5vh;
+    text-decoration: underline;
+}
+
+.below-ingredient-title{
+    background-image: url("https://global-cuisine.s3.us-west-1.amazonaws.com/show-bkg.png");
+    height: 100%;
+    width: 96%;
+    padding: 2%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.show-ingredient-inner{
+    font-size: 1.7vh;
+    position: relative;
+    top: 2vh;
+}
+
+.instruction-show{
+    background-image: url("https://global-cuisine.s3.us-west-1.amazonaws.com/show-bkg.png");
+    padding: 2%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    top: 4vh;
+}
+
+.instruction-show-inner{
+    line-height: 3vh;
+    position: relative;
+    top: 1.2vh;
+}
+
+.detail-padding{
+    padding: 3%;
+}
+
+
+.p{
+    color: white;
+}
+
+.edit-div{
+    border: 1px solid gray;
+    width: 8vw;
+    height: 1.2vw;
+    padding: 1%;
+    position: relative;
+    left: 35%;
+    text-decoration: none;
+
+}
+
+.updateOrdelete{
+    font-size: 1vw;
+    color: gray;
+    position: relative;
+    top: 0.4vh;
+    left: 1vh;
+
+}
+
+.edit-show-link{
+    text-decoration: none;
+}
+

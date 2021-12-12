@@ -1,11 +1,15 @@
 import React from "react";
+<<<<<<< HEAD
 
+=======
+import { withRouter } from "react-router-dom";
+>>>>>>> 7d9cfcfa99f995bb547b330d2718e28293aa484d
 
 class EditRecipeForm extends React.Component {
   constructor(props) {
     super(props)
 
-      const listing = this.props.listing
+    const listing = this.props.listing
     this.state = {
       name: listing.name,
       author_id: this.props.currentUser.id,
@@ -15,11 +19,13 @@ class EditRecipeForm extends React.Component {
       difficulty: listing.difficulty,
       servings: listing.servings,
       title: listing.title,
-      picture: listing.picture,
-      country: 'Italy',
-      editId:this.props.listing._id
-    }
+      picture:
+        "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
+      country: "Italy",
+      editId: this.props.listing._id,
+    };
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
   }
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId);
@@ -33,9 +39,20 @@ class EditRecipeForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitForm(this.state);
+    this.props
+      .submitForm(this.state)
+      .then(this.props.history.push("/"));
   }
+  handleKeyPress(instruction) {
 
+    return e => {
+      if (e.key === 'Enter') {
+        this.setState({
+          [instruction]: e.currentTarget.value + '\n'
+        })
+      }
+    }
+  }
   handleInput(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -87,7 +104,7 @@ class EditRecipeForm extends React.Component {
               placeholder="Add a succinct description"
             />
             <br />
-            <textarea
+            <textarea onKeyPress={this.handleKeyPress('instruction')}
               value={this.state.instruction}
               onChange={this.handleInput('instruction')}
               placeholder="Add your instructions here"
@@ -118,4 +135,4 @@ class EditRecipeForm extends React.Component {
 }
 
 
-export default EditRecipeForm;
+export default withRouter(EditRecipeForm);

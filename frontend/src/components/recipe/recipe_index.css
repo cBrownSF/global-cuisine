@@ -1,0 +1,44 @@
+
+.all{
+  background-image: url("https://global-cuisine.s3.us-west-1.amazonaws.com/bkg1.png");
+  height: 100%;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 55%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.images-index{
+    width: 100%;
+    height: 25vh;
+}
+
+.each-recipe{
+    width: 15%;
+    height: 30vh;
+    margin: 3%;
+    border: 4px solid gray;
+    cursor: pointer;
+}
+
+.title-index{
+    font-size: 1.3vw;
+    color: gray;
+    position: relative;
+    left: 2.8vw;
+    top: 14%;
+}
+
+.title-div{
+    height: 5.1vh;
+    position: relative;
+    bottom: 1.3%;
+    background-color: black;
+}
+
+.link-show{
+    text-decoration: none;
+}

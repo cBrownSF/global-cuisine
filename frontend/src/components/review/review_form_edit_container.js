@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { updateReview, deleteReview, getReview} from "../../actions/review_actions";
 import ReviewForm from './review_form';
+import React from 'react';
 
 class EditReviewForm extends React.Component {
     componentDidMount(){
@@ -15,12 +16,12 @@ class EditReviewForm extends React.Component {
         <ReviewForm
           review={review}
           formType={formType}
-          submitReview={submitReview} />
+          submitReview={submitReview} 
+          updateReview={updateReview}
+          />
       );
     }
   }
-
-
 
 const mapStateToProps = (state) => {
   return {
@@ -33,7 +34,8 @@ const mapDispatchtoProps = (dispatch) => {
   return {
     submitForm: id => dispatch(updateReview(id)),
     deleteReview: id => dispatch(deleteReview(id)),
-    getReview: id => dispatch(getReview(id))
+    getReview: id => dispatch(getReview(id)),
+    updateReview: id => dispatch(updateReview(id))
   }
 }
-export default withRouter(connect(mapStateToProps, mapDispatchtoProps)(EditReviewForm))
+export default connect(mapStateToProps, mapDispatchtoProps)(EditReviewForm);

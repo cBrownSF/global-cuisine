@@ -1,4 +1,6 @@
 const express = require("express");
+const multer = require('multer');
+const upload = multer({dest: 'uploads/'})
 const app = express();
 const path = require('path');
 const mongoose = require("mongoose");
@@ -25,7 +27,7 @@ mongoose
   app.use("/api/listings", listings)
   app.use("/api/reviews", reviews)
   app.use(express.static("public"));
-  
+ 
 // app.get("/", (req, res) => {
 //   const user = new User({
 //     username: "jim",
@@ -36,13 +38,16 @@ mongoose
 //   res.send("helloworld");
 // })
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('frontend/build'));
-  app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-  })
-}
+app.post('/images', upload.single('picture'), (req, res) => {
+  res.send("<3")
+})
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"));
+  app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  });
+}
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));

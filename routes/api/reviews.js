@@ -31,7 +31,7 @@ router.get("/", (req, res) => {
 
 router.get("/listing/:listingId", (req, res) => {
     Review
-    .find({ listingId: req.params.listingId })
+    .find({ listing_id: req.params.listingId })
     .then(reviews => res.json(reviews))
     .catch(err => res.status(400).json(err));
 })
@@ -54,8 +54,8 @@ router.get("/listing/:listingId", (req, res) => {
               return res.status(400).json(errors);
           }
           const newReview = new Review({
-              authorId: req.user.id,
-              listingId: req.params.listingId,
+              author_id: req.user.id,
+              listing_id: req.body.listing_id,
               reviewer_name: req.body.reviewer_name,
               score: req.body.score,
               review: req.body.review
@@ -66,7 +66,7 @@ router.get("/listing/:listingId", (req, res) => {
   )
 
   router.patch(
-    '/:id/update',
+    '/:id',
     passport.authenticate('jwt', {session:false}),
     (req, res) => {
         const {isValid, errors} = validateReviewInput(req.body);
@@ -88,7 +88,7 @@ router.get("/listing/:listingId", (req, res) => {
 )
 
 router.delete(
-    "/:id/delete",
+    "/:id",
     passport.authenticate('jwt', {session: false}),
     (req, res) => {
         Review.findById(req.params.id).then((review) => {
