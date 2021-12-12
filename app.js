@@ -1,4 +1,6 @@
 const express = require("express");
+const multer = require('multer');
+const upload = multer({dest: 'uploads/'})
 const app = express();
 const path = require('path');
 const mongoose = require("mongoose");
@@ -35,6 +37,10 @@ mongoose
 //   user.save()
 //   res.send("helloworld");
 // })
+
+app.post('/images', upload.single('picture'), (req, res) => {
+  res.send("<3")
+})
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));

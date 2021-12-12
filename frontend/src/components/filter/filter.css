@@ -1,0 +1,27 @@
+.single{
+    box-shadow: 1px 1px 4px 1px grey;
+    margin: 10px;
+    padding: 10px;
+}
+
+@media screen and (min-width: 664px){
+    .products-center{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .single{
+        flex: 0 0 calc(50% - 20px)
+    }
+}
+
+.btns{
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.bthns button{
+    padding: 5px 10px;
+    margin: 10px 10px;
+}

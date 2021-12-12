@@ -1,11 +1,12 @@
 import React from 'react';
+// import { Link } from 'react-router-dom';
 
 
-const ReviewIndexItem = ({ review }) => {
+const ReviewIndexItem = ({ review, listingId, userId, deleteReview }) => {
     return (
         <div>
             <div className="review-index-items">
-                <li> 
+                {listingId !== review.listing_id ? "" : 
                     <div className="review-index-item">
                         <div className="review-title">
                             <p>{review.review}</p>
@@ -16,7 +17,12 @@ const ReviewIndexItem = ({ review }) => {
                         </div>
                     <br/>
                     </div>
-                </li>
+                    }
+            </div>
+            <div>
+                {
+                    userId === review.user_id ? (<div><button onClick={() => deleteReview(review._id)}>Delete Review</button></div>) : ""
+                }
             </div>
         </div>
     )

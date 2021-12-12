@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 // import { withRouter } from "react-router";
-import { Link } from "react-router-dom";
 import "./search.css";
 import { hashHistory } from "react-router";
 
@@ -54,7 +53,7 @@ function Search(props) {
             return (
               // <Link to={`/recipes/${listing._id}`}
               //   className="dataItem"
-              // onClick={() => clearListingShow(listing._id)}
+                // onClick={() => clearListingShow(listing._id)}
               //   key={listing._id}
               // >
               //   <p>{listing.title}</p>
@@ -73,4 +72,5 @@ function Search(props) {
     </div>
   );
 }
+
 export default Search;

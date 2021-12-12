@@ -1,6 +1,9 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import "./nav.css";
+import SearchContainer from "../search/search_container";
+
+
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -13,19 +16,19 @@ class NavBar extends React.Component {
     e.preventDefault();
     this.props.logout();
   }
-  demoLogin(e) {
+  
+  demoLogin(e){
     e.preventDefault();
     this.props.loginDemoUser().then(() => this.props.history.push("/"))
   }
+
   getLinks() {
     if (this.props.loggedIn) {
       return (
         <div className="loggedIn">
           <Link to={"/recipes"} className="all-recipes">All Recipes</Link>
           <Link to={"/profile"} className="profile">Profile</Link>
-          <Link to={"/recipes/new"}className="create">Create Recipe</Link>
-          <Link to='/reviews'>Review</Link>
-          
+          <Link to={"/recipes/new"} className="create">Create Recipe</Link>
           <div onClick={this.logoutUser} className="logoutbtn">
            <p className="logout-p">Logout</p>
           </div>
@@ -62,6 +65,7 @@ class NavBar extends React.Component {
           <div className="homelink-global"><Link to="/"><p className="text-global">Global Cuisine</p></Link></div>
         </div>
         <div>{this.getLinks()}</div>
+        <SearchContainer />
       </div>
     );
   }
