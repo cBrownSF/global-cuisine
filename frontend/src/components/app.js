@@ -11,7 +11,6 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_container.js';
 import CreateReviewFormContainer from './review/review_form_create_container';
 import ReviewIndexContainer from './review/review_index_container';
-import SearchBar from './search/search_container';
 const App = () => (
   <div>
     <NavBarContainer />

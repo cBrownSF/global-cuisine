@@ -2,6 +2,7 @@ import React from 'react';
 // import { withRouter } from 'react-router';
 class ReviewForm extends React.Component {
   constructor(props) {
+
     super(props);
     this.state = this.props.review;
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -12,9 +13,9 @@ class ReviewForm extends React.Component {
     const review = Object.assign({}, this.state, {
       listing_id
     });
-    debugger;
+ 
     if (this.props.currentUser && this.props.currentUser.id !== this.props.listing.author_id) {
-      debugger;
+   
       this.props.submitReview(review)
       // .then(() => this.props.history.push("/"));
     }
