@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CreateReviewFormContainer from '../review/review_form_create_container';
 import ReviewIndexContainer from '../review/review_index_container';
 import SearchContainer from '../search/search_container';
+import NavBarContainer from '../nav/navbar_container';
 class RecipeShow extends React.Component {
   componentDidMount() {
     debugger;
@@ -20,7 +21,9 @@ class RecipeShow extends React.Component {
     const listing = this.props.listing
     return (
       <div>
+        {/* <NavBarContainer /> */}
         <h1>Show page</h1>
+
         <p><Link to={`/recipes`}>Back to Recipes</Link></p>
         <p>{this.props.currentUser.id === listing.author_id ? <Link to={`/recipes/${listing._id}/edit`}>Edit</Link> : ""}</p>
         <ul>
@@ -35,7 +38,7 @@ class RecipeShow extends React.Component {
         </ul>
         <ReviewIndexContainer listingId={listing._id}/>
         <CreateReviewFormContainer listingId={listing._id} />
-        <SearchContainer />
+        {/* <SearchContainer /> */}
       </div>
     )
   }
