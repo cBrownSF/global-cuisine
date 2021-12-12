@@ -6,6 +6,7 @@ export default class Filter extends React.Component{
 
   constructor(props){
     super(props)
+    debugger;
     this.handleBtns = this.handleBtns.bind(this);
      this.state = {
        listings: Object.values(this.props.listings),
@@ -27,6 +28,7 @@ export default class Filter extends React.Component{
   }
 
   componentDidMount(){
+    debugger;
     this.props.getListings()
   }
 

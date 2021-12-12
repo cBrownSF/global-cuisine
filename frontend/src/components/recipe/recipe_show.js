@@ -7,6 +7,7 @@ import ReviewIndexContainer from "../review/review_index_container";
 
 class RecipeShow extends React.Component {
   componentDidMount() {
+    debugger;
     this.props.receiveListing(this.props.match.params.listingId);
   }
   componentDidUpdate() {
