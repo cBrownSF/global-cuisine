@@ -7,24 +7,32 @@ class ReviewIndex extends React.Component {
     
   // }
   componentDidMount() {
-    this.props.receiveReviews()
+    this.props.getListingReviews(this.props.listingId)
   }
 
   render(){
-    const { reviews, listing_id, user_id } = this.props
+    if (!this.props.reviews) return null;
+    const { reviews, listingId, userId, deleteReview } = this.props
+   
     return (
-        <div className="reviews-list-class">
-            <div className="title-of-all-reviews">
-            <h1>Reviews</h1>
-            </div>
-            <ul>
-                {
-                    reviews.map(review => <ReviewIndexItem review={review} user_id={user_id} listing_id={listing_id}  key={review.id}/>)
-                }
-            </ul> 
-            <br/>
+      <div className="reviews-list-class">
+        <div className="title-of-all-reviews">
+          <h1>Reviews</h1>
         </div>
-        )
+        <ul>
+          {reviews.map((review) => (
+            <ReviewIndexItem
+              review={review}
+              userId={userId}
+              listingId={listingId}
+              deleteReview={deleteReview}
+              key={review._id}
+            />
+          ))}
+        </ul>
+        <br />
+      </div>
+    );
     }
 }
 

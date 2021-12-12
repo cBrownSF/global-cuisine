@@ -66,7 +66,7 @@ router.get("/listing/:listingId", (req, res) => {
   )
 
   router.patch(
-    '/:id/update',
+    '/:id',
     passport.authenticate('jwt', {session:false}),
     (req, res) => {
         const {isValid, errors} = validateReviewInput(req.body);
@@ -88,7 +88,7 @@ router.get("/listing/:listingId", (req, res) => {
 )
 
 router.delete(
-    "/:id/delete",
+    "/:id",
     passport.authenticate('jwt', {session: false}),
     (req, res) => {
         Review.findById(req.params.id).then((review) => {

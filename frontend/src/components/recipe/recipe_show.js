@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "./recipe_show.css";
-// import CreateReviewFormContainer from '../review/review_form_create_container'
+import CreateReviewContainer from '../review/review_form_create_container';
+import ReviewIndexContainer from "../review/review_index_container";
+
 
 class RecipeShow extends React.Component {
   componentDidMount() {
@@ -74,7 +76,12 @@ class RecipeShow extends React.Component {
           </div>
         </div>
       </div>
-      <div className="bottom-show"></div>
+      <div>
+        <ReviewIndexContainer listingId={listing._id}/>
+      </div>
+      <div className="bottom-show">
+        <CreateReviewContainer listing={listing} listingId={listing._id}/>
+      </div>
     </div>
   );
   }

@@ -58,6 +58,14 @@ export const getUserReviews = id => dispatch => {
     .then(reviews => dispatch(getUserReviews(reviews)))
 }
 
+
+export const getListingReviews = listingId => dispatch => {
+   return APIUtil.getListingReviews(listingId)
+   .then(reviews => dispatch(receiveReviews(reviews)))
+
+}
+
+
 export const writeReview = data => dispatch => {
     return APIUtil.writeReview(data).then(review => {
       dispatch(receiveReview(review))},
