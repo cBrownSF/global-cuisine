@@ -1,6 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import CreateReviewFormContainer from '../review/review_form_create_container'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import CreateReviewFormContainer from '../review/review_form_create_container';
+import ReviewIndexContainer from '../review/review_index_container';
 
 class RecipeShow extends React.Component {
 
@@ -20,12 +21,11 @@ class RecipeShow extends React.Component {
     }
 
     const listing = this.props.listing
-    debugger
     return (
       <div>
         <h1>Show page</h1>
           <p><Link to={`/recipes`}>Back to Recipes</Link></p>
-          <p>{this.props.currentUser.id === listing.author_id ? <Link to={`/recipes/${listing._id}/edit`}>Edit</Link> : "    "}</p>
+          <p>{this.props.currentUser.id === listing.author_id ? <Link to={`/recipes/${listing._id}/edit`}>Edit</Link> : ""}</p>
           <ul>
             <li>{listing.name}</li>
             <li>{listing.ingredients}</li>
@@ -36,7 +36,8 @@ class RecipeShow extends React.Component {
             <li style = {{whiteSpace: 'pre-wrap'}}>{listing.instruction}</li>
             <li>{listing.picture}</li>
           </ul> 
-         <h1> <CreateReviewFormContainer listing_id={listing._id} /></h1>
+          <ReviewIndexContainer listingId={listing._id} listing={listing}/>
+         <CreateReviewFormContainer listingId={listing._id} />
       </div>
     )
   }

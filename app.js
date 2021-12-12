@@ -26,15 +26,15 @@ mongoose
   app.use("/api/reviews", reviews)
   app.use(express.static("public"));
   
-app.get("/", (req, res) => {
-  const user = new User({
-    username: "jim",
-    email: "jim@jim.com",
-    password: "jim1234"
-  })
-  user.save()
-  res.send("helloworld");
-})
+// app.get("/", (req, res) => {
+//   const user = new User({
+//     username: "jim",
+//     email: "jim@jim.com",
+//     password: "jim1234"
+//   })
+//   user.save()
+//   res.send("helloworld");
+// })
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));

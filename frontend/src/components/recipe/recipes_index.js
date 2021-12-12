@@ -2,10 +2,10 @@ import React from "react";
 import RecipeIndexItem from "./recipe_index_item";
 
 class RecipeIndex extends React.Component {
-  constructor(props) {
-    super(props)
+  // constructor(props) {
+  //   super(props)
     
-  }
+  // }
   componentDidMount() {
     this.props.receiveListings()
   }

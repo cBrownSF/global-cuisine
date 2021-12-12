@@ -4,9 +4,10 @@ import { getReviews } from '../../actions/review_actions'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        reviews: Object.values(state.entities.reviews),
-        user_id: state.session.id,
-        listing_id: ownProps.listingId
+        reviews: Object.values(state.reviews),
+        user_id: state.session.user.id,
+        listing_id: ownProps.listingId,
+        listing: ownProps.listing
         }
 }
 
