@@ -3,6 +3,8 @@ import { Link, withRouter } from "react-router-dom";
 import "./nav.css";
 import SearchContainer from "../search/search_container";
 
+
+
 class NavBar extends React.Component {
   constructor(props) {
     super(props);

@@ -28,15 +28,15 @@ mongoose
   app.use("/api/reviews", reviews)
   app.use(express.static("public"));
  
-app.get("/", (req, res) => {
-  const user = new User({
-    username: "jim",
-    email: "jim@jim.com",
-    password: "jim1234"
-  })
-  user.save()
-  res.send("helloworld");
-})
+// app.get("/", (req, res) => {
+//   const user = new User({
+//     username: "jim",
+//     email: "jim@jim.com",
+//     password: "jim1234"
+//   })
+//   user.save()
+//   res.send("helloworld");
+// })
 
 app.post('/images', upload.single('picture'), (req, res) => {
   res.send("<3")

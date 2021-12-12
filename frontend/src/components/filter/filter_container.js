@@ -4,9 +4,8 @@ import { getListings } from "../../actions/listing_actions";
 
 const mSTP = state => {
     return{
-        listings: Object.values(state.listings)
+        listings: state.listings
     }
-
 }
 
 const mDTP = dispatch => {
@@ -16,4 +15,4 @@ const mDTP = dispatch => {
 
 }
 
-export default connect(mSTP, mDTP)(Filter)
+export default connect(mSTP, mDTP)(Filter);
