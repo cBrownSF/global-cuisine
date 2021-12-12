@@ -2,15 +2,12 @@ import React from "react";
 import ReviewIndexItem from "./review_index_item";
 
 class ReviewIndex extends React.Component {
-  // constructor(props) {
-  //   super(props)
-    
-  // }
   componentDidMount() {
     this.props.receiveReviews()
   }
 
   render(){
+    if (!this.props.reviews) return null
     const { reviews, listing_id, user_id } = this.props
     return (
         <div className="reviews-list-class">

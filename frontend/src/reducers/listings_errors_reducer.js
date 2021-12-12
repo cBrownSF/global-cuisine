@@ -8,7 +8,6 @@ const ListingErrorsReducer = (oldState = _nullErrors, action) => {
       return action.errors
     case RECEIVE_LISTING:
     case REMOVE_LISTING_ERRORS:
-      debugger;
       return _nullErrors;
     default:
       return oldState;

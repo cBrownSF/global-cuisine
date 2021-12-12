@@ -1,6 +1,5 @@
 import React from "react";
 
-
 class EditRecipeForm extends React.Component {
   constructor(props) {
     super(props)
@@ -20,6 +19,7 @@ class EditRecipeForm extends React.Component {
       editId:this.props.listing._id
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
   }
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId);
@@ -35,7 +35,16 @@ class EditRecipeForm extends React.Component {
     e.preventDefault();
     this.props.submitForm(this.state);
   }
+  handleKeyPress(instruction) {
 
+    return e => {
+      if (e.key === 'Enter') {
+        this.setState({
+          [instruction]: e.currentTarget.value + '\n'
+        })
+      }
+    }
+  }
   handleInput(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -87,7 +96,7 @@ class EditRecipeForm extends React.Component {
               placeholder="Add a succinct description"
             />
             <br />
-            <textarea
+            <textarea onKeyPress={this.handleKeyPress('instruction')}
               value={this.state.instruction}
               onChange={this.handleInput('instruction')}
               placeholder="Add your instructions here"
