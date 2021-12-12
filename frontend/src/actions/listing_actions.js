@@ -80,5 +80,5 @@ export const deleteListing = id => dispatch => {
     dispatch(removeListing(id))
       hashHistory.push(`/recipe`)
     })
-
 }
+

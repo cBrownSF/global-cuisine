@@ -8,7 +8,7 @@ const RootReducer = combineReducers({
   session,
   errors,
   listings,
-  reviews
+  reviews,
 });
 
 export default RootReducer;

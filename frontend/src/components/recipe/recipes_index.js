@@ -16,14 +16,11 @@ class RecipeIndex extends React.Component {
 
     return (
       <div className="all">
-        {Array.map(listing => (
-          <RecipeIndexItem
-            listing={listing}
-            key={listing._id}
-          />
+        {Array.map((listing) => (
+          <RecipeIndexItem listing={listing} key={listing._id} />
         ))}
       </div>
-    )
+    );
   }
 }
 

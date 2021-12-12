@@ -31,7 +31,7 @@ router.get("/", (req, res) => {
 
 router.get("/listing/:listingId", (req, res) => {
     Review
-    .find({ listingId: req.params.listingId })
+    .find({ listing_id: req.params.listingId })
     .then(reviews => res.json(reviews))
     .catch(err => res.status(400).json(err));
 })
@@ -45,7 +45,7 @@ router.get("/listing/:listingId", (req, res) => {
 // })
 
   
-  router.post("/", 
+  router.post("/:listingId", 
       passport.authenticate("jwt", {session: false}),
       (req, res) => {
           const {isValid, errors} = validateReviewInput(req.body);

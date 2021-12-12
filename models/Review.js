@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ReviewSchema = new Schema({
-  authorId: {
+  author_id: {
     type:  Schema.Types.ObjectId,
     ref: 'users'
   },
-  listingId: {
+  listing_id: {
     type: Schema.Types.ObjectId,
     ref: 'listings'
   },
