@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import SearchContainer from "../search/search_container";
 import "./nav.css";
 
 class NavBar extends React.Component {
@@ -62,6 +63,7 @@ class NavBar extends React.Component {
           <div className="homelink-global"><Link to="/"><p className="text-global">Global Cuisine</p></Link></div>
         </div>
         <div>{this.getLinks()}</div>
+        <SearchContainer />
       </div>
     );
   }
