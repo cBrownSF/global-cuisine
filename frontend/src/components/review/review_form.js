@@ -2,7 +2,6 @@ import React from 'react';
 // import { withRouter } from 'react-router';
 class ReviewForm extends React.Component {
   constructor(props) {
-
     super(props);
     this.state = this.props.review;
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -13,25 +12,26 @@ class ReviewForm extends React.Component {
     const review = Object.assign({}, this.state, {
       listing_id
     });
- 
+
     if (this.props.currentUser && this.props.currentUser.id !== this.props.listing.author_id) {
-   
+
       this.props.submitReview(review)
       // .then(() => this.props.history.push("/"));
     }
   }
+
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value })
   }
   render() {
     
-    if (!this.props.review) return null
+    if (!this.props.listing) return null
     return (
       <div className="Main-Review-Form">
         <h3>Leave a review</h3>
         <form onSubmit={this.handleSubmit}>
           <br />
-          <p>{this.props.review.reviewer_name}</p>
+          {/* <p>{this.props.review.reviewer_name}</p> */}
           <label>Review
             <textarea
               value={this.state.review}

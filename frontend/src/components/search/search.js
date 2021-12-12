@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 // import { withRouter } from "react-router";
-import { Link } from "react-router-dom";
+
 import "./search.css";
 import { hashHistory } from "react-router";
 
 function Search(props) {
-  debugger;
+ 
   useEffect(() => {
     props.getListings();
   }, []);

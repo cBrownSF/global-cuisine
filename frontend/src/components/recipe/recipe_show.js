@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CreateReviewFormContainer from '../review/review_form_create_container';
 import ReviewIndexContainer from '../review/review_index_container';
-import SearchContainer from "../search/search_container";
+import SearchContainer from '../review/review_index_container';
 class RecipeShow extends React.Component {
   componentDidMount() {
 
@@ -10,16 +10,17 @@ class RecipeShow extends React.Component {
   }
   componentDidUpdate() {
     if (!this.props.listing) {
-   
+   debugger;
       this.props.receiveListing(this.props.match.params.listingId);
     }
   }
   render() {
+  
     if (!this.props.listing) {
       return null;
     }
     const listing = this.props.listing
-    
+ 
     return (
       <div>
         <h1>Show page</h1>
