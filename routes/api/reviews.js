@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 
   router.get("/:id", (req, res) => {
     Review
-      .findById(req.params.id)
+      .findById(req.body.id)
       .then((review) => res.json(review))
       .catch((err) => res.status(404).json({ noreviewfound: "No review found with that Id" }));
   });
@@ -45,7 +45,7 @@ router.get("/listing/:listingId", (req, res) => {
 // })
 
   
-  router.post("/", 
+  router.post("/:listingId", 
       passport.authenticate("jwt", {session: false}),
       (req, res) => {
           const {isValid, errors} = validateReviewInput(req.body);
@@ -54,8 +54,8 @@ router.get("/listing/:listingId", (req, res) => {
               return res.status(400).json(errors);
           }
           const newReview = new Review({
-              author_id: req.user.id,
-              listing_id: req.body.listingId,
+              authorId: req.user.id,
+              listingId: req.params.listingId,
               reviewer_name: req.body.reviewer_name,
               score: req.body.score,
               review: req.body.review

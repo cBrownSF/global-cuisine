@@ -2,10 +2,10 @@ import React from 'react';
 
 
 
-const ReviewIndexItem = ({ review,  listing_id, listing}) => {
+const ReviewIndexItem = ({ review,  listingId, listing}) => {
     return (
         <div>
-            {listing.id !== review.listing_id ? (
+            {listingId !== review.listingId ? (
                 ""
             ) : (
             <div className="review-index-items">
