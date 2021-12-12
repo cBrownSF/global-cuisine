@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CreateReviewFormContainer from '../review/review_form_create_container';
 import ReviewIndexContainer from '../review/review_index_container';
+import SearchContainer from '../search/search_container';
 class RecipeShow extends React.Component {
   componentDidMount() {
+    debugger;
     this.props.receiveListing(this.props.match.params.listingId);
   }
   componentDidUpdate() {
@@ -33,6 +35,7 @@ class RecipeShow extends React.Component {
         </ul>
         <ReviewIndexContainer listingId={listing._id}/>
         <CreateReviewFormContainer listingId={listing._id} />
+        <SearchContainer />
       </div>
     )
   }
