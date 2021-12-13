@@ -56,6 +56,18 @@ class CreateRecipeForm extends React.Component {
   //     fileReader.readAsDataURL(file);
   //   }
   // }
+  renderErrors() {
+    debugger;
+    return (
+      <ul>
+        {Object.values(this.props.errors).map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    )
+  }
   render() {
     if (this.props.listing === undefined) {
       return null;
@@ -70,28 +82,31 @@ class CreateRecipeForm extends React.Component {
               value={this.state.title}
               onChange={this.handleInput("title")}
               placeholder="title of recipe"
-            />
+            />Name your recipe
             <br />
             <input
+              onKeyPress={this.handleKeyPress("ingredients")}
               type="text"
               value={this.state.ingredients}
               onChange={this.handleInput("ingredients")}
               placeholder="ingredients"
-            />
+            />Add the ingredients
+            <p>Hit return to separate ingredients!</p>
+
             <br />
             <input
               type="text"
               value={this.state.servings}
               onChange={this.handleInput("servings")}
-              placeholder="how many servings"
-            />
+              // placeholder="how many servings"
+            />Serving Size
             <br />
             <input
               type="text"
               value={this.state.picture}
               onChange={this.handleInput("picture")}
-              placeholder="Add a picture"
-            />
+              // placeholder="Add a picture"
+            />Upload a photo!
             <br />
             <input
               type="text"
@@ -138,6 +153,7 @@ class CreateRecipeForm extends React.Component {
             </label>
             <br />
             <input type="submit" value="Submit" />
+            {this.renderErrors()}
           </div>
         </form>
       </div>

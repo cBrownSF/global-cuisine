@@ -7,7 +7,7 @@ class EditRecipeForm extends React.Component {
 
     const listing = this.props.listing
     this.state = {
-      name: listing.name,
+      name: this.props.currentUser.username,
       author_id: this.props.currentUser.id,
       ingredients: listing.ingredients,
       instruction: listing.instruction,
@@ -58,6 +58,7 @@ class EditRecipeForm extends React.Component {
     if (!this.props.listing) {
       return null;
     }
+    console.log(this.props.currentUser)
     return (
       <div>
         {/* <p> <Link to={`/listings/${listing.id}/edit`}>Edit</Link></p> */}
@@ -89,9 +90,8 @@ class EditRecipeForm extends React.Component {
             />
             <br />
             <input type="text"
-              value={this.state.name}
+              value={this.props.currentUser.username}
               onChange={this.handleInput('name')}
-              placeholder="your name"
             />
             <br />
             <input type="text"
