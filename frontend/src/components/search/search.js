@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-// import { withRouter } from "react-router";
 import "./search.css";
 import { hashHistory } from "react-router";
-
 function Search(props) {
   useEffect(() => {
     props.getListings();
   }, []);
+  if (!props.listings) return null;
+  const { listings } = props;
   const [filteredListing, setFilteredListing] = useState([]);
   const [inputWord, setInputWord] = useState("");
   const handleChange = (event) => {
@@ -29,7 +29,6 @@ function Search(props) {
     hashHistory.push(`/recipes/${listingId}`);
     clearField();
   };
-  const { listings } = props;
   return (
     <div className="search">
       <div className="searchInputs">
@@ -51,13 +50,6 @@ function Search(props) {
         <div className="listingResult">
           {filteredListing.slice(0, 5).map((listing) => {
             return (
-              // <Link to={`/recipes/${listing._id}`}
-              //   className="dataItem"
-                // onClick={() => clearListingShow(listing._id)}
-              //   key={listing._id}
-              // >
-              //   <p>{listing.title}</p>
-              // </Link>
               <div
                 className="dataItem"
                 onClick={() => clearListingShow(listing._id)}
@@ -72,5 +64,4 @@ function Search(props) {
     </div>
   );
 }
-
 export default Search;

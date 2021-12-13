@@ -1,36 +1,32 @@
 import React from "react";
 import FilterList from "./filter_list";
-import "./filter.css"
-
-export default class Filter extends React.Component{
-
-  constructor(props){
-    super(props)
+import "./filter.css";
+export default class Filter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listings: Object.values(this.props.listings),
+      listingsCopy: [],
+    };
     this.handleBtns = this.handleBtns.bind(this);
-     this.state = {
-       listings: Object.values(this.props.listings),
-       listingsCopy: []
-     }
   }
-
   handleBtns = (e) => {
-    console.log(e.target.value);
     let listingsCopy;
-    if(e.target.value === "All"){
-      listingsCopy = this.state.listings
-    }else{
-      listingsCopy = this.state.listings.filter(listing => listing.country === e.target.value)
+    if (e.target.value === "All") {
+      listingsCopy = this.props.listings;
+    } else {
+      listingsCopy = this.props.listings.filter(
+        (listing) => listing.country === e.target.value
+      );
     }
     this.setState({
       listingsCopy: listingsCopy,
     });
+  };
+  componentDidMount() {
+    this.props.getListings();
   }
-
-  componentDidMount(){
-    this.props.getListings()
-  }
-
-  render(){
+  render() {
     return (
       <div>
         <div className="btns">
@@ -55,5 +51,4 @@ export default class Filter extends React.Component{
       </div>
     );
   }
-
 }

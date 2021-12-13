@@ -1,9 +1,15 @@
 import React from "react";
-
-export default function FilterList({listing}){
+import { hashHistory } from "react-router";
+export default function FilterList({ listing }) {
   return (
     <div>
-      <div className="single">{listing.title}</div>
+      <button
+        onClick={() => hashHistory.push(`/recipes/${listing._id}`)}
+        className="single"
+      >
+        {listing.title}
+      </button>
     </div>
   );
 }
+
