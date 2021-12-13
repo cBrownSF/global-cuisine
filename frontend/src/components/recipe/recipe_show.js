@@ -7,6 +7,7 @@ import ReviewIndexContainer from "../review/review_index_container";
 
 class RecipeShow extends React.Component {
   componentDidMount() {
+    console.log(this.props)
     this.props.receiveListing(this.props.match.params.listingId);
   }
   componentDidUpdate() {
@@ -19,7 +20,6 @@ class RecipeShow extends React.Component {
       return null;
     }
     const listing = this.props.listing
- 
   return (
     <div>
       <div className="right-left">
