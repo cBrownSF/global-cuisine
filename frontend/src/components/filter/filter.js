@@ -29,7 +29,7 @@ export default class Filter extends React.Component{
   }
   render() {
     return (
-      <div>
+      <div className="filter-index">
         <div className="btns">
           <button value="All" onClick={this.handleBtns}>
             All
@@ -44,7 +44,7 @@ export default class Filter extends React.Component{
             Italy
           </button>
         </div>
-        <div>
+        <div className="filter-recipes">
           {this.state.listingsCopy.map((listing) => (
             <FilterList listing={listing} key={listing._id + 12} />
           ))}
