@@ -21,9 +21,9 @@ class CreateRecipeForm extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  componentDidMount() {
-    this.props.clearErrors();
-  }
+  // componentDidMount() {
+  //   this.props.clearErrors();
+  // }
 
   handleKeyPress(instruction) {
     return (e) => {
@@ -58,6 +58,7 @@ class CreateRecipeForm extends React.Component {
   //   }
   // }
   render() {
+    debugger;
     if (this.props.listing === undefined) {
       return null;
     }

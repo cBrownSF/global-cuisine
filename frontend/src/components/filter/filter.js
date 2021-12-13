@@ -6,21 +6,21 @@ export default class Filter extends React.Component{
 
   constructor(props){
     super(props)
-    debugger;
+  
+    this.state = {
+      listings: Object.values(this.props.listings),
+      listingsCopy: []
+    }
     this.handleBtns = this.handleBtns.bind(this);
-     this.state = {
-       listings: Object.values(this.props.listings),
-       listingsCopy: []
-     }
   }
 
   handleBtns = (e) => {
-    console.log(e.target.value);
     let listingsCopy;
     if(e.target.value === "All"){
-      listingsCopy = this.state.listings
+      listingsCopy = this.props.listings
     }else{
-      listingsCopy = this.state.listings.filter(listing => listing.country === e.target.value)
+      debugger;
+      listingsCopy = this.props.listings.filter(listing => listing.country === e.target.value)
     }
     this.setState({
       listingsCopy: listingsCopy,
@@ -28,7 +28,6 @@ export default class Filter extends React.Component{
   }
 
   componentDidMount(){
-    debugger;
     this.props.getListings()
   }
 
@@ -51,7 +50,7 @@ export default class Filter extends React.Component{
         </div>
         <div>
           {this.state.listingsCopy.map((listing) => (
-            <FilterList listing={listing} key={listing._id + 12} />
+            <FilterList listing={listing} key={listing._id + 12} onClick = {() =>console.log('hello')}/>
           ))}
         </div>
       </div>
