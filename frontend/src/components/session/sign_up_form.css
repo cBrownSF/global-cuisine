@@ -27,18 +27,19 @@
   width: 250px;
 }
 .login-container #form-boxes{
+  
   font-family: inherit;
   color:grey;
   margin: 5px;
   padding: 12px;
-    margin-top:20px;
-   margin: 10px;
+  /* margin-top:20px; */
+  
    border-color:black;
-   border-width:thin;
+   border-width:.1px;
    width: 200px;
    height:35px;
    line-height: 1.5;
-    font-size: 16px
+  font-size: 16px
 }
 .submit-button{
    font-family: inherit;
@@ -49,8 +50,11 @@
    outline:none;
    border: .1px;
    font-size: 16px;
-   width: 225px;
+   width: 230px;
    height:50px;
-   margin:10px;
+   margin-top:5x;
+   margin-right:5px;
+   margin-left:4px;
+
    cursor:pointer;
 }
