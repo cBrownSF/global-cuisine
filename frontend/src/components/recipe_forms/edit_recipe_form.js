@@ -90,21 +90,21 @@ class EditRecipeForm extends React.Component {
             />
             <br />
             <input type="text"
-              value={this.props.currentUser.username}
+              value={this.state.name}
               onChange={this.handleInput('name')}
-            />
+            />Your Name(Feel free to edit!)
             <br />
             <input type="text"
               value={this.state.details}
               onChange={this.handleInput('details')}
               placeholder="Add a succinct description"
-            />
+            />Add a blurb about your recipe
             <br />
             <textarea onKeyPress={this.handleKeyPress('instruction')}
               value={this.state.instruction}
               onChange={this.handleInput('instruction')}
               placeholder="Add your instructions here"
-            />
+            />Add the instructions
             <br />
             <label>Country
               <select value={this.state.country} onChange={this.handleInput('country')}>
