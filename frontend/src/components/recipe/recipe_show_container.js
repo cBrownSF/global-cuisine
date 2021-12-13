@@ -2,7 +2,6 @@ import { getListing, deleteListing } from "../../actions/listing_actions"
 import { connect } from "react-redux"
 import RecipeShow from './recipe_show'
 const mapStateToProps = (state, ownProps) => {
-  
   return {
     
     currentUser: state.session.user,
