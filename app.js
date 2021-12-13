@@ -12,6 +12,7 @@ const reviews = require("./routes/api/reviews")
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const Listing = require("./models/Listing");
+const likes = require("./routes/api/likes")
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -26,6 +27,7 @@ mongoose
   app.use("/api/users", users)
   app.use("/api/listings", listings)
   app.use("/api/reviews", reviews)
+  app.use("/api/likes", likes)
   app.use(express.static("public"));
  
 // app.get("/", (req, res) => {
