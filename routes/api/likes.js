@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 
   router.get("/:id", (req, res) => {
     Like
-      .findById(req.body.id)
+      .findById(req.params.id)
       .then((like) => res.json(like))
       .catch((err) => res.status(404).json({ nolikefound: "No like found with that Id" }));
   });
@@ -45,7 +45,7 @@ router.get("/listing/:listingId", (req, res) => {
 // })
 
   
-  router.post("/:listingId", 
+  router.post("/listing/:listingId", 
       passport.authenticate("jwt", {session: false}),
       (req, res) => {
           const newLike = new Like({
