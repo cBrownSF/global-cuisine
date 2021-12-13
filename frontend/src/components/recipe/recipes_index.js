@@ -5,6 +5,7 @@ import "./recipe_index.css";
 class RecipeIndex extends React.Component {
 
   componentDidMount() {
+    debugger;
     this.props.receiveListings()
   }
 
@@ -13,7 +14,7 @@ class RecipeIndex extends React.Component {
     //   return null;
     // }
     const Array = Object.values(this.props.listings)
-
+    debugger;
     return (
       <div className="all">
         {Array.map((listing) => (

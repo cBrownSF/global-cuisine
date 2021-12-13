@@ -19,7 +19,6 @@ export default class Filter extends React.Component{
     if(e.target.value === "All"){
       listingsCopy = this.props.listings
     }else{
-      debugger;
       listingsCopy = this.props.listings.filter(listing => listing.country === e.target.value)
     }
     this.setState({

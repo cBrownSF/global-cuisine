@@ -7,8 +7,13 @@ function Search(props) {
   useEffect(() => {
     props.getListings();
   }, []);
+ 
+  if (!props.listings) return null
+  console.log(props.listing)
+  const { listings } = props;
   const [filteredListing, setFilteredListing] = useState([]);
   const [inputWord, setInputWord] = useState("");
+
   const handleChange = (event) => {
     const wordEntered = event.target.value;
     setInputWord(wordEntered);
@@ -29,7 +34,7 @@ function Search(props) {
     hashHistory.push(`/recipes/${listingId}`);
     clearField();
   };
-  const { listings } = props;
+  
   return (
     <div className="search">
       <div className="searchInputs">
@@ -71,6 +76,6 @@ function Search(props) {
       )}
     </div>
   );
+return "hello"
 }
-
 export default Search;

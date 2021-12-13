@@ -58,7 +58,6 @@ class CreateRecipeForm extends React.Component {
   //   }
   // }
   render() {
-    debugger;
     if (this.props.listing === undefined) {
       return null;
     }
