@@ -1,6 +1,6 @@
 const express = require("express");
-// const multer = require('multer');
-// const upload = multer({dest: 'uploads/'})
+const multer = require('multer');
+const upload = multer({dest: 'uploads/'})
 const app = express();
 const path = require('path');
 const mongoose = require("mongoose");
@@ -38,9 +38,9 @@ mongoose
 //   res.send("helloworld");
 // })
 
-// app.post('/images', upload.single('picture'), (req, res) => {
-//   res.send("<3")
-// })
+app.post('/images', upload.single('picture'), (req, res) => {
+  res.send("<3")
+})
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
@@ -48,6 +48,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
   });
 }
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
