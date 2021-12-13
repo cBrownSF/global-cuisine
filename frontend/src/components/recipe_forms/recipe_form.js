@@ -1,4 +1,5 @@
 import React from "react";
+import "./create_form.css"
 
 class CreateRecipeForm extends React.Component {
   constructor(props) {
@@ -23,12 +24,12 @@ class CreateRecipeForm extends React.Component {
   componentDidMount() {
     this.props.clearErrors();
   }
-
-  handleKeyPress(instruction) {
+  
+  handleKeyPress(field) {
     return (e) => {
       if (e.key === "Enter") {
         this.setState({
-          [instruction]: e.currentTarget.value + "\n",
+          [field]: e.currentTarget.value + "\n",
         });
       }
     };
@@ -57,7 +58,6 @@ class CreateRecipeForm extends React.Component {
   //   }
   // }
   renderErrors() {
-    debugger;
     return (
       <ul>
         {Object.values(this.props.errors).map((error, i) => (
@@ -73,18 +73,19 @@ class CreateRecipeForm extends React.Component {
       return null;
     }
     return (
-      <div>
+      <div className="create-form-container">
         <form onSubmit={this.handleSubmit}>
           <div>
+        <h1 id="title">Add your own recipe</h1>
             <br />
-            <input
+            <input id="create-form-box"
               type="text"
               value={this.state.title}
               onChange={this.handleInput("title")}
               placeholder="title of recipe"
             />Name your recipe
             <br />
-            <input
+            <input id="create-form-box"
               onKeyPress={this.handleKeyPress("ingredients")}
               type="text"
               value={this.state.ingredients}
@@ -94,35 +95,35 @@ class CreateRecipeForm extends React.Component {
             <p>Hit return to separate ingredients!</p>
 
             <br />
-            <input
+            <input id="create-form-box"
               type="text"
               value={this.state.servings}
               onChange={this.handleInput("servings")}
               // placeholder="how many servings"
             />Serving Size
             <br />
-            <input
+            <input id="create-form-box"
               type="text"
               value={this.state.picture}
               onChange={this.handleInput("picture")}
               // placeholder="Add a picture"
             />Upload a photo!
             <br />
-            <input
+            <input id="create-form-box"
               type="text"
               value={this.state.name}
               onChange={this.handleInput("name")}
               placeholder="your name"
             />Your Name(Feel free to edit!)
             <br />
-            <input
+            <input id="create-form-box"
               type="text"
               value={this.state.details}
               onChange={this.handleInput("details")}
               placeholder="Add a succinct description"
             />Add a blurb for your recipe
             <br />
-            <textarea
+            <textarea id="create-form-box"
               onKeyPress={this.handleKeyPress("instruction")}
               value={this.state.instruction}
               onChange={this.handleInput("instruction")}

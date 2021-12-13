@@ -24,7 +24,8 @@ class EditRecipeForm extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this)
   }
   componentDidMount() {
-    this.props.receiveListing(this.props.match.params.listingId);
+    this.props.receiveListing(this.props.match.params.listingId)
+    this.props.clearErrors();
   }
 
   componentDidUpdate() {
@@ -39,12 +40,12 @@ class EditRecipeForm extends React.Component {
       .submitForm(this.state)
       .then(this.props.history.push("/"));
   }
-  handleKeyPress(instruction) {
+  handleKeyPress(field) {
 
     return e => {
       if (e.key === 'Enter') {
         this.setState({
-          [instruction]: e.currentTarget.value + '\n'
+          [field]: e.currentTarget.value + '\n'
         })
       }
     }
@@ -54,6 +55,17 @@ class EditRecipeForm extends React.Component {
       [field]: e.currentTarget.value
     });
   }
+  renderErrors() {
+    return (
+      <ul>
+        {Object.values(this.props.errors).map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    )
+  }
   render() {
     if (!this.props.listing) {
       return null;
@@ -61,7 +73,7 @@ class EditRecipeForm extends React.Component {
     console.log(this.props.currentUser)
     return (
       <div>
-        {/* <p> <Link to={`/listings/${listing.id}/edit`}>Edit</Link></p> */}
+          <h1>Update your recipe</h1>
         <form onSubmit={this.handleSubmit}>
           <div>
             <br />
@@ -71,7 +83,8 @@ class EditRecipeForm extends React.Component {
               placeholder="title of recipe"
             />
             <br />
-            <input type="text"
+            <input onKeyPress={this.handleKeyPress('ingredients')}
+              type="text"
               value={this.state.ingredients}
               onChange={this.handleInput('ingredients')}
               placeholder="ingredients"
@@ -92,19 +105,19 @@ class EditRecipeForm extends React.Component {
             <input type="text"
               value={this.state.name}
               onChange={this.handleInput('name')}
-            />Your Name(Feel free to edit!)
+            />Your Name
             <br />
             <input type="text"
               value={this.state.details}
               onChange={this.handleInput('details')}
               placeholder="Add a succinct description"
-            />Add a blurb about your recipe
+            />Edit your blurb 
             <br />
             <textarea onKeyPress={this.handleKeyPress('instruction')}
               value={this.state.instruction}
               onChange={this.handleInput('instruction')}
               placeholder="Add your instructions here"
-            />Add the instructions
+            />Update the instructions
             <br />
             <label>Country
               <select value={this.state.country} onChange={this.handleInput('country')}>
@@ -123,6 +136,7 @@ class EditRecipeForm extends React.Component {
             <br />
             <button onClick={() => this.props.deleteListing(this.props.listing._id)}>delete listing</button>
             <input type="submit" value="Submit" />
+            {this.renderErrors()}
           </div>
         </form>
       </div>
