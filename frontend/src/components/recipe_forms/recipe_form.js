@@ -1,9 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-// import { Link, withRouter } from "react-router-dom";
-=======
-
->>>>>>> 7d9cfcfa99f995bb547b330d2718e28293aa484d
 
 class CreateRecipeForm extends React.Component {
   constructor(props) {

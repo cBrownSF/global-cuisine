@@ -1,13 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-import CreateReviewFormContainer from '../review/review_form_create_container';
-import ReviewIndexContainer from '../review/review_index_container';
-=======
 import "./recipe_show.css";
 import CreateReviewContainer from '../review/review_form_create_container';
 import ReviewIndexContainer from "../review/review_index_container";
->>>>>>> 7d9cfcfa99f995bb547b330d2718e28293aa484d
 
 
 class RecipeShow extends React.Component {

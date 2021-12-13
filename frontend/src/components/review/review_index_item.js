@@ -24,7 +24,7 @@ const ReviewIndexItem = ({ review, listingId, userId, deleteReview }) => {
             </div>
             <div>
                 {
-                    userId === review.user_id ? (<div><button onClick={() => deleteReview(review._id)}>Delete Review</button></div>) : ""
+                    userId === review.user_id ? (<div><button onClick={() => deleteReview(review._id)}>Delete Review</button></div>) : ("")
                 }
             </div>
             )}
