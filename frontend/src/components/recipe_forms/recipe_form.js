@@ -5,7 +5,7 @@ class CreateRecipeForm extends React.Component {
     super(props);
 
     this.state = {
-      name: "",
+      name: this.props.currentUser.username,
       author_id: this.props.currentUser.id,
       ingredients: "",
       instruction: "",
@@ -113,21 +113,21 @@ class CreateRecipeForm extends React.Component {
               value={this.state.name}
               onChange={this.handleInput("name")}
               placeholder="your name"
-            />
+            />Your Name(Feel free to edit!)
             <br />
             <input
               type="text"
               value={this.state.details}
               onChange={this.handleInput("details")}
               placeholder="Add a succinct description"
-            />
+            />Add a blurb for your recipe
             <br />
             <textarea
               onKeyPress={this.handleKeyPress("instruction")}
               value={this.state.instruction}
               onChange={this.handleInput("instruction")}
               placeholder="Add your instructions here"
-            />
+            />Add your instructions!
             <br />
             <label>
               Country
