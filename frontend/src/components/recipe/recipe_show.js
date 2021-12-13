@@ -20,7 +20,6 @@ class RecipeShow extends React.Component {
       return null;
     }
     const listing = this.props.listing
- console.log(this.props)
   return (
     <div>
       <div className="right-left">
