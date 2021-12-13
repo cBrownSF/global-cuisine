@@ -7,9 +7,9 @@ function Search(props) {
   useEffect(() => {
     props.getListings();
   }, []);
- 
+
   if (!props.listings) return null
-  console.log(props.listing)
+  
   const { listings } = props;
   const [filteredListing, setFilteredListing] = useState([]);
   const [inputWord, setInputWord] = useState("");

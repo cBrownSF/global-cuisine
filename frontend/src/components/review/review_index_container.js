@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
         listingId: ownProps.listingId
         }
 }
-
+ 
 const mapDispatchToProps = (dispatch) => ({
   getListingReviews: (listingId) => dispatch(getListingReviews(listingId)),
   deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
