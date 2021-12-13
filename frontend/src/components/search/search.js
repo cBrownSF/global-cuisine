@@ -67,6 +67,6 @@ function Search(props) {
       )}
     </div>
   );
-return "hello"
+
 }
 export default Search;
