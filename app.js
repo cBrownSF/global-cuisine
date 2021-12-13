@@ -27,7 +27,7 @@ mongoose
   app.use("/api/users", users)
   app.use("/api/listings", listings)
   app.use("/api/reviews", reviews)
-  app.use("/api/likes")
+  app.use("/api/likes", likes)
   app.use(express.static("public"));
  
 // app.get("/", (req, res) => {

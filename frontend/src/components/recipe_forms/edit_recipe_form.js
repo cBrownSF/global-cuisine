@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-
-=======
 import { withRouter } from "react-router-dom";
->>>>>>> 7d9cfcfa99f995bb547b330d2718e28293aa484d
 
 class EditRecipeForm extends React.Component {
   constructor(props) {

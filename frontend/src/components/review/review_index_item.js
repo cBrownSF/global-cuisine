@@ -5,9 +5,6 @@ import React from 'react';
 const ReviewIndexItem = ({ review, listingId, userId, deleteReview }) => {
     return (
         <div>
-            {listingId !== review.listingId ? (
-                ""
-            ) : (
             <div className="review-index-items">
                 {listingId !== review.listing_id ? "" : 
                     <div className="review-index-item">
@@ -24,14 +21,36 @@ const ReviewIndexItem = ({ review, listingId, userId, deleteReview }) => {
             </div>
             <div>
                 {
-                    userId === review.user_id ? (<div><button onClick={() => deleteReview(review._id)}>Delete Review</button></div>) : ("")
+                    userId === review.user_id ? (<div><button onClick={() => deleteReview(review._id)}>Delete Review</button></div>) : ""
                 }
             </div>
-            )}
         </div>
     )
 }
+
 export default ReviewIndexItem
+
+// const ReviewIndexItem = ({ review }) => {
+//     return (
+//         <div>
+//             <div className="review-index-items">
+//                 <li> 
+//                     <div className="review-index-item">
+//                         <div className="review-title">
+//                             <p>{review.review}</p>
+//                         </div>
+//                         <br/>
+//                         <div className="review-score">
+//                             <p>{review.score}</p>
+//                         </div>
+//                     <br/>
+//                     </div>
+//                 </li>
+//             </div>
+//         </div>
+//     )
+// }
+// export default ReviewIndexItem
 
 // import React from 'react';class ReviewIndexItem extends React.Component{
 //     constructor(props){
