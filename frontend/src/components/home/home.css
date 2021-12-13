@@ -1,6 +1,6 @@
 .outer-div-home{
   background-image: url(https://global-cuisine.s3.us-west-1.amazonaws.com/bkg2.jpeg);
-  height: 100vh;
+  height: 150vh;
   width: 100vw;
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,17 +26,19 @@
 
 .home-phase{
     font-size: 50px;
+    position: relative;
+    left: 33%;
 }
 
 .below-home-phase{
-    font-size: 34px;
+    font-size: 37px;
     position: relative;
-    left: 25%;
+    left: 42%;
 }
-
 
 .detail-home{
     position: relative;
-    top: 3%;
+    top: 10%;
 }
+
 
