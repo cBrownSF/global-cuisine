@@ -55,7 +55,7 @@ export const getListing = id => dispatch => {
 
 export const getUserListings = id => dispatch => {
     return APIUtil.getUserListings(id)
-    .then(listings => dispatch(getUserListings(listings)))
+    .then(listings => dispatch(receiveListings(listings)))
 }
 
 export const writeListing = data => dispatch => {
@@ -78,7 +78,7 @@ export const deleteListing = id => dispatch => {
     return APIUtil.deleteListing(id)
     .then(() => {
     dispatch(removeListing(id))
-      hashHistory.push(`/recipe`)
+      hashHistory.push(`/profile`)
     })
 }
 
