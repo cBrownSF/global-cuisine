@@ -91,11 +91,9 @@ router.delete(
     "/:id",
     passport.authenticate('jwt', {session: false}),
     (req, res) => {
-        Review.findById(req.params.id).then((review) => {
-                review.deleteOne({_id: req.params.id}).then(() => {
+                Review.deleteOne({_id: req.params.id}).then(() => {
                     return res.status(200).json({success: "Successfully deleted"})
                 })
-        })
     }
 )
 

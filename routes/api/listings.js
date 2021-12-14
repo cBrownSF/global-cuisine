@@ -89,12 +89,11 @@ router.delete(
     "/:id/delete",
     passport.authenticate('jwt', {session: false}),
     (req, res) => {
-        Listing.findById(req.params.id).then((listing) => {
-                listing.deleteOne({_id: req.params.id}).then(() => {
-                    return res.status(200).json({success: "Successfully deleted"})
-                })
-        })
-    }
+                
+        Listing.deleteOne({_id: req.params.id}).then(() => {
+            return res.status(200).json({success: "Successfully deleted"})
+         })
+     }
 )
 
 

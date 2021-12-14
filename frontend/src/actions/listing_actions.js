@@ -78,7 +78,7 @@ export const deleteListing = id => dispatch => {
     return APIUtil.deleteListing(id)
     .then(() => {
     dispatch(removeListing(id))
-      hashHistory.push(`/recipe`)
+      hashHistory.push(`/profile`)
     })
 }
 
