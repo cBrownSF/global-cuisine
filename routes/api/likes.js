@@ -62,11 +62,9 @@ router.delete(
     "/:id",
     passport.authenticate('jwt', {session: false}),
     (req, res) => {
-        Like.findById(req.params.id).then((like) => {
-                like.deleteOne({_id: req.params.id}).then(() => {
+                Like.deleteOne({_id: req.params.id}).then(() => {
                     return res.status(200).json({success: "Successfully unliked"})
                 })
-        })
     }
 )
 

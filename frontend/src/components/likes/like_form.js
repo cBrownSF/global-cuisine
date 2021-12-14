@@ -6,7 +6,6 @@ class LikeForm extends React.Component {
     this.state = this.props.like;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
-
   }
 
   handleSubmit(e) {
