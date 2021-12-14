@@ -34,12 +34,12 @@ class EditRecipeForm extends React.Component {
     }
   }
 
+
   handleSubmit(e) {
     e.preventDefault();
-    this.props
-      .submitForm(this.state)
-      .then(this.props.history.push("/"));
-  }
+    this.props.submitForm(this.state);
+    }
+  
   handleKeyPress(field) {
 
     return e => {
