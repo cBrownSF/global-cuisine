@@ -17,14 +17,14 @@ router.get("/", (req, res) => {
 
   router.get("/:id", (req, res) => {
     Like
-      .findById(req.body.id)
+      .findById(req.params.id)
       .then((like) => res.json(like))
       .catch((err) => res.status(404).json({ nolikefound: "No like found with that Id" }));
   });
 
   router.get("/user/:userId", (req, res) => {
     Like
-    .find({ userId: req.params.userId })
+    .find({ liker_id: req.params.userId })
     .then(likes => res.json(likes))
     .catch((err) => res.status(404).json({ nolikesfound: "This user has not liked any recipes" }));
 })
@@ -45,9 +45,10 @@ router.get("/listing/:listingId", (req, res) => {
 // })
 
   
-  router.post("/:listingId", 
+  router.post("/listing/:listingId", 
       passport.authenticate("jwt", {session: false}),
       (req, res) => {
+          debugger
           const newLike = new Like({
               liker_id: req.user.id,
               listing_id: req.body.listing_id,
