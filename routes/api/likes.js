@@ -48,6 +48,7 @@ router.get("/listing/:listingId", (req, res) => {
   router.post("/listing/:listingId", 
       passport.authenticate("jwt", {session: false}),
       (req, res) => {
+          debugger
           const newLike = new Like({
               liker_id: req.user.id,
               listing_id: req.body.listing_id,

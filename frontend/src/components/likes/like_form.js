@@ -3,7 +3,7 @@ import React from 'react';
 class LikeForm extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = this.props.review;
+    this.state = this.props.like;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
 
@@ -11,16 +11,16 @@ class LikeForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const listingId = this.props.listingId;
-    const like = Object.assign({}, this.state, {
-      listingId,
-    });
+    // const listingId = this.props.listingId;
+    const like = Object.assign({}, this.state
+      // listingId,
+    );
+    debugger
     if (
-      this.props.currentUser &&
-      this.props.currentUser.id !== this.props.listing.liker_id
+      this.props.currentUser 
     ) {
       this.props
-        .likeListing(like)
+        .submitLike(like)
         .then(this.props.removeLikeErrors());
     }
   }

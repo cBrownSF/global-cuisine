@@ -17,6 +17,7 @@ export const getListingLikes = listingId => {
   };
 
 export const likeListing = like => {
+  debugger
   return axios.post(`/api/likes/${like.listingId}`, like)
 }
 
