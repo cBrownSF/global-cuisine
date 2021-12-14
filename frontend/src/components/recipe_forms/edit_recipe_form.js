@@ -7,7 +7,7 @@ class EditRecipeForm extends React.Component {
 
     const listing = this.props.listing
     this.state = {
-      name: this.props.currentUser.username,
+      name: listing.name,
       author_id: this.props.currentUser.id,
       ingredients: listing.ingredients,
       instruction: listing.instruction,
@@ -24,8 +24,7 @@ class EditRecipeForm extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this)
   }
   componentDidMount() {
-    this.props.receiveListing(this.props.match.params.listingId)
-    this.props.clearErrors();
+    this.props.receiveListing(this.props.match.params.listingId);
   }
 
   componentDidUpdate() {
@@ -41,7 +40,6 @@ class EditRecipeForm extends React.Component {
     }
   
   handleKeyPress(field) {
-
     return e => {
       if (e.key === 'Enter') {
         this.setState({
@@ -55,22 +53,22 @@ class EditRecipeForm extends React.Component {
       [field]: e.currentTarget.value
     });
   }
-  renderErrors() {
-    return (
-      <ul>
-        {Object.values(this.props.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    )
-  }
+  // renderErrors() {
+  //   return (
+  //     <ul>
+  //       {Object.values(this.props.errors).map((error, i) => (
+  //         <li key={`error-${i}`}>
+  //           {error}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   )
+  // }
   render() {
     if (!this.props.listing) {
+      debugger;
       return null;
     }
-    console.log(this.props.currentUser)
     return (
       <div>
           <h1>Update your recipe</h1>
@@ -136,7 +134,7 @@ class EditRecipeForm extends React.Component {
             <br />
             <button onClick={() => this.props.deleteListing(this.props.listing._id)}>delete listing</button>
             <input type="submit" value="Submit" />
-            {this.renderErrors()}
+            {/* {this.renderErrors()} */}
           </div>
         </form>
       </div>

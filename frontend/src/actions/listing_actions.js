@@ -69,11 +69,8 @@ export const writeListing = data => dispatch => {
 
 export const updateListing = listing => dispatch => {
     return APIUtil.updateListing(listing).then(listing =>{
-      debugger;
-    dispatch(receiveListing(listing))
-      hashHistory.push(`/recipes/${listing.data._id}`)
-  })
-     .catch(err => (dispatch(receiveListingErrors(err.response.data)))
+    dispatch(receiveListing(listing))},
+      err => (dispatch(receiveListingErrors(err.response.data)))
       )
 }
 
