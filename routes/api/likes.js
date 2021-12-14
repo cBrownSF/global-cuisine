@@ -24,7 +24,7 @@ router.get("/", (req, res) => {
 
   router.get("/user/:userId", (req, res) => {
     Like
-    .find({ userId: req.params.userId })
+    .find({ liker_id: req.params.userId })
     .then(likes => res.json(likes))
     .catch((err) => res.status(404).json({ nolikesfound: "This user has not liked any recipes" }));
 })

@@ -1,4 +1,4 @@
-import * as APIUtil from '../util/review_api_util';
+import * as APIUtil from '../util/like_api_util';
 
 export const RECEIVE_LIKES = "RECEIVE_LIKES";
 export const RECEIVE_LIKE = "RECEIVE_LIKE"
@@ -40,7 +40,7 @@ export const receiveLikeErrors = errors => ({
 })
 
 export const removeLikeErrors = () => ({
-  type: REMOVE_Like_ERRORS
+  type: REMOVE_LIKE_ERRORS
 })
 
 export const getLikes = () => dispatch => {

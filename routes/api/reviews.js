@@ -24,7 +24,7 @@ router.get("/", (req, res) => {
 
   router.get("/user/:userId", (req, res) => {
     Review
-    .find({ userId: req.params.userId })
+    .find({ author_id: req.params.userId })
     .then(reviews => res.json(reviews))
     .catch((err) => res.status(404).json({ noreviewsfound: "This user has not created any reviews" }));
 })
