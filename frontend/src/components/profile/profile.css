@@ -1,9 +1,10 @@
 .user-recipe{
-    width: 15%;
-    height: 30vh;
+    width: 13.8vw;
+    height: 8vh;
     margin: 3%;
-    border: 4px solid gray;
     cursor: pointer;
+    position: relative;
+    left: 4vw;
 }
 
 .link-profile{
@@ -35,13 +36,17 @@
     height: 200vh;
 }
 
-.no-recipe-outer{
+
+.detail-no-recipe{
+    background-color: #c0c0c0;
+    height:60%;
+    padding: 4%;
     border: 2px solid black;
     width: 30%;
     height: 13vw;
     position: relative;
     left: 33vw;
-    top: 10vw;
+    top: 6vw;
 }
 
 .username-no-recipe{
@@ -56,12 +61,6 @@
     position: relative;
     left: 10vw;
     top: 0.5vw;
-}
-
-.detail-no-recipe{
-    background-color: #c0c0c0;
-    height:65%;
-    padding: 4%;
 }
 
 .not-detail{
@@ -94,13 +93,17 @@
 }
 
 .yes-recipe-outer{
-    border: 1px solid pink;
+    border: 2px solid black;
+    width:  25vw;
+    height: 25vw;
+    position: relative;
+    left: 10vw;
+    top: 5vw;
 
 }
 
 .profile-recipe-title-image{
     display: flex;
-    border: 2px solid yellow;
     width: 14vw;
     height: 4.07vw;
 }
@@ -110,5 +113,31 @@
     position: relative;
     left: 1.8vw;
     top: 1.7vw;
+}
 
+.your-recipe{
+    border: 1px solid yellow;
+    height: 2vw;
+    background-color: black;
+
+}
+
+.p-your-recipe{
+    color: gray;
+    position: relative;
+    left: 9vw;
+    font-size: 1.3vw;
+    top: 0.4vw;
+}
+
+.profile-username{
+    width: 20vw;
+    height: 2vw;
+    position: relative;
+    left: 40vw;
+    top: 1vw;
+}
+
+.profile-username p{
+    font-size: 2vw;
 }
