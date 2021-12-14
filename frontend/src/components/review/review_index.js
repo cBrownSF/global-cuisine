@@ -13,7 +13,7 @@ class ReviewIndex extends React.Component {
   render(){
     if (!this.props.reviews) return null;
     const { reviews, listingId, userId, deleteReview } = this.props
-   
+   debugger;
     return (
       <div className="reviews-list-class">
         <div className="title-of-all-reviews">

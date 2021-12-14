@@ -3,10 +3,10 @@ import ReviewIndex from './review_index'
 import { getListingReviews, deleteReview } from "../../actions/review_actions";
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps.listingId);
+  debugger;
     return {
         reviews: Object.values(state.reviews),
-        userId: state.session.id,
+        userId: state.session.user.id,
         listingId: ownProps.listingId
         }
 }

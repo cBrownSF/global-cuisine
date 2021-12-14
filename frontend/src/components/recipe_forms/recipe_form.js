@@ -6,7 +6,6 @@ class CreateRecipeForm extends React.Component {
 
     this.state = {
       name: "",
-      author_id: this.props.currentUser.id,
       ingredients: "",
       instruction: "",
       details: "",
