@@ -9,7 +9,7 @@ export const getListing = id => {
 }
 
 export const getUserListings = id => {
-  return axios.get(`/api/recipes/user/${id}`)
+  return axios.get(`/api/listings/user/${id}`)
 };
 
 export const writeListing = listing => {

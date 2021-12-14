@@ -21,7 +21,7 @@ router.get("/", (req, res) => {
 
 router.get("/user/:user_id", (req, res) => {
     Listing
-    .find({ user: req.params.user_id })
+    .find({ author_id: req.params.user_id })
     .then(listings => res.json(listings))
     .catch(err => res.status(400).json(err));
 })

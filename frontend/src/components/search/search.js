@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { withRouter } from "react-router";
 import "./search.css";
 import { hashHistory } from "react-router";
 
@@ -56,13 +55,6 @@ function Search(props) {
         <div className="listingResult">
           {filteredListing.slice(0, 5).map((listing) => {
             return (
-              // <Link to={`/recipes/${listing._id}`}
-              //   className="dataItem"
-                // onClick={() => clearListingShow(listing._id)}
-              //   key={listing._id}
-              // >
-              //   <p>{listing.title}</p>
-              // </Link>
               <div
                 className="dataItem"
                 onClick={() => clearListingShow(listing._id)}
@@ -76,6 +68,5 @@ function Search(props) {
       )}
     </div>
   );
-return "hello"
 }
 export default Search;
