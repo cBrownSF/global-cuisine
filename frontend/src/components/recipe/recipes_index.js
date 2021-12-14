@@ -8,6 +8,7 @@ class RecipeIndex extends React.Component {
   }
 
   render() {
+    debugger;
     // if (!this.props.listing) {
     //   return null;
     // }
