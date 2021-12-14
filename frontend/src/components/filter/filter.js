@@ -13,7 +13,6 @@ export default class Filter extends React.Component{
     }
     this.handleBtns = this.handleBtns.bind(this);
   }
-
   handleBtns = (e) => {
     let listingsCopy;
     if(e.target.value === "All"){
@@ -24,13 +23,11 @@ export default class Filter extends React.Component{
     this.setState({
       listingsCopy: listingsCopy,
     });
+  };
+  componentDidMount() {
+    this.props.getListings();
   }
-
-  componentDidMount(){
-    this.props.getListings()
-  }
-
-  render(){
+  render() {
     return (
       <div className="filter-index">
         <div className="btns">
@@ -55,5 +52,4 @@ export default class Filter extends React.Component{
       </div>
     );
   }
-
 }

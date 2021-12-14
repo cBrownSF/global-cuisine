@@ -35,6 +35,15 @@ router.get("/listing/:listingId", (req, res) => {
     .then(likes => res.json(likes))
     .catch(err => res.status(400).json(err));
 })
+
+
+// router.get("/:id", (req, res) => {
+//     Listing
+//     .findById(req.params.id)
+//     .then(review => res.json(review))
+//     .catch(err => res.status(400).json(err));
+// })
+
   
   router.post("/listing/:listingId", 
       passport.authenticate("jwt", {session: false}),

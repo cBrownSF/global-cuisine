@@ -17,14 +17,14 @@ router.get("/", (req, res) => {
 
   router.get("/:id", (req, res) => {
     Review
-      .findById(req.params.id)
+      .findById(req.body.id)
       .then((review) => res.json(review))
       .catch((err) => res.status(404).json({ noreviewfound: "No review found with that Id" }));
   });
 
   router.get("/user/:userId", (req, res) => {
     Review
-    .find({ userId: req.params.userId })
+    .find({ author_id: req.params.userId })
     .then(reviews => res.json(reviews))
     .catch((err) => res.status(404).json({ noreviewsfound: "This user has not created any reviews" }));
 })

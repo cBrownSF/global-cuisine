@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import "./recipe_show.css";
 import CreateReviewContainer from '../review/review_form_create_container';
 import ReviewIndexContainer from "../review/review_index_container";
+import CreateLikeContainer from '../likes/like_container';
 
 
 class RecipeShow extends React.Component {
   componentDidMount() {
-    console.log(this.props)
     this.props.receiveListing(this.props.match.params.listingId);
   }
   componentDidUpdate() {
@@ -81,6 +81,7 @@ class RecipeShow extends React.Component {
       </div>
       <div className="bottom-show">
         <CreateReviewContainer listing={listing} listingId={listing._id}/>
+        <CreateLikeContainer listing={listing} listingId={listing._id}/>
       </div>
     </div>
   );

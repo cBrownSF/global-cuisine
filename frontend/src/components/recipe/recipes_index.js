@@ -3,7 +3,6 @@ import RecipeIndexItem from "./recipe_index_item";
 import "./recipe_index.css";
 
 class RecipeIndex extends React.Component {
-
   componentDidMount() {
     this.props.receiveListings()
   }

@@ -7,9 +7,7 @@ const mapStateToProps = (state) => {
     listings: Object.values(state.listings),
   };
 };
-
 const mapDispatchToProps = (dispatch) => ({
   getListings: () => dispatch(getListings()),
 });
-
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));

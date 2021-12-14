@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./search.css";
 import { hashHistory } from "react-router";
-
 function Search(props) {
   useEffect(() => {
     props.getListings();
