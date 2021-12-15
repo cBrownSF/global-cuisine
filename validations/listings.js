@@ -48,9 +48,9 @@ module.exports = function validateListingInput(data){
 
       data.picture = validText(data.picture) ? data.picture : "";
 
-      if (Validator.isEmpty(data.picture)) {
-        errors.picture = "Picture is required";
-      } 
+      // if (Validator.isEmpty(data.picture)) {
+      //   errors.picture = "Picture is required";
+      // } 
     data.country = validText(data.country) ? data.country : "";
        if (Validator.isEmpty(data.country)) {
          errors.country = "Country is required";

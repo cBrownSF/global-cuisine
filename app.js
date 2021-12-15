@@ -30,21 +30,36 @@ mongoose
   app.use("/api/likes", likes)
   app.use(express.static("public"));
  
-// app.get("/", (req, res) => {
-//   const user = new User({
-//     username: "jim",
-//     email: "jim@jim.com",
-//     password: "jim1234"
-//   })
-//   user.save()
-//   res.send("helloworld");
+// // app.get("/", (req, res) => {
+// //   const user = new User({
+// //     username: "jim",
+// //     email: "jim@jim.com",
+// //     password: "jim1234"
+// //   })
+// //   user.save()
+// //   res.send("helloworld");
+// // })
+// const storage = multer.diskStorage({
+//   destination: (req, file, callback) => {
+//     debugger;
+//     callback(null, './frontend/public/uploads/')
+//   },
+//   filename: (req, file, callback) => {
+//     debugger;
+//     callback(null, file.originalname)
+//   }
 // })
 
+// const upload = multer({ storage: storage })
+// router.post("/single", upload.single('image'), (req, res) => {
+//   console.log(req.file)
+// })
 
 // app.post('/images', upload.single('picture'), (req, res) => {
 //   res.send("<3")
 // })
-app.use(cors)
+// app.use(cors)
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
   app.get("/", (req, res) => {

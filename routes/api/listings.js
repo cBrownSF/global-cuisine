@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer")
+// const upload = multer({ dest: './frontend/public/uploads/' })
 const passport = require("passport");
 const Listing = require("../../models/Listing");
 const validateListingInput = require("../../validations/listings");
+const validateImageInput = require("../../validations/images")
 const jwt = require('jsonwebtoken');
 
 router.get("/test", (req, res) => {
@@ -44,17 +46,17 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({ storage: storage })
+
 router.post("/", 
     passport.authenticate("jwt", {session: false}), upload.single('picture'),
     (req, res) => {
-  
+      console.log(req.file)
         const {isValid, errors} = validateListingInput(req.body);
       console.log("ERROR HERE", errors)
         if(!isValid){
-            console.log(req)
-            console.log(req.file)
             return res.status(400).json(errors);
         }
+      
         const newListing = new Listing({
           
             author_id: req.user.id,
@@ -64,10 +66,11 @@ router.post("/",
             details: req.body.details,
             difficulty: req.body.difficulty,
             title: req.body.title,
-            picture: req.file.fieldname,
+            picture: req.file.originalname,
             country: req.body.country,
             servings: req.body.servings
         });
+        console.log(req.file.originalname)
         newListing.save().then((listing) => res.json(listing))
     }
 )
