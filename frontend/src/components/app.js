@@ -20,13 +20,11 @@ const App = () => (
       <Route exact path="/" component={HomePage} />
       <Route exact path="/recipes/new" component={CreateFormContainer} />
       <Route
-        exact
-        path="/recipes/:listingId/edit"
+        exact path="/recipes/:listingId/edit"
         component={EditFormContainer}
       />
       <Route
-        exact
-        path="/recipes/:listingId"
+        exact path="/recipes/:listingId"
         component={RecipeShowContainer}
       />
       <Route exact path="/recipes" component={RecipeIndexContainer} />
