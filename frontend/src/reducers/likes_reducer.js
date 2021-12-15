@@ -4,6 +4,7 @@ import {
     RECEIVE_USER_LIKES,
     REMOVE_LIKE,
   } from "../actions/like_actions";
+
   const LikesReducer = (state = { user: {} }, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
@@ -14,7 +15,6 @@ import {
         newState.user = action.likes.data;
         return newState;
       case RECEIVE_LIKE:
-        debugger
         newState[action.like.data._id] = action.like.data;
         return newState;
       case REMOVE_LIKE:
@@ -25,4 +25,8 @@ import {
     }
   };
   export default LikesReducer;
+
+
   
+  
+

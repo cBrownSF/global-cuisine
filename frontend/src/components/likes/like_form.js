@@ -40,7 +40,6 @@ class LikeForm extends React.Component {
     return (
       <div className="Main-Review-Form">
         <div className="review-errors">{this.renderErrors()}</div>
-        <h3>Leave a review</h3>
         <form onSubmit={this.handleSubmit}>
           <button
             type="submit"
