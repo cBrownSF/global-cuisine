@@ -23,8 +23,8 @@ class EditRecipeForm extends React.Component {
           picture: "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
           country: "Italy",
           editId: listing.listing.data._id,
-          photoFile: listing.listing.data.photoFile || null,
-          photoUrl: listing.listing.data.photoUrl || null
+          photoFile: listing.listing.data.photoFile || 'hello',
+          photoUrl: listing.listing.data.photoUrl || 'hello'
         })
       });
   }
@@ -38,12 +38,14 @@ class EditRecipeForm extends React.Component {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
-      this.setState({ photoFile: file, photoURL: fileReader.result });
+      this.setState({ photoFile: file, photoUrl: fileReader.result });
     };
+    debugger;
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    debugger;
     this.props
       .submitForm(this.state)
       .then(this.props.history.push("/"));
@@ -128,6 +130,13 @@ class EditRecipeForm extends React.Component {
                 <option value="Medium">Medium</option>
                 <option value="Hard">Hard</option>
               </select>
+            </label>
+            {/* {this.state.photoUrl ? <img className="upload-photo" height="200px" width="200px" src={this.state.photoUrl} /> : null} */}
+
+            <label>
+              Upload Photo
+            <input type="file"
+              onChange={this.handleFile} />
             </label>
             <br />
             <button onClick={() => this.props.deleteListing(this.props.listing._id)}>delete listing</button>
