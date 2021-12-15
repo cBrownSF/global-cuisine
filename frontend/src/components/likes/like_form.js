@@ -14,12 +14,11 @@ class LikeForm extends React.Component {
     const like = Object.assign({}, this.state
       // listingId,
     );
-    debugger
     if (
       this.props.currentUser 
     ) {
       this.props
-        .submitLike(like)
+        .submitLike(like.listing_id)
         .then(this.props.removeLikeErrors());
     }
   }

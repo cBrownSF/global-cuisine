@@ -36,27 +36,17 @@ router.get("/listing/:listingId", (req, res) => {
     .catch(err => res.status(400).json(err));
 })
 
-
-// router.get("/:id", (req, res) => {
-//     Listing
-//     .findById(req.params.id)
-//     .then(review => res.json(review))
-//     .catch(err => res.status(400).json(err));
-// })
-
   
   router.post("/listing/:listingId", 
       passport.authenticate("jwt", {session: false}),
       (req, res) => {
-          debugger
           const newLike = new Like({
               liker_id: req.user.id,
-              listing_id: req.body.listing_id,
+              listing_id: req.params.listingId,
           });
           newLike.save().then((like) => res.json(like))
       }
   )
-
 
 router.delete(
     "/:id",
