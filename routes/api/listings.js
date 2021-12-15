@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer")
 const passport = require("passport");
 const Listing = require("../../models/Listing");
 const validateListingInput = require("../../validations/listings");
@@ -33,12 +34,25 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(400).json(err));
 })
 
+const storage = multer.diskStorage({
+  destination: (req, file, callback) => {
+    callback(null, './frontend/public/uploads/')
+  },
+  filename: (req, file, callback) => { 
+    callback(null, file.originalname) 
+  }
+})
+
+const upload = multer({ storage: storage })
 router.post("/", 
-    passport.authenticate("jwt", {session: false}),
+    passport.authenticate("jwt", {session: false}), upload.single('picture'),
     (req, res) => {
+  
         const {isValid, errors} = validateListingInput(req.body);
       console.log("ERROR HERE", errors)
         if(!isValid){
+            console.log(req)
+            console.log(req.file)
             return res.status(400).json(errors);
         }
         const newListing = new Listing({
@@ -50,7 +64,7 @@ router.post("/",
             details: req.body.details,
             difficulty: req.body.difficulty,
             title: req.body.title,
-            picture: req.body.picture,
+            picture: req.file.fieldname,
             country: req.body.country,
             servings: req.body.servings
         });
@@ -60,7 +74,7 @@ router.post("/",
 
 router.patch(
     '/:id/update',
-    passport.authenticate('jwt', {session:false}),
+    passport.authenticate('jwt', {session:false}), upload.single('picture'),
     (req, res) => {
         const {isValid, errors} = validateListingInput(req.body);
         if(!isValid){
@@ -77,7 +91,7 @@ router.patch(
                 listing.details = req.body.details,
                 listing.difficulty = req.body.difficulty,
                 listing.servings = req.body.servings,
-                listing.picture = req.body.picture;
+                listing.picture = req.file.originalname;
                 listing.title = req.body.title;
                 listing.save().then((listing) => res.json(listing));
             }

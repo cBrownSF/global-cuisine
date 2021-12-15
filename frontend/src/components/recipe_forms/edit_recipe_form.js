@@ -24,7 +24,7 @@ class EditRecipeForm extends React.Component {
           country: "Italy",
           editId: listing.listing.data._id,
           photoFile: listing.listing.data.photoFile || 'hello',
-          photoUrl: listing.listing.data.photoUrl || 'hello'
+          photoUrl: ''
         })
       });
   }
@@ -40,12 +40,10 @@ class EditRecipeForm extends React.Component {
     fileReader.onloadend = () => {
       this.setState({ photoFile: file, photoUrl: fileReader.result });
     };
-    debugger;
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger;
     this.props
       .submitForm(this.state)
       .then(this.props.history.push("/"));
@@ -71,7 +69,6 @@ class EditRecipeForm extends React.Component {
     }
     return (
       <div>
-        {/* <p> <Link to={`/listings/${listing.id}/edit`}>Edit</Link></p> */}
         <form onSubmit={this.handleSubmit}>
           <div>
             <br />
@@ -131,7 +128,7 @@ class EditRecipeForm extends React.Component {
                 <option value="Hard">Hard</option>
               </select>
             </label>
-            {/* {this.state.photoUrl ? <img className="upload-photo" height="200px" width="200px" src={this.state.photoUrl} /> : null} */}
+            {this.state.photoUrl ? <img className="upload-photo" height="200px" width="200px" src={this.state.photoUrl} /> : null}
 
             <label>
               Upload Photo

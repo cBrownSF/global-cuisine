@@ -12,9 +12,9 @@ class CreateRecipeForm extends React.Component {
       difficulty: "Easy",
       servings: "",
       title: "",
-      picture:
-        "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
       country: "Italy",
+      photoUrl: null,
+      photoFile: null
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,7 +37,7 @@ class CreateRecipeForm extends React.Component {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
-      this.setState({ photoFile: file, photoURL: fileReader.result });
+      this.setState({ photoFile: file, photoUrl: fileReader.result });
     };
 
     if (file) {
@@ -45,8 +45,22 @@ class CreateRecipeForm extends React.Component {
     }
   }
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
-    this.props.submitForm(this.state);
+    const formData = new FormData();
+    formData.append('picture',this.state.photoFile)
+    formData.append('name', this.state.name)
+    formData.append('ingredients', this.state.ingredients)
+    formData.append('details', this.state.details)
+    formData.append('difficulty', this.state.difficulty)
+    formData.append('servings', this.state.servings)
+    formData.append('title', this.state.title)
+    formData.append('country', this.state.country)
+    formData.append('instruction', this.state.instruction)
+    // if (this.state.photoFile) {
+    //   formData.append('listing[picture]', this.state.photoFile);
+    // }
+    this.props.submitForm(formData);
   }
 
   handleInput(field) {
@@ -62,7 +76,7 @@ class CreateRecipeForm extends React.Component {
     }
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} encType="multipart/form-data">
           <div>
             <br />
             <input
@@ -86,12 +100,12 @@ class CreateRecipeForm extends React.Component {
               placeholder="how many servings"
             />
             <br />
-            <input
+            {/* <input
               type="text"
               value={this.state.picture}
               onChange={this.handleInput("picture")}
               placeholder="Add a picture"
-            />
+            /> */}
             <br />
             <input
               type="text"
@@ -136,6 +150,14 @@ class CreateRecipeForm extends React.Component {
                 <option value="Hard">Hard</option>
               </select>
             </label>
+          {this.state.photoUrl ? <img className="upload-photo" height="200px" width="200px" src={this.state.photoUrl} /> : null}
+
+          <label>
+            Upload Photo
+            <input type="file"
+              name= "picture"
+              onChange={this.handleFile} />
+          </label>
             <br />
             <input type="submit" value="Submit" />
           </div>

@@ -13,6 +13,7 @@ export const getUserListings = id => {
 };
 
 export const writeListing = listing => {
+  debugger;
   return axios.post('/api/listings/', listing)
 }
 

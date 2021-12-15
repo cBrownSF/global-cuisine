@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors = require('cors')
 const multer = require('multer');
 const path = require('path');
 const mongoose = require("mongoose");
@@ -39,10 +40,11 @@ mongoose
 //   res.send("helloworld");
 // })
 
+
 // app.post('/images', upload.single('picture'), (req, res) => {
 //   res.send("<3")
 // })
-app.post('/image',)
+app.use(cors)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
   app.get("/", (req, res) => {

@@ -5,6 +5,7 @@ const ListingErrorsReducer = (oldState = _nullErrors, action) => {
   Object.freeze(oldState)
   switch (action.type) {
     case RECEIVE_LISTING_ERRORS:
+      debugger;
       return action.errors
     case RECEIVE_LISTING:
     case REMOVE_LISTING_ERRORS:
