@@ -36,7 +36,7 @@ class RecipeShow extends React.Component {
           <div>
             <div className="edit-listing">
               {this.props.currentUser.id === listing.author_id ? (
-                <div className='edit-div'>
+                <div className="edit-div">
                   <Link
                     to={`/recipes/${listing._id}/edit`}
                     className="edit-show-link"
@@ -77,11 +77,13 @@ class RecipeShow extends React.Component {
         </div>
       </div>
       <div>
-        <ReviewIndexContainer listingId={listing._id}/>
+          <div><CreateLikeContainer listing={listing} listingId={listing._id}/></div>
       </div>
-      <div className="bottom-show">
-        <CreateReviewContainer listing={listing} listingId={listing._id}/>
-        <CreateLikeContainer listing={listing} listingId={listing._id}/>
+      <div>
+        <ReviewIndexContainer listingId={listing._id} />
+      </div>
+      <div id="writeReview">
+        <CreateReviewContainer listing={listing} listingId={listing._id} />
       </div>
     </div>
   );
