@@ -3,18 +3,16 @@ import { likeListing, removeLikeErrors } from "../../actions/like_actions";
 import LikeForm from './like_form';
 // import {withRouter} from "react-router-dom";
 
-const mSTP = (state, ownProps) => {
-    return {
+const mSTP = (state, ownProps) => ({
     like: {
-        liker_id: state.session.user.id,
-        listing_id: ownProps.listingId
+        liker_id: state.session.id,
+        listing_id: ownProps.listingId,
     },
     formType: 'Like Recipe',
     currentUser: state.session.user,
     listing: ownProps.listing,
     errors: Object.values(state.errors.review)
-    }
-}
+})
 
 const mDTP = dispatch => ({
     submitLike: like => dispatch(likeListing(like)),
