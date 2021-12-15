@@ -14,6 +14,7 @@ import {
         newState.user = action.likes.data;
         return newState;
       case RECEIVE_LIKE:
+        debugger
         newState[action.like.data._id] = action.like.data;
         return newState;
       case REMOVE_LIKE:

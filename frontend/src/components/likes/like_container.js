@@ -4,7 +4,6 @@ import LikeForm from './like_form';
 // import {withRouter} from "react-router-dom";
 
 const mSTP = (state, ownProps) => {
-    debugger
     return {
     like: {
         liker_id: state.session.user.id,

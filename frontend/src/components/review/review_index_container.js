@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import ReviewIndex from './review_index'
-import { deleteReview, getReviews, getListingReviews } from "../../actions/review_actions";
+import { deleteReview, getListingReviews } from "../../actions/review_actions";
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -12,8 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
   getListingReviews: (listingId) => dispatch(getListingReviews(listingId)),
-  deleteReview: (reviewId) => dispatch(deleteReview(reviewId)),
-  // getReviews: () => dispatch(getReviews())
+  deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewIndex)
