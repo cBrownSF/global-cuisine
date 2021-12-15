@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./recipe_form.css"
 class CreateRecipeForm extends React.Component {
   constructor(props) {
     super(props);
@@ -10,12 +10,12 @@ class CreateRecipeForm extends React.Component {
       ingredients: "",
       instruction: "",
       details: "",
-      difficulty: "Easy",
+      difficulty: "",
       servings: "",
       title: "",
       picture:
         "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
-      country: "Italy",
+      country: "",
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -61,83 +61,121 @@ class CreateRecipeForm extends React.Component {
       return null;
     }
     return (
-      <div>
+      <div className="create-recipe-form">
         <form onSubmit={this.handleSubmit}>
-          <div>
-            <br />
-            <input
-              type="text"
-              value={this.state.title}
-              onChange={this.handleInput("title")}
-              placeholder="title of recipe"
-            />
-            <br />
-            <input
-              type="text"
-              value={this.state.ingredients}
-              onChange={this.handleInput("ingredients")}
-              placeholder="ingredients"
-            />
-            <br />
-            <input
-              type="text"
-              value={this.state.servings}
-              onChange={this.handleInput("servings")}
-              placeholder="how many servings"
-            />
-            <br />
-            <input
-              type="text"
-              value={this.state.picture}
-              onChange={this.handleInput("picture")}
-              placeholder="Add a picture"
-            />
-            <br />
-            <input
-              type="text"
-              value={this.state.name}
-              onChange={this.handleInput("name")}
-              placeholder="your name"
-            />
-            <br />
-            <input
-              type="text"
-              value={this.state.details}
-              onChange={this.handleInput("details")}
-              placeholder="Add a succinct description"
-            />
-            <br />
-            <textarea
-              onKeyPress={this.handleKeyPress("instruction")}
-              value={this.state.instruction}
-              onChange={this.handleInput("instruction")}
-              placeholder="Add your instructions here"
-            />
-            <br />
-            <label>
-              Country
-              <select
-                value={this.state.country}
-                onChange={this.handleInput("country")}
-              >
-                <option value="Italy">Italy</option>
-                <option value="France">France</option>
-                <option value="India">India</option>
-              </select>
-            </label>
-            <label>
-              Difficulty
-              <select
-                value={this.state.difficulty}
-                onChange={this.handleInput("difficulty")}
-              >
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
-              </select>
-            </label>
-            <br />
-            <input type="submit" value="Submit" />
+          <div className="recipe-page">
+            <div className="center-recipe">
+              <div className="name-create">
+                <div className="name-text">Name</div>
+                <div>
+                  <input
+                    type="text"
+                    value={this.state.name}
+                    onChange={this.handleInput("name")}
+                    className="name-input"
+                  />
+                </div>
+              </div>
+              <div className="title-create">
+                <div className="title-text">Title</div>
+                <div>
+                  <input
+                    type="text"
+                    value={this.state.title}
+                    onChange={this.handleInput("title")}
+                    className="title-input"
+                  />
+                </div>
+              </div>
+              <div className="ingredients-create">
+                <div className="ingredients-text">Ingredients</div>
+                <div>
+                  <input
+                    type="text"
+                    value={this.state.ingredients}
+                    onChange={this.handleInput("ingredients")}
+                    className="ingredients-input"
+                  />
+                </div>
+              </div>
+              <div className="serving-create">
+                <div className="serving-text">Serving size</div>
+                <div>
+                  <input
+                    type="text"
+                    value={this.state.servings}
+                    onChange={this.handleInput("servings")}
+                    className="servings-input"
+                  />
+                </div>
+              </div>
+              <div className="picture-create">
+                <div className="picture-text">Picture</div>
+                <div>
+                  <input
+                    type="text"
+                    value={this.state.picture}
+                    onChange={this.handleInput("picture")}
+                    className="picture-input"
+                  />
+                </div>
+              </div>
+              <div className="description-create">
+                <div className="description-text">Description</div>
+                <div>
+                  <input
+                    type="text"
+                    value={this.state.details}
+                    onChange={this.handleInput("details")}
+                    className="description-input"
+                  />
+                </div>
+              </div>
+              <div className="instruction-create">
+                <div className="instruction-text">Instruction</div>
+                <div>
+                  <textarea
+                    onKeyPress={this.handleKeyPress("instruction")}
+                    value={this.state.instruction}
+                    onChange={this.handleInput("instruction")}
+                    className="instruction-input"
+                  />
+                </div>
+              </div>
+              <div className="country-create">
+                <div className="country-text">Country</div>
+                <div>
+                  <select
+                    className="country-input"
+                    value={this.state.country}
+                    onChange={this.handleInput("country")}
+                  >
+                    <option value="" selected disabled hidden></option>
+                    <option value="Italy">Italy</option>
+                    <option value="France">France</option>
+                    <option value="India">India</option>
+                  </select>
+                </div>
+              </div>
+              <div className="difficulty-create">
+                <div className="difficulty-text">Difficulty</div>
+                <div>
+                  <select
+                    className="difficulty-input"
+                    value={this.state.difficulty}
+                    onChange={this.handleInput("difficulty")}
+                  >
+                    <option value="" selected disabled hidden></option>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                  </select>
+                </div>
+              </div>
+              <div className="submit-recipe">
+                <input type="submit" value="Submit" className="submit-input" />
+              </div>
+            </div>
           </div>
         </form>
       </div>
