@@ -4,21 +4,6 @@ import { withRouter } from "react-router-dom";
 class EditRecipeForm extends React.Component {
   constructor(props) {
     super(props)
-    // this.state = {
-    //   name: listing.name,
-    //   author_id: this.props.currentUser.id,
-    //   ingredients: listing.ingredients,
-    //   instruction: listing.instruction,
-    //   details: listing.details,
-    //   difficulty: listing.difficulty,
-    //   servings: listing.servings,
-    //   title: listing.title,
-    //   picture:
-    //     "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
-    //   country: "Italy",
-    //   editId: this.props.listing._id,
-    // };
-
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
   }
@@ -28,7 +13,15 @@ class EditRecipeForm extends React.Component {
       debugger;
      return this.setState({
        name: listing.listing.data.name,
-       ingredients: listing.listing.data.ingredients
+       ingredients: listing.listing.data.ingredients,
+       instruction: listing.listing.data.instruction,
+       details: listing.listing.data.details,
+       difficulty: listing.listing.data.difficulty,
+       servings: listing.listing.data.servings,
+       title: listing.listing.data.title,
+       picture: "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
+       country: "Italy",
+       editId: 'find it'
       })
     });
   }
