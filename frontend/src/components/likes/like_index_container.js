@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import LikeIndex from './like_index'
-import { deleteLike, getListingLikes } from "../../actions/like_actions";
+import { deleteLike, getListingLikes} from "../../actions/like_actions";
+
 
 const mapStateToProps = (state, ownProps) => {
     return {

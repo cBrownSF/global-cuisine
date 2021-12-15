@@ -6,7 +6,7 @@ const LikeIndexItem = ({ like, listingId, currentUserId, deleteLike }) => {
   return (
     <div>
       <div className="like-index-items">
-        {listingId !== like.listing_id ? (
+        {currentUserId !== like.liker_id ? (
           ""
         ) : (
           <div className="like-index-item">

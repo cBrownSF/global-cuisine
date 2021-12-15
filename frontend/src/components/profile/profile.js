@@ -1,12 +1,13 @@
 import React from "react";
 import "./profile.css";
 import { Link } from "react-router-dom";
-import LikeIndexContainer from "../likes/like_index_container"
+// import LikeIndexContainer from "../likes/like_index_container"
 
 class Profile extends React.Component {
 
   componentDidMount() {
     this.props.getUserListings(this.props.currentUser.id)
+    this.props.getLikes()
   }
 
   render(){
