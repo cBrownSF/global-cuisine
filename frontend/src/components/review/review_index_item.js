@@ -3,7 +3,6 @@ import React from 'react';
 
 
 const ReviewIndexItem = ({ review, listingId, userId, deleteReview }) => {
-  debugger;
     return (
         <div>
             <div className="review-index-items">

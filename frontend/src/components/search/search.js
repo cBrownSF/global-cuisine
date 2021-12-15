@@ -3,7 +3,6 @@ import "./search.css";
 import { hashHistory } from "react-router";
 function Search(props) {
   useEffect(() => {
-    debugger;
     props.getListings();
   }, []);
 
