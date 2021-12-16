@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { likeListing, removeLikeErrors } from "../../actions/like_actions";
 import LikeForm from './like_form';
-// import {withRouter} from "react-router-dom";
+
 
 const mSTP = (state, ownProps) => {
     return {

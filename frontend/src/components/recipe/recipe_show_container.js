@@ -1,6 +1,7 @@
-import { getListing, deleteListing } from "../../actions/listing_actions"
-import { connect } from "react-redux"
-import RecipeShow from './recipe_show'
+import { getListing, deleteListing } from "../../actions/listing_actions";
+import { connect } from "react-redux";
+import RecipeShow from './recipe_show';
+
 const mapStateToProps = (state, ownProps) => {
   return {
     
@@ -11,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   receiveListing: id => dispatch(getListing(id)),
-  deleteListing: (id) => dispatch(deleteListing(id))
+  deleteListing: (id) => dispatch(deleteListing(id)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeShow)

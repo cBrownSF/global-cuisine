@@ -44,7 +44,7 @@ class LikeForm extends React.Component {
           <button
             type="submit"
             value={this.props.formType}
-            className="Like Recipe"
+            className="likeRecipe"
           >
             {this.props.formType}
           </button>
