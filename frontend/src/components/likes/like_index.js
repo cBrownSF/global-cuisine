@@ -6,18 +6,24 @@ class LikeIndex extends React.Component {
   render() {
     if (!this.props.likes) return null;
     const { likes, listingId, deleteLike, currentUserId } = this.props;
-    let likeCount = 0;
+    let likeListingArray = [];
+    let count = 1;
     likes.forEach((like) => {
-       if (like.listing_id === listingId) {
-         likeCount += 1;
-       }
-   })
-   
+      if (like.listing_id === listingId) {
+        likeListingArray.push(like);
+      }
+    });
+
+    for (let i = 0; i < likeListingArray.length; i++) {
+      if (likeListingArray[i].liker_id !== likeListingArray[i + 1].liker_id) {
+        count += 1;
+      }
+    }
+
+
     return (
       <div className="likes-list-class">
-        <div className="title-of-all-likes">
-          {likeCount}
-        </div>
+       {count}
       </div>
     );
   }
