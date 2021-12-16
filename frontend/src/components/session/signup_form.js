@@ -82,8 +82,8 @@ class SignupForm extends React.Component {
               placeholder="Confirm Password"
             />
             <br />
-            <input className='submit-button' type="submit" value="Submit" />
             {this.renderErrors()}
+            <input className='submit-button' type="submit" value="Submit" />
           </div>
         </form>
       </div>

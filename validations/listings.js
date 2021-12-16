@@ -46,11 +46,15 @@ module.exports = function validateListingInput(data,fileData){
        errors.details = "Details are required";
      }    
 
-      // data.picture = validText(data.picture) ? data.picture : "";
+  if (typeof (fileData) === "undefined") {
+    errors.file = "Problem with sending data"
+    console.log(typeof fileData)
+  } 
+      data.picture = validText(fileData.originalname) ? fileData.originalname : "";
 
-      // if (Validator.isEmpty(fileData.originalfilename)) {
-      //   errors.picture = "Picture is required";
-      // } 
+      if (Validator.isEmpty(fileData.originalname)) {
+        errors.picture = "Picture is required";
+      } 
     data.country = validText(data.country) ? data.country : "";
        if (Validator.isEmpty(data.country)) {
          errors.country = "Country is required";

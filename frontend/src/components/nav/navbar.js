@@ -19,7 +19,7 @@ class NavBar extends React.Component {
   
   demoLogin(e){
     e.preventDefault();
-    this.props.loginDemoUser().then(() => this.props.history.push("/"))
+    this.props.loginDemoUser()
   }
 
   getLinks() {

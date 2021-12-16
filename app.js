@@ -15,13 +15,7 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const Listing = require("./models/Listing");
 const likes = require("./routes/api/likes")
-const bucketName = process.env.AWS_BUCKET_NAME 
-const region = process.env.AWS_BUCKET_REGION 
-const accessKeyID = process.env.AWS_ACCESS_KEY 
-const secretAcessKey = process.env.AWS_SECRET_KEY
-const s3 = new S3({
-  
-})
+
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
@@ -45,8 +39,8 @@ mongoose
 // //     password: "jim1234"
 // //   })
 // //   user.save()
-// //   res.send("helloworld");
-// // })
+// // //   res.send("helloworld");
+// // // })
 // const storage = multer.diskStorage({
 //   destination: (req, file, callback) => {
 //     debugger;
@@ -61,6 +55,7 @@ mongoose
 // const upload = multer({ storage: storage })
 // router.post("/single", upload.single('image'), (req, res) => {
 //   console.log(req.file)
+//   res.send("single File upload")
 // })
 
 // app.post('/images', upload.single('picture'), (req, res) => {

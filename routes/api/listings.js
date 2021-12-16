@@ -5,7 +5,6 @@ const multer = require("multer")
 const passport = require("passport");
 const Listing = require("../../models/Listing");
 const validateListingInput = require("../../validations/listings");
-const validateImageInput = require("../../validations/images")
 const jwt = require('jsonwebtoken');
 // const {uploadFile} = require('../../image_upload')
 
@@ -42,7 +41,7 @@ const storage = multer.diskStorage({
     callback(null, './frontend/public/uploads/')
   },
   filename: (req, file, callback) => { 
-    callback(null, Date.now() + '--' + file.originalname) 
+    callback(null, file.originalname) 
   }
 })
 
@@ -52,8 +51,8 @@ router.post("/",
     passport.authenticate("jwt", {session: false}), upload.single('picture'),
    async (req, res) => {
       // await uploadFile(req.file)
-      // console.log(req.file)
-        const {isValid, errors} = validateListingInput(req.body);
+      console.log(req.file)
+        const {isValid, errors} = validateListingInput(req.body,req.file);
       console.log("ERROR HERE", errors)
         if(!isValid){
             return res.status(400).json(errors);
@@ -68,10 +67,11 @@ router.post("/",
             details: req.body.details,
             difficulty: req.body.difficulty,
             title: req.body.title,
-            picture: req.file.originalname,
+            picture: req.file.path,
             country: req.body.country,
             servings: req.body.servings
         });
+        console.log(req.file.path)
         newListing.save().then((listing) => res.json(listing))
     }
 )
