@@ -8,6 +8,11 @@ class LikeForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
+  componentDidMount(){
+    this.props.getLikes()
+  }
+
+
   handleSubmit(e) {
     e.preventDefault();
     // const listingId = this.props.listingId;
@@ -15,7 +20,7 @@ class LikeForm extends React.Component {
       // listingId,
     );
     if (
-      this.props.currentUser 
+      this.props.currentUser
     ) {
       this.props
         .submitLike(like.listing_id)

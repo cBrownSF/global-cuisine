@@ -56,6 +56,17 @@ class CreateRecipeForm extends React.Component {
   //     fileReader.readAsDataURL(file);
   //   }
   // }
+
+  renderErrors() {
+    return (
+      <ul>
+        {Object.values(this.props.errors).map((error, i) => (
+          <li key={`error-${i}`}>{error}</li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
     if (this.props.listing === undefined) {
       return null;
@@ -178,6 +189,7 @@ class CreateRecipeForm extends React.Component {
             </div>
           </div>
         </form>
+        <div className="errors-create">{this.renderErrors()}</div>
       </div>
     );
   }

@@ -5,12 +5,11 @@ class LikeIndex extends React.Component {
   }
   render() {
     if (!this.props.likes) return null;
-    const { likes, listingId, deleteLike } = this.props;
-     debugger;
+    const { likes, listingId, deleteLike, currentUserId } = this.props;
     let likeCount = 0;
-   likes.forEach((like) => {
-       if (like.listing_id === listingId){
-           likeCount += 1
+    likes.forEach((like) => {
+       if (like.listing_id === listingId && currentUserId.id !== like.liker_id) {
+         likeCount += 1;
        }
    })
    
