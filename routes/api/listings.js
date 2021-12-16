@@ -7,6 +7,7 @@ const Listing = require("../../models/Listing");
 const validateListingInput = require("../../validations/listings");
 const validateImageInput = require("../../validations/images")
 const jwt = require('jsonwebtoken');
+// const {uploadFile} = require('../../image_upload')
 
 router.get("/test", (req, res) => {
   Listing.find()
@@ -41,7 +42,7 @@ const storage = multer.diskStorage({
     callback(null, './frontend/public/uploads/')
   },
   filename: (req, file, callback) => { 
-    callback(null, file.originalname) 
+    callback(null, Date.now() + '--' + file.originalname) 
   }
 })
 
@@ -49,8 +50,9 @@ const upload = multer({ storage: storage })
 
 router.post("/", 
     passport.authenticate("jwt", {session: false}), upload.single('picture'),
-    (req, res) => {
-      console.log(req.file)
+   async (req, res) => {
+      // await uploadFile(req.file)
+      // console.log(req.file)
         const {isValid, errors} = validateListingInput(req.body);
       console.log("ERROR HERE", errors)
         if(!isValid){
@@ -70,7 +72,6 @@ router.post("/",
             country: req.body.country,
             servings: req.body.servings
         });
-        console.log(req.file.originalname)
         newListing.save().then((listing) => res.json(listing))
     }
 )
