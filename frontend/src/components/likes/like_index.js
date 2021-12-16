@@ -8,7 +8,7 @@ class LikeIndex extends React.Component {
     const { likes, listingId, deleteLike, currentUserId } = this.props;
     let likeCount = 0;
     likes.forEach((like) => {
-       if (like.listing_id === listingId && currentUserId.id !== like.liker_id) {
+       if (like.listing_id === listingId) {
          likeCount += 1;
        }
    })

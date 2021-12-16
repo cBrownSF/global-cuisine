@@ -3,13 +3,14 @@ import React from 'react';
 class LikeForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.like;
+    this.state = {
+      liker_id: this.props.likerId,
+      listing_id: this.props.listingId,
+      isToggleOn: true
+    }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
-  }
-
-  componentDidMount(){
-    this.props.getLikes()
+    // this.handleClick = this.handleClick.bind(this)
   }
 
 
@@ -24,9 +25,18 @@ class LikeForm extends React.Component {
     ) {
       this.props
         .submitLike(like.listing_id)
-        .then(this.props.removeLikeErrors());
+        .then(this.props.removeLikeErrors())
+        .then(this.setState( state => ({
+          isToggleOn: false
+        })))
     }
   }
+
+  // handleClick(){
+  //   this.setState(state => ({
+  //     isToggleOn: false
+  //   }))
+  // }
 
   renderErrors() {
     return (
@@ -46,13 +56,27 @@ class LikeForm extends React.Component {
       <div className="Main-Review-Form">
         <div className="review-errors">{this.renderErrors()}</div>
         <form onSubmit={this.handleSubmit}>
-          <button
-            type="submit"
-            value={this.props.formType}
-            className="likeRecipe"
-          >
-            {this.props.formType}
-          </button>
+          {this.state.isToggleOn ? (
+            <button
+              type="submit"
+              value={this.props.formType}
+              className="likeRecipe"
+              // onClick={this.handleClick}
+            >
+              {this.props.formType}
+            </button>
+          ) : (
+            <button
+              type="submit"
+              value={this.props.formType}
+              className="likeRecipe"
+              // onClick={this.handleClick}
+              disabled
+            >
+              {this.props.formType}
+            </button>
+          )}
+          {/* {this.state.isToggleOn ? "ON" : "OFF"} */}
         </form>
       </div>
     );

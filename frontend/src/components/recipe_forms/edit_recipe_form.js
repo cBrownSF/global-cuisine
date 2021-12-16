@@ -12,7 +12,6 @@ class EditRecipeForm extends React.Component {
     this.props
       .receiveListing(this.props.match.params.listingId)
       .then((listing) => {
-        debugger;
         return this.setState({
           name: listing.listing.data.name,
           ingredients: listing.listing.data.ingredients,
@@ -23,7 +22,7 @@ class EditRecipeForm extends React.Component {
           title: listing.listing.data.title,
           picture:
             "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
-          country: "Italy",
+          country: listing.listing.date.country,
           editId: listing.listing.data._id,
         });
       });
