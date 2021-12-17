@@ -1,4 +1,5 @@
 import React from 'react';
+import './review_form.css';
 // import { withRouter } from 'react-router';
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -49,33 +50,49 @@ class ReviewForm extends React.Component {
     return (
       <div className="Main-Review-Form">
         <div className="review-errors">{this.renderErrors()}</div>
-        <h3>Leave a review</h3>
+        <div className="Review-Page">
+        <h3 className="review-header">Leave a review</h3>
         <form onSubmit={this.handleSubmit}>
           <br />
+          <div className="review-create">
+            <div className="review-text">
           <label>
             Review
             <textarea
               value={this.state.review}
               onChange={this.update("review")}
+              className="review-input"
             />
           </label>
+          </div>
+          </div>
           <br />
+          <div className="score-create">
+            <div className="score-text">
           <label>
             Score
             <input
               type="text"
               value={this.state.score}
               onChange={this.update("rating")}
+              className="score-input"
             />
           </label>
+          </div>
+          </div>
+          <div className="review-name-create">
+            <div className="review-name-text">
           <label>
             Name
             <input
               type="text"
               value={this.state.reviewer_name}
               onChange={this.update("reviewer_name")}
+              className="review-name-input"
             />
           </label>
+          </div>
+          </div>
           <br />
           <button
             type="submit"
@@ -85,6 +102,7 @@ class ReviewForm extends React.Component {
             {this.props.formType}
           </button>
         </form>
+        </div>
       </div>
     );
   }

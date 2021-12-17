@@ -1,0 +1,36 @@
+.Main-Review-Form{
+    background-color: gray;
+}
+/* 
+.Review-Page{
+        background-image: url(https://global-cuisine.s3.us-west-1.amazonaws.com/recipe-image.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+        width: 10vw;
+        height: 10vw;
+        position: relative;
+        left: 32vw;
+        top: 5vw;
+} */
+
+.review-create, .score-create, .review-name-create{
+    display: flex;
+    width: 15vw;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review-text, .review-header, .score-text, .review-name-text{
+    font-size: 1vw;
+    font-family: cursive;
+}
+
+.review-input, .score-input, .review-name-input{
+    width: 7.5vw;
+    background: transparent;
+    border-bottom: 1px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}

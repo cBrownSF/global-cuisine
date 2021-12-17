@@ -13,7 +13,6 @@ class EditRecipeForm extends React.Component {
     this.props.clearErrors();
     this.props.receiveListing(this.props.match.params.listingId)
     .then(listing=>{
-      debugger;
      return this.setState({
        name: listing.listing.data.name,
        ingredients: listing.listing.data.ingredients,
