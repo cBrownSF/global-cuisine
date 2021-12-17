@@ -6,19 +6,19 @@ class LikeForm extends React.Component {
     this.state = this.props.like;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+  
+
   }
 
   handleSubmit(e) {
     e.preventDefault();
     // const listingId = this.props.listingId;
-    const like = Object.assign({}, this.state
-      // listingId,
-    );
+    const like = Object.assign({}, this.state);
     if (
       this.props.currentUser 
     ) {
       this.props
-        .submitLike(like.listing_id)
+        .submitLike(like)
         .then(this.props.removeLikeErrors());
     }
   }

@@ -9,6 +9,7 @@ import CreateLikeContainer from '../likes/like_container';
 class RecipeShow extends React.Component {
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId);
+    this.props.getListingLikes(this.props.match.params.listingId)
   }
   componentDidUpdate() {
     if (!this.props.listing) {
