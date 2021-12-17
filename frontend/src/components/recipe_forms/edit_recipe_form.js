@@ -22,7 +22,7 @@ class EditRecipeForm extends React.Component {
        servings: listing.listing.data.servings,
        title: listing.listing.data.title,
        picture: "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
-       country: "Italy",
+       country: listing.listing.data.country,
        editId: listing.listing.data._id
       })
     });
@@ -47,15 +47,6 @@ class EditRecipeForm extends React.Component {
       this.setState({
         [field]: e.currentTarget.value,
       });
-  }
-  renderErrors() {
-    return (
-      <ul>
-        {Object.values(this.props.errors).map((error, i) => (
-          <li key={`error-${i}`}>{error}</li>
-        ))}
-      </ul>
-    );
   }
   renderErrors() {
     return (
