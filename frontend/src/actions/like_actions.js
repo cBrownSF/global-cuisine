@@ -68,8 +68,8 @@ export const getListingLikes = listingId => dispatch => {
 export const likeListing = listingId => dispatch => {
     return APIUtil.likeListing(listingId)
     .then(like => {dispatch(receiveLike(like))})
-      .catch((err) => (dispatch(receiveLikeErrors(err.response.data)))
-      )
+      // .catch((err) => (dispatch(receiveLikeErrors(err.response.data)))
+      // )
 }
 
 export const deleteLike = id => dispatch => {
