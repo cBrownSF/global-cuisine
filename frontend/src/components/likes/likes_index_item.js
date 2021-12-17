@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 const LikeIndexItem = ({ like, listingId, currentUserId, deleteLike }) => {
+  debugger;
   return (
     <div>
       <div className="like-index-items">

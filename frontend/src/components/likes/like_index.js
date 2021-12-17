@@ -11,6 +11,7 @@ class LikeIndex extends React.Component {
     likes.forEach((like) => {
       if (like.listing_id === listingId) {
         likeListingArray.push(like)
+        count +=1
       }
     });
 

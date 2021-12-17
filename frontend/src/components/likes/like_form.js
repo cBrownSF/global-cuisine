@@ -44,40 +44,39 @@ class LikeForm extends React.Component {
   }
   render() {
 
-    // let istoggleOn = false;
-    // for (let i = 0; i < this.props.likes.length; i++){
-    //   if(this.props.likes[i].liker_id === this.props.currentUser.id && this.props.likes[i].listing_id === this.state.listing_id){
-    //     istoggleOn = true
-    //   }else{
-    //     istoggleOn = false
-    //   }
-    // }
+    let istoggleOn = false;
+    for (let i = 0; i < this.props.likes.length; i++){
+      if(this.props.currentUser && this.props.likes[i].liker_id === this.props.currentUser.id && this.props.likes[i].listing_id === this.state.listing_id){
+        istoggleOn = true
+      }else{
+        istoggleOn = false
+      }
+    }
     
     return (
-      <p>hello</p>
-    //   <div className="Main-Review-Form">
-    //     <div className="review-errors">{this.renderErrors()}</div>
-    //     <form onSubmit={this.handleSubmit}>
-    //       {istoggleOn === true ? (
-    //         <button
-    //           type="submit"
-    //           value={this.props.formType}
-    //           className="likeRecipe"
-    //           disabled
-    //         >
-    //           Already liked
-    //         </button>
-    //       ) : (
-    //         <button
-    //           type="submit"
-    //           value={this.props.formType}
-    //           className="likeRecipe"
-    //         >
-    //           {this.props.formType}
-    //         </button>
-    //       )}
-    //     </form>
-    //   </div>
+      <div className="Main-Review-Form">
+        <div className="review-errors">{this.renderErrors()}</div>
+        <form onSubmit={this.handleSubmit}>
+          {istoggleOn === true ? (
+            <button
+              type="submit"
+              value={this.props.formType}
+              className="likeRecipe"
+              disabled
+            >
+              Already liked
+            </button>
+          ) : (
+            <button
+              type="submit"
+              value={this.props.formType}
+              className="likeRecipe"
+            >
+              {this.props.formType}
+            </button>
+          )}
+        </form>
+      </div>
     );
   }
 }
