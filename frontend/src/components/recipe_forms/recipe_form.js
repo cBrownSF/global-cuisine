@@ -188,4 +188,4 @@ class CreateRecipeForm extends React.Component {
   }
 }
 
-export default CreateRecipeForm;
+export default CreateRecipeForm

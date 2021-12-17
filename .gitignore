@@ -1,5 +1,5 @@
 /config/keys_dev
 /node_modules
-/env
-/frontend/node_modules
+.env
 /.env
+/frontend/node_modulesga
