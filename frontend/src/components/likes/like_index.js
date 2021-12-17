@@ -5,7 +5,7 @@ class LikeIndex extends React.Component {
   }
   render() {
     if (!this.props.likes) return null;
-    const { likes, listingId, deleteLike, currentUserId } = this.props;
+    const { likes, listingId, deleteLike, currentUser } = this.props;
     let likeListingArray = [];
     let count = 0;
     likes.forEach((like) => {

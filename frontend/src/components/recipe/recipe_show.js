@@ -15,6 +15,9 @@ class RecipeShow extends React.Component {
       this.props.receiveListing(this.props.match.params.listingId);
     }
   }
+  currentUser(){
+    if (this.props.currentUser){}
+  }
   render() {
     if (!this.props.listing) {
       return null;
@@ -35,7 +38,7 @@ class RecipeShow extends React.Component {
           </div>
           <div>
             <div className="edit-listing">
-              {this.props.currentUser.id === listing.author_id ? (
+              {this.props.currentUser && this.props.currentUser.id=== listing.author_id ? (
                 <div className="edit-div">
                   <Link
                     to={`/recipes/${listing._id}/edit`}
