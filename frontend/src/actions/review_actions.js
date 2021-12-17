@@ -1,5 +1,5 @@
 import * as APIUtil from '../util/review_api_util';
-import {hashHistory} from "react-router"
+
 export const RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW"
 export const RECEIVE_USER_REVIEWS = "RECEIVE_USER_REVIEWS";
