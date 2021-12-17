@@ -70,3 +70,11 @@
     border: 1px solid gray;
     font-size: 0.7vw;
 }
+
+.errors-create{
+    position: relative;
+    left: 70vw;
+    bottom: 20vw;
+    color: black;
+    font-size: 1vw;
+}

@@ -10,16 +10,22 @@ class LikeForm extends React.Component {
 
   }
 
+  componentDidMount(){
+    this.props.getLikes()
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     // const listingId = this.props.listingId;
-    const like = Object.assign({}, this.state);
-    if (
-      this.props.currentUser 
-    ) {
+    const like = Object.assign(
+      {},
+      this.state
+      // listingId,
+    );
+    if (this.props.currentUser) {
       this.props
-        .submitLike(like)
-        .then(this.props.removeLikeErrors());
+        .submitLike(like.listing_id)
+        .then(this.props.removeLikeErrors())
     }
   }
 
@@ -37,17 +43,38 @@ class LikeForm extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
   render() {
+
+    let istoggleOn = false;
+    for (let i = 0; i < this.props.likes.length; i++){
+      if(this.props.likes[i].liker_id === this.props.currentUser.id && this.props.likes[i].listing_id === this.state.listing_id){
+        istoggleOn = true
+      }else{
+        istoggleOn = false
+      }
+    }
+    
     return (
       <div className="Main-Review-Form">
         <div className="review-errors">{this.renderErrors()}</div>
         <form onSubmit={this.handleSubmit}>
-          <button
-            type="submit"
-            value={this.props.formType}
-            className="Like Recipe"
-          >
-            {this.props.formType}
-          </button>
+          {istoggleOn === true ? (
+            <button
+              type="submit"
+              value={this.props.formType}
+              className="likeRecipe"
+              disabled
+            >
+              Already liked
+            </button>
+          ) : (
+            <button
+              type="submit"
+              value={this.props.formType}
+              className="likeRecipe"
+            >
+              {this.props.formType}
+            </button>
+          )}
         </form>
       </div>
     );
