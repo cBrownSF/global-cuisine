@@ -5,7 +5,7 @@ import {
   getListing,
   removeListingErrors,
 } from "../../actions/listing_actions";
-import EditForm from "./edit_recipe_form";
+import EditRecipeForm from "./edit_recipe_form";
 import { withRouter } from "react-router";
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -24,5 +24,5 @@ const mapDispatchtoProps = (dispatch) => {
   };
 };
 export default withRouter(
-  connect(mapStateToProps, mapDispatchtoProps)(EditForm)
+  connect(mapStateToProps, mapDispatchtoProps)(EditRecipeForm)
 );

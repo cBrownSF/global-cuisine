@@ -22,7 +22,7 @@ class EditRecipeForm extends React.Component {
           title: listing.listing.data.title,
           picture:
             "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
-          country: listing.listing.date.country,
+          country: listing.listing.data.country,
           editId: listing.listing.data._id,
         });
       });

@@ -51,7 +51,6 @@ class LikeForm extends React.Component {
       }
     }
     
-
     return (
       <div className="Main-Review-Form">
         <div className="review-errors">{this.renderErrors()}</div>
