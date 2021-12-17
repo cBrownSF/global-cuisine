@@ -15,9 +15,7 @@ class RecipeShow extends React.Component {
       this.props.receiveListing(this.props.match.params.listingId);
     }
   }
-  currentUser(){
-    if (this.props.currentUser){}
-  }
+ 
   render() {
     if (!this.props.listing) {
       return null;
