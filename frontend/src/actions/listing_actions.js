@@ -69,7 +69,6 @@ export const writeListing = data => dispatch => {
 
 export const updateListing = listing => dispatch => {
   return APIUtil.updateListing(listing).then(listing => {
-    debugger;
     dispatch(receiveListing(listing))
     hashHistory.push(`/recipes/${listing.data._id}`)
   })

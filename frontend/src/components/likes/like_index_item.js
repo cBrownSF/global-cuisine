@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 
 
 const LikeIndexItem = ({ like, listingId, currentUser, deleteLike }) => {
-  debugger;
   return (
     <div>
       <div className="like-index-items">
