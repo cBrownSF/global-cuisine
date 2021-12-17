@@ -5,7 +5,7 @@ import LikeForm from './like_form';
 
 const mSTP = (state, ownProps) => ({
     like: {
-        liker_id: state.session.user.id,
+        liker_id: state.session.user,
         listing_id: ownProps.listingId,
     },
     formType: 'Like Recipe',

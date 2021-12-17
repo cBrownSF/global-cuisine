@@ -5,7 +5,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     likes: Object.values(state.likes),
     listingId: ownProps.listingId,
-    currentUserId: state.session.user.id
+    currentUser: state.session.user
   };
 };
 const mapDispatchToProps = (dispatch) => ({
