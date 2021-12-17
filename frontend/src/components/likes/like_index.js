@@ -15,6 +15,7 @@ class LikeIndex extends React.Component {
                  likeListingArray.push(like);
                }
              });
+             
                for (let i = 0; i < likeListingArray.length-1; i++) {
                  if (
                    likeListingArray[i].liker_id !== likeListingArray[i + 1].liker_id

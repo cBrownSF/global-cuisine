@@ -6,7 +6,6 @@ import {
 import RecipeForm from "./recipe_form";
 import { withRouter } from "react-router";
 const mapStateToProps = (state) => {
-  debugger;
   return {
     errors: state.errors.listing,
     currentUser: state.session.user,
