@@ -3,7 +3,6 @@ import "./recipe_form.css"
 class CreateRecipeForm extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       name: "",
       author_id: this.props.currentUser.id,
@@ -23,7 +22,6 @@ class CreateRecipeForm extends React.Component {
   componentDidMount() {
     this.props.clearErrors();
   }
-
   handleKeyPress(instruction) {
     return (e) => {
       if (e.key === "Enter") {
@@ -33,12 +31,10 @@ class CreateRecipeForm extends React.Component {
       }
     };
   }
-
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitForm(this.state);
   }
-
   handleInput(field) {
     return (e) =>
       this.setState({
@@ -51,11 +47,19 @@ class CreateRecipeForm extends React.Component {
   //   fileReader.onloadend = () => {
   //     this.setState({ photoFile: file, photoURL: fileReader.result });
   //   };
-
   //   if (file) {
   //     fileReader.readAsDataURL(file);
   //   }
   // }
+  renderErrors() {
+    return (
+      <ul>
+        {Object.values(this.props.errors).map((error, i) => (
+          <li key={`error-${i}`}>{error}</li>
+        ))}
+      </ul>
+    );
+  }
   render() {
     if (this.props.listing === undefined) {
       return null;
@@ -178,10 +182,8 @@ class CreateRecipeForm extends React.Component {
             </div>
           </div>
         </form>
+        <div className="errors-create">{this.renderErrors()}</div>
       </div>
     );
   }
 }
-
-
-export default CreateRecipeForm;
