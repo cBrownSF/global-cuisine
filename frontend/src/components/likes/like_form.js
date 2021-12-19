@@ -3,7 +3,11 @@ import React from 'react';
 class LikeForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.like;
+    this.state = {
+      listing_id: this.props.listingId,
+      liker_id: this.props.likerId,
+      toggleOn: this.props.toggleOn
+    }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
@@ -55,6 +59,16 @@ class LikeForm extends React.Component {
       <div className="Main-Review-Form">
         <div className="review-errors">{this.renderErrors()}</div>
         <form onSubmit={this.handleSubmit}>
+          {this.state.toggleOn === true ? (
+            <button
+              type="submit"
+              value={this.props.formType}
+              className="likeRecipe"
+              disabled
+            >
+              Already liked
+            </button>
+          ) : (
             <button
               type="submit"
               value={this.props.formType}
@@ -62,6 +76,7 @@ class LikeForm extends React.Component {
             >
               {this.props.formType}
             </button>
+          )}
         </form>
       </div>
     );
