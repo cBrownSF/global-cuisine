@@ -1,8 +1,9 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { hashHistory } from 'react-router';
 
 
 const ReviewIndexItem = ({ review, listingId, currentUser, deleteReview }) => {
+  debugger;
   return (
     <div>
       <div className="review-index-items">
@@ -25,7 +26,15 @@ const ReviewIndexItem = ({ review, listingId, currentUser, deleteReview }) => {
         {
         currentUser && currentUser.id === review.author_id ? (
           <div>
-            <button onClick={() => deleteReview(review._id)}>
+            <button onClick={
+              () => deleteReview(review._id).then(()=>{
+                debugger;
+                hashHistory.push(`recipes/${listingId}`)
+              }
+
+              )
+                
+              }>
               Delete Review
             </button>
           </div>
