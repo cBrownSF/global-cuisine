@@ -1,15 +1,15 @@
 import React,{useEffect,useState} from 'react';
-import { hashHistory } from 'react-router';
 
 
 const ReviewIndexItem = ({ review, updateReview,listingId, currentUser, deleteReview }) => {
-const [count, setCount] =useState(2)
+const [count, setCount] =useState(0)
 function decrementCount(){
-  setCount(prevCount=>prevCount -1)
+  setCount(prevCount => prevCount -1)
 }
  useEffect(() =>{
-   debugger;
+   if (count !== 0){
    updateReview(listingId)
+   }
  },[count])
   return (
     <div>
@@ -35,7 +35,6 @@ function decrementCount(){
           <div>
             <button onClick={
               () => deleteReview(review._id).then(()=>{
-                debugger;
                 decrementCount()
               }
 
