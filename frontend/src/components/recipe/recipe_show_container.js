@@ -6,7 +6,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     
     currentUser: state.session.user,
-    listing: state.listings[ownProps.match.params.listingId]
+    listing: state.listings[ownProps.match.params.listingId],
+    reviews: state.session.reviews
   }
 }
 

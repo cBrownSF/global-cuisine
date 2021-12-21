@@ -4,6 +4,7 @@ import "./recipe_show.css";
 import CreateReviewContainer from '../review/review_form_create_container';
 import ReviewIndexContainer from "../review/review_index_container";
 import CreateLikeContainer from '../likes/like_container';
+import ReviewsReducer from '../../reducers/reviews_reducer';
 
 
 class RecipeShow extends React.Component {
@@ -21,6 +22,13 @@ class RecipeShow extends React.Component {
       return null;
     }
     const listing = this.props.listing
+    const reviews = this.props.reviews
+    let total_score = 0
+    for(i = 0; i < reviews.length; i++){
+      let review = reviews[i];
+      total_score += review[score]
+    }
+    const avg_score = total_score / reviews.length
   return (
     <div>
       <div className="right-left">
@@ -83,9 +91,7 @@ class RecipeShow extends React.Component {
       <div>
         <ReviewIndexContainer listingId={listing._id} />
       </div>
-      <div className="review-average">
-
-      </div>
+  
       <div id="writeReview">
         <CreateReviewContainer listing={listing} listingId={listing._id} />
       </div>
