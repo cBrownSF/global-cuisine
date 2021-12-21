@@ -10,10 +10,10 @@ class ReviewIndex extends React.Component {
     this.props.getListingReviews(this.props.listingId)
     // this.props.getReviews()
   }
-
+ 
   render(){
     if (!this.props.reviews) return null;
-    const { reviews, listingId, currentUser, deleteReview } = this.props;
+    const { reviews, listingId, currentUser, getListingReviews,deleteReview } = this.props;
    
     return (
       <div className="reviews-list-class">
@@ -27,6 +27,7 @@ class ReviewIndex extends React.Component {
               currentUser={currentUser}
               listingId={listingId}
               deleteReview={deleteReview}
+              updateReview={getListingReviews}
               key={review._id + "z"}
             />
           ))}
