@@ -7,7 +7,6 @@ const mSTP = (state, ownProps) => ({
     review: {
         review: '',
         score: "5",
-        user_id: state.session.user.id,
         listing_id: ownProps.listingId,
         reviewer_name: ""
     },

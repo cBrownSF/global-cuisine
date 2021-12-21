@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from "react-router-dom"
 
 
-const LikeIndexItem = ({ like, listingId, currentUserId, deleteLike }) => {
+const LikeIndexItem = ({ like, listingId, currentUser, deleteLike }) => {
   return (
     <div>
       <div className="like-index-items">
-        {currentUserId !== like.liker_id ? (
+        {currentUser && currentUser.id !== like.liker_id ? (
           ""
         ) : (
           <div className="like-index-item">
@@ -15,7 +15,7 @@ const LikeIndexItem = ({ like, listingId, currentUserId, deleteLike }) => {
         )}
       </div>
       <div>
-        {currentUserId === like.liker_id ? (
+        {currentUser && currentUser.id === like.liker_id ? (
           <div>
             <button onClick={() => deleteLike(like._id)}>
               Delete Like

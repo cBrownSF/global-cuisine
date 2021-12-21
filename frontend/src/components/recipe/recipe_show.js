@@ -4,18 +4,18 @@ import "./recipe_show.css";
 import CreateReviewContainer from '../review/review_form_create_container';
 import ReviewIndexContainer from "../review/review_index_container";
 import CreateLikeContainer from '../likes/like_container';
-
+import LikeIndexContainer from '../likes/like_index_container';
 
 class RecipeShow extends React.Component {
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId);
-    this.props.getListingLikes(this.props.match.params.listingId)
   }
   componentDidUpdate() {
     if (!this.props.listing) {
       this.props.receiveListing(this.props.match.params.listingId);
     }
   }
+ 
   render() {
     if (!this.props.listing) {
       return null;
@@ -36,7 +36,7 @@ class RecipeShow extends React.Component {
           </div>
           <div>
             <div className="edit-listing">
-              {this.props.currentUser.id === listing.author_id ? (
+              {this.props.currentUser && this.props.currentUser.id=== listing.author_id ? (
                 <div className="edit-div">
                   <Link
                     to={`/recipes/${listing._id}/edit`}
@@ -78,7 +78,12 @@ class RecipeShow extends React.Component {
         </div>
       </div>
       <div>
-          <div><CreateLikeContainer listing={listing} listingId={listing._id}/></div>
+        <LikeIndexContainer listingId={listing._id} />
+      </div>
+      <div>
+        <div>
+          <CreateLikeContainer listing={listing} listingId={listing._id} />
+        </div>
       </div>
       <div>
         <ReviewIndexContainer listingId={listing._id} />

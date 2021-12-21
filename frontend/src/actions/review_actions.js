@@ -80,5 +80,8 @@ export const updateReview = review => dispatch => {
 
 export const deleteReview = id => dispatch => {
     return APIUtil.deleteReview(id)
-    .then(() => dispatch(removeReview(id)))
+    .then(() => {
+      dispatch(removeReview(id))
+        // hashHistory.push(`/reviews/${id}`)
+      })
 }
