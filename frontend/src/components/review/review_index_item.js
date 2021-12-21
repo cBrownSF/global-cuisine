@@ -7,9 +7,8 @@ function decrementCount(){
   setCount(prevCount => prevCount -1)
 }
  useEffect(() =>{
-   if (count !== 0){
+     debugger;
    updateReview(listingId)
-   }
  },[count])
   return (
     <div>

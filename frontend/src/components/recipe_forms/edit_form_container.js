@@ -18,4 +18,4 @@ const mapDispatchtoProps = (dispatch) => {
     clearErrors: () => dispatch(removeListingErrors())
   }
 }
-export default connect(mapStateToProps, mapDispatchtoProps)(EditRecipeForm)
+export default withRouter(connect(mapStateToProps, mapDispatchtoProps)(EditRecipeForm));

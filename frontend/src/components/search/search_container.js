@@ -10,4 +10,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   getListings: () => dispatch(getListings()),
 });
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));
