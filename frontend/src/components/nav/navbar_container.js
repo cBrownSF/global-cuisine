@@ -15,7 +15,7 @@ const dispatchStatetoProps = dispatch => ({
     password2: '123456'
   }))
 })
-export default withRouter(connect(
+export default connect(
   mapStateToProps,
   dispatchStatetoProps
-)(NavBar));
+)(NavBar);
