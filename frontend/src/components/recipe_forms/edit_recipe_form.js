@@ -80,8 +80,8 @@ class EditRecipeForm extends React.Component {
             <div className="edit-center-recipe">
             <h1 id="title">Edit your recipe</h1>
             <br />
-            <div classname="title-edit">
-              <div classname="title-edit-text">
+            <div className="title-edit">
+              <div className="title-edit-text">
             <input type="text"
               value={this.state.title || ''}
               onChange={this.handleInput('title')}

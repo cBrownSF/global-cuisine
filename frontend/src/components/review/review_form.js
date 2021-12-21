@@ -1,6 +1,6 @@
 import React from 'react';
 import './review_form.css';
-// import { withRouter } from 'react-router';
+import { Link } from "react-router-dom";
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
@@ -47,6 +47,10 @@ class ReviewForm extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
   render() {
+    if (this.props.currentUser &&
+      Object.keys(this.props.currentUser).length !== 0 &&
+      this.props.currentUser.id !== this.props.listing.author_id
+    ){
     return (
       <div className="Main-Review-Form">
         <div className="review-errors">{this.renderErrors()}</div>
@@ -104,7 +108,24 @@ class ReviewForm extends React.Component {
         </form>
         </div>
       </div>
-    );
+      )
+    }if (this.props.currentUser &&
+      Object.keys(this.props.currentUser).length !== 0 &&
+      this.props.currentUser.id === this.props.listing.author_id
+    ){
+      return(
+        <div>
+          <p>Sorry, but you can't review your own Recipe!</p>
+        </div>
+      )}
+      else{
+      return(
+        <div>
+          <p>Don't have an account? <Link className="login-sign-up-link" to='/signup'>Sign up to review this recipe!</Link ></p>
+          <p>Already a member? <Link className="login-sign-up-link" to='/login'>Log in to add your review!</Link ></p>
+        </div>
+      )
+    }
   }
 }
 
