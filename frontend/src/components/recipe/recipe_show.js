@@ -24,9 +24,9 @@ class RecipeShow extends React.Component {
     const listing = this.props.listing
     const reviews = this.props.reviews
     let total_score = 0
-    for(i = 0; i < reviews.length; i++){
+    for(let i = 0; i < reviews.length; i++){
       let review = reviews[i];
-      total_score += review[score]
+      total_score += review.score
     }
     const avg_score = total_score / reviews.length
   return (
@@ -91,7 +91,11 @@ class RecipeShow extends React.Component {
       <div>
         <ReviewIndexContainer listingId={listing._id} />
       </div>
-  
+      <div className="avg-score">
+        {
+                avg_score
+                }
+      </div>
       <div id="writeReview">
         <CreateReviewContainer listing={listing} listingId={listing._id} />
       </div>
