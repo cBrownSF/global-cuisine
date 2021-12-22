@@ -45,7 +45,7 @@ class ReviewForm extends React.Component {
     return (
       <div className="Main-Review-Form">
         <div className="review-signedIn">
-          {this.props.currentUser === undefined ? (
+          {Object.keys(this.props.currentUser).length === 0 && this.props.currentUser !== undefined? (
             <div className="notloggedIn-review">
               <div>
                 Please either create an account or log in to write review.
@@ -64,7 +64,7 @@ class ReviewForm extends React.Component {
                 </div>
               </div>
             </div>
-          ) : (this.props.currentUser &&
+          ) : this.props.currentUser &&
             Object.keys(this.props.currentUser).length !== 0 &&
             this.props.currentUser.id === this.props.listing.author_id ? (
             ""
@@ -128,7 +128,7 @@ class ReviewForm extends React.Component {
               <div>
                 <div className="review-errors">{this.renderReviewErrors()}</div>
               </div>
-            </div>)
+            </div>
           )}
         </div>
       </div>
