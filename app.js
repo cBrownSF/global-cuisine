@@ -13,6 +13,7 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const Listing = require("./models/Listing");
 const likes = require("./routes/api/likes")
+const imageRoute = require("./routes/api/image")
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -29,7 +30,7 @@ mongoose
   app.use("/api/reviews", reviews)
   app.use("/api/likes", likes)
   app.use(express.static("public"));
- 
+  app.use('/api/images',imageRoute)
 // app.get("/", (req, res) => {
 //   const user = new User({
 //     username: "jim",
