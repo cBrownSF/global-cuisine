@@ -36,16 +36,17 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(400).json(err));
 })
 
-// const storage = multer.diskStorage({
-//   destination: (req, file, callback) => {
-//     callback(null, './frontend/public/uploads/')
-//   },
-//   filename: (req, file, callback) => { 
-//     callback(null, file.originalname) 
-//   }
-// })
+const upload = require('../../image_upload')
 
-// const upload = multer({ storage: storage })
+const singleImageUpload = upload.single('image')
+router.post("/", upload.single('image'), function (req, res) {
+  singleImageUpload(req, res, function (error) {
+
+    return res.json({ 'imageURL': req.file.location, })
+  })
+})
+
+module.exports = router;
 
 router.post("/", 
     passport.authenticate("jwt", {session: false}), upload.single('picture'),
