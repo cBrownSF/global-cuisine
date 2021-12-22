@@ -89,6 +89,9 @@ class RecipeShow extends React.Component {
       <div>
         <ReviewIndexContainer listingId={listing._id} />
       </div>
+      <div className="review-average">
+
+      </div>
       <div id="writeReview">
         <CreateReviewContainer listing={listing} listingId={listing._id} />
       </div>
