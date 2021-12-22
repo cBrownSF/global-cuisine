@@ -87,7 +87,8 @@ class RecipeShow extends React.Component {
       <div id="writeReview">
         <CreateReviewContainer listing={listing} listingId={listing._id} />
       </div>
-      <div>
+      <div className='break-line-above-reviews'></div>
+      <div className='review-index-show'>
         <ReviewIndexContainer listingId={listing._id} />
       </div>
     </div>

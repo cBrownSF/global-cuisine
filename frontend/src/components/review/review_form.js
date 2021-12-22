@@ -67,6 +67,7 @@ class ReviewForm extends React.Component {
                         value={this.state.reviewer_name}
                         onChange={this.update("reviewer_name")}
                         className="name-input"
+                        placeholder='  Enter your name'
                       />
                     </div>
                   </div>
@@ -79,6 +80,7 @@ class ReviewForm extends React.Component {
                         value={this.state.review}
                         onChange={this.update("review")}
                         className="body-input"
+                        placeholder=' Enter the details'
                       />
                     </div>
                   </div>
@@ -90,6 +92,7 @@ class ReviewForm extends React.Component {
                         value={this.state.score}
                         onChange={this.update("score")}
                         className="score-input"
+                        placeholder='  Enter a number ranging 1 to 5'
                       />
                     </div>
                   </div>

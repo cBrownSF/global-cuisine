@@ -10,21 +10,20 @@ const ReviewIndexItem = ({ review, listingId, currentUserId, deleteReview }) => 
           ""
         ) : (
           <div className="review-index-item">
+            <div>{review.reviewer_name}</div>
+            <div className="review-score">
+              <p>Rating: {review.score}</p>
+            </div>
             <div className="review-title">
               <p>{review.review}</p>
             </div>
-            <br />
-            <div className="review-score">
-              <p>{review.score}</p>
-            </div>
-            <br />
           </div>
         )}
       </div>
       <div>
         {currentUserId === review.author_id ? (
           <div>
-            <button onClick={() => deleteReview(review._id)}>
+            <button className="delete-review-show" onClick={() => deleteReview(review._id)}>
               Delete Review
             </button>
           </div>

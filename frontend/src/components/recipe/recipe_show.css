@@ -269,11 +269,12 @@
 }
 
 .name-input, .body-input, .score-input{
-    border: 1px solid white;
+    border: 1px solid lightgray;
     width: 15vw;
     height: 2vw;
     background-color: black;
     color: white;
+    font-size: 1vw;
 }
 
 .div-button-review{
@@ -289,11 +290,81 @@
     background-color: gray;
     font-size: 1.1vw;
     border: 2px solid black;
-
 }
 
 .review-errors{
     color: darkred;
     position: relative;
     left: 1vw;
+}
+
+.break-line-above-reviews{
+    border: 1px solid black;
+    width: 82vw;
+    height: 0vw;
+    position: relative;
+    top: 10vw;
+    left: 12vw;
+}
+
+.review-index-show{
+    position: relative;
+    top: 12vw;
+}
+
+.no-reviews-show{
+    border: 1px solid black;
+    width: 15vw;
+    height: 3vw;
+    position: relative;
+    left: 45vw;
+    top: 3vw;
+}
+
+.no-reviews-show p {
+    position: relative;
+     font-size: 2vw;
+     left: 1vw;
+     top: 0.7vw;
+}
+
+.reviews-title{
+    border-bottom: 2px solid black;
+    width: 82vw;
+    height: 2vw;
+    font-size: 2vw;
+    position: relative;
+    left: 12vw;
+}
+
+.reviews-title p {
+    position: relative;
+    left: 37vw;
+}
+
+.review-index-item{
+    border-bottom: 1px solid black;
+    width: 82vw;
+    position: relative;
+    left: 12vw;
+    top: 2vw;
+    height: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 1.3vw;
+
+}
+
+.title-of-all-reviews{
+    position: relative;
+    top: 1vw;
+}
+
+.delete-review-show{
+    position: relative;
+    left: 50vw;
+    bottom: 1vw;
+    background-color: gray;
+    font-size: 1.1vw;
 }
