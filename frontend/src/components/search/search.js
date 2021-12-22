@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router";
 import "./search.css";
 import { hashHistory } from "react-router";
 function Search(props) {

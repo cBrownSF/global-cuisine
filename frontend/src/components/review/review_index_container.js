@@ -5,7 +5,7 @@ import { deleteReview, getListingReviews } from "../../actions/review_actions";
 const mapStateToProps = (state, ownProps) => {
     return {
         reviews: Object.values(state.reviews),
-        currentUserId: state.session.user.id,
+        currentUser: state.session.user,
         listingId: ownProps.listingId
         }
 }

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { logout,login } from '../../actions/session_actions';
-
+import { withRouter } from 'react-router';
 import NavBar from './navbar';
 
 const mapStateToProps = state => ({
@@ -15,7 +15,7 @@ const dispatchStatetoProps = dispatch => ({
     password2: '123456'
   }))
 })
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   dispatchStatetoProps
-)(NavBar);
+)(NavBar));

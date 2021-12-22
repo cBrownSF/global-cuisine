@@ -15,10 +15,12 @@ class RecipeShow extends React.Component {
       this.props.receiveListing(this.props.match.params.listingId);
     }
   }
+ 
   render() {
     if (!this.props.listing) {
       return null;
     }
+    console.log(this.props.reviews)
     const listing = this.props.listing
   return (
     <div>
@@ -35,7 +37,7 @@ class RecipeShow extends React.Component {
           </div>
           <div>
             <div className="edit-listing">
-              {this.props.currentUser.id === listing.author_id ? (
+              {this.props.currentUser && this.props.currentUser.id=== listing.author_id ? (
                 <div className="edit-div">
                   <Link
                     to={`/recipes/${listing._id}/edit`}
@@ -86,6 +88,9 @@ class RecipeShow extends React.Component {
       </div>
       <div>
         <ReviewIndexContainer listingId={listing._id} />
+      </div>
+      <div className="review-average">
+
       </div>
       <div id="writeReview">
         <CreateReviewContainer listing={listing} listingId={listing._id} />

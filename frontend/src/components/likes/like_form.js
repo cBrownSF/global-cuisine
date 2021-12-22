@@ -46,7 +46,7 @@ class LikeForm extends React.Component {
 
     let istoggleOn = false;
     for (let i = 0; i < this.props.likes.length; i++){
-      if(this.props.likes[i].liker_id === this.props.currentUser.id && this.props.likes[i].listing_id === this.state.listing_id){
+      if(this.props.currentUser && this.props.likes[i].liker_id === this.props.currentUser.id && this.props.likes[i].listing_id === this.state.listing_id){
         istoggleOn = true
       }else{
         istoggleOn = false
