@@ -40,7 +40,7 @@
  
  .difficulty-input, .country-input{
      width: 7.8vw;
-     background: transparent;
+     background-color: transparent;
      border-top: none;
      border-left: none;
      border-right: none;
