@@ -15,10 +15,11 @@ class ReviewForm extends React.Component {
     const review = Object.assign({}, this.state, {
       listingId,
     });
-    if (this.props.currentUser !== null &&
-      Object.keys(this.props.currentUser).length !== 0 &&
-      this.props.currentUser.id !== this.props.listing.author_id
-    ) {
+    // if (this.props.currentUser !== null &&
+    //   Object.keys(this.props.currentUser).length !== 0 &&
+    //   this.props.currentUser.id !== this.props.listing.author_id
+    // ) 
+    {
       this.props
         .submitReview(review)
         .then(
@@ -54,7 +55,7 @@ class ReviewForm extends React.Component {
       <div className="Main-Review-Form">
         <div className="Review-Page">
         <h3 className="review-header">Leave a review</h3>
-        <div className="review-errors">{this.renderReviewErrors()}</div>
+        <p>{this.renderReviewErrors()}</p>
         <form onSubmit={this.handleSubmit}>
           <br />
           <div className="review-create">
