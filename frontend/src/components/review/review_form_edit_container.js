@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateReview, deleteReview, getReview} from "../../actions/review_actions";
+import { updateReview, deleteReview, getReview, removeReviewErrors} from "../../actions/review_actions";
 import ReviewForm from './review_form';
 import React from 'react';
 
@@ -35,7 +35,8 @@ const mapDispatchtoProps = (dispatch) => {
     submitForm: id => dispatch(updateReview(id)),
     deleteReview: id => dispatch(deleteReview(id)),
     getReview: id => dispatch(getReview(id)),
-    updateReview: id => dispatch(updateReview(id))
+    updateReview: id => dispatch(updateReview(id)),
+    removeReviewErrors: () => dispatch(removeReviewErrors())
   }
 }
 export default connect(mapStateToProps, mapDispatchtoProps)(EditReviewForm);

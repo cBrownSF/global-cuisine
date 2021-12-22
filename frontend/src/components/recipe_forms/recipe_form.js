@@ -20,6 +20,7 @@ class CreateRecipeForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
+    console.log('hitDidmount')
     this.props.clearErrors();
   }
   handleKeyPress(instruction) {
@@ -33,7 +34,8 @@ class CreateRecipeForm extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitForm(this.state);
+    this.props.submitForm(this.state)
+      .then(this.props.clearErrors());
   }
   handleInput(field) {
     return (e) =>

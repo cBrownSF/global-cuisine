@@ -10,7 +10,7 @@ class EditRecipeForm extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this)
   }
   componentDidMount() {
-    this.props.clearErrors();
+    debugger;
     this.props.receiveListing(this.props.match.params.listingId)
     .then(listing=>{
      return this.setState({
@@ -25,14 +25,21 @@ class EditRecipeForm extends React.Component {
        country: "Italy",
        editId: listing.listing.data._id
       })
-    });
-  }  componentDidUpdate() {
+    })
+    this.props.clearErrors()
+  }  
+  componentDidUpdate() {
     if (!this.props.listing) {
+      console.log('hitting update')
       this.props.receiveListing(this.props.match.params.listingId);
     }
-  }  handleSubmit(e) {
+  } 
+  
+  handleSubmit(e) {
     e.preventDefault();
-    this.props.submitForm(this.state);
+    this.props.submitForm(this.state)
+      .then(this.props.clearErrors())
+    ;
   }
   handleKeyPress(field) {    return e => {
       if (e.key === 'Enter') {
@@ -57,19 +64,9 @@ class EditRecipeForm extends React.Component {
       </ul>
     );
   }
-  renderErrors() {
-    return (
-      <ul>
-        {Object.values(this.props.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    )
-  }
+  
   render() {
-    console.log(this.state)
+ 
     if (!this.props.listing) {
       return null;
     }
@@ -80,8 +77,8 @@ class EditRecipeForm extends React.Component {
             <div className="edit-center-recipe">
             <h1 id="title">Edit your recipe</h1>
             <br />
-            <div classname="title-edit">
-              <div classname="title-edit-text">
+            <div className="title-edit">
+              <div className="title-edit-text">
             <input type="text"
               value={this.state.title || ''}
               onChange={this.handleInput('title')}

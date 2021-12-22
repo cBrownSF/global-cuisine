@@ -4,7 +4,7 @@ import {
   removeListingErrors,
 } from "../../actions/listing_actions";
 import RecipeForm from "./recipe_form";
-import { withRouter } from "react-router";
+
 const mapStateToProps = (state) => {
   return {
     errors: state.errors.listing,
@@ -19,6 +19,6 @@ const mapDispatchtoProps = (dispatch) => {
     clearErrors: () => dispatch(removeListingErrors()),
   };
 };
-export default withRouter(
+export default
   connect(mapStateToProps, mapDispatchtoProps)(RecipeForm)
-);
+;

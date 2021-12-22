@@ -10,10 +10,10 @@ class ReviewIndex extends React.Component {
     this.props.getListingReviews(this.props.listingId)
     // this.props.getReviews()
   }
-
+ 
   render(){
     if (!this.props.reviews) return null;
-    const { reviews, listingId, currentUser, deleteReview } = this.props;
+    const { reviews, listingId, currentUser, getListingReviews,deleteReview } = this.props;
    
     return (
       <div className="reviews-list-class">
@@ -21,12 +21,13 @@ class ReviewIndex extends React.Component {
           <h1>Reviews</h1>
         </div>
         <ul>
-          {reviews.map((review) => (
+          {reviews.map((review,i) => (
             <ReviewIndexItem
               review={review}
               currentUser={currentUser}
               listingId={listingId}
               deleteReview={deleteReview}
+              updateReview={getListingReviews}
               key={review._id + "z"}
             />
           ))}
@@ -39,37 +40,3 @@ class ReviewIndex extends React.Component {
 
 export default ReviewIndex;
 
-// import React from 'react';
-// import ReactIndexItem from './review_index_item';
-
-// class ReviewIndex extends React.Component{
-//     render(){
-//         const {
-//           reviews,
-//           listing,
-//           deleteReview,
-//           userId,
-//         } = this.props;
-//         return (
-//           <div>
-//             {listing.review_ids.length === 0 ? (
-//               <div className="no-review">
-//                 <p>No Review</p>
-//               </div>
-//             ) : (
-//               <ul>
-//                 {reviews.map((review) => (
-//                   <ReactIndexItem
-//                     key={review.id}
-//                     review={review}
-//                     deleteReview={deleteReview}
-//                     userId={userId}
-//                     listing={listing}
-//                   />
-//                 ))}
-//               </ul>
-//             )}
-//           </div>
-//         );
-//     }
-// }export default ReviewIndex

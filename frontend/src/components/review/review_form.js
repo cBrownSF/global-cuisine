@@ -1,12 +1,11 @@
 import React from 'react';
 import './review_form.css';
-// import { withRouter } from 'react-router';
+import { Link } from "react-router-dom";
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.review;
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
 
   }
 
@@ -16,10 +15,11 @@ class ReviewForm extends React.Component {
     const review = Object.assign({}, this.state, {
       listingId,
     });
-    if (this.props.currentUser !== null &&
-      Object.keys(this.props.currentUser).length !== 0 &&
-      this.props.currentUser.id !== this.props.listing.author_id
-    ) {
+    // if (this.props.currentUser !== null &&
+    //   Object.keys(this.props.currentUser).length !== 0 &&
+    //   this.props.currentUser.id !== this.props.listing.author_id
+    // ) 
+    
       this.props
         .submitReview(review)
         .then(
@@ -30,10 +30,10 @@ class ReviewForm extends React.Component {
           })
         )
         .then(this.props.removeReviewErrors());
-    }
+    
   }
 
-  renderErrors() {
+  renderReviewErrors() {
     return (
       <ul>
         {this.props.errors.map((error, i) => (
@@ -47,11 +47,15 @@ class ReviewForm extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
   render() {
+    if (this.props.currentUser &&
+      Object.keys(this.props.currentUser).length !== 0 &&
+      this.props.currentUser.id !== this.props.listing.author_id
+    ){
     return (
       <div className="Main-Review-Form">
-        <div className="review-errors">{this.renderErrors()}</div>
         <div className="Review-Page">
         <h3 className="review-header">Leave a review</h3>
+        <div>{this.renderReviewErrors()}</div>
         <form onSubmit={this.handleSubmit}>
           <br />
           <div className="review-create">
@@ -74,7 +78,7 @@ class ReviewForm extends React.Component {
             <input
               type="text"
               value={this.state.score}
-              onChange={this.update("rating")}
+              onChange={this.update("score")}
               className="score-input"
             />
           </label>
@@ -104,7 +108,24 @@ class ReviewForm extends React.Component {
         </form>
         </div>
       </div>
-    );
+      )
+    }if (this.props.currentUser &&
+      Object.keys(this.props.currentUser).length !== 0 &&
+      this.props.currentUser.id === this.props.listing.author_id
+    ){
+      return(
+        <div>
+          <p>Sorry, but you can't review your own Recipe!</p>
+        </div>
+      )}
+      else{
+      return(
+        <div>
+          <p>Don't have an account? <Link className="login-sign-up-link" to='/signup'>Sign up to review this recipe!</Link ></p>
+          <p>Already a member? <Link className="login-sign-up-link" to='/login'>Log in to add your review!</Link ></p>
+        </div>
+      )
+    }
   }
 }
 
