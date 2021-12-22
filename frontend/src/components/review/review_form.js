@@ -1,12 +1,12 @@
 import React from 'react';
-import './review_form.css';
+// import { withRouter } from 'react-router';
 import { Link } from "react-router-dom";
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.review;
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.renderReviewErrors = this.renderReviewErrors.bind(this);
   }
 
   handleSubmit(e) {
@@ -14,32 +14,26 @@ class ReviewForm extends React.Component {
     const listingId = this.props.listingId;
     const review = Object.assign({}, this.state, {
       listingId,
-    });
-    // if (this.props.currentUser !== null &&
-    //   Object.keys(this.props.currentUser).length !== 0 &&
-    //   this.props.currentUser.id !== this.props.listing.author_id
-    // ) 
-    
+    });  
       this.props
         .submitReview(review)
         .then(
           this.setState({
             reviewer_name: "",
             review: "",
-            score: "5",
+            score: "",
           })
         )
         .then(this.props.removeReviewErrors());
-    
   }
 
   renderReviewErrors() {
     return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error ${i}`}>{error}</li>
-        ))}
-      </ul>
+        <ul>
+          {this.props.errors.map((error, i) => (
+            <li key={`error ${i}`}>{error}</li>
+          ))}
+        </ul>
     );
   }
 
@@ -47,84 +41,98 @@ class ReviewForm extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
   render() {
-    if (this.props.currentUser &&
-      Object.keys(this.props.currentUser).length !== 0 &&
-      this.props.currentUser.id !== this.props.listing.author_id
-    ){
+    {
     return (
       <div className="Main-Review-Form">
-        <div className="Review-Page">
-        <h3 className="review-header">Leave a review</h3>
-        <div>{this.renderReviewErrors()}</div>
-        <form onSubmit={this.handleSubmit}>
-          <br />
-          <div className="review-create">
-            <div className="review-text">
-          <label>
-            Review
-            <textarea
-              value={this.state.review}
-              onChange={this.update("review")}
-              className="review-input"
-            />
-          </label>
-          </div>
-          </div>
-          <br />
-          <div className="score-create">
-            <div className="score-text">
-          <label>
-            Score
-            <input
-              type="text"
-              value={this.state.score}
-              onChange={this.update("score")}
-              className="score-input"
-            />
-          </label>
-          </div>
-          </div>
-          <div className="review-name-create">
-            <div className="review-name-text">
-          <label>
-            Name
-            <input
-              type="text"
-              value={this.state.reviewer_name}
-              onChange={this.update("reviewer_name")}
-              className="review-name-input"
-            />
-          </label>
-          </div>
-          </div>
-          <br />
-          <button
-            type="submit"
-            value={this.props.formType}
-            className="Create-Review-Button"
-          >
-            {this.props.formType}
-          </button>
-        </form>
+        <div className="review-signedIn">
+          {this.props.currentUser === undefined ? (
+            <div className="notloggedIn-review">
+              <div>
+                Please either create an account or log in to write review.
+              </div>
+              <div className="signorlog-review">
+                <div className="signup-review">
+                  <Link to="/signup" className="link-sign-review">
+                    Create an Account
+                  </Link>
+                </div>
+                <div>or</div>
+                <div className="login-review">
+                  <Link to="/login" className="link-login-review">
+                    Log in
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ) : (this.props.currentUser &&
+            Object.keys(this.props.currentUser).length !== 0 &&
+            this.props.currentUser.id === this.props.listing.author_id ? (
+            ""
+          ) : (
+            <div className="review-loggedIn">
+              <div className="leave-review-div">
+                <h3 className="leave-review-inner">Leave a review</h3>
+              </div>
+              <form onSubmit={this.handleSubmit}>
+                <div className="reviews-create-show">
+                  <div className="name-input-review">
+                    <div className="text-name-review">
+                      <p>Name</p>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        value={this.state.reviewer_name}
+                        onChange={this.update("reviewer_name")}
+                        className="name-input-show"
+                        placeholder="  Enter your name"
+                      />
+                    </div>
+                  </div>
+                  <div className="body-input-review">
+                    <div className="text-body-review">
+                      <p>Review</p>
+                    </div>
+                    <div>
+                      <textarea
+                        value={this.state.review}
+                        onChange={this.update("review")}
+                        className="body-input"
+                        placeholder=" Enter the details"
+                      />
+                    </div>
+                  </div>
+                  <div className="score-input-review">
+                    <div>Score</div>
+                    <div>
+                      <input
+                        type="text"
+                        value={this.state.score}
+                        onChange={this.update("score")}
+                        className="score-input"
+                        placeholder="  Enter a number ranging 1 to 5"
+                      />
+                    </div>
+                  </div>
+                  <div className="div-button-review">
+                    <button
+                      type="submit"
+                      value={this.props.formType}
+                      className="Create-Review-Button"
+                    >
+                      {this.props.formType}
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <div>
+                <div className="review-errors">{this.renderReviewErrors()}</div>
+              </div>
+            </div>)
+          )}
         </div>
       </div>
-      )
-    }if (this.props.currentUser &&
-      Object.keys(this.props.currentUser).length !== 0 &&
-      this.props.currentUser.id === this.props.listing.author_id
-    ){
-      return(
-        <div>
-          <p>Sorry, but you can't review your own Recipe!</p>
-        </div>
-      )}
-      else{
-      return(
-        <div>
-          <p>Don't have an account? <Link className="login-sign-up-link" to='/signup'>Sign up to review this recipe!</Link ></p>
-          <p>Already a member? <Link className="login-sign-up-link" to='/login'>Log in to add your review!</Link ></p>
-        </div>
-      )
+    );
     }
   }
 }

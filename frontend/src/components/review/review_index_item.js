@@ -18,14 +18,13 @@ const ReviewIndexItem = ({ review, updateReview,listingId, currentUser, deleteRe
           ""
         ) : (
           <div className="review-index-item">
+            <div>{review.reviewer_name}</div>
+            <div className="review-score">
+              <p>Rating: {review.score}</p>
+            </div>
             <div className="review-title">
               <p>{review.review}</p>
             </div>
-            <br />
-            <div className="review-score">
-              <p>{review.score}</p>
-            </div>
-            <br />
           </div>
         )}
       </div>

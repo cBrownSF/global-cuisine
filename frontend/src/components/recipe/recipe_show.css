@@ -1,146 +1,375 @@
-.right-left{
-    height: 105vh;
-    width: 100%;
-    background-color: gray;
-    display: flex;
-    justify-content: space-around;
+.outermost-show {
+  height: 200vh;
+  width: 100%;
+  border: 1px solid pink;
+  background-color: gray;
+  position: relative;
 }
 
-.left-show{
-    border: 1px solid red;
-    width: 35%;
-    height: 70%;
-    padding: 1%;
-    position: relative;
-    left: 7%;
-    top: 2%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+.right-left {
+  height: 100vh;
+  width: 100%;
+  background-color: gray;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  top: 6vw;
+}
+
+.left-show {
+  border: 1px solid black;
+  width: 35%;
+  height: 77%;
+  padding: 1%;
+  position: relative;
+  left: 7%;
+  top: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: black;
+}
+
+.show-img {
+  width: 92%;
+  height: 90%;
+  position: relative;
+  left: 4%;
+  top: 3.5%;
+}
+
+.listing-detail {
+  font-size: 1.9vh;
+  font-family: sans-serif;
+  line-height: 1.6;
+  color: gray;
+  position: relative;
+  bottom: 12%;
+}
+
+.show-author {
+  position: relative;
+  left: 2.6vh;
+  bottom: 1vh;
+}
+
+.show-author-p {
+  color: white;
+  font-size: 1vw;
+}
+
+.right-show {
+  width: 40%;
+  height: 100%;
+  /* padding: 1%; */
+  position: relative;
+  top: 2%;
+}
+
+.show-title {
+  width: 100%;
+  background-color: black;
+  color: gray;
+  position: relative;
+}
+
+.show-title-p {
+  position: relative;
+  font-size: 3vh;
+  left: 35%;
+}
+
+.lishing-show-ingredient {
+  display: flex;
+  flex-direction: column;
+  line-height: 3vh;
+}
+
+.ingredients-word,
+.instruction-word {
+  font-size: 3.5vh;
+  text-decoration: underline;
+}
+
+.below-ingredient-title {
+  background-image: url("https://global-cuisine.s3.us-west-1.amazonaws.com/show-bkg.png");
+  height: 50%;
+  width: 96%;
+  padding: 2%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.show-ingredient-inner {
+  font-size: 2.2vh;
+  position: relative;
+  top: 2vh;
+}
+
+.instruction-show {
+  background-image: url("https://global-cuisine.s3.us-west-1.amazonaws.com/show-bkg.png");
+  padding: 2%;
+  height: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  top: 4vh;
+}
+
+.instruction-show-inner {
+  line-height: 3vh;
+  position: relative;
+  top: 1.2vh;
+}
+
+.detail-padding {
+  padding: 3%;
+  position: relative;
+  bottom: 2vw;
+}
+
+.p {
+  color: white;
+}
+
+.edit-div {
+  border: 1px solid gray;
+  width: 8vw;
+  height: 1.2vw;
+  padding: 1%;
+  position: relative;
+  left: 35%;
+  text-decoration: none;
+}
+
+.updateOrdelete {
+  font-size: 1vw;
+  color: gray;
+  position: relative;
+  top: 0.4vh;
+  left: 1vh;
+}
+
+.edit-show-link {
+  text-decoration: none;
+}
+
+.like-index-create {
+  width: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: gray;
+  bottom: 1.2vw;
+  left: 26vw;
+}
+
+.likes-list-class {
+  width: 3vw;
+  height: 3vw;
+  font-size: 1.5vw;
+  position: relative;
+  left: 0.2vw;
+  top: 0.8vw;
+}
+
+.likeRecipe, .alreadyLiked {
+  width: 4vw;
+  height: 4vw;
+  background-color: black;
+  border: none;
+}
+
+#thumbup {
+  font-size: 1.5vw;
+  color: gray;
+}
+
+#already-thumbup{
+  font-size: 1.5vw;
+  color: red;
+}
+
+.notloggedIn-review {
+  border: 2px solid black;
+  width: 36vw;
+  padding: 1%;
+  height: 5vw;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5vw;
+  position: relative;
+  left: 12.5vw;
+  justify-content: space-around;
+}
+
+.signorlog-review {
+  display: flex;
+  width: 23vw;
+  justify-content: space-evenly;
+  position: relative;
+  left: 6vw;
+}
+
+.signup-review{
+    border: 1px solid black;
     background-color: black;
+    width: 13vw;
+    height: 2vw;
 }
 
-.show-img{
-    width: 92%;
-    height: 90%;
-    position: relative;
-    left: 4%;
-    top: 3.5%;
-}
-
-.listing-detail{
-    font-size: 1.7vh;
-    font-family: sans-serif;
-    line-height: 1.5;
-    color: white;
-    position: relative;
-    bottom: 12%;
-}
-
-.show-author{
-    position: relative;
-    left: 2.6vh;
-    bottom: 1vh;
-}
-
-.show-author-p{
-    color: white;
-    font-size: 1vw;
-}
-
-.right-show{
-    width: 40%;
-    height: 100%;
-    /* padding: 1%; */
-    position: relative;
-    top: 2%;
-}
-
-.show-title{
-    width: 100%;
+.login-review{
+    border: 1px solid black;
     background-color: black;
+    width: 7vw
+}
+
+.link-sign-review, .link-login-review{
     color: gray;
+    text-decoration: none;
     position: relative;
-}
-
-.show-title-p{
-    position: relative;
-    font-size: 3vh;
-    left: 35%;
+    left: 1vw;
+    top: 0.25vw;
     
 }
 
-.lishing-show-ingredient{
+.review-loggedIn{
+    border: 2px solid black;
+    width: 35vw;
+    height: 19vw;
+    position: relative;
+    left: 14vw;
+}
+
+.reviews-create-show{
     display: flex;
     flex-direction: column;
-    line-height: 3vh;
 }
 
-.ingredients-word, .instruction-word{
-    font-size: 3.5vh;
-    text-decoration: underline;
+.leave-review-div{
+    border-bottom: 2px solid black;
+    height: 2vw;
+   
 }
 
-.below-ingredient-title{
-    background-image: url("https://global-cuisine.s3.us-west-1.amazonaws.com/show-bkg.png");
-    height: 100%;
-    width: 96%;
-    padding: 2%;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.show-ingredient-inner{
-    font-size: 1.7vh;
+.leave-review-inner{
     position: relative;
-    top: 2vh;
+    left: 12vw;
+    font-size: 1.7vw;
 }
 
-.instruction-show{
-    background-image: url("https://global-cuisine.s3.us-west-1.amazonaws.com/show-bkg.png");
-    padding: 2%;
-    background-repeat: no-repeat;
-    background-size: cover;
+.name-input-review, .body-input-review, .score-input-review{
+    display: flex;
+    border: 1px solid black;
+    height: 3.3vw;
+    font-size: 1.4vw;
+    font-weight: 500;
+    width: 23vw;
     position: relative;
-    top: 4vh;
+    left: 6vw;
+    justify-content: space-evenly;
+    top: 1vw;
+    align-items: center;
 }
 
-.instruction-show-inner{
-    line-height: 3vh;
-    position: relative;
-    top: 1.2vh;
-}
-
-.detail-padding{
-    padding: 3%;
-}
-
-
-.p{
+.name-input-show, .body-input, .score-input{
+    border: 1px solid lightgray;
+    width: 15vw;
+    height: 2vw;
+    background-color: black;
     color: white;
-}
-
-.edit-div{
-    border: 1px solid gray;
-    width: 8vw;
-    height: 1.2vw;
-    padding: 1%;
-    position: relative;
-    left: 35%;
-    text-decoration: none;
-
-}
-
-.updateOrdelete{
     font-size: 1vw;
-    color: gray;
+}
+
+.div-button-review{
     position: relative;
-    top: 0.4vh;
-    left: 1vh;
+    top: 1.9vw;
+    left: 15vw;
+    width: 9vw;
+}
+
+.Create-Review-Button{
+    width: 9vw;
+    height: 3vw;
+    background-color: gray;
+    font-size: 1.1vw;
+    border: 2px solid black;
+}
+
+.review-errors{
+    color: darkred;
+    position: relative;
+    left: 1vw;
+}
+
+.break-line-above-reviews{
+    border: 1px solid black;
+    width: 82vw;
+    height: 0vw;
+    position: relative;
+    top: 10vw;
+    left: 12vw;
+}
+
+.review-index-show{
+    position: relative;
+    top: 12vw;
+}
+
+.no-reviews-show{
+    border: 1px solid black;
+    width: 15vw;
+    height: 3vw;
+    position: relative;
+    left: 45vw;
+    top: 3vw;
+}
+
+.no-reviews-show p {
+    position: relative;
+     font-size: 2vw;
+     left: 1vw;
+     top: 0.7vw;
+}
+
+.reviews-title{
+    border-bottom: 2px solid black;
+    width: 82vw;
+    height: 2vw;
+    font-size: 2vw;
+    position: relative;
+    left: 12vw;
+}
+
+.reviews-title p {
+    position: relative;
+    left: 37vw;
+}
+
+.review-index-item{
+    border-bottom: 1px solid black;
+    width: 82vw;
+    position: relative;
+    left: 12vw;
+    top: 2vw;
+    height: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 1.3vw;
 
 }
 
-.edit-show-link{
-    text-decoration: none;
+.title-of-all-reviews{
+    position: relative;
+    top: 1vw;
 }
 
+.delete-review-show{
+    position: relative;
+    left: 50vw;
+    bottom: 1vw;
+    background-color: gray;
+    font-size: 1.1vw;
+}

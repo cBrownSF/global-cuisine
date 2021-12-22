@@ -1,5 +1,6 @@
 import React from "react";
 class LikeIndex extends React.Component {
+
   componentDidMount() {
     this.props.getLikes();
   }
@@ -14,22 +15,7 @@ class LikeIndex extends React.Component {
         count +=1
       }
     });
-
-  //   if (likeListingArray.length !== 0){
-  //   for (let i = 0; i < likeListingArray.length; i++) {
-  //     if (likeListingArray[i].liker_id !== likeListingArray[i + 1].liker_id) {
-  //       count += 1;
-  //     }else{
-  //       count = 0
-  //     }
-  //   }
-  // }
-
-    return (
-      <div className="likes-list-class">
-       {count}
-      </div>
-    );
-  }
+    return <div className="likes-list-class">{count}</div>;
+    }
 }
 export default LikeIndex;

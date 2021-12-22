@@ -17,22 +17,27 @@ class ReviewIndex extends React.Component {
    
     return (
       <div className="reviews-list-class">
-        <div className="title-of-all-reviews">
-          <h1>Reviews</h1>
-        </div>
-        <ul>
-          {reviews.map((review,i) => (
-            <ReviewIndexItem
-              review={review}
-              currentUser={currentUser}
-              listingId={listingId}
-              deleteReview={deleteReview}
-              updateReview={getListingReviews}
-              key={review._id + "z"}
-            />
-          ))}
-        </ul>
-        <br />
+        {reviews.length === 0 ? (
+          <div className="no-reviews-show">
+            <p>No reviews yet</p>
+          </div>
+        ) : (
+          <div className="title-of-all-reviews">
+            <h1 className="reviews-title"><p>Reviews</p></h1>
+            <ul>
+              {reviews.map((review) => (
+                <ReviewIndexItem
+                  review={review}
+                  currentUser={currentUser}
+                  listingId={listingId}
+                  deleteReview={deleteReview}
+                  updateReview={getListingReviews}
+                  key={review._id + "z"}
+                />
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     );
     }

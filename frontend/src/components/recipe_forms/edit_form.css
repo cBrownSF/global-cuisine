@@ -9,21 +9,21 @@
      background-repeat: no-repeat;
      background-size: cover;
      background-position: 50% 50%;
-     width: 30vw;
-     height: 30vw;
+     width: 35vw;
+     height: 35vw;
      position: relative;
      left: 32vw;
      top: 5vw;
  }
  
- .name-edit, .title-edit, .ingredients-edit, .serving-edit, .picture-edit, .details-edit, .instruction-edit, .country-edit, .difficulty-edit{
+ .name-edit, .title-edit, .ingredients-edit, .servings-edit, .picture-edit, .details-edit, .instruction-edit, .country-edit, .difficulty-edit{
      display: flex;
      width: 15vw;
      justify-content: space-between;
      align-items: center;
  }
  
- .name-edit-text, .title-edit-text, .ingredients-edit-text, .serving-edit-text, .picture-edit-text, .description-edit-text, .instruction-edit-text, .country-edit-text, .difficulty-edit-text{
+ .name-edit-text, .title-edit-text, .ingredients-edit-text, .description-edit-text, .instruction-edit-text, .country-edit-text, .difficulty-edit-text{
     font-size: 1vw;
     font-family: cursive;
  }

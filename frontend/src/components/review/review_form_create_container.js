@@ -6,7 +6,7 @@ import ReviewForm from './review_form';
 const mSTP = (state, ownProps) => ({
     review: {
         review: '',
-        score: "5",
+        score: "",
         listing_id: ownProps.listingId,
         reviewer_name: ""
     },

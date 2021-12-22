@@ -75,109 +75,97 @@ class EditRecipeForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className="edit-recipe-page">
             <div className="edit-center-recipe">
-            <h1 id="title">Edit your recipe</h1>
-            <br />
+            <h1 id="title">Edit recipe</h1>
             <div className="title-edit">
-              <div className="title-edit-text">
+              <div>Title</div>
+            <div className="title-edit-text">
             <input type="text"
               value={this.state.title || ''}
               onChange={this.handleInput('title')}
-              placeholder="title of recipe"
               className="title-edit-input"
             />
             </div>
             </div>
-            <br />
             <div className="ingredients-edit">
+              <div>Ingredients</div>
               <div className="ingredients-edit-text">
             <input type="text" onKeyPress={this.handleKeyPress('ingredients')}
               value={this.state.ingredients || ''}
               onChange={this.handleInput('ingredients')}
-              placeholder="ingredients"
               className="ingredients-edit-input"
-            />Add or delete ingredients
-            <p>Hit return to separate ingredients!</p>
+            />
             </div>
             </div>
-            <br />
             <div classname="servings-edit">
+              <div>Serving size</div>
               <div classname="servings-edit-text">
-            <input type="text"
-              value={this.state.servings || ''}
-              onChange={this.handleInput('servings')}
-              placeholder="how many servings"
-              className="servings-edit-input"
-            />How many servings?
-            </div>
-            </div>
-            <br />
-              <div classname="picture-edit">
-                <div classname="picture-edit-text">
-            <input type="text"
-              value={this.state.picture ||''}
-              onChange={this.handleInput('picture')}
-              placeholder="Add a picture"
-              className="picture-edit-input"
-            />Upload a new photograph
-            </div>
-            </div>
-            <br />
-              <div className="name-edit">
-                <div className="name-edit-text">
-            <input type="text"
-              value={this.state.name || ''}
-              onChange={this.handleInput('name')}
-              placeholder="your name"
-              className="name-edit-input"
-            />Change your name!
-            </div>
+                <input type="text"
+                  value={this.state.servings || ''}
+                  onChange={this.handleInput('servings')}
+                  className="servings-edit-input"
+                />
               </div>
-            <br />
+            </div>
+            <div classname="picture-edit">
+              <div>Picture</div>
+                <div classname="picture-edit-text">
+                  <input type="text"
+                    value={this.state.picture ||''}
+                    onChange={this.handleInput('picture')}
+                    className="picture-edit-input"
+                  />
+                </div>
+            </div>
+              <div className="name-edit">
+                <div>Name</div>
+                <div className="name-edit-text">
+                    <input type="text"
+                      value={this.state.name || ''}
+                      onChange={this.handleInput('name')}
+                      className="name-edit-input"
+                    />
+                 </div>
+              </div>
             <div className="details-edit">
+              <div>Details</div>
               <div className="details-edit-text">
-            <input type="text"
-              value={this.state.details || ''}
-              onChange={this.handleInput('details')}
-              placeholder="Add a succinct description"
-              className="details-edit-input"
-            />Update your blurb
+                <input type="text"
+                  value={this.state.details || ''}
+                  onChange={this.handleInput('details')}
+                  className="details-edit-input"
+                />
             </div>
             </div>
-            <br />
             <div className="instruction-edit">
+              <div>Instruction</div>
               <div className="instruction-edit-text">
-            <textarea onKeyPress={this.handleKeyPress('instruction')}
-              value={this.state.instruction || ''}
-              onChange={this.handleInput('instruction')}
-              placeholder="Add your instructions here"
-              className="instruction-edit-input"
-            />Improve your instructions!
+                <textarea onKeyPress={this.handleKeyPress('instruction')}
+                  value={this.state.instruction || ''}
+                  onChange={this.handleInput('instruction')}
+                  className="instruction-edit-input"
+                />
             </div>
             </div>
-            <br />
             <div className="country-edit">
+              <div>Country</div>
               <div className="country-edit-text">
-            <label>Country
-              <select value={this.state.country || ''} onChange={this.handleInput('country')}>
-                <option value="Italy">Italy</option>
-                <option value="France">France</option>
-                <option value="India">India</option>
-              </select>
-            </label>
+                  <select value={this.state.country || ''} onChange={this.handleInput('country')}>
+                    <option value="Italy">Italy</option>
+                    <option value="France">France</option>
+                    <option value="India">India</option>
+                  </select>
             </div>
             </div>
             <div className="difficult-edit">
+              <div>Difficulty</div>
               <div className="difficulty-edit-text">
-            <label>Difficulty
-              <select value={this.state.difficulty || ''} onChange={this.handleInput('difficulty')}>
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
-              </select>
-            </label>
+                  <select value={this.state.difficulty || ''} onChange={this.handleInput('difficulty')}>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                  </select>
+               </div>
             </div>
-            </div>
-            <br />
             <button
               onClick={() => this.props.deleteListing(this.props.listing._id)}
             >
