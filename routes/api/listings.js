@@ -1,12 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer")
-const upload = multer({ dest: './frontend/public/uploads/' })
 const passport = require("passport");
 const Listing = require("../../models/Listing");
 const validateListingInput = require("../../validations/listings");
 const jwt = require('jsonwebtoken');
-const {uploadFile} = require('../../image_upload')
+
 
 router.get("/test", (req, res) => {
   Listing.find()
@@ -38,22 +37,19 @@ router.get("/:id", (req, res) => {
 
 const upload = require('../../image_upload')
 
-const singleImageUpload = upload.single('image')
-router.post("/", upload.single('image'), function (req, res) {
-  singleImageUpload(req, res, function (error) {
 
-    return res.json({ 'imageURL': req.file.location, })
-  })
-})
+// router.post("/", upload.single('image'), function (req, res) {
+//   singleImageUpload(req, res, function (error) {
 
-module.exports = router;
+//     return res.json({ 'imageURL': req.file.location, })
+//   })
+
 
 router.post("/", 
     passport.authenticate("jwt", {session: false}), upload.single('picture'),
-   async (req, res) => {
-      const result = await uploadFile(req.file)
-      console.log(result)
-      console.log(req.file)
+  (req, res) => {
+ 
+      console.log(req.file.location)
         const {isValid, errors} = validateListingInput(req.body,req.file);
       console.log("ERROR HERE", errors)
         if(!isValid){
@@ -69,11 +65,11 @@ router.post("/",
             details: req.body.details,
             difficulty: req.body.difficulty,
             title: req.body.title,
-            picture: req.file.path,
+            picture: req.file.location,
             country: req.body.country,
             servings: req.body.servings
         });
-        console.log(req.file.path)
+        console.log(req.file.location)
         newListing.save().then((listing) => res.json(listing))
     }
 )

@@ -61,7 +61,7 @@ export const getUserListings = id => dispatch => {
 export const writeListing = data => dispatch => {
     return APIUtil.writeListing(data).then(createdListing => {
       dispatch(receiveListing(createdListing))
-      hashHistory.push(`/recipes/${createdListing.data._id}`)
+      // hashHistory.push(`/recipes/${createdListing.data._id}`)
     })
       .catch(err => (dispatch(receiveListingErrors(err.response.data)))
       )
