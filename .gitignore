@@ -3,3 +3,4 @@
 .env
 /.env
 /frontend/node_modulesga
+/frontend/node_modules
