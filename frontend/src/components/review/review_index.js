@@ -21,7 +21,7 @@ class ReviewIndex extends React.Component {
           <h1>Reviews</h1>
         </div>
         <ul>
-          {reviews.map((review) => (
+          {reviews.map((review,i) => (
             <ReviewIndexItem
               review={review}
               currentUser={currentUser}

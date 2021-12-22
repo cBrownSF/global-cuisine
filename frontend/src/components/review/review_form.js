@@ -19,7 +19,7 @@ class ReviewForm extends React.Component {
     //   Object.keys(this.props.currentUser).length !== 0 &&
     //   this.props.currentUser.id !== this.props.listing.author_id
     // ) 
-    {
+    
       this.props
         .submitReview(review)
         .then(
@@ -30,7 +30,7 @@ class ReviewForm extends React.Component {
           })
         )
         .then(this.props.removeReviewErrors());
-    }
+    
   }
 
   renderReviewErrors() {
@@ -55,7 +55,7 @@ class ReviewForm extends React.Component {
       <div className="Main-Review-Form">
         <div className="Review-Page">
         <h3 className="review-header">Leave a review</h3>
-        <p>{this.renderReviewErrors()}</p>
+        <div>{this.renderReviewErrors()}</div>
         <form onSubmit={this.handleSubmit}>
           <br />
           <div className="review-create">
