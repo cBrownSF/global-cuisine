@@ -8,6 +8,7 @@ class Profile extends React.Component {
   componentDidMount() {
     this.props.getUserListings(this.props.currentUser.id)
     this.props.getLikes()
+    this.props.getListings()
   }
 
   render(){
@@ -24,6 +25,16 @@ class Profile extends React.Component {
           userLikes.push(like)
         }
       })
+      let likedListings = []
+      for(let i = 0; i < userLikes.length; i++){
+        let userLike = userLikes[i];
+        for(let j = 0; j < listings.length; j++){
+          if(userLike.listing_id === listings[j]._id){
+                likedListings.push(listings[j])
+          }
+        }
+      }
+      debugger
       return (
         <div className="profile-outer">
           <div className="profile-username">
@@ -95,20 +106,11 @@ class Profile extends React.Component {
                 {userLikes.map((like, index) => (
                   <div key={index + "b"} className="user-like">
                     <Link
-                      to={`/recipes/${listing._id}`}
+                      to={`/reviews`}
                       className="link-profile"
                     >
-                      <div className="profile-recipe-title-image">
-                        <div className="div-image-profile">
-                          <img
-                            src={listing.picture}
-                            alt="food-pic"
-                            className="images-profile"
-                          ></img>
-                        </div>
                         <div className="listing-title-profile">
-                          <p className="title-profile">{listing.title}</p>
-                        </div>
+                          {/* <p className="title-profile">{listing.title}</p> */}
                       </div>
                     </Link>
                   </div>
