@@ -61,7 +61,7 @@ mongoose
 // app.post('/images', upload.single('picture'), (req, res) => {
 //   res.send("<3")
 // })
-// app.use(cors)
+app.use(cors)
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));

@@ -44,7 +44,7 @@ class CreateRecipeForm extends React.Component {
       fileReader.readAsDataURL(file);
     }
   }
-  handleSubmit(e) {
+  async handleSubmit(e) {
     debugger;
     e.preventDefault();
     const formData = new FormData();

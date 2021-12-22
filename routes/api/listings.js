@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer")
-// const upload = multer({ dest: './frontend/public/uploads/' })
+const upload = multer({ dest: './frontend/public/uploads/' })
 const passport = require("passport");
 const Listing = require("../../models/Listing");
 const validateListingInput = require("../../validations/listings");
 const jwt = require('jsonwebtoken');
-// const {uploadFile} = require('../../image_upload')
+const {uploadFile} = require('../../image_upload')
 
 router.get("/test", (req, res) => {
   Listing.find()
@@ -36,21 +36,22 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(400).json(err));
 })
 
-const storage = multer.diskStorage({
-  destination: (req, file, callback) => {
-    callback(null, './frontend/public/uploads/')
-  },
-  filename: (req, file, callback) => { 
-    callback(null, file.originalname) 
-  }
-})
+// const storage = multer.diskStorage({
+//   destination: (req, file, callback) => {
+//     callback(null, './frontend/public/uploads/')
+//   },
+//   filename: (req, file, callback) => { 
+//     callback(null, file.originalname) 
+//   }
+// })
 
-const upload = multer({ storage: storage })
+// const upload = multer({ storage: storage })
 
 router.post("/", 
     passport.authenticate("jwt", {session: false}), upload.single('picture'),
    async (req, res) => {
-      // await uploadFile(req.file)
+      const result = await uploadFile(req.file)
+      console.log(result)
       console.log(req.file)
         const {isValid, errors} = validateListingInput(req.body,req.file);
       console.log("ERROR HERE", errors)
