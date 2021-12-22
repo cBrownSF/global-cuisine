@@ -103,17 +103,26 @@ class Profile extends React.Component {
                 <div className="your-likes">
                   <p className="p-your-likes">Your Likes</p>
                 </div>
-                {userLikes.map((like, index) => (
-                  <div key={index + "b"} className="user-like">
-                    <Link
-                      to={`/reviews`}
-                      className="link-profile"
-                    >
-                        <div className="listing-title-profile">
-                          {/* <p className="title-profile">{listing.title}</p> */}
-                      </div>
-                    </Link>
-                  </div>
+                {likedListings.map((listing, index) => (
+                             <div key={index + "b"} className="user-recipe">
+                             <Link
+                               to={`/recipes/${listing._id}`}
+                               className="link-profile"
+                             >
+                               <div className="profile-recipe-title-image">
+                                 <div className="div-image-profile">
+                                   <img
+                                     src={listing.picture}
+                                     alt="food-pic"
+                                     className="images-profile"
+                                   ></img>
+                                 </div>
+                                 <div className="listing-title-profile">
+                                   <p className="title-profile">{listing.title}</p>
+                                 </div>
+                               </div>
+                             </Link>
+                           </div>
                 ))}
               </div>
             )}
