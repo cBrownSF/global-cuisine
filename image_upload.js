@@ -24,7 +24,7 @@ const s3 = new AWS.S3({
 console.log(process.env.ACCESS_KEY)
 console.log(process.env.SECRET_KEY)
 console.log(process.env.BUCKET_NAME)
-console.log(AWS)
+console.log(s3)
 const upload = multer({
   storage: multerS3({
     s3: s3,
