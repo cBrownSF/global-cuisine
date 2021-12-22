@@ -38,9 +38,9 @@
     height: 2vw;
  }
  
- .difficulty-input, .country-input{
-     width: 7.8vw;
-     background-color: transparent;
+ .country-input-edit, .difficulty-input-edit{
+     width: 8vw;
+     background: transparent;
      border-top: none;
      border-left: none;
      border-right: none;
