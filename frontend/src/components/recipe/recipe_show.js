@@ -21,11 +21,19 @@ class RecipeShow extends React.Component {
     }
     const listing = this.props.listing
   return (
-    <div>
+    <div className="outermost-show">
       <div className="right-left">
         <div className="left-show">
           <div>
             <img src={listing.picture} className="show-img" alt="food"></img>
+          </div>
+          <div className="like-index-create">
+            <div>
+              <CreateLikeContainer listing={listing} listingId={listing._id} />
+            </div>
+            <div>
+              <LikeIndexContainer listingId={listing._id} />
+            </div>
           </div>
           <div className="detail-padding">
             <p className="listing-detail">{listing.details}</p>
@@ -76,19 +84,11 @@ class RecipeShow extends React.Component {
           </div>
         </div>
       </div>
-      <div>
-        <LikeIndexContainer listingId={listing._id} />
-      </div>
-      <div>
-        <div>
-          <CreateLikeContainer listing={listing} listingId={listing._id} />
-        </div>
+      <div id="writeReview">
+        <CreateReviewContainer listing={listing} listingId={listing._id} />
       </div>
       <div>
         <ReviewIndexContainer listingId={listing._id} />
-      </div>
-      <div id="writeReview">
-        <CreateReviewContainer listing={listing} listingId={listing._id} />
       </div>
     </div>
   );

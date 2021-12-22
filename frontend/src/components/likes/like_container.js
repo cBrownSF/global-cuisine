@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { likeListing, removeLikeErrors, getLikes } from "../../actions/like_actions";
+import { likeListing, removeLikeErrors, getLikes, getLike } from "../../actions/like_actions";
 import LikeForm from './like_form';
 
 
@@ -17,13 +17,13 @@ const mSTP = (state, ownProps) => {
     listings: Object.values(state.listings),
     likerId:  state.session.user.id,
     listingId: ownProps.listingId,
-    toggleOn: false
+    // toggleOn: false
     }
 }
 
 const mDTP = (dispatch) => ({
   submitLike: (like) => dispatch(likeListing(like)),
   removeLikeErrors: () => dispatch(removeLikeErrors()),
-  getLikes: () => dispatch(getLikes())
+  getLikes: () => dispatch(getLikes()),
 });
 export default connect(mSTP, mDTP)(LikeForm)

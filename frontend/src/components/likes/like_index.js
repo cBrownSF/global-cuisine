@@ -12,8 +12,6 @@ class LikeIndex extends React.Component {
              likes.forEach((like) => {
                if (like.listing_id === listingId) {
                  count += 1
-               }else{
-                 count = 1
                }
              });
              return <div className="likes-list-class">{count}</div>;

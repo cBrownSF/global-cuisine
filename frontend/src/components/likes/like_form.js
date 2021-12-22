@@ -6,7 +6,6 @@ class LikeForm extends React.Component {
     this.state = {
       listing_id: this.props.listingId,
       liker_id: this.props.likerId,
-      toggleOn: this.props.toggleOn
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
@@ -14,6 +13,9 @@ class LikeForm extends React.Component {
 
   componentDidMount(){
     this.props.getLikes()
+    .then(this.setState({
+      toggleOn: true,
+    }))
   }
 
   handleSubmit(e) {
@@ -59,24 +61,13 @@ class LikeForm extends React.Component {
       <div className="Main-Review-Form">
         <div className="review-errors">{this.renderErrors()}</div>
         <form onSubmit={this.handleSubmit}>
-          {this.state.toggleOn === true ? (
-            <button
-              type="submit"
-              value={this.props.formType}
-              className="likeRecipe"
-              disabled
-            >
-              Already liked
-            </button>
-          ) : (
-            <button
-              type="submit"
-              value={this.props.formType}
-              className="likeRecipe"
-            >
-              {this.props.formType}
-            </button>
-          )}
+          <button
+            type="submit"
+            value={this.props.formType}
+            className="likeRecipe"
+          >
+            <i class="far fa-thumbs-up" id="thumbup"></i>
+          </button>
         </form>
       </div>
     );
