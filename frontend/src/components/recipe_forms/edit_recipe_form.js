@@ -182,12 +182,18 @@ class EditRecipeForm extends React.Component {
                   </select>
                 </div>
               </div>
-              <button
-                onClick={() => this.props.deleteListing(this.props.listing._id)}
-              >
-                delete listing
-              </button>
-              <input type="submit" value="Submit" />
+              <div className="edit-delete">
+                <button
+                  className="delete-button-recipe"
+                  onClick={() =>
+                    this.props.deleteListing(this.props.listing._id)
+                  }
+                >
+                  Delete
+                </button>
+                <div>or</div>
+                <input type="submit" value="Submit" className="submit-button-recipe" />
+              </div>
               {this.renderErrors()}
             </div>
           </div>
