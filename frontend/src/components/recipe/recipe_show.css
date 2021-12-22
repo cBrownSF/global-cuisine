@@ -155,14 +155,15 @@
 }
 
 .like-index-create {
-  width: 10vw;
+  width: 6vw;
+  height: 2vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: relative;
   color: gray;
-  bottom: 1.2vw;
-  left: 26vw;
+  bottom: 0.3vw;
+  left: 20vw;
 }
 
 .likes-list-class {
@@ -175,8 +176,8 @@
 }
 
 .likeRecipe, .alreadyLiked {
-  width: 4vw;
-  height: 4vw;
+  width: 3vw;
+  height: 1.5vw;
   background-color: black;
   border: none;
 }
@@ -372,4 +373,28 @@
     bottom: 1vw;
     background-color: gray;
     font-size: 1.1vw;
+}
+
+.like-index-stars{
+  display: flex;
+  position: relative;
+  bottom: 1vw;
+  height: 2vw;
+  width: 32.4vw;
+  /* justify-content: space-between; */
+  align-items: center;
+  left: 1.3vw;
+}
+
+.zero-star-icons, .fifth-star-icons, .one-star-icons, .fourth-half-icons, .two-star-icons, .third-star-icons, .fourth-star-icons, .fifth-star-icons, .one-half-icons, .two-half-icons, .third-half-icons{
+  display: flex;
+}
+
+.fourth-star-icons, .fifth-star-icons, .third-half-icons, .fourth-half-icons, .third-star-icons, .two-half-icons, .two-star-icons, .one-half-icons, .one-star-icons, .zero-star-icons{
+  color: red
+}
+
+.liketotal{
+  position: relative;
+  left: 1.7vw;
 }
