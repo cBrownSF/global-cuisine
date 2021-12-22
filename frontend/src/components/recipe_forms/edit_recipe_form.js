@@ -96,7 +96,7 @@ class EditRecipeForm extends React.Component {
             />
             </div>
             </div>
-            <div classname="servings-edit">
+            <div className="servings-edit">
               <div>Serving size</div>
               <div classname="servings-edit-text">
                 <input type="text"
@@ -106,7 +106,7 @@ class EditRecipeForm extends React.Component {
                 />
               </div>
             </div>
-            <div classname="picture-edit">
+            <div className="picture-edit">
               <div>Picture</div>
                 <div classname="picture-edit-text">
                   <input type="text"

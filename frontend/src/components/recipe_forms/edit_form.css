@@ -16,7 +16,7 @@
      top: 5vw;
  }
  
- .name-edit, .title-edit, .ingredients-edit, .servings-edit, .picture-edit, .details-edit, .instruction-edit, .country-edit, .difficulty-edit{
+ .title-edit, .ingredients-edit, .servings-edit, .picture-edit, .name-edit, .details-edit, .instruction-edit, .country-edit, .difficult-edit {
      display: flex;
      width: 15vw;
      justify-content: space-between;
@@ -24,17 +24,18 @@
  }
  
  .name-edit-text, .title-edit-text, .ingredients-edit-text, .description-edit-text, .instruction-edit-text, .country-edit-text, .difficulty-edit-text{
-    font-size: 1vw;
+    font-size: 1.6vw;
     font-family: cursive;
  }
  
  .name-edit-input, .title-edit-input, .ingredients-edit-input, .servings-edit-input, .picture-edit-input, .description-edit-input, .instruction-edit-input, .details-edit-input{
-    width: 7.5vw;
+    width: 8vw;
     background: transparent;
     border-bottom: 1px solid black;
     border-top: none;
     border-left: none;
     border-right: none;
+    height: 2vw;
  }
  
  .difficulty-input, .country-input{
@@ -43,7 +44,9 @@
      border-top: none;
      border-left: none;
      border-right: none;
+     height: 2vw;
  }
+
  .edit-center-recipe{
      width: 60%;
      height: 60%;
