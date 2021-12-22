@@ -29,7 +29,7 @@ class Profile extends React.Component {
       for(let i = 0; i < userLikes.length; i++){
         let userLike = userLikes[i];
         for(let j = 0; j < listings.length; j++){
-          if(userLike.listing_id === listings[j]._id){
+          if(userLike.listing_id === listings[j]._id && !likedListings.includes(listings[j])){
                 likedListings.push(listings[j])
           }
         }
