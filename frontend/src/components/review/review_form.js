@@ -32,7 +32,7 @@ class ReviewForm extends React.Component {
     }
   }
 
-  renderErrors() {
+  renderReviewErrors() {
     return (
       <ul>
         {this.props.errors.map((error, i) => (
@@ -52,9 +52,9 @@ class ReviewForm extends React.Component {
     ){
     return (
       <div className="Main-Review-Form">
-        <div className="review-errors">{this.renderErrors()}</div>
         <div className="Review-Page">
         <h3 className="review-header">Leave a review</h3>
+        <div className="review-errors">{this.renderReviewErrors()}</div>
         <form onSubmit={this.handleSubmit}>
           <br />
           <div className="review-create">
