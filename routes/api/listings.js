@@ -29,9 +29,15 @@ router.get("/user/:user_id", (req, res) => {
 })
 
 router.get("/:id", (req, res) => {
+  debugger;
+  
     Listing
     .findById(req.params.id)
-    .then(listing => res.json(listing))
+    .then(listing => {
+      console.log(res)
+      console.log(res.json(listing))
+      res.json(listing)
+    })
     .catch(err => res.status(400).json(err));
 })
 
@@ -48,7 +54,7 @@ const upload = require('../../image_upload')
 router.post("/", 
     passport.authenticate("jwt", {session: false}), upload.single('picture'),
   (req, res) => {
- 
+    console.log(req.file)
       console.log(req.file.location)
         const {isValid, errors} = validateListingInput(req.body,req.file);
       console.log("ERROR HERE", errors)
@@ -93,7 +99,7 @@ router.patch(
                 listing.details = req.body.details,
                 listing.difficulty = req.body.difficulty,
                 listing.servings = req.body.servings,
-                listing.picture = req.file.originalname;
+                listing.picture = req.file.location;
                 listing.title = req.body.title;
                 listing.save().then((listing) => res.json(listing));
             }
