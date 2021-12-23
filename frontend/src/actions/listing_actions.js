@@ -78,6 +78,7 @@ export const updateListing = listing => dispatch => {
 export const deleteListing = id => dispatch => {
     return APIUtil.deleteListing(id)
     .then(() => {
+      debugger;
     dispatch(removeListing(id))
       hashHistory.push(`/profile`)
     })
