@@ -1,6 +1,7 @@
 import React from "react";
 import "./recipe_form.css"
-class CreateRecipeForm extends React.Component {
+
+class RecipeForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

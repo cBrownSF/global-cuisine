@@ -8,16 +8,33 @@ class Profile extends React.Component {
   componentDidMount() {
     this.props.getUserListings(this.props.currentUser.id)
     this.props.getLikes()
+    this.props.getListings()
   }
 
   render(){
-      const {currentUser, listings} = this.props;
+      const {currentUser, listings, likes} = this.props;
       let userRecipes = [];
       listings.forEach((listing) => {
           if(listing.author_id === currentUser.id){
               userRecipes.push(listing)
           }
       })
+      let userLikes = [];
+      likes.forEach((like) => {
+        if(like.liker_id === currentUser.id){
+          userLikes.push(like)
+        }
+      })
+      let likedListings = []
+      for(let i = 0; i < userLikes.length; i++){
+        let userLike = userLikes[i];
+        for(let j = 0; j < listings.length; j++){
+          if(userLike.listing_id === listings[j]._id && !likedListings.includes(listings[j])){
+                likedListings.push(listings[j])
+          }
+        }
+      }
+      debugger
       return (
         <div className="profile-outer">
           <div className="profile-username">
@@ -63,6 +80,49 @@ class Profile extends React.Component {
                       </div>
                     </Link>
                   </div>
+                ))}
+              </div>
+            )}
+          </div>
+          <div>
+          {userLikes.length === 0 ? (
+                <div className="detail-no-like">
+                  <div className="not-detail">
+                    <p className="p-not-detail">
+                      You have not liked any recipes yet.
+                    </p>
+                  </div>
+                  <div className="link-all-recipes">
+                    <Link to="/recipes" className="l-all-recipes">
+                      List of Recipes
+                    </Link>
+                  </div>
+                </div>
+            ) : (
+              <div className="yes-like-outer">
+                <div className="your-likes">
+                  <p className="p-your-likes">Your Likes</p>
+                </div>
+                {likedListings.map((listing, index) => (
+                             <div key={index + "b"} className="user-recipe">
+                             <Link
+                               to={`/recipes/${listing._id}`}
+                               className="link-profile"
+                             >
+                               <div className="profile-recipe-title-image">
+                                 <div className="div-image-profile">
+                                   <img
+                                     src={listing.picture}
+                                     alt="food-pic"
+                                     className="images-profile"
+                                   ></img>
+                                 </div>
+                                 <div className="listing-title-profile">
+                                   <p className="title-profile">{listing.title}</p>
+                                 </div>
+                               </div>
+                             </Link>
+                           </div>
                 ))}
               </div>
             )}
