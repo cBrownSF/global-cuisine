@@ -5,3 +5,4 @@
 /.env
 /frontend/node_modulesga
 /config/keys_dev.js
+config
