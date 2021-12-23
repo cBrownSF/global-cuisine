@@ -321,8 +321,37 @@ class RecipeShow extends React.Component {
           </div>
         </div>
       </div>
-      <div id="writeReview">
-        <CreateReviewContainer listing={listing} listingId={listing._id} />
+      <div>
+        <div className="review-signedIn">
+          {this.props.currentUser &&
+          Object.keys(this.props.currentUser).length !== 0 ? (
+            <div id="writeReview">
+              <CreateReviewContainer
+                listing={listing}
+                listingId={listing._id}
+              />
+            </div>
+          ) : (
+            <div className="notloggedIn-review">
+              <div>
+                Please either create an account or log in to write review.
+              </div>
+              <div className="signorlog-review">
+                <div className="signup-review">
+                  <Link to="/signup" className="link-sign-review">
+                    Create an Account
+                  </Link>
+                </div>
+                <div>or</div>
+                <div className="login-review">
+                  <Link to="/login" className="link-login-review">
+                    Log in
+                  </Link>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
       <div className="break-line-above-reviews"></div>
       <div className="review-index-show">
