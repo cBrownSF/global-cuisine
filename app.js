@@ -1,7 +1,9 @@
+
+const S3 = require('aws-sdk/clients/s3')
 const express = require("express");
-const multer = require('multer');
-const upload = multer({dest: 'uploads/'})
 const app = express();
+const cors = require('cors')
+const multer = require('multer');
 const path = require('path');
 const mongoose = require("mongoose");
 const db = require("./config/keys").mongoURI;
@@ -19,30 +21,28 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch((err) => console.log(err));
 
-  app.use(passport.initialize());
-  require("./config/passport")(passport);
-  
-  app.use(bodyParser.urlencoded({ extended: false }));
-  app.use(bodyParser.json());
-  app.use("/api/users", users)
-  app.use("/api/listings", listings)
-  app.use("/api/reviews", reviews)
-  app.use("/api/likes", likes)
-  app.use(express.static("public"));
- 
-// app.get("/", (req, res) => {
-//   const user = new User({
-//     username: "jim",
-//     email: "jim@jim.com",
-//     password: "jim1234"
-//   })
-//   user.save()
-//   res.send("helloworld");
-// })
+app.use(passport.initialize());
+require("./config/passport")(passport);
 
-app.post('/images', upload.single('picture'), (req, res) => {
-  res.send("<3")
-})
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use("/api/users", users)
+app.use("/api/listings", listings)
+app.use("/api/reviews", reviews)
+app.use("/api/likes", likes)
+app.use(express.static("public"));
+
+// // app.get("/", (req, res) => {
+// //   const user = new User({
+// //     username: "jim",
+// //     email: "jim@jim.com",
+// //     password: "jim1234"
+// //   })
+// //   user.save()
+// // //   res.send("helloworld");
+// // // })
+
+app.use(cors)
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
