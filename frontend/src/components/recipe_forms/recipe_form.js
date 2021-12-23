@@ -39,12 +39,11 @@ class CreateRecipeForm extends React.Component {
     fileReader.onloadend = () => {
       this.setState({ photoFile: file, photoUrl: fileReader.result });
     };
-
     if (file) {
       fileReader.readAsDataURL(file);
     }
   }
-  async handleSubmit(e) {
+  handleSubmit(e) {
     debugger;
     e.preventDefault();
     const formData = new FormData();
@@ -57,9 +56,7 @@ class CreateRecipeForm extends React.Component {
     formData.append('title', this.state.title)
     formData.append('country', this.state.country)
     formData.append('instruction', this.state.instruction)
-    // if (this.state.photoFile) {
-    //   formData.append('listing[picture]', this.state.photoFile);
-    // }
+
     this.props.submitForm(formData);
   }
 
@@ -99,13 +96,6 @@ class CreateRecipeForm extends React.Component {
               onChange={this.handleInput("servings")}
               placeholder="how many servings"
             />
-            <br />
-            {/* <input
-              type="text"
-              value={this.state.picture}
-              onChange={this.handleInput("picture")}
-              placeholder="Add a picture"
-            /> */}
             <br />
             <input
               type="text"

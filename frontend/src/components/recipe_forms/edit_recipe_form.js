@@ -20,13 +20,16 @@ class EditRecipeForm extends React.Component {
           difficulty: listing.listing.data.difficulty,
           servings: listing.listing.data.servings,
           title: listing.listing.data.title,
-          picture: "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
+          picture: listing.listing.data.picture || null,
           country: "Italy",
           editId: listing.listing.data._id,
-          photoFile: listing.listing.data.photoFile || 'hello',
-          photoUrl: ''
+          photoUrl: null,
+          photoFile: null
         })
       });
+  }
+  componentDidMount() {
+    this.props.clearErrors();
   }
   componentDidUpdate() {
     if (!this.props.listing) {
@@ -40,13 +43,25 @@ class EditRecipeForm extends React.Component {
     fileReader.onloadend = () => {
       this.setState({ photoFile: file, photoUrl: fileReader.result });
     };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
-    this.props
-      .submitForm(this.state)
-      .then(this.props.history.push("/"));
+    const formData = new FormData();
+    formData.append('picture', this.state.photoFile)
+    formData.append('name', this.state.name)
+    formData.append('ingredients', this.state.ingredients)
+    formData.append('details', this.state.details)
+    formData.append('difficulty', this.state.difficulty)
+    formData.append('servings', this.state.servings)
+    formData.append('title', this.state.title)
+    formData.append('country', this.state.country)
+    formData.append('instruction', this.state.instruction)
+    this.props.submitForm(formData);
   }
   handleKeyPress(instruction) {
 
@@ -91,12 +106,6 @@ class EditRecipeForm extends React.Component {
             />
             <br />
             <input type="text"
-              value={this.state.picture || ''}
-              onChange={this.handleInput('picture')}
-              placeholder="Add a picture"
-            />
-            <br />
-            <input type="text"
               value={this.state.name || ''}
               onChange={this.handleInput('name')}
               placeholder="your name"
@@ -128,11 +137,12 @@ class EditRecipeForm extends React.Component {
                 <option value="Hard">Hard</option>
               </select>
             </label>
-            {this.state.photoUrl ? <img className="upload-photo" height="200px" width="200px" src={this.state.photoUrl} /> : null}
+            {this.state.picture ? <img className="upload-photo" height="200px" width="200px" src={this.state.picture} /> : null}
 
             <label>
               Upload Photo
             <input type="file"
+              name="picture"
               onChange={this.handleFile} />
             </label>
             <br />

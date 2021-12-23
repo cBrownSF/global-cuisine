@@ -14,7 +14,7 @@ const upload = multer({
     s3: s3,
     bucket: "global-cuisine-bucket-final",
     metadata: function (req, file, cb) {
-      cb(null, { fieldName: "TESTING_METADATA" });
+      cb(null, { fieldName: file.fieldname });
     },
     key: function (req, file, cb) {
       cb(null, Date.now().toString())

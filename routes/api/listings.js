@@ -54,8 +54,7 @@ const upload = require('../../image_upload')
 router.post("/", 
     passport.authenticate("jwt", {session: false}), upload.single('picture'),
   (req, res) => {
-    console.log(req.file)
-      console.log(req.file.location)
+    console.log(req)
         const {isValid, errors} = validateListingInput(req.body,req.file);
       console.log("ERROR HERE", errors)
         if(!isValid){
@@ -75,7 +74,6 @@ router.post("/",
             country: req.body.country,
             servings: req.body.servings
         });
-        console.log(req.file.location)
         newListing.save().then((listing) => res.json(listing))
     }
 )
