@@ -7,6 +7,12 @@ class ReviewForm extends React.Component {
     this.state = this.props.review;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderReviewErrors = this.renderReviewErrors.bind(this);
+    this.numberInput =this.numberInput.bind(this)
+  }
+
+
+  componentDidMount() {
+    this.props.removeReviewErrors()
   }
 
   handleSubmit(e) {
@@ -40,6 +46,16 @@ class ReviewForm extends React.Component {
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
+  numberInput(type) {
+    const regex = /^[1-5\b]+$/;
+
+    return e => {
+      if (e.currentTarget.value === '' || regex.test(e.currentTarget.value) && e.currentTarget.value.length <= 1) {
+        this.setState({ [type]: e.currentTarget.value })
+      }
+    }
+  } 
+  
   render() {
     {
     return (
@@ -89,7 +105,7 @@ class ReviewForm extends React.Component {
                       <input
                         type="text"
                         value={this.state.score}
-                        onChange={this.update("score")}
+                        onChange={this.numberInput("score")}
                         className="score-input"
                         placeholder="  Enter a number ranging 1 to 5"
                       />
