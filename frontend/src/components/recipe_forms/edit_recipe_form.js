@@ -5,43 +5,44 @@ import "./edit_form.css"
 class EditRecipeForm extends React.Component {
   constructor(props) {
     super(props)
-    this.state ={};
+    this.state = {};
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
   }
   componentDidMount() {
     debugger;
     this.props.receiveListing(this.props.match.params.listingId)
-    .then(listing=>{
-     return this.setState({
-       name: listing.listing.data.name,
-       ingredients: listing.listing.data.ingredients,
-       instruction: listing.listing.data.instruction,
-       details: listing.listing.data.details,
-       difficulty: listing.listing.data.difficulty,
-       servings: listing.listing.data.servings,
-       title: listing.listing.data.title,
-       picture: "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
-       country: listing.listing.data.country,
-       editId: listing.listing.data._id
+      .then(listing => {
+        return this.setState({
+          name: listing.listing.data.name,
+          ingredients: listing.listing.data.ingredients,
+          instruction: listing.listing.data.instruction,
+          details: listing.listing.data.details,
+          difficulty: listing.listing.data.difficulty,
+          servings: listing.listing.data.servings,
+          title: listing.listing.data.title,
+          picture: "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
+          country: listing.listing.data.country,
+          editId: listing.listing.data._id
+        })
       })
-    })
     this.props.clearErrors()
-  }  
+  }
   componentDidUpdate() {
     if (!this.props.listing) {
       console.log('hitting update')
       this.props.receiveListing(this.props.match.params.listingId);
     }
-  } 
-  
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitForm(this.state)
       .then(this.props.clearErrors())
-    ;
+      ;
   }
-  handleKeyPress(field) {    return e => {
+  handleKeyPress(field) {
+    return e => {
       if (e.key === 'Enter') {
         this.setState({
           [field]: e.currentTarget.value + '\n'
@@ -64,9 +65,9 @@ class EditRecipeForm extends React.Component {
       </ul>
     );
   }
-  
+
   render() {
- 
+
     if (!this.props.listing) {
       return null;
     }
@@ -201,4 +202,4 @@ class EditRecipeForm extends React.Component {
       </div>
     );
   }
-}export default withRouter(EditRecipeForm);
+} export default withRouter(EditRecipeForm);
