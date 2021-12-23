@@ -31,7 +31,7 @@ const ReviewIndexItem = ({ review, updateReview,listingId, currentUser, deleteRe
       <div>
         {
         currentUser && currentUser.id === review.author_id ? (
-          <div>
+          <div className='delete-review-show'>
             <button onClick={
               () => deleteReview(review._id).then(()=>{
                 updateReview(listingId)
