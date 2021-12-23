@@ -13,8 +13,8 @@ class RecipeForm extends React.Component {
       difficulty: "",
       servings: "",
       title: "",
-      picture:
-        "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
+      // picture:
+      //   "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
       country: "",
       photoUrl: null,
       photoFile: null
@@ -130,7 +130,7 @@ class RecipeForm extends React.Component {
                   />
                 </div>
               </div>
-              <div className="picture-create">
+              {/* <div className="picture-create">
                 <div className="picture-text">Picture</div>
                 <div>
                   <input
@@ -140,7 +140,7 @@ class RecipeForm extends React.Component {
                     className="picture-input"
                   />
                 </div>
-              </div>
+              </div> */}
               <div className="description-create">
                 <div className="description-text">Description</div>
                 <div>
