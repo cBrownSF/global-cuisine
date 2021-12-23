@@ -21,9 +21,11 @@ class EditRecipeForm extends React.Component {
        difficulty: listing.listing.data.difficulty,
        servings: listing.listing.data.servings,
        title: listing.listing.data.title,
-       picture: "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
+       picture: listing.listing.data.picture,
        country: listing.listing.data.country,
-       editId: listing.listing.data._id
+       editId: listing.listing.data._id,
+       photoUrl: null || '',
+       photoFile: null || ''
       })
     })
     this.props.clearErrors()
@@ -36,11 +38,36 @@ class EditRecipeForm extends React.Component {
   } 
   
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
-    this.props.submitForm(this.state)
+    const formData = new FormData();
+    formData.append('picture', this.state.photoFile)
+    formData.append('name', this.state.name)
+    formData.append('ingredients', this.state.ingredients)
+    formData.append('details', this.state.details)
+    formData.append('difficulty', this.state.difficulty)
+    formData.append('servings', this.state.servings)
+    formData.append('title', this.state.title)
+    formData.append('country', this.state.country)
+    formData.append('editId',this.state.editId)
+    formData.append('instruction', this.state.instruction)
+    this.props.submitForm(formData)
       .then(this.props.clearErrors())
-    ;
+      ;
   }
+
+  handleFile(e) {
+    debugger;
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ photoFile: file, photoUrl: fileReader.result });
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
+
   handleKeyPress(field) {    return e => {
       if (e.key === 'Enter') {
         this.setState({
@@ -72,7 +99,7 @@ class EditRecipeForm extends React.Component {
     }
     return (
       <div className="edit-recipe-form">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} encType="multipart/form-data">
           <div className="edit-recipe-page">
             <div className="edit-center-recipe">
               <h1 id="title">Edit recipe</h1>
@@ -110,7 +137,7 @@ class EditRecipeForm extends React.Component {
                   />
                 </div>
               </div>
-              <div className="picture-edit">
+              {/* <div className="picture-edit">
                 <div>Picture</div>
                 <div classname="picture-edit-text">
                   <input
@@ -120,7 +147,7 @@ class EditRecipeForm extends React.Component {
                     className="picture-edit-input"
                   />
                 </div>
-              </div>
+              </div> */}
               <div className="name-edit">
                 <div>Name</div>
                 <div className="name-edit-text">
@@ -182,6 +209,15 @@ class EditRecipeForm extends React.Component {
                   </select>
                 </div>
               </div>
+              {this.state.photoUrl ? <img className="upload-photo" height="200px" width="200px" src={this.state.photoUrl} /> : null}
+
+              <label>
+                Upload Photo
+                <input type="file"
+                  name="picture"
+                  onChange={this.handleFile} />
+              </label>
+              <br />
               <div className="edit-delete">
                 <button
                   className="delete-button-recipe"

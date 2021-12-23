@@ -65,7 +65,8 @@ router.patch(
   '/:id/update',
   passport.authenticate('jwt', { session: false }), upload.single('picture'),
   (req, res) => {
-    const { isValid, errors } = validateListingInput(req.body, req.file);
+    console.log(req.file)
+    const { isValid, errors } = validateListingInput(req.body,req.file);
     if (!isValid) {
       return res.status(400).json(errors);
     }
@@ -74,6 +75,7 @@ router.patch(
         errors.listing = "No recipe found with that ID";
         return res.status(404).json(errors);
       } else {
+        console.log(listing)
         listing.name = req.body.name,
           listing.ingredients = req.body.ingredients,
           listing.country = req.body.country,
