@@ -54,7 +54,6 @@ const upload = require('../../image_upload')
 router.post("/", 
     passport.authenticate("jwt", {session: false}), upload.single('picture'),
   (req, res) => {
-    console.log(req)
         const {isValid, errors} = validateListingInput(req.body,req.file);
       console.log("ERROR HERE", errors)
         if(!isValid){
@@ -82,7 +81,7 @@ router.patch(
     '/:id/update',
     passport.authenticate('jwt', {session:false}), upload.single('picture'),
     (req, res) => {
-        const {isValid, errors} = validateListingInput(req.body);
+        const {isValid, errors} = validateListingInput(req.body,req.file);
         if(!isValid){
             return res.status(400).json(errors);
         }
