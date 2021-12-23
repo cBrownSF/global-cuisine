@@ -16,12 +16,14 @@ class RecipeForm extends React.Component {
       picture:
         "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
       country: "",
+      photoUrl: null,
+      photoFile: null
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
   componentDidMount() {
-    console.log('hitDidmount')
     this.props.clearErrors();
   }
   handleKeyPress(instruction) {
@@ -35,25 +37,37 @@ class RecipeForm extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitForm(this.state)
+    const formData = new FormData();
+    formData.append('picture', this.state.photoFile)
+    formData.append('name', this.state.name)
+    formData.append('ingredients', this.state.ingredients)
+    formData.append('details', this.state.details)
+    formData.append('difficulty', this.state.difficulty)
+    formData.append('servings', this.state.servings)
+    formData.append('title', this.state.title)
+    formData.append('country', this.state.country)
+    formData.append('instruction', this.state.instruction)
+
+    this.props.submitForm(formData)
       .then(this.props.clearErrors());
   }
+
   handleInput(field) {
     return (e) =>
       this.setState({
         [field]: e.currentTarget.value,
       });
   }
-  // handleFile(e) {
-  //   const file = e.currentTarget.files[0];
-  //   const fileReader = new FileReader();
-  //   fileReader.onloadend = () => {
-  //     this.setState({ photoFile: file, photoURL: fileReader.result });
-  //   };
-  //   if (file) {
-  //     fileReader.readAsDataURL(file);
-  //   }
-  // }
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ photoFile: file, photoUrl: fileReader.result });
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
   renderErrors() {
     return (
       <ul>
@@ -68,7 +82,7 @@ class RecipeForm extends React.Component {
       return null;
     }
     return (
-      <div className="create-recipe-form">
+      <div className="create-recipe-form" encType="multipart/form-data"> 
         <form onSubmit={this.handleSubmit}>
           <div className="recipe-page">
             <div className="center-recipe">
@@ -179,6 +193,15 @@ class RecipeForm extends React.Component {
                   </select>
                 </div>
               </div>
+              {this.state.photoUrl ? <img className="upload-photo" height="200px" width="200px" src={this.state.photoUrl} /> : null}
+
+              <label>
+                Upload Photo
+                <input type="file"
+                  name="picture"
+                  onChange={this.handleFile} />
+              </label>
+              <br />
               <div className="submit-recipe">
                 <input type="submit" value="Submit" className="submit-input" />
               </div>
