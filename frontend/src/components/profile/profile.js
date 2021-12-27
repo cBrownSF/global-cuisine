@@ -19,29 +19,34 @@ class Profile extends React.Component {
               userRecipes.push(listing)
           }
       })
+
       let userLikes = [];
       likes.forEach((like) => {
-        if(like.liker_id === currentUser.id){
-          userLikes.push(like)
+        if (like.liker_id === currentUser.id) {
+          userLikes.push(like);
         }
-      })
-      let likedListings = []
-      for(let i = 0; i < userLikes.length; i++){
+      });
+      let likedListings = [];
+      for (let i = 0; i < userLikes.length; i++) {
         let userLike = userLikes[i];
-        for(let j = 0; j < listings.length; j++){
-          if(userLike.listing_id === listings[j]._id && !likedListings.includes(listings[j])){
-                likedListings.push(listings[j])
+        for (let j = 0; j < listings.length; j++) {
+          if (
+            userLike.listing_id === listings[j]._id &&
+            !likedListings.includes(listings[j])
+          ) {
+            likedListings.push(listings[j]);
           }
         }
       }
-      debugger
+
       return (
         <div className="profile-outer">
           <div className="profile-username">
             <p>Welcome {currentUser.username}!!</p>
           </div>
-          <div>
-            {userRecipes.length === 0 ? (
+          <div className="likesAndCreate">
+            <div>
+              {userRecipes.length === 0 ? (
                 <div className="detail-no-recipe">
                   <div className="not-detail">
                     <p className="p-not-detail">
@@ -55,34 +60,71 @@ class Profile extends React.Component {
                     </Link>
                   </div>
                 </div>
-            ) : (
-              <div className="yes-recipe-outer">
-                <div className="your-recipe">
-                  <p className="p-your-recipe">Your Recipe</p>
-                </div>
-                {userRecipes.map((listing, index) => (
-                  <div key={index + "b"} className="user-recipe">
-                    <Link
-                      to={`/recipes/${listing._id}`}
-                      className="link-profile"
-                    >
-                      <div className="profile-recipe-title-image">
-                        <div className="div-image-profile">
-                          <img
-                            src={listing.picture}
-                            alt="food-pic"
-                            className="images-profile"
-                          ></img>
-                        </div>
-                        <div className="listing-title-profile">
-                          <p className="title-profile">{listing.title}</p>
-                        </div>
-                      </div>
-                    </Link>
+              ) : (
+                <div className="yes-recipe-outer">
+                  <div className="your-recipe">
+                    <p className="p-your-recipe">Your Recipe</p>
                   </div>
-                ))}
+                  {userRecipes.map((listing, index) => (
+                    <div key={index + "b"} className="user-recipe">
+                      <Link
+                        to={`/recipes/${listing._id}`}
+                        className="link-profile"
+                      >
+                        <div className="profile-recipe-title-image">
+                          <div className="div-image-profile">
+                            <img
+                              src={listing.picture}
+                              alt="food-pic"
+                              className="images-profile"
+                            ></img>
+                          </div>
+                          <div className="listing-title-profile">
+                            <p className="title-profile">{listing.title}</p>
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="like-profile">
+              <div className="allLikeTitle">All Liked Recipe</div>
+              <div className="below-all-like">
+                {userLikes.length === 0 ? (
+                  <div className="no-like">
+                    <p className="p-not-detail">
+                      You have not liked any recipes yet.
+                    </p>
+                  </div>
+                ) : (
+                  <div className="yes-like-outer">
+                    {likedListings.map((listing, index) => (
+                      <div key={index + "b"} className="user-recipe">
+                        <Link
+                          to={`/recipes/${listing._id}`}
+                          className="link-profile"
+                        >
+                          <div className="profile-recipe-title-image">
+                            <div className="div-image-profile">
+                              <img
+                                src={listing.picture}
+                                alt="food-pic"
+                                className="images-profile"
+                              ></img>
+                            </div>
+                            <div className="listing-title-profile">
+                              <p className="title-profile">{listing.title}</p>
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-            )}
+            </div>
           </div>
           <div>
           {userLikes.length === 0 ? (
@@ -128,7 +170,6 @@ class Profile extends React.Component {
             )}
           </div>
         </div>
-  
       );
   }
 }
