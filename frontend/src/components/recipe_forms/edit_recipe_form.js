@@ -132,7 +132,7 @@ class EditRecipeForm extends React.Component {
               <div className="ingredients-edit">
                 <div>Ingredients</div>
                 <div className="ingredients-edit-text">
-                  <input
+                  <textarea
                     type="text"
                     onKeyPress={this.handleKeyPress("ingredients")}
                     value={this.state.ingredients || ""}
