@@ -1,6 +1,6 @@
 .user-recipe{
-    width: 13.8vw;
-    height: 8vh;
+    width: 15.25vw;
+    /* height: 8vh; */
     margin: 3%;
     cursor: pointer;
     position: relative;
@@ -13,7 +13,8 @@
 
 .images-profile{
     width: 100%;
-    height: 4.04vw;
+    height: 97.88%;
+    border: 1px solid pink;
 }
 
 .listing-title-profile{
@@ -95,7 +96,6 @@
 .yes-recipe-outer{
     border: 2px solid black;
     width:  25vw;
-    height: 25vw;
     position: relative;
     left: 10vw;
     top: 5vw;
@@ -104,15 +104,17 @@
 
 .profile-recipe-title-image{
     display: flex;
-    width: 14vw;
-    height: 4.07vw;
+    width: 15vw;
+    /* height: 4.07vw; */
+    border: 1px solid red;
 }
 
 .title-profile{
     color: gray;
     position: relative;
-    left: 1.8vw;
+    left: 0.7vw;
     top: 1.7vw;
+    font-size: 0.8vw;
 }
 
 .your-recipe{
@@ -140,4 +142,9 @@
 
 .profile-username p{
     font-size: 2vw;
+}
+
+.div-image-profile{
+    border: 1px solid pink;
+    width: 10vw;
 }
