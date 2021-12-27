@@ -9,6 +9,7 @@ class EditRecipeForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleFile = this.handleFile.bind(this)
   }
   componentDidMount() {
     debugger;
@@ -22,32 +23,59 @@ class EditRecipeForm extends React.Component {
           difficulty: listing.listing.data.difficulty,
           servings: listing.listing.data.servings,
           title: listing.listing.data.title,
-          picture: "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
+          picture: listing.listing.data.picture,
           country: listing.listing.data.country,
           editId: listing.listing.data._id,
-          deleted: false
+          deleted: false,
+          photoUrl: null || '',
+          photoFile: listing.listing.data.picture || ''
         })
       })
     this.props.clearErrors()
-  }
+  }  
   componentDidUpdate() {
     if (!this.props.listing) {
-      console.log('hitting update')
+  
       this.props.receiveListing(this.props.match.params.listingId);
     }
   }
 
   handleSubmit(e) {
-    debugger;
-    if (this.state.deleted === true){
+    if (this.state.deleted === true) {
+      debugger;
       e.preventDefault();
       return 'hello'
     }
-    this.props.submitForm(this.state)
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('picture', this.state.photoFile)
+    formData.append('name', this.state.name)
+    formData.append('ingredients', this.state.ingredients)
+    formData.append('details', this.state.details)
+    formData.append('difficulty', this.state.difficulty)
+    formData.append('servings', this.state.servings)
+    formData.append('title', this.state.title)
+    formData.append('country', this.state.country)
+    formData.append('editId',this.state.editId)
+    formData.append('instruction', this.state.instruction)
+    this.props.submitForm(formData)
       .then(this.props.clearErrors())
       ;
   }
-  handleKeyPress(field) {
+
+  handleFile(e) {
+    debugger;
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ photoFile: file, photoUrl: fileReader.result });
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
+
+  handleKeyPress(field) {    
     return e => {
       if (e.key === 'Enter') {
         this.setState({
@@ -56,11 +84,18 @@ class EditRecipeForm extends React.Component {
       }
     };
   }
+  
   handleInput(field) {
     return (e) =>
       this.setState({
         [field]: e.currentTarget.value,
       });
+  }
+  handleDelete(field) {
+    this.setState({
+      [field]: true,
+    })
+    this.props.deleteListing(this.props.listing._id)
   }
   renderErrors() {
     return (
@@ -85,7 +120,7 @@ class EditRecipeForm extends React.Component {
     }
     return (
       <div className="edit-recipe-form">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} encType="multipart/form-data">
           <div className="edit-recipe-page">
             <div className="edit-center-recipe">
               <h1 id="title">Edit recipe</h1>
@@ -103,7 +138,7 @@ class EditRecipeForm extends React.Component {
               <div className="ingredients-edit">
                 <div>Ingredients</div>
                 <div className="ingredients-edit-text">
-                  <input
+                  <textarea
                     type="text"
                     onKeyPress={this.handleKeyPress("ingredients")}
                     value={this.state.ingredients || ""}
@@ -123,7 +158,7 @@ class EditRecipeForm extends React.Component {
                   />
                 </div>
               </div>
-              <div className="picture-edit">
+              {/* <div className="picture-edit">
                 <div>Picture</div>
                 <div classname="picture-edit-text">
                   <input
@@ -133,7 +168,7 @@ class EditRecipeForm extends React.Component {
                     className="picture-edit-input"
                   />
                 </div>
-              </div>
+              </div> */}
               <div className="name-edit">
                 <div>Name</div>
                 <div className="name-edit-text">
@@ -195,6 +230,15 @@ class EditRecipeForm extends React.Component {
                   </select>
                 </div>
               </div>
+              {this.state.photoUrl ? <img className="upload-photo" height="200px" width="200px" src={this.state.photoUrl} /> : <img className="upload-photo" height="200px" width="200px" src={this.state.picture} />}
+
+              <label>
+                Upload Photo
+                <input type="file"
+                  name="picture"
+                  onChange={this.handleFile} />
+              </label>
+              <br />
               <div className="edit-delete">
                 <button
                   className="delete-button-recipe"
@@ -214,4 +258,5 @@ class EditRecipeForm extends React.Component {
       </div>
     );
   }
-} export default withRouter(EditRecipeForm);
+} 
+export default withRouter(EditRecipeForm);
