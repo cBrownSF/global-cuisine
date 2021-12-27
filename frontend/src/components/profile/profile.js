@@ -45,7 +45,6 @@ class Profile extends React.Component {
             <p>Welcome {currentUser.username}!!</p>
           </div>
           <div className="likesAndCreate">
-            <div>
               {userRecipes.length === 0 ? (
                 <div className="detail-no-recipe">
                   <div className="not-detail">
@@ -88,7 +87,6 @@ class Profile extends React.Component {
                   ))}
                 </div>
               )}
-            </div>
             <div className="like-profile">
               <div className="allLikeTitle">All Liked Recipe</div>
               <div className="below-all-like">
