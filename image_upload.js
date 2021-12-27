@@ -14,12 +14,13 @@ const upload = multer({
     s3: s3,
     bucket: "global-cuisine-bucket-final",
     metadata: function (req, file, cb) {
-      cb(null, { fieldName: file.fieldname });
+      cb(null, { fieldName: file.originalname });
     },
     key: function (req, file, cb) {
       cb(null, Date.now().toString())
     }
   })
 })
+
 
 module.exports = upload;

@@ -1,11 +1,15 @@
 const express = require("express");
 const router = express.Router();
+require('dotenv').config()
+const AWS = require('aws-sdk');
 const multer = require("multer")
 const passport = require("passport");
 const Listing = require("../../models/Listing");
 const validateListingInput = require("../../validations/listings");
 const validateEditInput = require("../../validations/editListing");
 const jwt = require('jsonwebtoken');
+
+
 
 router.get("/test", (req, res) => {
   Listing.find()
@@ -30,17 +34,22 @@ router.get("/user/:user_id", (req, res) => {
 })
 
 router.get("/:id", (req, res) => {
+
     Listing
     .findById(req.params.id)
-    .then(listing => res.json(listing))
+    .then(listing => {
+      res.json(listing)}
+      )
     .catch(err => res.status(400).json(err));
 })
 
 const upload = require('../../image_upload')
 
+
 router.post("/",
   passport.authenticate("jwt", { session: false }), upload.single('picture'),
   (req, res) => {
+    console.log(req.file)
     const { isValid, errors } = validateListingInput(req.body,req.file);
     if (!isValid) {
       return res.status(400).json(errors);
@@ -55,6 +64,7 @@ router.post("/",
       difficulty: req.body.difficulty,
       title: req.body.title,
       picture: req.file.location,
+      key: req.file.key,
       country: req.body.country,
       servings: req.body.servings
     });
