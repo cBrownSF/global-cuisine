@@ -24,11 +24,13 @@ class EditRecipeForm extends React.Component {
        picture: listing.listing.data.picture,
        country: listing.listing.data.country,
        editId: listing.listing.data._id,
+       deleted: false,
        photoUrl: null || '',
        photoFile: null || ''
       })
     })
     this.props.clearErrors()
+    this.handleDelete = this.handleDelete.bind(this)
   }  
   componentDidUpdate() {
     if (!this.props.listing) {
@@ -68,7 +70,8 @@ class EditRecipeForm extends React.Component {
     }
   }
 
-  handleKeyPress(field) {    return e => {
+  handleKeyPress(field) {    
+    return e => {
       if (e.key === 'Enter') {
         this.setState({
           [field]: e.currentTarget.value + '\n'
@@ -81,6 +84,13 @@ class EditRecipeForm extends React.Component {
       this.setState({
         [field]: e.currentTarget.value,
       });
+  }
+  handleDelete(field) {
+    this.setState({
+      [field]: true,
+    })
+    debugger;
+    this.props.deleteListing(this.props.listing._id)
   }
   renderErrors() {
     return (
@@ -222,7 +232,7 @@ class EditRecipeForm extends React.Component {
                 <button
                   className="delete-button-recipe"
                   onClick={() =>
-                    this.props.deleteListing(this.props.listing._id)
+                    this.handleDelete('deleted')
                   }
                 >
                   Delete
