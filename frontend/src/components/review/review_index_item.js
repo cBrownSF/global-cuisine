@@ -2,15 +2,7 @@ import React,{useEffect,useState} from 'react';
 
 
 const ReviewIndexItem = ({ review, updateReview,listingId, currentUser, deleteReview }) => {
-// const [count, setCount] =useState(0)
-// function decrementCount(){
-//   setCount(prevCount => prevCount -1)
-// }
-//  useEffect(() =>{
-//    if (count !==0){
-//    updateReview(listingId)
-//    }
-//  },[count])
+
   return (
     <div>
       <div className="review-index-items">
