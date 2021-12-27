@@ -4,6 +4,7 @@ const multer = require("multer")
 const passport = require("passport");
 const Listing = require("../../models/Listing");
 const validateListingInput = require("../../validations/listings");
+const validateEditInput = require("../../validations/editListing");
 const jwt = require('jsonwebtoken');
 
 router.get("/test", (req, res) => {
@@ -40,11 +41,11 @@ const upload = require('../../image_upload')
 router.post("/",
   passport.authenticate("jwt", { session: false }), upload.single('picture'),
   (req, res) => {
-    const { isValid, errors } = validateListingInput(req.body, req.file);
-    console.log("ERROR HERE", errors)
+    const { isValid, errors } = validateListingInput(req.body,req.file);
     if (!isValid) {
       return res.status(400).json(errors);
     }
+  
     const newListing = new Listing({
       author_id: req.user.id,
       name: req.body.name,
@@ -65,26 +66,38 @@ router.patch(
   '/:id/update',
   passport.authenticate('jwt', { session: false }), upload.single('picture'),
   (req, res) => {
-    console.log(req.file)
-    const { isValid, errors } = validateListingInput(req.body,req.file);
+    
+   
+    const { isValid, errors } = validateEditInput(req.body);
     if (!isValid) {
       return res.status(400).json(errors);
     }
+  
     Listing.findById(req.params.id).then((listing) => {
       if (!listing) {
         errors.listing = "No recipe found with that ID";
         return res.status(404).json(errors);
-      } else {
+      } else if(listing && !req.file) {
         console.log(listing)
+        console.log(req.file)
         listing.name = req.body.name,
-          listing.ingredients = req.body.ingredients,
-          listing.country = req.body.country,
-          listing.details = req.body.details,
-          listing.difficulty = req.body.difficulty,
-          listing.servings = req.body.servings,
-          listing.picture = req.file.location;
+        listing.ingredients = req.body.ingredients,
+        listing.country = req.body.country,
+        listing.details = req.body.details,
+        listing.difficulty = req.body.difficulty,
+        listing.servings = req.body.servings,
+        listing.picture = req.body.picture,
         listing.title = req.body.title;
         listing.save().then((listing) => res.json(listing));
+      }else {
+        listing.name = req.body.name,
+        listing.ingredients = req.body.ingredients,
+        listing.country = req.body.country,
+        listing.details = req.body.details,
+        listing.difficulty = req.body.difficulty,
+        listing.servings = req.body.servings,
+        listing.picture = req.file.location,
+        listing.title = req.body.title;
       }
     })
   }
