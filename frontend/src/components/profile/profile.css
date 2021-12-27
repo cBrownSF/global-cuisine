@@ -42,10 +42,10 @@
     height:60%;
     padding: 4%;
     border: 2px solid black;
-    width: 30%;
-    height: 13vw;
+    width: 20vw;
+    height: 5vw;
     position: relative;
-    left: 33vw;
+    left: 8vw;
     top: 6vw;
 }
 
@@ -72,19 +72,20 @@
 .link-create-profile{
     position: relative;
     top: 3vw;
-    left: 10.5vw;
-    height: 2.2vh;
+    left: 6vw;
+    height: 2vw;
     border: 1px solid black;
     width: 6vw;
     background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .l-create-recipe{
     text-decoration: none;
     color: ghostwhite;
     position: relative;
-    left: 0.5vw;
-    top: 0.1vw;
     font-size: 0.9vw;
 }
 
@@ -93,7 +94,7 @@
 }
 
 .yes-recipe-outer{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     width:  25vw;
     position: relative;
     left: 10vw;
@@ -104,8 +105,6 @@
 .profile-recipe-title-image{
     display: flex;
     width: 15vw;
-    /* height: 4.07vw; */
-    /* border: 1px solid red; */
 }
 
 .title-profile{
@@ -190,6 +189,5 @@
     position: relative;
     left: 20vw;
     top: 5vw;
-    border: 2px solid black;
     width:  25vw;
 }
