@@ -67,12 +67,17 @@ router.patch(
   passport.authenticate('jwt', { session: false }), upload.single('picture'),
   (req, res) => {
     
-   
+  if (!req.file){
     const { isValid, errors } = validateEditInput(req.body);
     if (!isValid) {
       return res.status(400).json(errors);
     }
-  
+  }else{
+    const { isValid, errors } = validateListingInput(req.body, req.file);
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+  }
     Listing.findById(req.params.id).then((listing) => {
       if (!listing) {
         errors.listing = "No recipe found with that ID";
@@ -98,6 +103,7 @@ router.patch(
         listing.servings = req.body.servings,
         listing.picture = req.file.location,
         listing.title = req.body.title;
+        listing.save().then((listing) => res.json(listing));
       }
     })
   }
