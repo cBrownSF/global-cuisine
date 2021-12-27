@@ -1,7 +1,7 @@
-/config/keys_dev
+
 /config
 /node_modules
 .env
 /.env
 /frontend/node_modulesga
-/config/keys_dev.js
+
