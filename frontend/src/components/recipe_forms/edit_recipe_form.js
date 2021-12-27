@@ -8,6 +8,8 @@ class EditRecipeForm extends React.Component {
     this.state ={};
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
+    this.handleFile = this.handleFile.bind(this)
   }
   componentDidMount() {
     debugger;
@@ -26,11 +28,10 @@ class EditRecipeForm extends React.Component {
        editId: listing.listing.data._id,
        deleted: false,
        photoUrl: null || '',
-       photoFile: null || ''
+       photoFile: listing.listing.data.picture || ''
       })
     })
     this.props.clearErrors()
-    this.handleDelete = this.handleDelete.bind(this)
   }  
   componentDidUpdate() {
     if (!this.props.listing) {
@@ -40,7 +41,11 @@ class EditRecipeForm extends React.Component {
   } 
   
   handleSubmit(e) {
-    debugger;
+    if (this.state.deleted === true) {
+      debugger;
+      e.preventDefault();
+      return 'hello'
+    }
     e.preventDefault();
     const formData = new FormData();
     formData.append('picture', this.state.photoFile)
@@ -219,7 +224,7 @@ class EditRecipeForm extends React.Component {
                   </select>
                 </div>
               </div>
-              {this.state.photoUrl ? <img className="upload-photo" height="200px" width="200px" src={this.state.photoUrl} /> : null}
+              {this.state.photoUrl ? <img className="upload-photo" height="200px" width="200px" src={this.state.photoUrl} /> : <img className="upload-photo" height="200px" width="200px" src={this.state.picture} />}
 
               <label>
                 Upload Photo
