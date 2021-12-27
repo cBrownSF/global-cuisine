@@ -149,7 +149,7 @@ class EditRecipeForm extends React.Component {
               </div>
               <div className="servings-edit">
                 <div>Serving size</div>
-                <div classname="servings-edit-text">
+                <div className="servings-edit-text">
                   <input
                     type="text"
                     value={this.state.servings || ""}
