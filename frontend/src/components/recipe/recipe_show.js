@@ -23,6 +23,8 @@ class RecipeShow extends React.Component {
     }
     const listing = this.props.listing;
     const reviews = this.props.reviews;
+    const likes = this.props.likes;
+    const user = this.props.currentUser;
     let total_score = 0;
     for (let i = 0; i < reviews.length; i++) {
       let review = reviews[i];
@@ -34,7 +36,15 @@ class RecipeShow extends React.Component {
     }else{
       avg_score = Number(total_score / reviews.length).toFixed(1)
     }
-   
+
+    let liked = false;
+    for (let i = 0; i < likes.length; i++) {
+      debugger
+      let like = likes[i];
+      if(like.liker_id === user.id && like.listing_id === listing.id){
+        liked = true
+      }
+    }
   return (
     <div className="outermost-show">
       <div className="right-left">
