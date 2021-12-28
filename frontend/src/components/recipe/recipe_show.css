@@ -6,7 +6,7 @@
 }
 
 .right-left {
-  height: 100vh;
+  height: 55vw;
   width: 100%;
   background-color: gray;
   display: flex;
@@ -40,16 +40,15 @@
 .listing-detail {
   font-size: 0.8vw;
   font-family: sans-serif;
-  line-height: 1.6;
+  line-height: 1.4vw;
   color: gray;
   position: relative;
-  bottom: 12%;
 }
 
 .show-author {
   position: relative;
-  left: 2.6vh;
-  bottom: 1vh;
+  left: 2.6vw;
+  bottom: 1vw;
 }
 
 .show-author-p {
@@ -92,7 +91,6 @@
 
 .below-ingredient-title {
   background-image: url("https://global-cuisine.s3.us-west-1.amazonaws.com/show-bkg.png");
-  /* width: 40vw; */
   padding: 3%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -102,7 +100,7 @@
 .show-ingredient-inner {
   font-size: 0.9vw;
   position: relative;
-  top: 2vh;
+  top: 1vw;
 }
 
 .instruction-show {
@@ -111,13 +109,13 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  top: 4vh;
+  top: 2vw;
 }
 
 .instruction-show-inner {
-  line-height: 2vh;
+  line-height: 1.5vw;
   position: relative;
-  top: 1.2vh;
+  top: 1vw;
   font-size: 0.8vw;
 }
 
@@ -145,8 +143,8 @@
   font-size: 1vw;
   color: gray;
   position: relative;
-  top: 0.4vh;
-  left: 1vh;
+  top: 0.2vw;
+  left: 0.6vw;
 }
 
 .edit-show-link {
