@@ -31,23 +31,24 @@
 }
 
 .images-filter{
-    width: 100%;
-    height: 25vh;
+    width: 10vw;
+    height: 8vw;
 }
 
 .title-div-filter{
-    height: 5.1vh;
+    height: 2vw;
     position: relative;
     bottom: 1.3%;
+    width: 10vw;
     background-color: black;
 }
 
 .title-filter{
-    font-size: 1.3vw;
+    font-size: 1vw;
     color: gray;
     position: relative;
-    left: 2.8vw;
-    top: 14%;
+    left: 2vw;
+    top: 0.5vw
 }
 
 .btns button{
@@ -55,6 +56,7 @@
     color: gray;
     width: 5.8vw;
     height: 2vw;
+    font-size: 1vw;;
    
 }
 
@@ -62,7 +64,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 40%;
+    width: 30vw;
 }
 
 .filter-item{
@@ -72,9 +74,9 @@
 
 .filter-index{
     width: 80vw;
-    height: 110vh;
+    height: 40vw;
     position: relative;
-    top: 5vh;
+    top: 4vw;
 }
 
 .filter-recipes{

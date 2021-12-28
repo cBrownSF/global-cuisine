@@ -45,9 +45,17 @@ function Search(props) {
         />
         <div className="icons">
           {filteredListing.length === 0 ? (
-            <i className="fas fa-search" id="search-icon"></i>
+            <div className="search-icon-div">
+              <i className="fas fa-search" id="search-icon"></i>
+            </div>
           ) : (
-            <i className="fas fa-times" id="clearBtn" onClick={clearField}></i>
+            <div className="clear-icon-div">
+              <i
+                className="fas fa-times"
+                id="clearBtn"
+                onClick={clearField}
+              ></i>
+            </div>
           )}
         </div>
       </div>

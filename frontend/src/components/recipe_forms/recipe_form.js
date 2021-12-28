@@ -13,8 +13,6 @@ class RecipeForm extends React.Component {
       difficulty: "",
       servings: "",
       title: "",
-      // picture:
-      //   "https://global-cuisine.s3.us-west-1.amazonaws.com/worldflags.jpeg",
       country: "",
       photoUrl: null,
       photoFile: null
@@ -82,7 +80,7 @@ class RecipeForm extends React.Component {
       return null;
     }
     return (
-      <div className="create-recipe-form" encType="multipart/form-data"> 
+      <div className="create-recipe-form" encType="multipart/form-data">
         <form onSubmit={this.handleSubmit}>
           <div className="recipe-page">
             <div className="center-recipe">
@@ -130,17 +128,6 @@ class RecipeForm extends React.Component {
                   />
                 </div>
               </div>
-              {/* <div className="picture-create">
-                <div className="picture-text">Picture</div>
-                <div>
-                  <input
-                    type="text"
-                    value={this.state.picture}
-                    onChange={this.handleInput("picture")}
-                    className="picture-input"
-                  />
-                </div>
-              </div> */}
               <div className="description-create">
                 <div className="description-text">Description</div>
                 <div>
@@ -193,15 +180,16 @@ class RecipeForm extends React.Component {
                   </select>
                 </div>
               </div>
-              {this.state.photoUrl ? <img className="upload-photo" height="200px" width="200px" src={this.state.photoUrl} /> : null}
+              {this.state.photoUrl ? (
+                <img className="upload-photo" src={this.state.photoUrl} />
+              ) : null}
 
-              <label>
-                Upload Photo
-                <input type="file"
-                  name="picture"
-                  onChange={this.handleFile} />
-              </label>
-              <br />
+              <div className="picture-create">
+                <div className="picture-text">Upload Picture</div>
+                <div>
+                 <input type="file" name="picture" onChange={this.handleFile} className="uploadpic-create"/>
+                </div>
+              </div>
               <div className="submit-recipe">
                 <input type="submit" value="Submit" className="submit-input" />
               </div>

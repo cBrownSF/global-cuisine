@@ -12,7 +12,6 @@ class EditRecipeForm extends React.Component {
     this.handleFile = this.handleFile.bind(this)
   }
   componentDidMount() {
-    debugger;
     this.props.receiveListing(this.props.match.params.listingId)
       .then(listing => {
         return this.setState({
@@ -42,7 +41,6 @@ class EditRecipeForm extends React.Component {
 
   handleSubmit(e) {
     if (this.state.deleted === true) {
-      debugger;
       e.preventDefault();
       return 'hello'
     }
@@ -64,7 +62,6 @@ class EditRecipeForm extends React.Component {
   }
 
   handleFile(e) {
-    debugger;
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
@@ -110,7 +107,6 @@ class EditRecipeForm extends React.Component {
       this.setState({
         [field]: true,
       })
-      debugger;
       this.props.deleteListing(this.props.listing._id)
   }
   render() {
@@ -158,17 +154,6 @@ class EditRecipeForm extends React.Component {
                   />
                 </div>
               </div>
-              {/* <div className="picture-edit">
-                <div>Picture</div>
-                <div classname="picture-edit-text">
-                  <input
-                    type="text"
-                    value={this.state.picture || ""}
-                    onChange={this.handleInput("picture")}
-                    className="picture-edit-input"
-                  />
-                </div>
-              </div> */}
               <div className="name-edit">
                 <div>Name</div>
                 <div className="name-edit-text">
@@ -230,26 +215,44 @@ class EditRecipeForm extends React.Component {
                   </select>
                 </div>
               </div>
-              {this.state.photoUrl ? <img className="upload-photo" height="200px" width="200px" src={this.state.photoUrl} /> : <img className="upload-photo" height="200px" width="200px" src={this.state.picture} />}
+              {this.state.photoUrl ? (
+                <img className="upload-photo" src={this.state.photoUrl} />
+              ) : (
+                <img
+                  className="upload-photo"
+                  height="200px"
+                  width="200px"
+                  src={this.state.picture}
+                />
+              )}
 
-              <label>
-                Upload Photo
-                <input type="file"
-                  name="picture"
-                  onChange={this.handleFile} />
-              </label>
-              <br />
+              <div className="upload-edit">
+                <div>
+                  Upload Image
+                </div>
+                <div className="image-edit-text">
+                  <input
+                    type="file"
+                    name="picture"
+                    onChange={this.handleFile}
+                    className="input-edit-image"
+                  />
+                </div>
+              </div>
+
               <div className="edit-delete">
                 <button
                   className="delete-button-recipe"
-                  onClick={() =>
-                    this.handleDelete('deleted')
-                  }
+                  onClick={() => this.handleDelete("deleted")}
                 >
                   Delete
                 </button>
                 <div>or</div>
-                <input type="submit" value="Submit" className="submit-button-recipe" />
+                <input
+                  type="submit"
+                  value="Submit"
+                  className="submit-button-recipe"
+                />
               </div>
               {this.renderErrors()}
             </div>

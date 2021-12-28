@@ -8,19 +8,27 @@
     background-image: url(https://global-cuisine.s3.us-west-1.amazonaws.com/recipe-image.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 50% 50%;
-    width: 30vw;
-    height: 30vw;
+    background-position: 50% 50%; 
+    width: 37vw;
+    height: 47vw;
     position: relative;
     left: 32vw;
     top: 5vw;
 }
 
-.name-create, .title-create, .ingredients-create, .serving-create, .picture-create, .description-create, .instruction-create, .country-create, .difficulty-create{
+.name-create, .title-create, .ingredients-create, .serving-create, .description-create, .instruction-create, .country-create, .difficulty-create{
     display: flex;
     width: 15vw;
     justify-content: space-between;
     align-items: center;
+}
+
+.picture-create{
+    display: flex;
+    width: 20vw;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
 .name-text, .title-text, .ingredients-text, .serving-text, .picture-text, .description-text, .instruction-text, .country-text, .difficulty-text{
@@ -77,4 +85,8 @@
     bottom: 20vw;
     color: black;
     font-size: 1vw;
+}
+
+.uploadpic-create{
+    font-size: 0.7vw;
 }

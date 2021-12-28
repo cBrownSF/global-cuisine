@@ -37,8 +37,9 @@
 #global-link{
     font-size: 4vw;
     position: relative;
-    top: 20%;
-    left: 5%;
+    /* top: 20%;
+    left: 5%; */
+    left: 1.5vw;
 }
 
 .loginbtn, .demoLogin, .logoutbtn{
@@ -47,11 +48,10 @@
 
 .homelink-global{
     color: gray;
-    font-size: 2.5vw;
+    font-size: 2vw;
     position: relative;
-    left: 30%;
-    /* bottom: 42%; */
-    bottom: 16vh;
+    left: 7.5vw;
+    bottom: 8vw;
 }
 
 .signup-div{
@@ -59,7 +59,7 @@
 }
 .p-signup, .p-login, .linktorecipes, .demoLogin, .logout-p, .all-recipes, .profile, .create{
     color: gray;
-    font-size: 2vh;
+    font-size: 1vw;
 }
 
 .icon-app-name{
@@ -72,7 +72,9 @@
 .text-global{
     color: gray;
     position: relative;
-    top: 110px;
+    top: 5vw;
+    right: 1.3vw;
+    width: 17vw;
 }
 
 #global-link{
@@ -89,5 +91,9 @@
 
 .linktorecipes{
     color: gray;
+    text-decoration: none;
+}
+
+.link-global-nav{
     text-decoration: none;
 }

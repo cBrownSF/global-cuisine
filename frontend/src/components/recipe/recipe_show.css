@@ -1,7 +1,6 @@
 .outermost-show {
   height: 200vh;
   width: 100%;
-  border: 1px solid pink;
   background-color: gray;
   position: relative;
 }
@@ -19,7 +18,7 @@
 .left-show {
   border: 1px solid black;
   width: 35%;
-  height: 77%;
+  height: 40vw;
   padding: 1%;
   position: relative;
   left: 7%;
@@ -31,15 +30,15 @@
 }
 
 .show-img {
-  width: 92%;
-  height: 90%;
+  width: 30vw;
+  height: 18vw;
   position: relative;
   left: 4%;
   top: 3.5%;
 }
 
 .listing-detail {
-  font-size: 1.9vh;
+  font-size: 0.8vw;
   font-family: sans-serif;
   line-height: 1.6;
   color: gray;
@@ -75,41 +74,40 @@
 
 .show-title-p {
   position: relative;
-  font-size: 3vh;
-  left: 35%;
+  font-size: 3vw;
+  left: 10vw;
 }
 
 .lishing-show-ingredient {
   display: flex;
   flex-direction: column;
-  line-height: 2vh;
+  line-height: 1.4vw;
 }
 
 .ingredients-word,
 .instruction-word {
-  font-size: 3.5vh;
+  font-size: 1.6vw;
   text-decoration: underline;
 }
 
 .below-ingredient-title {
   background-image: url("https://global-cuisine.s3.us-west-1.amazonaws.com/show-bkg.png");
-  height: 50%;
-  width: 96%;
-  padding: 2%;
+  /* width: 40vw; */
+  padding: 3%;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 25vw;
 }
 
 .show-ingredient-inner {
-  font-size: 2.2vh;
+  font-size: 0.9vw;
   position: relative;
   top: 2vh;
 }
 
 .instruction-show {
   background-image: url("https://global-cuisine.s3.us-west-1.amazonaws.com/show-bkg.png");
-  padding: 2%;
-  height: 50%;
+  padding: 3%;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -120,6 +118,7 @@
   line-height: 2vh;
   position: relative;
   top: 1.2vh;
+  font-size: 0.8vw;
 }
 
 .detail-padding {
@@ -397,4 +396,8 @@
 .liketotal{
   position: relative;
   left: 1.7vw;
+}
+
+.rating-star-length{
+  font-size: 1.1vw;
 }

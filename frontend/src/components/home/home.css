@@ -1,12 +1,12 @@
 .outer-div-home{
   background-image: url(https://global-cuisine.s3.us-west-1.amazonaws.com/bkg2.jpeg);
-  height: 150vh;
+  height: 80vw;
   width: 100vw;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 55%;
+  background-position: 70% 65%;
   position: relative;
-  bottom: 1vh;
+  /* bottom: 1vh; */
 }
 
 .inner-div{
@@ -25,20 +25,22 @@
 
 
 .home-phase{
-    font-size: 50px;
+    font-size: 2.5vw;
     position: relative;
-    left: 33%;
+    left: 30vw;
+    top: 1.8vw;
 }
 
 .below-home-phase{
-    font-size: 37px;
+    font-size: 2vw;
     position: relative;
-    left: 42%;
+    left: 35vw;
+    top: 2vw;
 }
 
 .detail-home{
     position: relative;
-    top: 10%;
+    top: 5vw;
 }
 
 
