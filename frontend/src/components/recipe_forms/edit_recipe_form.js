@@ -65,6 +65,7 @@ class EditRecipeForm extends React.Component {
 
 
   handleInput(field, maxCharacter) {
+    debugger;
     return (e) => {
       if (e.currentTarget.value.length < maxCharacter) {
         this.setState({
