@@ -97,6 +97,7 @@ router.patch(
         console.log(req.file)
         listing.name = req.body.name,
         listing.ingredients = req.body.ingredients,
+        listing.instruction = req.body.instruction,
         listing.country = req.body.country,
         listing.details = req.body.details,
         listing.difficulty = req.body.difficulty,
@@ -107,6 +108,7 @@ router.patch(
       }else {
         listing.name = req.body.name,
         listing.ingredients = req.body.ingredients,
+        listing.instruction = req.body.instruction,
         listing.country = req.body.country,
         listing.details = req.body.details,
         listing.difficulty = req.body.difficulty,
