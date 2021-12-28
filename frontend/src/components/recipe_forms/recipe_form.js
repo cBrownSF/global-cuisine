@@ -83,7 +83,7 @@ class RecipeForm extends React.Component {
   }
   letterCount(section,maxChar){
     let charLeft =(maxChar - section.length)
-    return charLeft === 0 ? 'Max characters reached' : `${charLeft} characters remaining`
+    return charLeft<=1 ? 'Max characters reached' : `${charLeft} characters remaining`
   }
   renderErrors() {
     return (
@@ -112,6 +112,7 @@ class RecipeForm extends React.Component {
                     onChange={this.handleInput("name", 20)}
                     className="name-input"
                   />
+                  <p className="letter-count">{this.letterCount(this.state.name, 20)}</p>
                 </div>
               </div>
               <div className="title-create">
@@ -120,7 +121,7 @@ class RecipeForm extends React.Component {
                   <input
                     type="text"
                     value={this.state.title}
-                    onChange={this.handleInput("title",21)}
+                    onChange={this.handleInput("title",20)}
                     className="title-input"
                   />
                   <p className = "letter-count">{this.letterCount(this.state.title,20)}</p>
@@ -154,21 +155,22 @@ class RecipeForm extends React.Component {
                   <input
                     type="text"
                     value={this.state.details}
-                    onChange={this.handleInput("details",250)}
+                    onChange={this.handleInput("details",150)}
                     className="description-input"
                   />
-                  <p>{this.letterCount(this.state.details,250)}</p>
+                  <p className="letter-count">{this.letterCount(this.state.details,150)}</p>
                 </div>
               </div>
               <div className="instruction-create">
                 <div className="instruction-text">Instruction</div>
                 <div>
                   <textarea
-                    onKeyPress={this.handleKeyPress("instruction",1500)}
+                    onKeyPress={this.handleKeyPress("instruction")}
                     value={this.state.instruction}
-                    onChange={this.handleInput("instruction")}
+                    onChange={this.handleInput("instruction",1500)}
                     className="instruction-input"
                   />
+                  <p className="letter-count">{this.letterCount(this.state.instruction, 1500)}</p>
                 </div>
               </div>
               <div className="country-create">

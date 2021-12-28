@@ -80,7 +80,7 @@
 .lishing-show-ingredient {
   display: flex;
   flex-direction: column;
-  line-height: 1.4vw;
+  line-height: .7vw;
 }
 
 .ingredients-word,
@@ -113,7 +113,7 @@
 }
 
 .instruction-show-inner {
-  line-height: 1.5vw;
+  line-height: .7vw;
   position: relative;
   top: 1vw;
   font-size: 0.8vw;
