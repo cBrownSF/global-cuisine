@@ -94,13 +94,17 @@
   padding: 3%;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 25vw;
+  /* height: 25vw; */
+  
 }
 
 .show-ingredient-inner {
   font-size: 0.9vw;
   position: relative;
+  line-height: .7vw;
   top: 1vw;
+  overflow-wrap: break-word;
+ border: 1px solid red;
 }
 
 .instruction-show {
@@ -117,12 +121,14 @@
   position: relative;
   top: 1vw;
   font-size: 0.8vw;
+  overflow-wrap: break-word;
 }
 
 .detail-padding {
   padding: 3%;
   position: relative;
   bottom: 2vw;
+  overflow-wrap: break-word;
 }
 
 .p {
