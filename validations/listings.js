@@ -47,8 +47,7 @@ module.exports = function validateListingInput(data, fileData) {
   }
 
   if (typeof (fileData) === "undefined") {
-    errors.file = "Problem with sending data"
-    console.log(typeof fileData)
+    errors.picture = "Problem with sending data"
   }
   if (fileData.mimetype === 'image/jpeg' || fileData.mimetype == 'image/png') {
   } else {

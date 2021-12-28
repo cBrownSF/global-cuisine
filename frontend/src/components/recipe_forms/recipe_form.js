@@ -20,6 +20,7 @@ class RecipeForm extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
+    this.servingInput = this.servingInput.bind(this)
   }
   componentDidMount() {
     this.props.clearErrors();
@@ -56,6 +57,15 @@ class RecipeForm extends React.Component {
         [field]: e.currentTarget.value,
       });
   }
+  servingInput(type) {
+    const regex = /^[0-9\b]+$/;
+
+    return e => {
+      if (e.currentTarget.value === '' || regex.test(e.currentTarget.value) && e.currentTarget.value.length <= 2 && e.currentTarget.value < 21 && e.currentTarget.value > 0) {
+        this.setState({ [type]: e.currentTarget.value })
+      }
+    }
+  } 
   handleFile(e) {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
@@ -123,7 +133,7 @@ class RecipeForm extends React.Component {
                   <input
                     type="text"
                     value={this.state.servings}
-                    onChange={this.handleInput("servings")}
+                    onChange={this.servingInput("servings")}
                     className="servings-input"
                   />
                 </div>
