@@ -366,10 +366,10 @@
 
 .delete-review-show{
     position: relative;
-    left: 50vw;
-    bottom: 1vw;
-    background-color: gray;
-    font-size: 1.1vw;
+    left: 80vw;
+    bottom: 3vw;
+    width: 6vw;
+    height: 1.3vw;
 }
 
 .like-index-stars{
@@ -398,4 +398,9 @@
 
 .rating-star-length{
   font-size: 1.1vw;
+}
+
+.btn-delete-review-show{
+  border: 1px solid black;
+  font-size: 0.8vw;
 }
