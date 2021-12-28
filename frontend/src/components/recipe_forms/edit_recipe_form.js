@@ -65,7 +65,6 @@ class EditRecipeForm extends React.Component {
 
 
   handleInput(field, maxCharacter) {
-    debugger;
     return (e) => {
       if (e.currentTarget.value.length < maxCharacter) {
         this.setState({
@@ -193,11 +192,11 @@ class EditRecipeForm extends React.Component {
                   <input
                     type="text"
                     value={this.state.details || ""}
-                    onChange={this.handleInput("details", 150)}
+                    onChange={this.handleInput("details", 360)}
                     className="details-edit-input"
                   />
                 </div>
-                <p className="letter-count">{this.letterCount(this.state.details || '', 150)}</p>
+                <p className="letter-count">{this.letterCount(this.state.details || '', 360)}</p>
               </div>
               <div className="instruction-edit">
                 <div>Instruction</div>

@@ -155,10 +155,10 @@ class RecipeForm extends React.Component {
                   <input
                     type="text"
                     value={this.state.details}
-                    onChange={this.handleInput("details",150)}
+                    onChange={this.handleInput("details",360)}
                     className="description-input"
                   />
-                  <p className="letter-count">{this.letterCount(this.state.details,150)}</p>
+                  <p className="letter-count">{this.letterCount(this.state.details,360)}</p>
                 </div>
               </div>
               <div className="instruction-create">

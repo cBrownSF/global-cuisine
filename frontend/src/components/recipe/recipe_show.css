@@ -47,7 +47,7 @@
 
 .show-author {
   position: relative;
-  left: 2.6vw;
+  left: 1.3vw;
   bottom: 1vw;
 }
 
@@ -117,7 +117,7 @@
 }
 
 .instruction-show-inner {
-  line-height: .7vw;
+  line-height: 1.3vw;
   position: relative;
   top: 1vw;
   font-size: 0.8vw;
