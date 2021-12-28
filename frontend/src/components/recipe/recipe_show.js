@@ -39,12 +39,12 @@ class RecipeShow extends React.Component {
 
     let liked = false;
     for (let i = 0; i < likes.length; i++) {
-      debugger
       let like = likes[i];
-      if(like.liker_id === user.id && like.listing_id === listing.id){
+      if(like.liker_id === user.id && like.listing_id === listing._id){
         liked = true
       }
     }
+    debugger
   return (
     <div className="outermost-show">
       <div className="right-left">
