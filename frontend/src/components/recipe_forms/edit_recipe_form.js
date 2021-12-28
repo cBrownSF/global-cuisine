@@ -259,4 +259,4 @@ class EditRecipeForm extends React.Component {
     );
   }
 } 
-export default withRouter(EditRecipeForm);
+export default EditRecipeForm;
