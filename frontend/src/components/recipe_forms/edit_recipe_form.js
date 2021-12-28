@@ -146,11 +146,11 @@ class EditRecipeForm extends React.Component {
                   <input
                     type="text"
                     value={this.state.title || ""}
-                    onChange={this.handleInput("title", 20)}
+                    onChange={this.handleInput("title", 25)}
                     className="title-edit-input"
                   />
                 </div>
-                <p className="letter-count">{this.letterCount(this.state.title || '', 20)}</p>
+                <p className="letter-count">{this.letterCount(this.state.title || '', 25)}</p>
               </div>
               <div className="ingredients-edit">
                 <div>Ingredients</div>
