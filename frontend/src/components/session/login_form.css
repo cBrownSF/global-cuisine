@@ -7,15 +7,7 @@
    height: 100vh;
   
 }
-/* .login-container #login{
-}
- width: 100%;
-   height: 100vw;
-   background-color: gray;
-}
-.login-container #password{
-  color:green
-} */
+
 .session-form{
   border:solid black;
   border-width: thin;
@@ -23,7 +15,7 @@
   margin-bottom:200px;
   padding:50px;
   background-color:black;
-  height:450px;
+  height:425px;
   width: 250px;
 }
 
