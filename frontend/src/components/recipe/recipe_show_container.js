@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import RecipeShow from './recipe_show';
 
 const mapStateToProps = (state, ownProps) => {
-
+debugger;
+console.log(state.listings)
   return {
     currentUser: state.session.user,
     listing: state.listings[ownProps.match.params.listingId],
