@@ -1,4 +1,5 @@
 import React from 'react';
+// import Listing from '../../../../models/Listing';
 // import { withRouter } from 'react-router';
 class LikeForm extends React.Component {
   constructor(props) {
@@ -53,6 +54,7 @@ class LikeForm extends React.Component {
     
     return (
       <div className="Main-Review-Form">
+        {this.props.currentUser.id === this.props.listing.author_id ? "" : 
         <form onSubmit={this.handleSubmit}>
           {istoggleOn === true ? (
             <button type="submit" className="alreadyLiked" disabled>
@@ -67,6 +69,7 @@ class LikeForm extends React.Component {
             </button>
           )}
         </form>
+        }
       </div>
     );
   }
