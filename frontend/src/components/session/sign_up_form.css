@@ -16,7 +16,7 @@
 .login-container #password{
   color:green
 } */
-.login-container #form{
+/* .login-container #form{
   border:solid black;
   border-width: thin;
   border-radius: 15px;
@@ -25,7 +25,7 @@
   background-color:lightseagreen;
   height:350px;
   width: 250px;
-}
+} */
 .login-container #form-boxes{
   
   font-family: inherit;

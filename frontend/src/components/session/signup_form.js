@@ -40,7 +40,7 @@ class SignupForm extends React.Component {
     return (
       <ul>
         {Object.values(this.props.errors).map((error, i) => (
-          <li key={`error-${i}`}>
+          <li className= "errors" key={`error-${i}`}>
             {error}
           </li>
         ))}
@@ -52,7 +52,7 @@ class SignupForm extends React.Component {
     return (
       <div className="login-container">
         <form onSubmit={this.handleSubmit}>
-          <div id="form">
+          <div className="session-form">
             <br />
             <input id="form-boxes"
             type="text"
