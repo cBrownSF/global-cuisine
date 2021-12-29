@@ -304,15 +304,13 @@ class RecipeShow extends React.Component {
               <div className="ingredients-word">Ingredients</div>
               <div
                 className="show-ingredient-inner"
-                style={{ whiteSpace: "pre-wrap" }}
               >
-               {listing.ingredients}
+               <p>{listing.ingredients}</p>
               </div>
             </div>
             <div className="instruction-show">
               <div className="instruction-word">Instructions</div>
               <div
-                style={{ whiteSpace: "pre-wrap" }}
                 className="instruction-show-inner"
               >
                 {listing.instruction}
