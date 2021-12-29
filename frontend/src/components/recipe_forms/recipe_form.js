@@ -238,10 +238,13 @@ class RecipeForm extends React.Component {
           </div>
         </form>  */}
         <form onSubmit={this.handleSubmit}>
+          <div className = "recipe-background">
           <div className="recipe-page">
+            <div className ='header'>
+              <h1>Add a new recipe</h1>
+              </div>
               <div className="name-create">
-                <div><p>Your Name(feel Free to edit!)</p></div>
-                <div className="name-text"></div>
+                <div className="name-text">Your Name</div>
 
                 <input
                   type="text"
@@ -255,7 +258,7 @@ class RecipeForm extends React.Component {
 
 
               <div className="title-create">
-                <div className="title-text">Title</div>
+                <div className="title-text">Recipe Title</div>
                 <input
                   type="text"
                   value={this.state.title}
@@ -264,20 +267,9 @@ class RecipeForm extends React.Component {
                 />
                 <p className="letter-count">{this.letterCount(this.state.title, 35)}</p>
               </div>
-              <div className="ingredients-create">
-                <div className="ingredients-text">Ingredients</div>
-                <div>
-                {/* <p>Please put each ingredient and its measurement on its own line</p> */}
-                  <textarea
-                    onKeyPress={this.handleKeyPress("ingredients")}
-                    value={this.state.ingredients}
-                    onChange={this.handleInput("ingredients", 200)}
-                    className="ingredients-text-area"
-                  />
-                </div>
-              </div>
+              
               <div className="serving-create">
-                <div className="serving-text">Serving size(up to 20)</div>
+                <div className="serving-text">Serving Size</div>
                 <div>
                   <input
                     type="text"
@@ -285,11 +277,11 @@ class RecipeForm extends React.Component {
                     onChange={this.servingInput("servings")}
                     className="servings-input"
                   />
+                  <p className="letter-count">Up to 20 Servings</p>
                 </div>
               </div>
-              
               <div className="country-create">
-                <div className="country-text">Country</div>
+                <div className="country-text">Country:</div>
                 <div>
                   <select
                     className="country-input"
@@ -304,7 +296,7 @@ class RecipeForm extends React.Component {
                 </div>
               </div>
               <div className="difficulty-create">
-                <div className="difficulty-text">Difficulty</div>
+                <div className="difficulty-text">Difficulty:</div>
                 <div>
                   <select
                     className="difficulty-input"
@@ -318,17 +310,31 @@ class RecipeForm extends React.Component {
                   </select>
                 </div>
               </div>
-            <div className="grid-col-span-2">
-              <div className="description-text">Description</div>
+              <div className="description-create">
+                <div className="description-text">Description</div>
+                <div>
+                  <textarea
+                    value={this.state.details}
+                    onChange={this.handleInput("details", 360)}
+                    className="description-text-area"
+                  />
+                  <p className="letter-count">{this.letterCount(this.state.details, 360)}</p>
+                </div>
+              </div>
+            <div className="ingredients-create">
+              <div className="ingredients-text">Ingredients</div>
               <div>
+                {/* <p>Please put each ingredient and its measurement on its own line</p> */}
                 <textarea
-                  value={this.state.details}
-                  onChange={this.handleInput("details", 360)}
-                  className="description-text-area"
+                  onKeyPress={this.handleKeyPress("ingredients")}
+                  value={this.state.ingredients}
+                  onChange={this.handleInput("ingredients", 200)}
+                  className="ingredients-text-area"
                 />
-                <p className="letter-count">{this.letterCount(this.state.details, 360)}</p>
+                  <p className="letter-count">Add a new line for each ingredient</p>
               </div>
             </div>
+            
             <div className="grid-col-span-2">
               <div className="instruction-text">Instruction</div>
               <div>
@@ -355,7 +361,7 @@ class RecipeForm extends React.Component {
                 <input type="submit" value="Submit" className="submit-input" />
               </div>
             </div>
-          
+          </div>
         </form> 
         
         <div className="errors-create">{this.renderErrors()}</div>
