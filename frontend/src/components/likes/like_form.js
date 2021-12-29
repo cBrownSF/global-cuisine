@@ -1,5 +1,4 @@
 import React from 'react';
-// import Listing from '../../../../models/Listing';
 // import { withRouter } from 'react-router';
 class LikeForm extends React.Component {
   constructor(props) {
