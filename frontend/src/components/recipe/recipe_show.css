@@ -100,8 +100,11 @@
 .show-ingredient-inner {
   font-size: 0.9vw;
   position: relative;
+  line-height: 1vw;
   top: 1vw;
-  overflow-wrap:break-word;
+  overflow-wrap: break-word;
+  -moz-white-space: pre-wrap;   
+  white-space: pre-wrap;
 }
 
 .instruction-show {
@@ -167,7 +170,7 @@
 }
 
 .likes-list-class {
-  width: 3vw;
+  width: 5vw;
   height: 3vw;
   font-size: 1.5vw;
   position: relative;
