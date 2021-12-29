@@ -101,6 +101,7 @@
   font-size: 0.9vw;
   position: relative;
   top: 1vw;
+  overflow-wrap:break-word;
 }
 
 .instruction-show {
@@ -117,12 +118,14 @@
   position: relative;
   top: 1vw;
   font-size: 0.8vw;
+  overflow-wrap: break-word;
 }
 
 .detail-padding {
   padding: 3%;
   position: relative;
   bottom: 2vw;
+  overflow-wrap:break-word;
 }
 
 .p {
