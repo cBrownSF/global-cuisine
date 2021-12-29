@@ -22,24 +22,11 @@
   border-radius: 15px;
   margin-bottom:200px;
   padding:50px;
-  background-color:lightseagreen;
+  background-color:black;
   height:450px;
   width: 250px;
 }
-.login-container #form-boxes{
-  font-family: inherit;
-  color:grey;
-  margin: 5px;
-  padding: 12px;
-    margin-top:20px;
-   margin: 10px;
-   border-color:black;
-   border-width:thin;
-   width: 200px;
-   height:35px;
-   line-height: 1.5;
-    font-size: 16px
-}
+
 .submit-button{
    font-family: inherit;
    background-color:lightgrey;
@@ -49,12 +36,9 @@
    outline:none;
    border: .1px;
    font-size: 16px;
-   width: 225px;
+   width: 220px;
    height:50px;
    margin:10px;
    cursor:pointer;
 }
 
-.errors{
-  line-height:2.5vh
-}
