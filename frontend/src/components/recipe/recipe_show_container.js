@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.session.user,
     listing: state.listings[ownProps.match.params.listingId],
-    reviews: Object.values(state.reviews)
+    reviews: Object.values(state.reviews),
+    likes: Object.values(state.likes)
   }
 }
 
