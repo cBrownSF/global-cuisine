@@ -1,9 +1,9 @@
 /* .create-recipe-form{
-   width: 100%;
-   height: 100vw;
+   width: 100%; */
+   /* height: 100vw;
    background-color: gray;
-   display:flex;
-}
+   display:flex; */
+/* }
 
 .recipe-page{
    background-image: url(https://global-cuisine.s3.us-west-1.amazonaws.com/recipe-image.jpeg); 
@@ -98,18 +98,27 @@
   font-size:.6vw;
 }
  */
-
+.create-recipe-form{
+   /* width: 100%;
+   height: 100vh; */
+   background-color: gray;
+    /* display:grid;
+   gap:1.5rem;
+   grid-template-columns: repeat(3,1fr);
+  /* align-items:center;
+  justify-content: space-around; */
+  
+}
  .recipe-page{
    display:grid;
    gap:1.5rem;
+   width:100%;
+   height:100vh;
    grid-template-columns: repeat(3,1fr);
+   grid-template-rows: auto;
   align-items:center;
   justify-content: space-around;
   font-family: 'Helvetica', 'Arial', sans-serif;
-   /* justify-items: center; */
- }
- .grid-col-span-2{
-   grid-column: span 2;
  }
 
 .description-create{
@@ -117,7 +126,7 @@
   flex-direction: column;
   align-items: center;
   justify-self: center;
-  margin-left:190px;
+  margin-left:184px;
   border:solid black 2px;
   padding:15px;
    grid-column: 1/3;
@@ -190,7 +199,7 @@
  }
 .description-text-area{
   width:42rem;
-  height:7rem;
+  height:5rem;
   /* resize:none; */
   padding:5px;
   font-size:16px;
@@ -200,17 +209,35 @@
   text-align:left;
   font-family:inherit;
 }
+ .instruction-create{
+   grid-column: span 3;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  border:solid black 2px;
+  padding:15px;
+ }
+
 .instruction-text-area{
-  width:52.2rem;
+  width:71rem;
   height:10rem;
   resize:none;
+  padding:5px;
+  font-size:16px;
+  color:grey;
+  background-color: black;
+  border: solid white 1px;
+  text-align:left;
+  font-family:inherit;
+
 }
 .ingredients-text-area{
   width:12.7rem;
   height:16rem;
   resize:none;
   padding:5px;
-  font-size:18px;
+  font-size:16px;
   color:grey;
   background-color: black;
   border: solid white 1px;
@@ -218,11 +245,11 @@
   font-family:inherit;
 }
 
-.recipe-background{
+/* .recipe-background{
   width: 100%;
    height: 100vw;
    background-color: gray;
-}
+} */
 
 .letter-count{
   font-family:inherit;
@@ -231,7 +258,7 @@
   text-align: center;
   overflow-wrap:break-word;
 }
-.name-text,.title-text,.serving-text,.ingredients-text,.description-text,.difficulty-text,.country-text{
+.name-text,.title-text,.serving-text,.ingredients-text,.description-text,.difficulty-text,.country-text,.instruction-text{
   font-family: inherit;
   padding:5px;
   font-size:20px;
