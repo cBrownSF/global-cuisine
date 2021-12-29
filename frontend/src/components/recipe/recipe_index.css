@@ -22,14 +22,16 @@
     margin: 2%;
     border: 4px solid gray;
     cursor: pointer;
+    overflow-wrap:break-word
 }
 
 .title-index{
     font-size: 1.3vw;
     color: gray;
     position: relative;
-    left: 2.8vw;
+    text-align:center;
     top: 14%;
+    overflow-wrap:break-word
 }
 
 .title-div{
