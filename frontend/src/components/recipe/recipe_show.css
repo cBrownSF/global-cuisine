@@ -100,8 +100,11 @@
 .show-ingredient-inner {
   font-size: 0.9vw;
   position: relative;
+  line-height: 1vw;
   top: 1vw;
-  overflow-wrap:break-word;
+  overflow-wrap: break-word;
+  -moz-white-space: pre-wrap;   
+  white-space: pre-wrap;
 }
 
 .instruction-show {
