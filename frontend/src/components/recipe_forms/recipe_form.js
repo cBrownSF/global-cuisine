@@ -108,7 +108,6 @@ class RecipeForm extends React.Component {
               </div>
               <div className="name-create">
                 <div className="name-text">Your Name</div>
-
                 <input
                   type="text"
                   value={this.state.name}
@@ -117,9 +116,7 @@ class RecipeForm extends React.Component {
                 />
                 <p className="letter-count">{this.letterCount(this.state.name, 20)}</p>
               </div>
-              
-
-
+    
               <div className="title-create">
                 <div className="title-text">Recipe Title</div>
                 <input
@@ -194,7 +191,7 @@ class RecipeForm extends React.Component {
                   onChange={this.handleInput("ingredients", 200)}
                   className="ingredients-text-area"
                 />
-                  <p className="letter-count">Add a new line for each ingredient</p>
+                  <p className="ingredients-blurb">Add a new line after ingredient</p>
               </div>
             </div>
             
@@ -212,10 +209,13 @@ class RecipeForm extends React.Component {
             </div>
               {this.state.photoUrl ? (
                 <img className="upload-photo" src={this.state.photoUrl} />
-              ) : null}
+              ) : 'Upload Picture'}
 
               <div className="picture-create">
-                <div className="picture-text">Upload Picture</div>
+              {this.state.photoUrl ? (
+                <img className="upload-photo" src={this.state.photoUrl} />
+              ) : 'Upload Picture'}
+                <div className="picture-text"></div>
                 <div>
                   <input type="file" name="picture" onChange={this.handleFile} className="uploadpic-create" />
                 </div>
@@ -224,9 +224,10 @@ class RecipeForm extends React.Component {
                 <input type="submit" value="Submit" className="submit-input" />
               </div>
             </div>
+          <div className="errors-create">{this.renderErrors()}</div>
         </form> 
         
-        <div className="errors-create">{this.renderErrors()}</div>
+        {/* <div className="errors-create">{this.renderErrors()}</div> */}
       </div>
       
     );
