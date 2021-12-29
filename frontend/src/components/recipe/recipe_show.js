@@ -21,6 +21,7 @@ class RecipeShow extends React.Component {
     if (!this.props.listing) {
       return null;
     }
+   
     const listing = this.props.listing;
     const reviews = this.props.reviews;
     const likes = this.props.likes;
@@ -40,11 +41,12 @@ class RecipeShow extends React.Component {
     let liked = false;
     for (let i = 0; i < likes.length; i++) {
       let like = likes[i];
-      if(like.liker_id === user.id && like.listing_id === listing._id){
+      if(Object.keys(this.props.currentUser).length !== 0 && like.liker_id === user.id && like.listing_id === listing._id){
         liked = true
       }
     }
-    if(liked === false && listing.author_id !== user.id){
+    
+    if(Object.keys(this.props.currentUser).length !== 0 && liked === false && listing.author_id !== user.id){
   return (
     <div className="outermost-show">
       <div className="right-left">
@@ -271,10 +273,12 @@ class RecipeShow extends React.Component {
             </div>
             <div className="like-index-create">
               <div>
+                {Object.keys(this.props.currentUser).length === 0 ? "" : 
                 <CreateLikeContainer
                   listing={listing}
                   listingId={listing._id}
                 />
+                }
               </div>
               <div className="liketotal">
                 <LikeIndexContainer listingId={listing._id} />
@@ -602,6 +606,7 @@ class RecipeShow extends React.Component {
                   />
                 </div> */}
                 <div className="liketotal">
+                  {/* <h1>likes</h1> */}
                   <LikeIndexContainer listingId={listing._id} />
                 </div>
               </div>

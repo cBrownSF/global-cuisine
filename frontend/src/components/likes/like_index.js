@@ -15,7 +15,7 @@ class LikeIndex extends React.Component {
         count +=1
       }
     });
-    return <div className="likes-list-class">{count}</div>;
+    return <div className="likes-list-class">{`likes` + ` ` + count}</div>;
     }
 }
 export default LikeIndex;
