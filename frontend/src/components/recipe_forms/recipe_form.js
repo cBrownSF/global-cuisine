@@ -1,5 +1,5 @@
 import React from "react";
-import "./recipe_form.css"
+import "./recipe_form.css";
 
 class RecipeForm extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class RecipeForm extends React.Component {
       title: "",
       country: "",
       photoUrl: null,
-      photoFile: null
+      photoFile: null,
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,18 +36,17 @@ class RecipeForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('picture', this.state.photoFile)
-    formData.append('name', this.state.name)
-    formData.append('ingredients', this.state.ingredients)
-    formData.append('details', this.state.details)
-    formData.append('difficulty', this.state.difficulty)
-    formData.append('servings', this.state.servings)
-    formData.append('title', this.state.title)
-    formData.append('country', this.state.country)
-    formData.append('instruction', this.state.instruction)
+    formData.append("picture", this.state.photoFile);
+    formData.append("name", this.state.name);
+    formData.append("ingredients", this.state.ingredients);
+    formData.append("details", this.state.details);
+    formData.append("difficulty", this.state.difficulty);
+    formData.append("servings", this.state.servings);
+    formData.append("title", this.state.title);
+    formData.append("country", this.state.country);
+    formData.append("instruction", this.state.instruction);
 
-    this.props.submitForm(formData)
-      .then(this.props.clearErrors());
+    this.props.submitForm(formData).then(this.props.clearErrors());
   }
 
   handleInput(field) {
@@ -162,7 +161,10 @@ class RecipeForm extends React.Component {
                 </div>
                 <div className="form-photo">
                   {this.state.photoUrl ? (
-                    <img className="upload-photo-create" src={this.state.photoUrl} />
+                    <img
+                      className="upload-photo-create"
+                      src={this.state.photoUrl}
+                    />
                   ) : null}
 
                   <div className="picture-create">
@@ -204,7 +206,11 @@ class RecipeForm extends React.Component {
               </div>
             </div>
             <div className="submit-recipe-create">
-              <input type="submit" value="Submit" className="submit-input-create" />
+              <input
+                type="submit"
+                value="Submit"
+                className="submit-input-create"
+              />
             </div>
           </div>
         </form>
@@ -214,4 +220,4 @@ class RecipeForm extends React.Component {
   }
 }
 
-export default RecipeForm
+export default RecipeForm;
