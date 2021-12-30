@@ -70,6 +70,10 @@
 }
 
 .picture-create{
+    display: flex;
+    width: 20vw;
+    justify-content: space-between;
+    align-items: center;
 
 }
 
@@ -77,6 +81,7 @@
    font-size: 1vw;
    position: relative;
    top: 0.2vw;
+   
 }
 
 .description-text{
@@ -134,6 +139,14 @@
 }
 .center-recipe{
     width: 60%;
+    height: 60%;
+    position: relative;
+    left: 7vw;
+    top: 6vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-sizing: border-box;
 }
 
 
@@ -174,6 +187,7 @@
     border: 1px solid gray;
     font-size: 0.7vw;
 }
+
 .errors-create{
     position: relative;
     left: 70vw;
@@ -181,6 +195,12 @@
     color: black;
     font-size: 1vw;
 }
+
 .uploadpic-create{
     font-size: 0.7vw;
+}
+
+.letter-count{
+  padding:5px;
+  font-size:0.6vw;
 }
