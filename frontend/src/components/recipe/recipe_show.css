@@ -172,10 +172,10 @@
 .likes-list-class {
   width: 5vw;
   height: 3vw;
-  font-size: 1.5vw;
+  font-size: 1vw;
   position: relative;
-  left: 0.2vw;
-  top: 0.8vw;
+  top: 1.5vw;
+  right: 1.2vw;
 }
 
 .likeRecipe, .alreadyLiked {
@@ -188,6 +188,8 @@
 #thumbup {
   font-size: 1.5vw;
   color: gray;
+  position: relative;
+  left: 1vw;
 }
 
 #already-thumbup{
@@ -409,4 +411,21 @@
 .btn-delete-review-show{
   border: 1px solid black;
   font-size: 0.8vw;
+}
+
+.div-ingredientservings{
+  display: flex;
+  width: 14vw;
+  justify-content: space-around;
+}
+
+.servings-show, .difficulty-show{
+  font-size: 1vw;
+
+}
+
+.div-instruction-difficulty{
+  display: flex;
+  width: 20vw;
+  justify-content: space-around;
 }

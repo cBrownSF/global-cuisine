@@ -10,7 +10,6 @@ class ReviewForm extends React.Component {
     this.numberInput =this.numberInput.bind(this)
   }
 
-
   componentDidMount() {
     this.props.removeReviewErrors()
   }

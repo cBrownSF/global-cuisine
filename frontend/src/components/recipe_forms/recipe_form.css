@@ -1,78 +1,170 @@
- /* .create-recipe-form{
-   width: 100%; */ */
-   /* height: 100vw;
+.create-recipe-form{
+   width: 100%;
+   height: 120vw;
    background-color: gray;
-   display:flex; */
-/* }
+}
 
-.recipe-page{
-   background-image: url(https://global-cuisine.s3.us-west-1.amazonaws.com/recipe-image.jpeg); 
-    background-repeat: no-repeat;
-    background-size: cover; 
-    background-position: 50% 50%;  
-    width: 80vw;
-    height: 47vw; 
+
+.create-form{
+    border: 1px solid black;
+    width: 90%;
     position: relative;
-    left: 32vw; 
-}
-.name-create{
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.title-create, .ingredients-create, .serving-create, .description-create, .instruction-create, .country-create, .difficulty-create{
+    left: 5vw;
+    top: 5vw;
+    height: 90%;
     display: flex;
-    width: 15vw;
+    justify-content: center;
+}
+
+
+.name-create, .title-create, .serving-create, .country-create, .difficulty-create{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height: 4vw;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; 
+    position: relative;
+    left: 1vw;
+    bottom: 0.5vw;
+}
+
+.description-create{
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    height: 12vw;
+    justify-content: space-between;
+    align-items: center; 
+    position: relative;
+    left: 1vw;
+    top: 2vw;
+
+}
+
+.create-text-recipe{
+  position: relative;
+  left: 28vw;
+  top: 2vw;
+  font-size: 1.8vw;
+  width: 20vw;
+  height: 4vw;
+  text-decoration: underline;
+}
+
+.ingredients-create, .instruction-create{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center; 
+    position: relative;
+    right: 15vw;
+    height: 50%;
+    bottom: 8.5vw;
+}
+
+.upload-photo-create{
+    width: 30vw;
+    height: 20vw;
 }
 
 .picture-create{
-    display: flex;
-    width: 20vw;
-    justify-content: space-between;
-    align-items: center;
 
 }
 
-.name-text, .title-text, .ingredients-text, .serving-text, .picture-text, .description-text, .instruction-text, .country-text, .difficulty-text{
+.name-text, .title-text, .serving-text, .picture-text, .country-text, .difficulty-text{
    font-size: 1vw;
-   font-family: cursive;
+   position: relative;
+   top: 0.2vw;
 }
 
-.name-input, .title-input, .ingredients-input, .servings-input, .picture-input, .description-input, .instruction-input{
-   width: 50vw;
+.description-text{
+   font-size: 1vw;
+   position: relative;
+   top: 0.2vw;
+   right: 5vw;
+
+}
+
+.ingredients-text, .instruction-text{
+    font-size: 1vw;
+    position: relative;
+    top: 3.5vw;
+}
+
+
+.name-input, .title-input, .servings-input{
+   width: 13vw;
+   height: 2vw;
    background: transparent;
-   border-bottom: 1px solid black;
-   border-top: none;
-   border-left: none;
-   border-right: none;
+   border: 2px solid black;
+}
+
+.description-input {
+   background: transparent;
+   border: 2px solid black;
+   width: 30vw;
+   height: 17vw;
+   position: relative;
+   top: 0.8vw;
+}
+
+.ingredients-input, .instruction-input{
+   background: transparent;
+   border: 2px solid black;
+   width: 37vw;
+   height: 20vw;
+
 }
 
 .difficulty-input, .country-input{
-    width: 7.8vw;
+    width: 13vw;
+    height: 2.5vw;
     background: transparent;
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    border: 2px solid black;
+}
+
+.form-photo{
+    width: 30vw;
+    height: 20vw;
+    position: relative;
+    top: 12vw;
+    left: 1vw;
 }
 .center-recipe{
     width: 60%;
-    height: 60%;
-    position: relative;
-    left: 7vw;
-    top: 6vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    box-sizing: border-box;
 }
 
 
-.submit-recipe{
+.submit-recipe-create{
     position: relative;
-    left: 8vw;
-    top: 1.5vw;
+    bottom: 12vw;
+    left: 5vw;
+    background-color: black;
+    width: 8vw;
+    height: 2vw;
+    color: white;
+}
+
+.submit-input-create{
+     background: transparent;
+     font-size: 1vw;
+     color: white;
+     width: 8vw;
+     height: 2vw;
+}
+
+
+.left-right-form{
+    display: flex;
+}
+
+.left-form{
+    width: 60%;
+    position: relative;
+    right: 28vw;
+    bottom: 4vw;
 }
 
 .submit-input{
@@ -82,7 +174,6 @@
     border: 1px solid gray;
     font-size: 0.7vw;
 }
-
 .errors-create{
     position: relative;
     left: 70vw;
@@ -90,212 +181,6 @@
     color: black;
     font-size: 1vw;
 }
-
 .uploadpic-create{
     font-size: 0.7vw;
-}
-.letter-count{
-  font-size:.6vw;
-}
- */
-.create-recipe-form{
-   /* width: 100%;
-   height: 100vh; */
-   background-color: gray;
-    /* display:grid;
-   gap:1.5rem;
-   grid-template-columns: repeat(3,1fr);
-  /* align-items:center;
-  justify-content: space-around; */
-  
-}
- .recipe-page{
-   display:grid;
-   column-gap:1.5rem;
-   row-gap:1rem;
-   width:100%;
-   height:100vh;
-   grid-template-columns: repeat(3,1fr);
-   grid-template-rows: 50px 98px 84px 198px 225px auto;
-  align-items:start;
-  justify-content: center;
-  font-family: 'Helvetica', 'Arial', sans-serif;
- }
-
-.description-create {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-self: center;
-    margin-left: 89px;
-    border: solid black 2px;
-    padding-bottom: 15px;
-    padding-top: 15px;
-    padding-left: 18px;
-    padding-right: 18px;
-    grid-column: 1/3;
-}
-    .ingredients-create{
-  grid-column-start:3;
-   display: flex;
- flex-direction: column;
-  align-items: center;
-  justify-self: start;
-  border:solid black 2px;
-  padding:15px;
-  grid-row:3/5;
-  /* overflow-wrap:break-word; */
- }
-
- 
- .name-create{
-   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-self: end;
-  border:solid black 2px;
-  padding:8px;
-  margin:0
- }
- .serving-create{
-   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-self: start;
-  border:solid black 2px;
-  padding:8px;
-  
- }
- .title-create{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-self: center;
-  border:solid black 2px;
-  padding:8px;
- }
- .difficulty-create{
-   display: flex;
-  align-items: center;
-  justify-self: center;
-  border:solid black 2px;
-  padding-left:14px;
-  padding-right:14px;
-  padding-bottom:20px;
-  padding-top:20px;
-  margin:0;
- }
- .country-create{
-   display: flex;
-  align-items: center;
-  justify-self: end;
-  border:solid black 2px;
-  padding-left:19px;
-  padding-right:19px;
-  padding-bottom:20px;
-  padding-top:20px;
-  margin-top:0;
- }
- .header{
-   padding-top:15px;
-   font-size:25px;
-    text-align: center;
-     grid-column: span 3;
- }
-.description-text-area{
-  width:28.3rem;
-  height:6.5rem;
-  /* resize:none; */
-  padding:5px;
-  font-size:14px;
-  color:grey;
-  background-color: black;
-  border: solid white 1px;
-  text-align:left;
-  font-family:inherit;
-}
- .instruction-create{
-   grid-column: span 3;
-    display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-self: center;
-  border:solid black 2px;
-  padding:15px;
- }
-
-.instruction-text-area{
-  width:47rem;
-  height:8rem;
-  resize:none;
-  padding:5px;
-  font-size:14px;
-  color:grey;
-  background-color: black;
-  border: solid white 1px;
-  text-align:left;
-  font-family:inherit;
-
-}
-.ingredients-text-area{
-  width:8.9rem;
-  height:12.5rem;
-  resize:none;
-  padding:5px;
-  font-size:14px;
-  color:grey;
-  background-color: black;
-  border: solid white 1px;
-  text-align:left;
-  font-family:inherit;
-}
-
-/* .recipe-background{
-  width: 100%;
-   height: 100vw;
-   background-color: gray;
-} */
-
-.letter-count{
-  font-family:inherit;
-  font-size:.6vw;
-  padding:7px;
-  text-align: center;
-  overflow-wrap:break-word;
-}
-.ingredients-blurb{
-  font-family:inherit;
-  font-size:.6vw;
-  padding:4px;
-  text-align: left;
-  overflow-wrap:break-word;
-}
-.name-text,.title-text,.serving-text,.ingredients-text,.description-text,.difficulty-text,.country-text,.instruction-text{
-  font-family: inherit;
-  padding:px;
-  font-size:16px;
-}
-.name-input,.title-input,.servings-input,.difficulty-input,.country-input{
-  padding:5px;
-  font-size:14px;
-  color:grey;
-  background-color: black;
-  border: solid white 1px;
-  text-align:center;
-  font-family:inherit;
-}
-
-.picture-create{
-   flex-direction: column;
-  align-items: center;
-  justify-self: end;
-  border:solid black 2px;
-  padding:8px;
-  margin-left:20px;
-}
-
-.upload-photo{
- 
-  font-size:14px;
-
 }
