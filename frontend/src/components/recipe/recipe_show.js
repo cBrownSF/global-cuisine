@@ -46,7 +46,7 @@ class RecipeShow extends React.Component {
       }
     }
     
-    if(Object.keys(this.props.currentUser).length !== 0 && liked === false && listing.author_id !== user.id){
+    if(this.props.currentUser && Object.keys(this.props.currentUser).length !== 0 && liked === false && listing.author_id !== user.id){
   return (
     <div className="outermost-show">
       <div className="right-left">
