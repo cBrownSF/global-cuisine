@@ -22,13 +22,13 @@
     display: flex;
     flex-direction: column;
     width: 20vw;
-    height: 4vw;
+    height: 5vw;
     justify-content: space-between;
     align-items: center; 
     position: relative;
     left: 1vw;
     bottom: 0.5vw;
-    font-family:inherit;
+
 }
 
 .description-create{
@@ -96,7 +96,7 @@
 .ingredients-text, .instruction-text{
     font-size: 1vw;
     position: relative;
-    top: 3.5vw;
+    top: 4vw;
 }
 
 
@@ -105,6 +105,20 @@
    height: 2vw;
    background: transparent;
    border: 2px solid black;
+   font-size: 0.8vw;
+   padding: 1%;
+}
+
+.servings-input{
+   width: 13vw;
+   height: 2vw;
+   background: transparent;
+   border: 2px solid black;
+   font-size: 0.8vw;
+   padding: 1%;
+   position: relative;
+   bottom: 0.5vw;
+
 }
 
 .description-input {
@@ -114,6 +128,8 @@
    height: 17vw;
    position: relative;
    top: 0.8vw;
+   font-size: 0.8vw;
+   padding: 1%;
 }
 
 .ingredients-input, .instruction-input{
@@ -121,6 +137,8 @@
    border: 2px solid black;
    width: 37vw;
    height: 20vw;
+   padding: 1%;
+   font-size: 0.8vw;
 
 }
 
@@ -129,6 +147,10 @@
     height: 2.5vw;
     background: transparent;
     border: 2px solid black;
+    padding: 1%;
+    font-size: 0.8vw;
+    position: relative;
+    bottom: 0.6vw;
 }
 
 .form-photo{
@@ -153,7 +175,7 @@
 
 .submit-recipe-create{
     position: relative;
-    bottom: 12vw;
+    bottom: 7vw;
     left: 5vw;
     background-color: black;
     width: 8vw;
@@ -166,7 +188,10 @@
      font-size: 1vw;
      color: white;
      width: 8vw;
+     border: none;
      height: 2vw;
+     position: relative;
+     bottom: 0.1vw;
 }
 
 
@@ -202,7 +227,14 @@
 }
 
 .letter-count{
+  padding:5px;
+  font-size:0.6vw;
+}
+
+.letter-count-details{
   position:relative;
   padding:5px;
   font-size:0.6vw;
+  top: 1vw;
+
 }

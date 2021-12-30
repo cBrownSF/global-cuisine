@@ -178,7 +178,7 @@ class RecipeForm extends React.Component {
                       onChange={this.handleInput("details", 360)}
                       className="description-input"
                     />
-                    <p className="letter-count">{this.letterCount(this.state.details, 360)}</p>
+                    <p className="letter-count-details">{this.letterCount(this.state.details, 360)}</p>
                   </div>
                 </div>
                 <div className="form-photo">
