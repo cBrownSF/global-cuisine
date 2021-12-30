@@ -101,11 +101,7 @@
 .show-ingredient-inner {
   font-size: 0.9vw;
   position: relative;
-<<<<<<< HEAD
-  line-height: 1vw;
-=======
   line-height: .7vw;
->>>>>>> FixPhotoCreateError
   top: 1vw;
   overflow-wrap: break-word;
   -moz-white-space: pre-wrap;   
@@ -127,22 +123,15 @@
   top: 1vw;
   font-size: 0.8vw;
   overflow-wrap: break-word;
-<<<<<<< HEAD
-=======
     -moz-white-space: pre-wrap;   
   white-space: pre-wrap;
->>>>>>> FixPhotoCreateError
 }
 
 .detail-padding {
   padding: 3%;
   position: relative;
   bottom: 2vw;
-<<<<<<< HEAD
-  overflow-wrap:break-word;
-=======
   overflow-wrap: break-word;
->>>>>>> FixPhotoCreateError
 }
 
 .p {
