@@ -224,7 +224,14 @@ class EditRecipeForm extends React.Component {
                       className="edit-upload-photo-create"
                       src={this.state.photoUrl}
                     />
-                  ) : null}
+                  ) : (
+                    <img
+                      className="edit-upload-photo-create"
+                      height="200px"
+                      width="200px"
+                      src={this.state.picture}
+                    />
+                  )}
 
                   <div className="edit-picture-create">
                     <div className="edit-picture-text">Upload Picture</div>
@@ -273,7 +280,6 @@ class EditRecipeForm extends React.Component {
               >
                 Delete
               </button>
-              <div>or</div>
               <input
                 type="submit"
                 value="Submit"
