@@ -236,9 +236,9 @@
 
 .edit-errors-create{
     position: relative;
-    left: 70vw;
-    bottom: 20vw;
-    color: black;
+    left: 65vw;
+    bottom: 48vw;
+    color: darkred;
     font-size: 1vw;
 }
 

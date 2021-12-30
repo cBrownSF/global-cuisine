@@ -216,10 +216,11 @@
 
 .errors-create{
     position: relative;
-    left: 70vw;
-    bottom: 20vw;
-    color: black;
+    left: 55vw;
+    bottom: 45vw;
+    color: darkred;
     font-size: 1vw;
+    line-height: 1.3vw;
 }
 
 .uploadpic-create{
