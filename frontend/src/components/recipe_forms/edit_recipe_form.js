@@ -137,7 +137,7 @@ class EditRecipeForm extends React.Component {
     return (
       <div className="edit-recipe-form">
         <form onSubmit={this.handleSubmit} className="edit-form" encType="multipart/form-data">
-          <div className="edit-text-recipe">Edit Your Own Recipe</div>
+          <div className="edit-text-recipe">Edit Your Recipe</div>
           <div className="edit-center-recipe">
             <div className="edit-left-right-form">
               <div className="edit-left-form">
@@ -150,7 +150,7 @@ class EditRecipeForm extends React.Component {
                       onChange={this.handleInput("name", 20)}
                       className="edit-name-input"
                     />
-                    <p className="edit-letter-count">{this.letterCount(this.state.name || '', 20)}</p>
+                    <p className="edit-letter-count-name">{this.letterCount(this.state.name || '', 20)}</p>
                   </div>
                 </div>
                 <div className="edit-title-create">
@@ -162,7 +162,7 @@ class EditRecipeForm extends React.Component {
                       onChange={this.handleInput("title", 35)}
                       className="edit-title-input"
                     />
-                    <p className="edit-letter-count">{this.letterCount(this.state.title || '', 35)}</p>
+                    <p className="edit-letter-count-title">{this.letterCount(this.state.title || '', 35)}</p>
                   </div>
                 </div>
                 <div className="edit-serving-create">
@@ -193,7 +193,7 @@ class EditRecipeForm extends React.Component {
                   </div>
                 </div>
                 <div className="edit-difficulty-create">
-                  <div className="edit-difficulty-text">Difficulty:</div>
+                  <div className="edit-difficulty-text">Difficulty</div>
                   <div>
                     <select
                       className="edit-difficulty-input"
@@ -215,7 +215,7 @@ class EditRecipeForm extends React.Component {
                       onChange={this.handleInput("details", 360)}
                       className="edit-description-input"
                     />
-                    <p className="edit-letter-count">{this.letterCount(this.state.details || '', 360)}</p>
+                    <p className="edit-letter-count-details">{this.letterCount(this.state.details || '', 360)}</p>
                   </div>
                 </div>
                 <div className="edit-form-photo">
@@ -227,8 +227,6 @@ class EditRecipeForm extends React.Component {
                   ) : (
                     <img
                       className="edit-upload-photo-create"
-                      height="200px"
-                      width="200px"
                       src={this.state.picture}
                     />
                   )}
@@ -256,7 +254,7 @@ class EditRecipeForm extends React.Component {
                       onChange={this.handleInput("ingredients", 200)}
                       className="edit-ingredients-input"
                     />
-                    <p className="edit-letter-count">Add a new line after each ingredient</p>
+                    <p className="edit-letter-count-ingredient">Add a new line after each ingredient</p>
                   </div>
                 </div>
                 <div className="edit-instruction-create">
@@ -268,7 +266,7 @@ class EditRecipeForm extends React.Component {
                       onChange={this.handleInput("instruction", 1500)}
                       className="edit-instruction-input"
                     />
-                    <p className="edit-letter-count">{this.letterCount(this.state.instruction || '', 1500)}</p>
+                    <p className="edit-letter-count-instruction">{this.letterCount(this.state.instruction || '', 1500)}</p>
                   </div>
                 </div>
               </div>
@@ -282,7 +280,7 @@ class EditRecipeForm extends React.Component {
               </button>
               <input
                 type="submit"
-                value="Submit"
+                value="Update"
                 className="edit-submit-delete-button"
               />
             </div>
