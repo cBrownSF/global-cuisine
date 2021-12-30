@@ -41,7 +41,7 @@ class RecipeShow extends React.Component {
     let liked = false;
     for (let i = 0; i < likes.length; i++) {
       let like = likes[i];
-      if(Object.keys(this.props.currentUser).length !== 0 && like.liker_id === user.id && like.listing_id === listing._id){
+      if(this.props.currentUser && Object.keys(this.props.currentUser).length !== 0 && like.liker_id === user.id && like.listing_id === listing._id){
         liked = true
       }
     }
