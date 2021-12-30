@@ -100,7 +100,7 @@ class RecipeForm extends React.Component {
     }
     return (
       <div className="create-recipe-form">
-        <form onSubmit={this.handleSubmit} className="create-form">
+        <form onSubmit={this.handleSubmit} className="create-form" encType="multipart/form-data">
           <div className="create-text-recipe">Create Your Own Recipe</div>
           <div className="center-recipe">
             <div className="left-right-form">
@@ -213,7 +213,7 @@ class RecipeForm extends React.Component {
                       onChange={this.handleInput("ingredients", 200)}
                       className="ingredients-input"
                     />
-                    <p className="ingredients-blurb">Add a new line after each ingredient</p>
+                    <p className="letter-count">Add a new line after each ingredient</p>
                   </div>
                 </div>
                 <div className="instruction-create">
