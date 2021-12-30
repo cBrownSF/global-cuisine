@@ -12,7 +12,7 @@ module.exports = function(data) {
     }
 
     if(Validator.isEmpty(data.email)){
-        errors.email = "Must enter an email address";
+        errors.email = "Email is required";
     }
 
     if(Validator.isEmpty(data.password)){

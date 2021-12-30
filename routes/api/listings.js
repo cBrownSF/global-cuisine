@@ -49,7 +49,7 @@ const upload = require('../../image_upload')
 router.post("/",
   passport.authenticate("jwt", { session: false }), upload.single('picture'),
   (req, res) => {
-    console.log(req.file)
+  
     const { isValid, errors } = validateListingInput(req.body,req.file);
     if (!isValid) {
       return res.status(400).json(errors);
@@ -97,6 +97,7 @@ router.patch(
         console.log(req.file)
         listing.name = req.body.name,
         listing.ingredients = req.body.ingredients,
+        listing.instruction = req.body.instruction,
         listing.country = req.body.country,
         listing.details = req.body.details,
         listing.difficulty = req.body.difficulty,
@@ -107,6 +108,7 @@ router.patch(
       }else {
         listing.name = req.body.name,
         listing.ingredients = req.body.ingredients,
+        listing.instruction = req.body.instruction,
         listing.country = req.body.country,
         listing.details = req.body.details,
         listing.difficulty = req.body.difficulty,

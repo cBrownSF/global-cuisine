@@ -1,139 +1,209 @@
 .edit-recipe-form{
-    width: 100%;
-    height: 100vw;
-    background-color: gray;
- }
- 
- .edit-recipe-page{
-     background-image: url(https://global-cuisine.s3.us-west-1.amazonaws.com/recipe-image.jpeg);
-     background-repeat: no-repeat;
-     background-size: cover;
-     background-position: 50% 50%;
-     width: 37vw;
-     height: 47vw;
-     position: relative;
-     left: 32vw;
-     top: 3vw;
-     font-size: 1.2vw;
-     font-weight: 3000;
- }
- 
- .title-edit, .ingredients-edit, .servings-edit, .picture-edit, .name-edit, .details-edit, .instruction-edit, .country-edit, .difficult-edit, .upload-edit {
-     display: flex;
-     width: 15vw;
-     justify-content: space-between;
-     align-items: center;
- }
-
- .upload-edit{
-     width: 20vw;
- }
-
-
- #title{
-     position: relative;
-     font-size: 1.8vw;
-     bottom: 1.5vw;
-     text-decoration: underline;
- }
- 
- 
- .name-edit-input, .title-edit-input, .servings-edit-input, .picture-edit-input, .description-edit-input, .details-edit-input{
-    width: 9vw;
-    background: transparent;
-    border-bottom: 1px solid black;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    height: 2vw;
-    position: relative;
-    left: 2.5vw;
-    font-size: 1vw;
- }
-
- .ingredients-edit-input, .instruction-edit-input{
-    width: 9vw;
-    background: transparent;
-    border-bottom: 1px solid black;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    height: 4vw;
-    position: relative;
-    left: 2.5vw;
-    font-size: 0.7vw;
-    line-height: 7px;
-    padding: 2%;
- }
-
- .input-edit-image{
-     width: 12vw;
-     position: relative;
-     left: 0.8vw;
-     font-size: 0.8vw;
-
- }
- 
- .country-input-edit, .difficulty-input-edit{
-     width: 9vw;
-     background: transparent;
-     border-top: none;
-     border-left: none;
-     border-right: none;
-     height: 2vw;
-     position: relative;
-     left: 2.5vw;
-     font-size: 1vw;
- }
-
- .edit-center-recipe{
-     width: 20vw;
-     height: 25vw;
-     position: relative;
-     left: 7vw;
-     top: 6vw;
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
- }
- 
- 
- .submit-recipe{
-     position: relative;
-     left: 8vw;
-     top: 1.5vw;
- }
- 
- .submit-input{
-     width: 5vw;
-     height: 1.2vw;
-     background: transparent;
-     border: 1px solid gray;
-     font-size: 0.7vw;
- }
-
- .edit-delete{
-     display: flex;
-     position: relative;
-     top: 1.4vw;
-     width: 16vw;
-     justify-content: space-evenly;
- }
-
- .delete-button-recipe, .submit-button-recipe{
-     font-size: 1vw;
-     width: 5.5vw;
-     height: 1.7vw;
-     color: black;
-     background: transparent;
-     cursor: default;
-     display: flex;
-     justify-content: center;
-     align-items: center;
- }
-
-.upload-photo{
-    width: 8vw;
-    height: 8vw;
+   width: 100%;
+   height: 120vw;
+   background-color: gray;
+   font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
+
+.edit-form{
+    border: 1px solid black;
+    width: 90%;
+    position: relative;
+    left: 5vw;
+    top: 5vw;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.edit-name-create, .edit-title-create, .edit-serving-create, .edit-country-create, .edit-difficulty-create{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height: 4vw;
+    justify-content: space-between;
+    align-items: center; 
+    position: relative;
+    left: 1vw;
+    bottom: 0.5vw;
+    font-family:inherit;
+}
+
+.edit-description-create{
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    height: 12vw;
+    justify-content: space-between;
+    align-items: center; 
+    position: relative;
+    left: 1vw;
+    top: 2vw;
+    font-family:inherit
+}
+
+.edit-text-recipe{
+  position: relative;
+  left: 28vw;
+  top: 2vw;
+  font-size: 1.8vw;
+  width: 20vw;
+  height: 4vw;
+  text-decoration: underline;
+}
+
+.edit-ingredients-create, .edit-instruction-create{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center; 
+    position: relative;
+    right: 15vw;
+    height: 50%;
+    bottom: 8.5vw;
+}
+
+.edit-upload-photo-create{
+    width: 30vw;
+    height: 20vw;
+}
+
+.edit-picture-create{
+    display: flex;
+    width: 20vw;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.edit-name-text, .edit-title-text, .edit-serving-text, .edit-picture-text, .edit-country-text, .edit-difficulty-text{
+   font-size: 1vw;
+   position: relative;
+   top: 0.2vw;
+   
+}
+
+.edit-description-text{
+   font-size: 1vw;
+   position: relative;
+   top: 0.2vw;
+   right: 5vw;
+
+}
+
+.edit-ingredients-text, .edit-instruction-text{
+    font-size: 1vw;
+    position: relative;
+    top: 3.5vw;
+}
+
+
+.edit-name-input, .edit-title-input, .edit-servings-input{
+   width: 13vw;
+   height: 2vw;
+   background: transparent;
+   border: 2px solid black;
+}
+
+.edit-description-input {
+   background: transparent;
+   border: 2px solid black;
+   width: 30vw;
+   height: 17vw;
+   position: relative;
+   top: 0.8vw;
+}
+
+.edit-ingredients-input, .edit-instruction-input{
+   background: transparent;
+   border: 2px solid black;
+   width: 37vw;
+   height: 20vw;
+
+}
+
+.edit-difficulty-input, .edit-country-input{
+    width: 13vw;
+    height: 2.5vw;
+    background: transparent;
+    border: 2px solid black;
+}
+
+.edit-form-photo{
+    width: 30vw;
+    height: 20vw;
+    position: relative;
+    top: 12vw;
+    left: 1vw;
+}
+.edit-center-recipe{
+    width: 60%;
+    height: 60%;
+    position: relative;
+    left: 7vw;
+    top: 6vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+}
+
+
+.edit-submit-delete-button{
+    position: relative;
+    bottom: 12vw;
+    left: 5vw;
+    background-color: black;
+    width: 8vw;
+    height: 2vw;
+    color: white;
+}
+
+.edit-submit-input-create{
+     background: transparent;
+     font-size: 1vw;
+     color: white;
+     width: 8vw;
+     height: 2vw;
+}
+
+
+.edit-left-right-form{
+    display: flex;
+}
+
+.edit-left-form{
+    width: 60%;
+    position: relative;
+    right: 28vw;
+    bottom: 4vw;
+}
+
+.edit-submit-input{
+    width: 5vw;
+    height: 1.2vw;
+    background: transparent;
+    border: 1px solid gray;
+    font-size: 0.7vw;
+}
+
+.edit-errors-create{
+    position: relative;
+    left: 70vw;
+    bottom: 20vw;
+    color: black;
+    font-size: 1vw;
+}
+
+.edit-uploadpic-create{
+    font-size: 0.7vw;
+}
+
+.edit-letter-count{
+  position:relative;
+  padding:5px;
+  font-size:0.6vw;
+}

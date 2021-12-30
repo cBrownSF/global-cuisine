@@ -14,12 +14,12 @@ module.exports = function validateRegisterInput(data) {
     }
 
     if(Validator.isEmpty(data.username)){
-        errors.username = "Username field is required"
+        errors.username = "Username is required"
     }
 
 
     if(Validator.isEmpty(data.email)){
-        errors.email = "Email field is required"
+        errors.email = "Email is required"
     }
 
     if(!Validator.isEmail(data.email)){
@@ -31,7 +31,7 @@ module.exports = function validateRegisterInput(data) {
     }
 
     if (!Validator.isLength(data.password, { min:6, max: 20})){
-        errors.password = "Password must be between 2 and 20 chars"
+        errors.password = "Password must be between 2 and 20 characters"
     }
 
     if(!Validator.equals(data.password, data.password2)){

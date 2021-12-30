@@ -47,19 +47,22 @@ module.exports = function validateListingInput(data, fileData) {
   }
 
   if (typeof (fileData) === "undefined") {
-    errors.file = "Problem with sending data"
-    console.log(typeof fileData)
+    errors.picture = "Problem with sending data"
   }
-  if (fileData.mimetype === 'image/jpeg' || fileData.mimetype == 'image/png') {
+  if (typeof (fileData) !== "undefined" && fileData.mimetype === 'image/jpeg' || typeof (fileData) !== "undefined" && fileData.mimetype == 'image/png') {
   } else {
     errors.picture = "Mime Type must be JPEG or PNG"
   }
+  if (typeof (fileData) !== "undefined"){
   data.picture = validText(fileData.originalname) ? fileData.originalname : "";
-
+  }
+  if (typeof (fileData) !== "undefined") {
   if (Validator.isEmpty(fileData.originalname)) {
     errors.picture = "Picture is required";
   }
+}
   data.country = validText(data.country) ? data.country : "";
+
   if (Validator.isEmpty(data.country)) {
     errors.country = "Country is required";
   }

@@ -10,6 +10,8 @@ class EditRecipeForm extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
     this.handleFile = this.handleFile.bind(this)
+    this.servingInput = this.servingInput.bind(this)
+    this.letterCount = this.letterCount.bind(this)
   }
   componentDidMount() {
     this.props.receiveListing(this.props.match.params.listingId)
@@ -61,6 +63,26 @@ class EditRecipeForm extends React.Component {
       ;
   }
 
+
+  handleInput(field, maxCharacter) {
+    return (e) => {
+      if (e.currentTarget.value.length < maxCharacter) {
+        this.setState({
+          [field]: e.currentTarget.value,
+        });
+      }
+    }
+  }
+  servingInput(type) {
+    const regex = /^[0-9\b]+$/;
+
+    return e => {
+      if (e.currentTarget.value === '' || regex.test(e.currentTarget.value) && e.currentTarget.value.length <= 2 && e.currentTarget.value < 21 && e.currentTarget.value > 0) {
+        this.setState({ [type]: e.currentTarget.value })
+      }
+    }
+  }
+
   handleFile(e) {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
@@ -71,28 +93,26 @@ class EditRecipeForm extends React.Component {
       fileReader.readAsDataURL(file);
     }
   }
+  letterCount(section, maxChar) {
 
-  handleKeyPress(field) {    
-    return e => {
-      if (e.key === 'Enter') {
-        this.setState({
-          [field]: e.currentTarget.value + '\n'
-        })
-      }
-    };
+    let charLeft = (maxChar - section.length)
+    return charLeft <= 1 ? 'Max characters reached' : `${charLeft} characters remaining`
   }
   
-  handleInput(field) {
-    return (e) =>
-      this.setState({
-        [field]: e.currentTarget.value,
-      });
-  }
   handleDelete(field) {
     this.setState({
       [field]: true,
     })
     this.props.deleteListing(this.props.listing._id)
+  }
+  handleKeyPress(field) {
+    return (e) => {
+      if (e.key === "Enter") {
+        this.setState({
+          [field]: e.currentTarget.value + "\n",
+        });
+      }
+    };
   }
   renderErrors() {
     return (
@@ -116,148 +136,159 @@ class EditRecipeForm extends React.Component {
     }
     return (
       <div className="edit-recipe-form">
-        <form onSubmit={this.handleSubmit} encType="multipart/form-data">
-          <div className="edit-recipe-page">
-            <div className="edit-center-recipe">
-              <h1 id="title">Edit recipe</h1>
-              <div className="title-edit">
-                <div>Title</div>
-                <div className="title-edit-text">
-                  <input
-                    type="text"
-                    value={this.state.title || ""}
-                    onChange={this.handleInput("title")}
-                    className="title-edit-input"
-                  />
+        <form onSubmit={this.handleSubmit} className="edit-form" encType="multipart/form-data">
+          <div className="edit-text-recipe">Edit Your Own Recipe</div>
+          <div className="edit-center-recipe">
+            <div className="edit-left-right-form">
+              <div className="edit-left-form">
+                <div className="edit-name-create">
+                  <div className="edit-name-text">Name</div>
+                  <div>
+                    <input
+                      type="text"
+                      value={this.state.name || ''}
+                      onChange={this.handleInput("name", 20)}
+                      className="edit-name-input"
+                    />
+                    <p className="edit-letter-count">{this.letterCount(this.state.name || '', 20)}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="ingredients-edit">
-                <div>Ingredients</div>
-                <div className="ingredients-edit-text">
-                  <textarea
-                    type="text"
-                    onKeyPress={this.handleKeyPress("ingredients")}
-                    value={this.state.ingredients || ""}
-                    onChange={this.handleInput("ingredients")}
-                    className="ingredients-edit-input"
-                  />
+                <div className="edit-title-create">
+                  <div className="edit-title-text">Recipe Title</div>
+                  <div>
+                    <input
+                      type="text"
+                      value={this.state.title || ''}
+                      onChange={this.handleInput("title", 35)}
+                      className="edit-title-input"
+                    />
+                    <p className="edit-letter-count">{this.letterCount(this.state.title || '', 35)}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="servings-edit">
-                <div>Serving size</div>
-                <div className="servings-edit-text">
-                  <input
-                    type="text"
-                    value={this.state.servings || ""}
-                    onChange={this.handleInput("servings")}
-                    className="servings-edit-input"
-                  />
+                <div className="edit-serving-create">
+                  <div className="edit-serving-text">Serving size(up to 20)</div>
+                  <div>
+                    <input
+                      type="text"
+                      value={this.state.servings || ''}
+                      onChange={this.servingInput("servings")}
+                      className="edit-servings-input"
+                    />
+                    {/* <p className="edit-letter-count">Up to 20 Servings</p> */}
+                  </div>
                 </div>
-              </div>
-              <div className="name-edit">
-                <div>Name</div>
-                <div className="name-edit-text">
-                  <input
-                    type="text"
-                    value={this.state.name || ""}
-                    onChange={this.handleInput("name")}
-                    className="name-edit-input"
-                  />
+                <div className="edit-country-create">
+                  <div className="edit-country-text">Country</div>
+                  <div>
+                    <select
+                      className="edit-country-input"
+                      value={this.state.country || ''}
+                      onChange={this.handleInput("country", 10)}
+                    >
+                      <option value="" selected disabled hidden></option>
+                      <option value="Italy">Italy</option>
+                      <option value="France">France</option>
+                      <option value="India">India</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div className="details-edit">
-                <div>Details</div>
-                <div className="details-edit-text">
-                  <input
-                    type="text"
-                    value={this.state.details || ""}
-                    onChange={this.handleInput("details")}
-                    className="details-edit-input"
-                  />
+                <div className="edit-difficulty-create">
+                  <div className="edit-difficulty-text">Difficulty:</div>
+                  <div>
+                    <select
+                      className="edit-difficulty-input"
+                      value={this.state.difficulty || ''}
+                      onChange={this.handleInput("difficulty", 7)}
+                    >
+                      <option value="" selected disabled hidden></option>
+                      <option value="Easy">Easy</option>
+                      <option value="Medium">Medium</option>
+                      <option value="Hard">Hard</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div className="instruction-edit">
-                <div>Instruction</div>
-                <div className="instruction-edit-text">
-                  <textarea
-                    onKeyPress={this.handleKeyPress("instruction")}
-                    value={this.state.instruction || ""}
-                    onChange={this.handleInput("instruction")}
-                    className="instruction-edit-input"
-                  />
+                <div className="edit-description-create">
+                  <div className="edit-description-text">Description</div>
+                  <div>
+                    <textarea
+                      value={this.state.details || ''}
+                      onChange={this.handleInput("details", 360)}
+                      className="edit-description-input"
+                    />
+                    <p className="edit-letter-count">{this.letterCount(this.state.details || '', 360)}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="country-edit">
-                <div>Country</div>
-                <div className="country-edit-text">
-                  <select
-                    value={this.state.country || ""}
-                    onChange={this.handleInput("country")}
-                    className="country-input-edit"
-                  >
-                    <option value="Italy">Italy</option>
-                    <option value="France">France</option>
-                    <option value="India">India</option>
-                  </select>
-                </div>
-              </div>
-              <div className="difficult-edit">
-                <div>Difficulty</div>
-                <div className="difficulty-edit-text">
-                  <select
-                    value={this.state.difficulty || ""}
-                    onChange={this.handleInput("difficulty")}
-                    className="difficulty-input-edit"
-                  >
-                    <option value="Easy">Easy</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Hard">Hard</option>
-                  </select>
-                </div>
-              </div>
-              {this.state.photoUrl ? (
-                <img className="upload-photo" src={this.state.photoUrl} />
-              ) : (
-                <img
-                  className="upload-photo"
-                  height="200px"
-                  width="200px"
-                  src={this.state.picture}
-                />
-              )}
+                <div className="edit-form-photo">
+                  {this.state.photoUrl ? (
+                    <img
+                      className="edit-upload-photo-create"
+                      src={this.state.photoUrl}
+                    />
+                  ) : (
+                    <img
+                      className="edit-upload-photo-create"
+                      height="200px"
+                      width="200px"
+                      src={this.state.picture}
+                    />
+                  )}
 
-              <div className="upload-edit">
-                <div>
-                  Upload Image
-                </div>
-                <div className="image-edit-text">
-                  <input
-                    type="file"
-                    name="picture"
-                    onChange={this.handleFile}
-                    className="input-edit-image"
-                  />
+                  <div className="edit-picture-create">
+                    <div className="edit-picture-text">Upload Picture</div>
+                    <div>
+                      <input
+                        type="file"
+                        name="picture"
+                        onChange={this.handleFile}
+                        className="edit-uploadpic-create"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              <div className="edit-delete">
-                <button
-                  className="delete-button-recipe"
-                  onClick={() => this.handleDelete("deleted")}
-                >
-                  Delete
-                </button>
-                <div>or</div>
-                <input
-                  type="submit"
-                  value="Submit"
-                  className="submit-button-recipe"
-                />
+              <div className="edit-right-form">
+                <div className="edit-ingredients-create">
+                  <div className="edit-ingredients-text">Ingredients</div>
+                  <div>
+                    <textarea
+                      onKeyPress={this.handleKeyPress("ingredients")}
+                      value={this.state.ingredients || ''}
+                      onChange={this.handleInput("ingredients", 200)}
+                      className="edit-ingredients-input"
+                    />
+                    <p className="edit-letter-count">Add a new line after each ingredient</p>
+                  </div>
+                </div>
+                <div className="edit-instruction-create">
+                  <div className="edit-instruction-text">Instruction</div>
+                  <div>
+                    <textarea
+                      onKeyPress={this.handleKeyPress("instruction")}
+                      value={this.state.instruction}
+                      onChange={this.handleInput("instruction", 1500)}
+                      className="edit-instruction-input"
+                    />
+                    <p className="edit-letter-count">{this.letterCount(this.state.instruction || '', 1500)}</p>
+                  </div>
+                </div>
               </div>
-              {this.renderErrors()}
+            </div>
+            <div className="edit-submit-recipe-create">
+              <button
+                className="edit-submit-delete-button"
+                onClick={() => this.handleDelete("deleted")}
+              >
+                Delete
+              </button>
+              <input
+                type="submit"
+                value="Submit"
+                className="edit-submit-delete-button"
+              />
             </div>
           </div>
         </form>
+        <div className="edit-errors-create">{this.renderErrors()}</div>
       </div>
     );
   }

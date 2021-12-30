@@ -47,7 +47,7 @@
 
 .show-author {
   position: relative;
-  left: 2.6vw;
+  left: 1.3vw;
   bottom: 1vw;
 }
 
@@ -74,13 +74,13 @@
 .show-title-p {
   position: relative;
   font-size: 2vw;
-  left: 10vw;
+  text-align:center
 }
 
 .lishing-show-ingredient {
   display: flex;
   flex-direction: column;
-  line-height: 1.4vw;
+  line-height: .7vw;
 }
 
 .ingredients-word,
@@ -94,13 +94,18 @@
   padding: 3%;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 25vw;
+  /* height: 25vw; */
+  
 }
 
 .show-ingredient-inner {
   font-size: 0.9vw;
   position: relative;
+<<<<<<< HEAD
   line-height: 1vw;
+=======
+  line-height: .7vw;
+>>>>>>> FixPhotoCreateError
   top: 1vw;
   overflow-wrap: break-word;
   -moz-white-space: pre-wrap;   
@@ -117,18 +122,27 @@
 }
 
 .instruction-show-inner {
-  line-height: 1.5vw;
+  line-height: 1.3vw;
   position: relative;
   top: 1vw;
   font-size: 0.8vw;
   overflow-wrap: break-word;
+<<<<<<< HEAD
+=======
+    -moz-white-space: pre-wrap;   
+  white-space: pre-wrap;
+>>>>>>> FixPhotoCreateError
 }
 
 .detail-padding {
   padding: 3%;
   position: relative;
   bottom: 2vw;
+<<<<<<< HEAD
   overflow-wrap:break-word;
+=======
+  overflow-wrap: break-word;
+>>>>>>> FixPhotoCreateError
 }
 
 .p {
