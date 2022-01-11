@@ -124,49 +124,6 @@ class Profile extends React.Component {
               </div>
             </div>
           </div>
-          <div>
-          {userLikes.length === 0 ? (
-                <div className="detail-no-like">
-                  <div className="not-detail">
-                    <p className="p-not-detail">
-                      You have not liked any recipes yet.
-                    </p>
-                  </div>
-                  <div className="link-all-recipes">
-                    <Link to="/recipes" className="l-all-recipes">
-                      List of Recipes
-                    </Link>
-                  </div>
-                </div>
-            ) : (
-              <div className="yes-like-outer">
-                <div className="your-likes">
-                  <p className="p-your-likes">Your Likes</p>
-                </div>
-                {likedListings.map((listing, index) => (
-                             <div key={index + "b"} className="user-recipe">
-                             <Link
-                               to={`/recipes/${listing._id}`}
-                               className="link-profile"
-                             >
-                               <div className="profile-recipe-title-image">
-                                 <div className="div-image-profile">
-                                   <img
-                                     src={listing.picture}
-                                     alt="food-pic"
-                                     className="images-profile"
-                                   ></img>
-                                 </div>
-                                 <div className="listing-title-profile">
-                                   <p className="title-profile">{listing.title}</p>
-                                 </div>
-                               </div>
-                             </Link>
-                           </div>
-                ))}
-              </div>
-            )}
-          </div>
         </div>
       );
   }
