@@ -32,24 +32,15 @@ app.use("/api/reviews", reviews)
 app.use("/api/likes", likes)
 app.use(express.static("public"));
 
-// // app.get("/", (req, res) => {
-// //   const user = new User({
-// //     username: "jim",
-// //     email: "jim@jim.com",
-// //     password: "jim1234"
-// //   })
-// //   user.save()
-// // //   res.send("helloworld");
-// // // })
-
-app.use(cors)
-
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
   app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
   });
 }
+
+app.use(cors)
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));

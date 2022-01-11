@@ -2,4 +2,5 @@
 /node_modules
 .env
 /.env
-/frontend/node_modulesga
+/frontend/node_modules
+/config/keys_dev
