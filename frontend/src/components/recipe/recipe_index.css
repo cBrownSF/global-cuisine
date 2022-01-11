@@ -1,7 +1,7 @@
 
 .all{
   background-image: url("https://global-cuisine.s3.us-west-1.amazonaws.com/bkg1.png");
-  height: 100%;
+  height: 100vh;
   width: 100vw;
   background-repeat: no-repeat;
   background-size: cover;
