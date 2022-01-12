@@ -68,8 +68,11 @@
 }
 
 .upload-photo-create{
-    width: 30vw;
-    height: 20vw;
+    width: 10vw;
+    height: 10vw;
+    position: relative;
+    left: 2vw;
+    top: 12vw;
 }
 
 .picture-create{
