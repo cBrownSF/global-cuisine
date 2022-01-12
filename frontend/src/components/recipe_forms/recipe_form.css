@@ -64,7 +64,7 @@
     position: relative;
     right: 15vw;
     height: 50%;
-    bottom: 6.5vw;
+    top: 2vw;
 }
 
 .upload-photo-create{
@@ -181,12 +181,12 @@
 
 .submit-recipe-create{
     position: relative;
-    bottom: 7vw;
     left: 5vw;
     background-color: black;
     width: 8vw;
     height: 2vw;
     color: white;
+    top: 8vw;
 }
 
 .submit-input-create{
