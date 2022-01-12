@@ -109,7 +109,7 @@ class EditRecipeForm extends React.Component {
     return (e) => {
       if (e.key === "Enter") {
         this.setState({
-          [field]: e.currentTarget.value + "\n",
+          [field]: e.currentTarget.value
         });
       }
     };
