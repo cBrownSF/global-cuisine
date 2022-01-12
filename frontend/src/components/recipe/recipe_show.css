@@ -101,7 +101,7 @@
 .show-ingredient-inner {
   font-size: 0.9vw;
   position: relative;
-  line-height: .7vw;
+  line-height: 1.1vw;
   top: 1vw;
   overflow-wrap: break-word;
   -moz-white-space: pre-wrap;   
@@ -118,10 +118,10 @@
 }
 
 .instruction-show-inner {
-  line-height: 1.3vw;
+  line-height: 1.1vw;
   position: relative;
   top: 1vw;
-  font-size: 0.8vw;
+  font-size: 0.9vw;
   overflow-wrap: break-word;
     -moz-white-space: pre-wrap;   
   white-space: pre-wrap;
@@ -409,6 +409,10 @@
 
 .rating-star-length{
   font-size: 1.1vw;
+}
+
+.star-div{
+  cursor: text;
 }
 
 .btn-delete-review-show{
