@@ -26,15 +26,7 @@ class RecipeForm extends React.Component {
   componentDidMount() {
     this.props.clearErrors();
   }
-  // handleKeyPress(field) {
-  //   return (e) => {
-  //     if (e.key === "Enter") {
-  //       this.setState({
-  //         [field]: e.currentTarget.value 
-  //       });
-  //     }
-  //   };
-  // }
+ 
   handleInput(type) {
     return e => {
       this.setState({ [type]: e.currentTarget.value })
@@ -214,7 +206,6 @@ class RecipeForm extends React.Component {
                   <div className="ingredients-text">Ingredients</div>
                   <div>
                     <textarea
-                      // onKeyPress={this.handleKeyPress("ingredients")}
                       value={this.state.ingredients}
                       onChange={this.handleInput("ingredients")}
                       className="ingredients-input"
@@ -226,7 +217,6 @@ class RecipeForm extends React.Component {
                   <div className="instruction-text">Instruction</div>
                   <div>
                     <textarea
-                      // onKeyPress={this.handleKeyPress("instruction")}
                       value={this.state.instruction}
                       onChange={this.handleMaxInput("instruction", 2001)}
                       className="instruction-input"

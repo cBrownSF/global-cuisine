@@ -7,7 +7,7 @@ class EditRecipeForm extends React.Component {
     super(props)
     this.state = {};
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleKeyPress = this.handleKeyPress.bind(this)
+    // this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
     this.handleFile = this.handleFile.bind(this)
     this.servingInput = this.servingInput.bind(this)
@@ -44,7 +44,7 @@ class EditRecipeForm extends React.Component {
   handleSubmit(e) {
     if (this.state.deleted === true) {
       e.preventDefault();
-      return 'hello'
+      return;
     }
     e.preventDefault();
     const formData = new FormData();
@@ -64,13 +64,9 @@ class EditRecipeForm extends React.Component {
   }
 
 
-  handleInput(field, maxCharacter) {
-    return (e) => {
-      if (e.currentTarget.value.length < maxCharacter) {
-        this.setState({
-          [field]: e.currentTarget.value,
-        });
-      }
+  handleInput(type) {
+    return e => {
+      this.setState({ [type]: e.currentTarget.value })
     }
   }
   servingInput(type) {
@@ -96,7 +92,7 @@ class EditRecipeForm extends React.Component {
   letterCount(section, maxChar) {
 
     let charLeft = (maxChar - section.length)
-    return charLeft <= 1 ? 'Max characters reached' : `${charLeft} characters remaining`
+    return charLeft < 1 ? 'Max characters reached' : `${charLeft} characters remaining`
   }
   
   handleDelete(field) {
@@ -105,15 +101,25 @@ class EditRecipeForm extends React.Component {
     })
     this.props.deleteListing(this.props.listing._id)
   }
-  handleKeyPress(field) {
+  // handleKeyPress(field) {
+  //   return (e) => {
+  //     if (e.key === "Enter") {
+  //       this.setState({
+  //         [field]: e.currentTarget.value + "\n",
+  //       });
+  //     }
+  //   };
+  // }
+  handleMaxInput(field, maxCharacter) {
     return (e) => {
-      if (e.key === "Enter") {
+      if (e.currentTarget.value.length < maxCharacter) {
         this.setState({
-          [field]: e.currentTarget.value + "\n",
+          [field]: e.currentTarget.value,
         });
       }
-    };
+    }
   }
+
   renderErrors() {
     return (
       <ul>
@@ -147,7 +153,7 @@ class EditRecipeForm extends React.Component {
                     <input
                       type="text"
                       value={this.state.name || ''}
-                      onChange={this.handleInput("name", 20)}
+                      onChange={this.handleMaxInput("name", 21)}
                       className="edit-name-input"
                     />
                     <p className="edit-letter-count-name">{this.letterCount(this.state.name || '', 20)}</p>
@@ -159,7 +165,7 @@ class EditRecipeForm extends React.Component {
                     <input
                       type="text"
                       value={this.state.title || ''}
-                      onChange={this.handleInput("title", 35)}
+                      onChange={this.handleMaxInput("title", 36)}
                       className="edit-title-input"
                     />
                     <p className="edit-letter-count-title">{this.letterCount(this.state.title || '', 35)}</p>
@@ -183,7 +189,7 @@ class EditRecipeForm extends React.Component {
                     <select
                       className="edit-country-input"
                       value={this.state.country || ''}
-                      onChange={this.handleInput("country", 10)}
+                      onChange={this.handleInput("country")}
                     >
                       <option value="" selected disabled hidden></option>
                       <option value="Italy">Italy</option>
@@ -198,7 +204,7 @@ class EditRecipeForm extends React.Component {
                     <select
                       className="edit-difficulty-input"
                       value={this.state.difficulty || ''}
-                      onChange={this.handleInput("difficulty", 7)}
+                      onChange={this.handleInput("difficulty")}
                     >
                       <option value="" selected disabled hidden></option>
                       <option value="Easy">Easy</option>
@@ -212,7 +218,7 @@ class EditRecipeForm extends React.Component {
                   <div>
                     <textarea
                       value={this.state.details || ''}
-                      onChange={this.handleInput("details", 360)}
+                      onChange={this.handleMaxInput("details", 361)}
                       className="edit-description-input"
                     />
                     <p className="edit-letter-count-details">{this.letterCount(this.state.details || '', 360)}</p>
@@ -249,9 +255,9 @@ class EditRecipeForm extends React.Component {
                   <div className="edit-ingredients-text">Ingredients</div>
                   <div>
                     <textarea
-                      onKeyPress={this.handleKeyPress("ingredients")}
+                      // onKeyPress={this.handleKeyPress("ingredients")}
                       value={this.state.ingredients || ''}
-                      onChange={this.handleInput("ingredients", 200)}
+                      onChange={this.handleInput("ingredients")}
                       className="edit-ingredients-input"
                     />
                     <p className="edit-letter-count-ingredient">Add a new line after each ingredient</p>
@@ -261,12 +267,12 @@ class EditRecipeForm extends React.Component {
                   <div className="edit-instruction-text">Instruction</div>
                   <div>
                     <textarea
-                      onKeyPress={this.handleKeyPress("instruction")}
+                      // onKeyPress={this.handleKeyPress("instruction")}
                       value={this.state.instruction}
-                      onChange={this.handleInput("instruction", 1500)}
+                      onChange={this.handleMaxInput("instruction", 2001)}
                       className="edit-instruction-input"
                     />
-                    <p className="edit-letter-count-instruction">{this.letterCount(this.state.instruction || '', 1500)}</p>
+                    <p className="edit-letter-count-instruction">{this.letterCount(this.state.instruction || '', 2000)}</p>
                   </div>
                 </div>
               </div>
