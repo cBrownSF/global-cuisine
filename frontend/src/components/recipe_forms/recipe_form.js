@@ -24,6 +24,7 @@ class RecipeForm extends React.Component {
     this.letterCount = this.letterCount.bind(this)
   }
   componentDidMount() {
+    debugger;
     this.props.clearErrors();
   }
  
