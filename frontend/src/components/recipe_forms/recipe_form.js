@@ -188,7 +188,8 @@ class RecipeForm extends React.Component {
                   ) : null}
 
                   <div className="picture-create">
-                    <div className="picture-text">Upload Picture</div>
+                    <div className="picture-text">
+                      {this.state.photoFile?'':'Upload Picture'}</div>
                     <div>
                       <input
                         type="file"
