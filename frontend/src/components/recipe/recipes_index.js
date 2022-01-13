@@ -8,9 +8,7 @@ class RecipeIndex extends React.Component {
   }
 
   render() {
-    // if (!this.props.listing) {
-    //   return null;
-    // }
+    console.log(this.props.listings)
     const Array = Object.values(this.props.listings)
     return (
       <div className="all">
