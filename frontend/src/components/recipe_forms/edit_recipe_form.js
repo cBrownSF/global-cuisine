@@ -7,7 +7,6 @@ class EditRecipeForm extends React.Component {
     super(props)
     this.state = {};
     this.handleSubmit = this.handleSubmit.bind(this)
-    // this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
     this.handleFile = this.handleFile.bind(this)
     this.servingInput = this.servingInput.bind(this)
@@ -101,15 +100,7 @@ class EditRecipeForm extends React.Component {
     })
     this.props.deleteListing(this.props.listing._id)
   }
-  // handleKeyPress(field) {
-  //   return (e) => {
-  //     if (e.key === "Enter") {
-  //       this.setState({
-  //         [field]: e.currentTarget.value + "\n",
-  //       });
-  //     }
-  //   };
-  // }
+ 
   handleMaxInput(field, maxCharacter) {
     return (e) => {
       if (e.currentTarget.value.length < maxCharacter) {
@@ -255,7 +246,6 @@ class EditRecipeForm extends React.Component {
                   <div className="edit-ingredients-text">Ingredients</div>
                   <div>
                     <textarea
-                      // onKeyPress={this.handleKeyPress("ingredients")}
                       value={this.state.ingredients || ''}
                       onChange={this.handleInput("ingredients")}
                       className="edit-ingredients-input"
@@ -267,7 +257,6 @@ class EditRecipeForm extends React.Component {
                   <div className="edit-instruction-text">Instruction</div>
                   <div>
                     <textarea
-                      // onKeyPress={this.handleKeyPress("instruction")}
                       value={this.state.instruction}
                       onChange={this.handleMaxInput("instruction", 2001)}
                       className="edit-instruction-input"
