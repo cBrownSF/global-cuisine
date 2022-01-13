@@ -38,21 +38,16 @@ class NavBar extends React.Component {
     } else {
       return (
         <div className="signUp">
-         
             <Link to={"/signup"} className="signup-div">
               <p className="p-signup">Signup</p>
             </Link>
-          
             <Link to={"/login"} className="login-div">
               <p className="p-login">Login</p>
             </Link>
-          
           <div onClick={this.demoLogin} className="demoLogin">
             <p>Demo Login</p>
           </div>
-          
             <Link to="/recipes" className="all-recipes">All Recipes</Link>
-          
         </div>
       );
     }
