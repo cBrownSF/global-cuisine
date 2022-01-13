@@ -167,7 +167,7 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  color: gray;
+  color: whitesmoke;
   bottom: 0.3vw;
   left: 18vw;
 }
@@ -244,9 +244,9 @@
 }
 
 .review-loggedIn{
-    background-color: black;
+    border: 2px solid black;
     width: 35vw;
-    height: 18vh;
+    height: 19vw;
     position: relative;
     left: 14vw;
 }
@@ -254,18 +254,16 @@
 .reviews-create-show{
     display: flex;
     flex-direction: column;
-    background-color: black;
 }
 
 .leave-review-div{
     border-bottom: 2px solid black;
     height: 2vw;
-   background-color:red;
+   
 }
 
 .leave-review-inner{
     position: relative;
-    color:whitesmoke;
     left: 12vw;
     font-size: 1.7vw;
 }
@@ -305,7 +303,6 @@
     height: 3vw;
     background-color: gray;
     font-size: 1.1vw;
-    color: whitesmoke;
     border: 2px solid black;
 }
 
