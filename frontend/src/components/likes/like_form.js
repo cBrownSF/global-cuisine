@@ -57,14 +57,14 @@ class LikeForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           {istoggleOn === true ? (
             <button type="submit" className="alreadyLiked" disabled>
-              <i class="fas fa-thumbs-up" id="already-thumbup"></i>
+              <i className="fas fa-thumbs-up" id="already-thumbup"></i>
             </button>
           ) : (
             <button
               type="submit"
               className="likeRecipe"
             >
-              <i class="far fa-thumbs-up" id="thumbup"></i>
+              <i className="far fa-thumbs-up" id="thumbup"></i>
             </button>
           )}
         </form>

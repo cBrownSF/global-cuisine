@@ -99,7 +99,11 @@ class RecipeForm extends React.Component {
     }
     return (
       <div className="create-recipe-form">
-        <form onSubmit={this.handleSubmit} className="create-form" encType="multipart/form-data">
+        <form
+          onSubmit={this.handleSubmit}
+          className="create-form"
+          encType="multipart/form-data"
+        >
           <div className="create-text-recipe">Create Your Own Recipe</div>
           <div className="center-recipe">
             <div className="left-right-form">
@@ -113,7 +117,9 @@ class RecipeForm extends React.Component {
                       onChange={this.handleInput("name", 20)}
                       className="name-input"
                     />
-                    <p className="letter-count">{this.letterCount(this.state.name, 20)}</p>
+                    <p className="letter-count">
+                      {this.letterCount(this.state.name, 20)}
+                    </p>
                   </div>
                 </div>
                 <div className="title-create">
@@ -125,7 +131,9 @@ class RecipeForm extends React.Component {
                       onChange={this.handleInput("title", 35)}
                       className="title-input"
                     />
-                    <p className="letter-count">{this.letterCount(this.state.title, 35)}</p>
+                    <p className="letter-count">
+                      {this.letterCount(this.state.title, 35)}
+                    </p>
                   </div>
                 </div>
                 <div className="serving-create">
@@ -178,7 +186,9 @@ class RecipeForm extends React.Component {
                       onChange={this.handleInput("details", 360)}
                       className="description-input"
                     />
-                    <p className="letter-count-details">{this.letterCount(this.state.details, 360)}</p>
+                    <p className="letter-count-details">
+                      {this.letterCount(this.state.details, 360)}
+                    </p>
                   </div>
                 </div>
                 <div className="form-photo">
@@ -199,6 +209,9 @@ class RecipeForm extends React.Component {
                         className="uploadpic-create"
                       />
                     </div>
+                    <div className="recommended-photo">
+                      Recommended image size 640 X 400
+                    </div>
                   </div>
                 </div>
               </div>
@@ -212,7 +225,9 @@ class RecipeForm extends React.Component {
                       onChange={this.handleInput("ingredients", 200)}
                       className="ingredients-input"
                     />
-                    <p className="letter-count">Add a new line after each ingredient</p>
+                    <p className="letter-count">
+                      Add a new line after each ingredient
+                    </p>
                   </div>
                 </div>
                 <div className="instruction-create">
@@ -224,7 +239,9 @@ class RecipeForm extends React.Component {
                       onChange={this.handleInput("instruction", 1500)}
                       className="instruction-input"
                     />
-                    <p className="letter-count">{this.letterCount(this.state.instruction, 1500)}</p>
+                    <p className="letter-count">
+                      {this.letterCount(this.state.instruction, 1500)}
+                    </p>
                   </div>
                 </div>
               </div>
