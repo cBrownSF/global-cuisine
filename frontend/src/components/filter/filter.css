@@ -45,10 +45,11 @@
 
 .title-filter{
     font-size: 1vw;
-    color: gray;
+    text-align:center;
+    color: whitesmoke;
     position: relative;
-    left: 2vw;
-    top: 0.5vw
+    top: 0.5vw;
+    overflow-wrap:break-word;
 }
 
 .btns button{
