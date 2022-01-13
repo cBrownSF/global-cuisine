@@ -71,11 +71,9 @@ class RecipeForm extends React.Component {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
-      debugger;
       this.setState({ photoFile: file, photoUrl: fileReader.result });
     };
     if (file) {
-      debugger;
       fileReader.readAsDataURL(file);
     }
   }
