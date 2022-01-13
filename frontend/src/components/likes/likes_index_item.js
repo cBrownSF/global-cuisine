@@ -12,7 +12,7 @@ const LikeIndexItem = ({ like, updateLike,listingId, currentUser, deleteLike }) 
         )}
       </div> */}
       {/* <div> */}
-      {currentUser.id === like.liker_id && listingId === like.listing_id ? (
+      {currentUser && currentUser.id === like.liker_id && listingId === like.listing_id ? (
         <div>
           <button onClick={
             () => deleteLike(like._id).then(()=>{
