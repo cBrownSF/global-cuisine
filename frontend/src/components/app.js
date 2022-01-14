@@ -11,6 +11,7 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_container';
 import ProfileContainer from './profile/profile_container';
 import ReviewIndexContainer from './review/review_index_container';
+import AboutUs from './about_us.js/about_us';
 const App = () => (
   <div>
     <NavBarContainer />
@@ -26,6 +27,7 @@ const App = () => (
         path="/recipes/:recipeId/reviews"
         component={ReviewIndexContainer}
       />
+      <Route path="/about" component={AboutUs}/>
       <Route exact path="/" component={HomePage} />
       <Route render={() => <Redirect to={{ pathname: "/" }} />} />
     </Switch>
