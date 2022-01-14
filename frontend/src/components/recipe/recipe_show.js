@@ -282,9 +282,7 @@ class RecipeShow extends React.Component {
                 />
                 }
               </div>
-              <div className="liketotal">
                 <LikeIndexContainer listingId={listing._id} />
-              </div>
             </div>
           </div>
           <div className="detail-padding">
@@ -603,16 +601,7 @@ class RecipeShow extends React.Component {
                   </div>
                 </div>
                 <div className="like-index-create">
-                  {/* <div>
-                  <CreateLikeContainer
-                    listing={listing}
-                    listingId={listing._id}
-                  />
-                </div> */}
-                  <div className="liketotal">
-                    {/* <h1>likes</h1> */}
                     <LikeIndexContainer listingId={listing._id} />
-                  </div>
                 </div>
               </div>
               <div className="detail-padding">

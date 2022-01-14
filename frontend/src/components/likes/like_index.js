@@ -1,5 +1,6 @@
 import React from "react";
 import LikeIndexItem from "./likes_index_item";
+import "./like.css";
 class LikeIndex extends React.Component {
 
   componentDidMount() {
@@ -17,18 +18,20 @@ class LikeIndex extends React.Component {
       }
     });
     return (
-      <div>
+      <div className="like-index">
         <div className="likes-list-class">{`likes` + ` ` + count}</div>
-        {likes.map((like, index) => (
-          <LikeIndexItem
-            listingId={listingId}
-            deleteLike={deleteLike}
-            currentUser={currentUser}
-            like={like}
-            updateLike={getLikes}
-            key={index}
-          />
-        ))}
+        <div>
+          {likes.map((like, index) => (
+            <LikeIndexItem
+              listingId={listingId}
+              deleteLike={deleteLike}
+              currentUser={currentUser}
+              like={like}
+              updateLike={getLikes}
+              key={index}
+            />
+          ))}
+        </div>
       </div>
     );
   }

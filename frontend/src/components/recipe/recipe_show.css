@@ -160,46 +160,6 @@
   text-decoration: none;
 }
 
-.like-index-create {
-  width: 6vw;
-  height: 2vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  color: whitesmoke;
-  bottom: 0.3vw;
-  left: 18vw;
-}
-
-.likes-list-class {
-  width: 5vw;
-  height: 3vw;
-  font-size: 1vw;
-  position: relative;
-  top: 1.5vw;
-  right: 1.2vw;
-}
-
-.likeRecipe, .alreadyLiked {
-  width: 3vw;
-  height: 1.5vw;
-  background-color: black;
-  border: none;
-}
-
-#thumbup {
-  font-size: 1.5vw;
-  color: gray;
-  position: relative;
-  left: 1vw;
-}
-
-#already-thumbup{
-  font-size: 1.5vw;
-  color: red;
-}
-
 .notloggedIn-review {
   border: 2px solid black;
   width: 36vw;
@@ -402,10 +362,6 @@
   color: red
 }
 
-.liketotal{
-  position: relative;
-  left: 1.7vw;
-}
 
 .rating-star-length{
   font-size: 1.1vw;

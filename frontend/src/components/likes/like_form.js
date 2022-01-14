@@ -14,11 +14,9 @@ class LikeForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // const listingId = this.props.listingId;
     const like = Object.assign(
       {},
       this.state
-      // listingId,
     );
     if (this.props.currentUser) {
       this.props
@@ -40,33 +38,16 @@ class LikeForm extends React.Component {
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
-  render() {
-
-    let istoggleOn = false;
-    for (let i = 0; i < this.props.likes.length; i++){
-      if(this.props.currentUser && this.props.likes[i].liker_id === this.props.currentUser.id && this.props.likes[i].listing_id === this.state.listing_id){
-        istoggleOn = true
-      }else{
-        istoggleOn = false
-      }
-    }
-    
+  render() {    
     return (
-      <div className="Main-Review-Form">
+      <div className="Main-Like-Form">
         {this.props.currentUser.id === this.props.listing.author_id ? "" : 
         <form onSubmit={this.handleSubmit}>
-          {istoggleOn === true ? (
-            <button type="submit" className="alreadyLiked" disabled>
-              <i className="fas fa-thumbs-up" id="already-thumbup"></i>
-            </button>
-          ) : (
             <button
               type="submit"
-              className="likeRecipe"
             >
-              <i className="far fa-thumbs-up" id="thumbup"></i>
+              <i className="fas fa-thumbs-up" id="thumbup"></i>
             </button>
-          )}
         </form>
         }
       </div>

@@ -1,0 +1,60 @@
+.like-index{
+    display: flex;
+    justify-content: space-between;
+    width: 9vw;
+    position: relative;
+    /* right: 4vw;
+    top: 0.4vw; */
+    color: whitesmoke;
+}
+
+
+ .delete-like button{
+    background-color: black;
+    border: none;
+}
+
+.like-index-create {
+  position: relative;
+  left: 15vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.likes-list-class {
+  width: 5vw;
+  height: 2vw;
+  font-size: 1.2vw;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.Main-Like-Form button {
+    background-color: black;
+    border: none;
+}
+
+.Main-Like-Form{
+  position: relative;
+  /* left: 9vw; */
+
+}
+
+#thumbup {
+  font-size: 1.8vw;
+  color: gray;
+  background-color: black;
+}
+
+#thumbdownlike, #thumbup{
+    background-color: black;
+    color: gray;
+    width: 2vw;
+    height: 2.2vw;
+    font-size: 1.8vw;
+    display: flex;
+    align-items: center;
+}
+
