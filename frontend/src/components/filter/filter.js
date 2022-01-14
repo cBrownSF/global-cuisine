@@ -31,9 +31,9 @@ export default class Filter extends React.Component {
     return (
       <div className="filter-index">
         <div className="btns">
-          <button value="All" onClick={this.handleBtns}>
+          {/* <button value="All" onClick={this.handleBtns}>
             All
-          </button>
+          </button> */}
           <button value="India" onClick={this.handleBtns}>
             India
           </button>
