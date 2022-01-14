@@ -8,17 +8,23 @@ class RecipeIndex extends React.Component {
   }
 
   render() {
-    // if (!this.props.listing) {
-    //   return null;
-    // }
-    const Array = Object.values(this.props.listings)
-    return (
-      <div className="all">
-        {Array.map((listing) => (
-          <RecipeIndexItem listing={listing} key={listing._id} />
-        ))}
-      </div>
-    );
+  
+      if (this.props.listings.length < 2) {
+        return (
+          <div className="all">
+          </div>
+        )
+      }else{
+        return (
+          <div className="all">
+            {this.props.listings.map((listing) => (
+              <RecipeIndexItem listing={listing} key={listing._id} />
+            ))}
+          </div>
+        );
+      }
+  
+    
   }
 }
 

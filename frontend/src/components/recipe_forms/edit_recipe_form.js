@@ -1,5 +1,4 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import "./edit_form.css"
 
 class EditRecipeForm extends React.Component {
@@ -44,7 +43,7 @@ class EditRecipeForm extends React.Component {
   handleSubmit(e) {
     if (this.state.deleted === true) {
       e.preventDefault();
-      return 'hello'
+      return;
     }
     e.preventDefault();
     const formData = new FormData();
@@ -109,7 +108,7 @@ class EditRecipeForm extends React.Component {
     return (e) => {
       if (e.key === "Enter") {
         this.setState({
-          [field]: e.currentTarget.value + "\n",
+          [field]: e.currentTarget.value
         });
       }
     };
@@ -136,7 +135,11 @@ class EditRecipeForm extends React.Component {
     }
     return (
       <div className="edit-recipe-form">
-        <form onSubmit={this.handleSubmit} className="edit-form" encType="multipart/form-data">
+        <form
+          onSubmit={this.handleSubmit}
+          className="edit-form"
+          encType="multipart/form-data"
+        >
           <div className="edit-text-recipe">Edit Your Recipe</div>
           <div className="edit-center-recipe">
             <div className="edit-left-right-form">
@@ -146,11 +149,13 @@ class EditRecipeForm extends React.Component {
                   <div>
                     <input
                       type="text"
-                      value={this.state.name || ''}
+                      value={this.state.name || ""}
                       onChange={this.handleInput("name", 20)}
                       className="edit-name-input"
                     />
-                    <p className="edit-letter-count-name">{this.letterCount(this.state.name || '', 20)}</p>
+                    <p className="edit-letter-count-name">
+                      {this.letterCount(this.state.name || "", 20)}
+                    </p>
                   </div>
                 </div>
                 <div className="edit-title-create">
@@ -158,23 +163,26 @@ class EditRecipeForm extends React.Component {
                   <div>
                     <input
                       type="text"
-                      value={this.state.title || ''}
+                      value={this.state.title || ""}
                       onChange={this.handleInput("title", 35)}
                       className="edit-title-input"
                     />
-                    <p className="edit-letter-count-title">{this.letterCount(this.state.title || '', 35)}</p>
+                    <p className="edit-letter-count-title">
+                      {this.letterCount(this.state.title || "", 35)}
+                    </p>
                   </div>
                 </div>
                 <div className="edit-serving-create">
-                  <div className="edit-serving-text">Serving size(up to 20)</div>
+                  <div className="edit-serving-text">
+                    Serving size(up to 20)
+                  </div>
                   <div>
                     <input
                       type="text"
-                      value={this.state.servings || ''}
+                      value={this.state.servings || ""}
                       onChange={this.servingInput("servings")}
                       className="edit-servings-input"
                     />
-                    {/* <p className="edit-letter-count">Up to 20 Servings</p> */}
                   </div>
                 </div>
                 <div className="edit-country-create">
@@ -182,7 +190,7 @@ class EditRecipeForm extends React.Component {
                   <div>
                     <select
                       className="edit-country-input"
-                      value={this.state.country || ''}
+                      value={this.state.country || ""}
                       onChange={this.handleInput("country", 10)}
                     >
                       <option value="" selected disabled hidden></option>
@@ -197,7 +205,7 @@ class EditRecipeForm extends React.Component {
                   <div>
                     <select
                       className="edit-difficulty-input"
-                      value={this.state.difficulty || ''}
+                      value={this.state.difficulty || ""}
                       onChange={this.handleInput("difficulty", 7)}
                     >
                       <option value="" selected disabled hidden></option>
@@ -211,11 +219,13 @@ class EditRecipeForm extends React.Component {
                   <div className="edit-description-text">Description</div>
                   <div>
                     <textarea
-                      value={this.state.details || ''}
+                      value={this.state.details || ""}
                       onChange={this.handleInput("details", 360)}
                       className="edit-description-input"
                     />
-                    <p className="edit-letter-count-details">{this.letterCount(this.state.details || '', 360)}</p>
+                    <p className="edit-letter-count-details">
+                      {this.letterCount(this.state.details || "", 360)}
+                    </p>
                   </div>
                 </div>
                 <div className="edit-form-photo">
@@ -230,7 +240,6 @@ class EditRecipeForm extends React.Component {
                       src={this.state.picture}
                     />
                   )}
-
                   <div className="edit-picture-create">
                     <div className="edit-picture-text">Upload Picture</div>
                     <div>
@@ -241,6 +250,9 @@ class EditRecipeForm extends React.Component {
                         className="edit-uploadpic-create"
                       />
                     </div>
+                    <div className="recommended-photo-edit">
+                      Recommended image size 640 X 400
+                    </div>
                   </div>
                 </div>
               </div>
@@ -250,11 +262,13 @@ class EditRecipeForm extends React.Component {
                   <div>
                     <textarea
                       onKeyPress={this.handleKeyPress("ingredients")}
-                      value={this.state.ingredients || ''}
-                      onChange={this.handleInput("ingredients", 200)}
+                      value={this.state.ingredients || ""}
+                      onChange={this.handleInput("ingredients", 1000)}
                       className="edit-ingredients-input"
                     />
-                    <p className="edit-letter-count-ingredient">Add a new line after each ingredient</p>
+                    <p className="edit-letter-count-ingredient">
+                      Add a new line after each ingredient
+                    </p>
                   </div>
                 </div>
                 <div className="edit-instruction-create">
@@ -266,7 +280,9 @@ class EditRecipeForm extends React.Component {
                       onChange={this.handleInput("instruction", 1500)}
                       className="edit-instruction-input"
                     />
-                    <p className="edit-letter-count-instruction">{this.letterCount(this.state.instruction || '', 1500)}</p>
+                    <p className="edit-letter-count-instruction">
+                      {this.letterCount(this.state.instruction || "", 1500)}
+                    </p>
                   </div>
                 </div>
               </div>

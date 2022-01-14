@@ -1,4 +1,5 @@
 import React from "react";
+import LikeIndexItem from "./likes_index_item";
 class LikeIndex extends React.Component {
 
   componentDidMount() {
@@ -15,7 +16,20 @@ class LikeIndex extends React.Component {
         count +=1
       }
     });
-    return <div className="likes-list-class">{`likes` + ` ` + count}</div>;
+    return (
+      <div>
+        <div className="likes-list-class">{`likes` + ` ` + count}</div>
+        {likes.map((like, index) => (
+          <LikeIndexItem
+            listingId={listingId}
+            deleteLike={deleteLike}
+            currentUser={currentUser}
+            like={like}
+            key={index}
+          />
+        ))}
+      </div>
+    );
     }
 }
 export default LikeIndex;

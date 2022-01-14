@@ -1,6 +1,6 @@
 .edit-recipe-form{
    width: 100%;
-   height: 120vw;
+   height: 100vw;
    background-color: gray;
    font-family: 'Helvetica', 'Arial', sans-serif;
 }
@@ -12,7 +12,7 @@
     position: relative;
     left: 5vw;
     top: 5vw;
-    height: 90%;
+    height: 80%;
     display: flex;
     justify-content: center;
 }
@@ -27,6 +27,7 @@
     align-items: center; 
     position: relative;
     left: 1vw;
+    top: 8vw;
 }
 
 .edit-description-create{
@@ -38,7 +39,7 @@
     align-items: center; 
     position: relative;
     left: 1vw;
-    top: 2vw;
+    top: 11vw;
     font-family:inherit
 }
 
@@ -59,6 +60,7 @@
     justify-content: space-between;
     align-items: center; 
     position: relative;
+    top: 8vw;
     height: 40%;
 }
 
@@ -69,31 +71,53 @@
     justify-content: space-between;
     align-items: center; 
     position: relative;
-    top: 1vw;
+    top: 9vw;
     height: 40%;
 }
 
 
 
 .edit-upload-photo-create{
-    width: 30vw;
-    height: 20vw;
+    width: 12vw;
+    height: 12vw;
+    position: relative;
+    left: 2vw;
+    top: 12vw;
 }
 
 .edit-picture-create{
     display: flex;
+    flex-direction: column;
     width: 20vw;
     justify-content: space-between;
     align-items: center;
+     position: relative;
+    top: 15vw;
 
 }
 
-.edit-name-text, .edit-title-text, .edit-picture-text {
+.recommended-photo-edit{
+    position: relative;
+    top: 1vw;
+    font-size: 0.8vw;
+}
+
+.edit-name-text, .edit-title-text{
    font-size: 1vw;
    position: relative;
    top: 0.1vw;
    
 }
+
+.edit-picture-text {
+   font-size: 1vw;
+   position: relative;
+   bottom: 1vw;
+   right: 3.3vw;
+
+}
+
+
 
 .edit-serving-text, .edit-country-text, .edit-difficulty-text{
    font-size: 1vw;
@@ -197,8 +221,8 @@
 
 .edit-submit-delete-button{
     position: relative;
-    bottom: 12vw;
     left: 5vw;
+    top: 10vw;
     background-color: black;
     width: 8vw;
     height: 2vw;

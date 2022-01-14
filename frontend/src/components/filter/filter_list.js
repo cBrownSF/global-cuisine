@@ -1,5 +1,4 @@
 import React from "react";
-// import {hashHistory} from "react-router";
 import { Link } from "react-router-dom";
 import "./filter.css";
 export default function FilterList({listing}){
