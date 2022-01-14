@@ -150,6 +150,8 @@ class RecipeForm extends React.Component {
                       <option value="Italy">Italy</option>
                       <option value="France">France</option>
                       <option value="India">India</option>
+                      <option value="Peru">Peru</option>
+                      <option value="Ethiopia">Ethiopia</option>
                     </select>
                   </div>
                 </div>
@@ -197,6 +199,9 @@ class RecipeForm extends React.Component {
                         onChange={this.handleFile}
                         className="uploadpic-create"
                       />
+                    </div>
+                    <div className="recommended-photo">
+                      Recommended image size 640 X 400
                     </div>
                   </div>
                 </div>

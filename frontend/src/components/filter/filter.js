@@ -57,8 +57,8 @@ export default class Filter extends React.Component {
           <button value="China" onClick={this.handleBtns}>
             China
           </button>
-          <button value="Ethopia" onClick={this.handleBtns}>
-            Ethopia
+          <button value="Ethiopia" onClick={this.handleBtns}>
+            Ethiopia
           </button>
           <button value="Other" onClick={this.handleBtns}>
             Other

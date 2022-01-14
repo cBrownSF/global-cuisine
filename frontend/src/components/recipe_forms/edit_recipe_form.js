@@ -186,6 +186,8 @@ class EditRecipeForm extends React.Component {
                       <option value="Italy">Italy</option>
                       <option value="France">France</option>
                       <option value="India">India</option>
+                      <option value="Peru">Peru</option>
+                      <option value="Ethiopia">Ethiopia</option>
                     </select>
                   </div>
                 </div>
@@ -229,7 +231,7 @@ class EditRecipeForm extends React.Component {
                   )}
 
                   <div className="edit-picture-create">
-                    <div className="edit-picture-text">Upload Picture</div>
+                    <div className="edit-picture-text">Upload New Picture</div>
                     <div>
                       <input
                         type="file"
@@ -237,6 +239,9 @@ class EditRecipeForm extends React.Component {
                         onChange={this.handleFile}
                         className="edit-uploadpic-create"
                       />
+                    </div>
+                    <div className="recommended-photo-edit">
+                      Recommended image size 640 X 400
                     </div>
                   </div>
                 </div>
