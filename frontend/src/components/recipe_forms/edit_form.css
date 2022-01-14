@@ -4,8 +4,6 @@
    background-color: gray;
    font-family: 'Helvetica', 'Arial', sans-serif;
 }
-
-
 .edit-form{
     border: 1px solid black;
     width: 90%;
@@ -16,33 +14,29 @@
     display: flex;
     justify-content: center;
 }
-
-
 .edit-name-create, .edit-title-create, .edit-serving-create, .edit-country-create, .edit-difficulty-create{
     display: flex;
     flex-direction: column;
     width: 20vw;
     height: 5.2vw;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     position: relative;
     left: 1vw;
     top: 8vw;
 }
-
 .edit-description-create{
     display: flex;
     flex-direction: column;
     width: 30vw;
     height: 12vw;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     position: relative;
     left: 1vw;
     top: 11vw;
     font-family:inherit
 }
-
 .edit-text-recipe{
   position: relative;
   left: 28vw;
@@ -52,31 +46,26 @@
   height: 4vw;
   text-decoration: underline;
 }
-
 .edit-ingredients-create{
     display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     position: relative;
     top: 8vw;
     height: 40%;
 }
-
 .edit-instruction-create{
     display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     position: relative;
     top: 9vw;
     height: 40%;
 }
-
-
-
 .edit-upload-photo-create{
     width: 12vw;
     height: 12vw;
@@ -84,7 +73,6 @@
     left: 2vw;
     top: 12vw;
 }
-
 .edit-picture-create{
     display: flex;
     flex-direction: column;
@@ -106,15 +94,12 @@
    font-size: 1vw;
    position: relative;
    top: 0.1vw;
-   
 }
-
 .edit-picture-text {
    font-size: 1vw;
    position: relative;
    bottom: 1vw;
    right: 3.3vw;
-
 }
 
 
@@ -123,25 +108,17 @@
    font-size: 1vw;
    position: relative;
    top: 1.2vw;
-
 }
-
-
-
 .edit-description-text{
    font-size: 1vw;
    position: relative;
    top: 0.2vw;
    right: 5vw;
-
 }
-
 .edit-ingredients-text, .edit-instruction-text{
     font-size: 1vw;
     position: relative;
 }
-
-
 .edit-name-input, .edit-title-input{
    width: 13vw;
    height: 2vw;
@@ -150,7 +127,6 @@
    padding: 1%;
    font-size: 0.8vw;
 }
-
 .edit-servings-input{
    width: 13vw;
    height: 2vw;
@@ -158,10 +134,7 @@
    border: 2px solid black;
    padding: 1%;
    font-size: 0.8vw;
-
 }
-
-
 .edit-description-input {
    background: transparent;
    border: 2px solid black;
@@ -172,7 +145,6 @@
    padding: 1%;
    font-size: 0.8vw;
 }
-
 .edit-ingredients-input, .edit-instruction-input{
    background: transparent;
    border: 2px solid black;
@@ -180,9 +152,7 @@
    height: 20vw;
    padding: 1%;
    font-size: 0.8vw;
-
 }
-
 .edit-difficulty-input, .edit-country-input{
     width: 13vw;
     height: 2.5vw;
@@ -191,7 +161,6 @@
     padding: 1%;
     font-size: 0.8vw;
 }
-
 .edit-form-photo{
     width: 30vw;
     height: 20vw;
@@ -199,7 +168,6 @@
     top: 12vw;
     left: 1vw;
 }
-
 .edit-center-recipe{
     width: 60%;
     height: 60%;
@@ -211,14 +179,11 @@
     justify-content: space-evenly;
     box-sizing: border-box;
 }
-
 .edit-right-form{
     position: relative;
     right: 18vw;
     bottom: 1vw;
 }
-
-
 .edit-submit-delete-button{
     position: relative;
     left: 5vw;
@@ -229,7 +194,6 @@
     color: white;
     font-size: 1.3vw;
 }
-
 .edit-submit-input-create{
      background: transparent;
      font-size: 1vw;
@@ -237,19 +201,15 @@
      width: 8vw;
      height: 2vw;
 }
-
-
 .edit-left-right-form{
     display: flex;
 }
-
 .edit-left-form{
     width: 60%;
     position: relative;
     right: 28vw;
     bottom: 1.3vw;
 }
-
 .edit-submit-input{
     width: 5vw;
     height: 1.2vw;
@@ -257,7 +217,6 @@
     border: 1px solid gray;
     font-size: 0.7vw;
 }
-
 .edit-errors-create{
     position: relative;
     left: 65vw;
@@ -265,11 +224,9 @@
     color: darkred;
     font-size: 1vw;
 }
-
 .edit-uploadpic-create{
     font-size: 0.7vw;
 }
-
 .edit-letter-count-details{
   position:relative;
   padding:5px;
@@ -277,10 +234,8 @@
   position: relative;
   top: 1vw;
 }
-
 .edit-letter-count-name, .edit-letter-count-title, .edit-letter-count-ingredient, .edit-letter-count-instruction{
   position:relative;
   padding:5px;
   font-size:0.7vw;
 }
-

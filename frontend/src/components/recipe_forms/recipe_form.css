@@ -4,8 +4,6 @@
    background-color: gray;
    font-family: 'Helvetica', 'Arial', sans-serif;
 }
-
-
 .create-form{
     border: 1px solid black;
     width: 90%;
@@ -16,35 +14,30 @@
     display: flex;
     justify-content: center;
 }
-
-
 .name-create, .title-create, .serving-create, .country-create, .difficulty-create{
     display: flex;
     flex-direction: column;
     width: 20vw;
     height: 5vw;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     position: relative;
     left: 1vw;
     top: 11vw;
     /* bottom: 0.5vw; */
-
 }
-
 .description-create{
     display: flex;
     flex-direction: column;
     width: 30vw;
     height: 12vw;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     position: relative;
     left: 1vw;
     top: 13vw;
     font-family:inherit
 }
-
 .create-text-recipe{
   position: relative;
   left: 28vw;
@@ -54,19 +47,17 @@
   height: 4vw;
   text-decoration: underline;
 }
-
 .ingredients-create, .instruction-create{
     display: flex;
     flex-direction: column;
     width: 90%;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     position: relative;
     right: 15vw;
     height: 50%;
     top: 2vw;
 }
-
 .upload-photo-create{
     width: 10vw;
     height: 10vw;
@@ -74,7 +65,6 @@
     left: 2vw;
     top: 12vw;
 }
-
 .picture-create{
     display: flex;
     flex-direction: column;
@@ -83,38 +73,29 @@
     align-items: center;
     position: relative;
     top: 15vw;
-
 }
-
 .name-text, .title-text, .serving-text, .country-text, .difficulty-text{
    font-size: 1vw;
    position: relative;
    top: 0.2vw;
 }
-
 .picture-text{
    font-size: 1vw;
    position: relative;
    bottom: 2vw;
    right: 3.3vw;
-
 }
-
 .description-text{
    font-size: 1vw;
    position: relative;
    top: 0.2vw;
    right: 5vw;
-
 }
-
 .ingredients-text, .instruction-text{
     font-size: 1vw;
     position: relative;
     top: 4vw;
 }
-
-
 .name-input, .title-input, .servings-input{
    width: 13vw;
    height: 2vw;
@@ -123,7 +104,6 @@
    font-size: 0.8vw;
    padding: 1%;
 }
-
 .servings-input{
    width: 13vw;
    height: 2vw;
@@ -133,9 +113,7 @@
    padding: 1%;
    position: relative;
    bottom: 0.5vw;
-
 }
-
 .description-input {
    background: transparent;
    border: 2px solid black;
@@ -146,7 +124,6 @@
    font-size: 0.8vw;
    padding: 1%;
 }
-
 .ingredients-input, .instruction-input{
    background: transparent;
    border: 2px solid black;
@@ -154,9 +131,7 @@
    height: 20vw;
    padding: 1%;
    font-size: 0.8vw;
-
 }
-
 .difficulty-input, .country-input{
     width: 13vw;
     height: 2.5vw;
@@ -167,7 +142,6 @@
     position: relative;
     bottom: 0.6vw;
 }
-
 .form-photo{
     width: 30vw;
     height: 20vw;
@@ -186,8 +160,6 @@
     justify-content: space-evenly;
     box-sizing: border-box;
 }
-
-
 .submit-recipe-create{
     position: relative;
     left: 5vw;
@@ -197,7 +169,6 @@
     color: white;
     top: 8vw;
 }
-
 .submit-input-create{
      background: transparent;
      font-size: 1vw;
@@ -208,19 +179,15 @@
      position: relative;
      bottom: 0.1vw;
 }
-
-
 .left-right-form{
     display: flex;
 }
-
 .left-form{
     width: 60%;
     position: relative;
     right: 28vw;
     bottom: 4vw;
 }
-
 .submit-input{
     width: 5vw;
     height: 1.2vw;
@@ -228,7 +195,6 @@
     border: 1px solid gray;
     font-size: 0.7vw;
 }
-
 .errors-create{
     position: relative;
     left: 55vw;
@@ -237,24 +203,19 @@
     font-size: 1vw;
     line-height: 1.3vw;
 }
-
 .uploadpic-create{
     font-size: 0.7vw;
 }
-
 .letter-count{
   padding:5px;
   font-size:0.6vw;
 }
-
 .letter-count-details{
   position:relative;
   padding:5px;
   font-size:0.6vw;
   top: 1vw;
-
 }
-
 .recommended-photo{
     position: relative;
     top: 2vw;

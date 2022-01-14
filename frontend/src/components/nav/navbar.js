@@ -47,7 +47,7 @@ class NavBar extends React.Component {
           <div onClick={this.demoLogin} className="demoLogin">
             <p>Demo Login</p>
           </div>
-            <Link to="/recipes" className="all-recipes">All Recipes</Link> 
+            <Link to="/recipes" className="all-recipes">All Recipes</Link>
         </div>
       );
     }

@@ -41,7 +41,7 @@
   font-size: 0.8vw;
   font-family: sans-serif;
   line-height: 1.4vw;
-  color: gray;
+  color: whitesmoke;
   position: relative;
 }
 
@@ -67,7 +67,7 @@
 .show-title {
   width: 100%;
   background-color: black;
-  color: gray;
+  color: whitesmoke;
   position: relative;
 }
 
@@ -150,7 +150,7 @@
 
 .updateOrdelete {
   font-size: 1vw;
-  color: gray;
+  color: whitesmoke;
   position: relative;
   top: 0.2vw;
   left: 0.6vw;
@@ -167,7 +167,7 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  color: gray;
+  color: whitesmoke;
   bottom: 0.3vw;
   left: 18vw;
 }

@@ -5,7 +5,6 @@ import "./filter.css";
 export default class Filter extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       listings: Object.values(this.props.listings),
       listingsCopy: [],
@@ -59,7 +58,7 @@ export default class Filter extends React.Component {
           <button value="China" onClick={this.handleBtns}>
             China
           </button>
-          <button value="Ethopia" onClick={this.handleBtns}>
+          <button value="Ethiopia" onClick={this.handleBtns}>
             Ethiopia
           </button>
           <button value="Other" onClick={this.handleBtns}>

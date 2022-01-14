@@ -6,7 +6,6 @@ class EditRecipeForm extends React.Component {
     super(props)
     this.state = {};
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
     this.handleFile = this.handleFile.bind(this)
     this.servingInput = this.servingInput.bind(this)
@@ -63,13 +62,9 @@ class EditRecipeForm extends React.Component {
   }
 
 
-  handleInput(field, maxCharacter) {
-    return (e) => {
-      if (e.currentTarget.value.length < maxCharacter) {
-        this.setState({
-          [field]: e.currentTarget.value,
-        });
-      }
+  handleInput(type) {
+    return e => {
+      this.setState({ [type]: e.currentTarget.value })
     }
   }
   servingInput(type) {
@@ -95,7 +90,7 @@ class EditRecipeForm extends React.Component {
   letterCount(section, maxChar) {
 
     let charLeft = (maxChar - section.length)
-    return charLeft <= 1 ? 'Max characters reached' : `${charLeft} characters remaining`
+    return charLeft < 1 ? 'Max characters reached' : `${charLeft} characters remaining`
   }
   
   handleDelete(field) {
@@ -104,15 +99,17 @@ class EditRecipeForm extends React.Component {
     })
     this.props.deleteListing(this.props.listing._id)
   }
-  handleKeyPress(field) {
+ 
+  handleMaxInput(field, maxCharacter) {
     return (e) => {
-      if (e.key === "Enter") {
+      if (e.currentTarget.value.length < maxCharacter) {
         this.setState({
-          [field]: e.currentTarget.value
+          [field]: e.currentTarget.value,
         });
       }
-    };
+    }
   }
+
   renderErrors() {
     return (
       <ul>
@@ -149,8 +146,8 @@ class EditRecipeForm extends React.Component {
                   <div>
                     <input
                       type="text"
-                      value={this.state.name || ""}
-                      onChange={this.handleInput("name", 20)}
+                      value={this.state.name || ''}
+                      onChange={this.handleMaxInput("name", 21)}
                       className="edit-name-input"
                     />
                     <p className="edit-letter-count-name">
@@ -163,8 +160,8 @@ class EditRecipeForm extends React.Component {
                   <div>
                     <input
                       type="text"
-                      value={this.state.title || ""}
-                      onChange={this.handleInput("title", 35)}
+                      value={this.state.title || ''}
+                      onChange={this.handleMaxInput("title", 36)}
                       className="edit-title-input"
                     />
                     <p className="edit-letter-count-title">
@@ -190,13 +187,15 @@ class EditRecipeForm extends React.Component {
                   <div>
                     <select
                       className="edit-country-input"
-                      value={this.state.country || ""}
-                      onChange={this.handleInput("country", 10)}
+                      value={this.state.country || ''}
+                      onChange={this.handleInput("country")}
                     >
                       <option value="" selected disabled hidden></option>
                       <option value="Italy">Italy</option>
                       <option value="France">France</option>
                       <option value="India">India</option>
+                      <option value="Peru">Peru</option>
+                      <option value="Ethiopia">Ethiopia</option>
                     </select>
                   </div>
                 </div>
@@ -205,8 +204,8 @@ class EditRecipeForm extends React.Component {
                   <div>
                     <select
                       className="edit-difficulty-input"
-                      value={this.state.difficulty || ""}
-                      onChange={this.handleInput("difficulty", 7)}
+                      value={this.state.difficulty || ''}
+                      onChange={this.handleInput("difficulty")}
                     >
                       <option value="" selected disabled hidden></option>
                       <option value="Easy">Easy</option>
@@ -219,8 +218,8 @@ class EditRecipeForm extends React.Component {
                   <div className="edit-description-text">Description</div>
                   <div>
                     <textarea
-                      value={this.state.details || ""}
-                      onChange={this.handleInput("details", 360)}
+                      value={this.state.details || ''}
+                      onChange={this.handleMaxInput("details", 361)}
                       className="edit-description-input"
                     />
                     <p className="edit-letter-count-details">
@@ -241,7 +240,7 @@ class EditRecipeForm extends React.Component {
                     />
                   )}
                   <div className="edit-picture-create">
-                    <div className="edit-picture-text">Upload Picture</div>
+                    <div className="edit-picture-text">Upload New Picture</div>
                     <div>
                       <input
                         type="file"
@@ -261,9 +260,8 @@ class EditRecipeForm extends React.Component {
                   <div className="edit-ingredients-text">Ingredients</div>
                   <div>
                     <textarea
-                      onKeyPress={this.handleKeyPress("ingredients")}
-                      value={this.state.ingredients || ""}
-                      onChange={this.handleInput("ingredients", 1000)}
+                      value={this.state.ingredients || ''}
+                      onChange={this.handleInput("ingredients")}
                       className="edit-ingredients-input"
                     />
                     <p className="edit-letter-count-ingredient">
@@ -275,14 +273,11 @@ class EditRecipeForm extends React.Component {
                   <div className="edit-instruction-text">Instruction</div>
                   <div>
                     <textarea
-                      onKeyPress={this.handleKeyPress("instruction")}
                       value={this.state.instruction}
-                      onChange={this.handleInput("instruction", 1500)}
+                      onChange={this.handleMaxInput("instruction", 2001)}
                       className="edit-instruction-input"
                     />
-                    <p className="edit-letter-count-instruction">
-                      {this.letterCount(this.state.instruction || "", 1500)}
-                    </p>
+                    <p className="edit-letter-count-instruction">{this.letterCount(this.state.instruction || '', 2000)}</p>
                   </div>
                 </div>
               </div>

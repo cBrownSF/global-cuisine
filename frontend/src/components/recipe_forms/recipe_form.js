@@ -17,23 +17,21 @@ class RecipeForm extends React.Component {
       photoUrl: null,
       photoFile: null,
     };
-    this.handleKeyPress = this.handleKeyPress.bind(this);
+    // this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.servingInput = this.servingInput.bind(this)
     this.letterCount = this.letterCount.bind(this)
   }
   componentDidMount() {
+    debugger;
     this.props.clearErrors();
   }
-  handleKeyPress(field) {
-    return (e) => {
-      if (e.key === "Enter") {
-        this.setState({
-          [field]: e.currentTarget.value,
-        });
-      }
-    };
+ 
+  handleInput(type) {
+    return e => {
+      this.setState({ [type]: e.currentTarget.value })
+    }
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -51,7 +49,7 @@ class RecipeForm extends React.Component {
     this.props.submitForm(formData).then(this.props.clearErrors());
   }
 
-  handleInput(field,maxCharacter) {
+  handleMaxInput(field,maxCharacter) {
     return (e) =>{
     if (e.currentTarget.value.length < maxCharacter){
       this.setState({
@@ -82,7 +80,7 @@ class RecipeForm extends React.Component {
   }
   letterCount(section,maxChar){
     let charLeft =(maxChar - section.length)
-    return charLeft<=1 ? 'Max characters reached' : `${charLeft} characters remaining`
+    return charLeft<1 ? 'Max characters reached' : `${charLeft} characters remaining`
   }
   renderErrors() {
     return (
@@ -114,7 +112,7 @@ class RecipeForm extends React.Component {
                     <input
                       type="text"
                       value={this.state.name}
-                      onChange={this.handleInput("name", 20)}
+                      onChange={this.handleMaxInput("name", 21)}
                       className="name-input"
                     />
                     <p className="letter-count">
@@ -128,7 +126,7 @@ class RecipeForm extends React.Component {
                     <input
                       type="text"
                       value={this.state.title}
-                      onChange={this.handleInput("title", 35)}
+                      onChange={this.handleMaxInput("title", 36)}
                       className="title-input"
                     />
                     <p className="letter-count">
@@ -153,7 +151,7 @@ class RecipeForm extends React.Component {
                     <select
                       className="country-input"
                       value={this.state.country}
-                      onChange={this.handleInput("country", 10)}
+                      onChange={this.handleInput("country")}
                     >
                       <option value="" selected disabled hidden></option>
                       <option value="Italy">Italy</option>
@@ -175,7 +173,7 @@ class RecipeForm extends React.Component {
                     <select
                       className="difficulty-input"
                       value={this.state.difficulty}
-                      onChange={this.handleInput("difficulty", 7)}
+                      onChange={this.handleInput("difficulty")}
                     >
                       <option value="" selected disabled hidden></option>
                       <option value="Easy">Easy</option>
@@ -189,7 +187,7 @@ class RecipeForm extends React.Component {
                   <div>
                     <textarea
                       value={this.state.details}
-                      onChange={this.handleInput("details", 360)}
+                      onChange={this.handleMaxInput("details", 361)}
                       className="description-input"
                     />
                     <p className="letter-count-details">
@@ -206,7 +204,8 @@ class RecipeForm extends React.Component {
                   ) : null}
 
                   <div className="picture-create">
-                    <div className="picture-text">Upload Picture</div>
+                    <div className="picture-text">
+                      {this.state.photoFile?'':'Upload Picture'}</div>
                     <div>
                       <input
                         type="file"
@@ -226,9 +225,8 @@ class RecipeForm extends React.Component {
                   <div className="ingredients-text">Ingredients</div>
                   <div>
                     <textarea
-                      onKeyPress={this.handleKeyPress("ingredients")}
                       value={this.state.ingredients}
-                      onChange={this.handleInput("ingredients", 1000)}
+                      onChange={this.handleInput("ingredients")}
                       className="ingredients-input"
                     />
                     <p className="letter-count">
@@ -240,14 +238,11 @@ class RecipeForm extends React.Component {
                   <div className="instruction-text">Instruction</div>
                   <div>
                     <textarea
-                      onKeyPress={this.handleKeyPress("instruction")}
                       value={this.state.instruction}
-                      onChange={this.handleInput("instruction", 1500)}
+                      onChange={this.handleMaxInput("instruction", 2001)}
                       className="instruction-input"
                     />
-                    <p className="letter-count">
-                      {this.letterCount(this.state.instruction, 1500)}
-                    </p>
+                    <p className="letter-count">{this.letterCount(this.state.instruction, 2000)}</p>
                   </div>
                 </div>
               </div>

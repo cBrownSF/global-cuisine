@@ -1,5 +1,5 @@
 import React from "react";
-const LikeIndexItem = ({ like, listingId, currentUser, deleteLike }) => {
+const LikeIndexItem = ({ like, updateLike,listingId, currentUser, deleteLike }) => {
   return (
     <div>
       {/* <div className="like-index-items">
@@ -12,13 +12,17 @@ const LikeIndexItem = ({ like, listingId, currentUser, deleteLike }) => {
         )}
       </div> */}
       {/* <div> */}
-        {currentUser.id === like.liker_id && listingId === like.listing_id ? (
-          <div>
-            <button onClick={() => deleteLike(like._id)}>Remove Like</button>
-          </div>
-        ) : (
-          ""
-        )}
+      {currentUser && currentUser.id === like.liker_id && listingId === like.listing_id ? (
+        <div>
+          <button onClick={
+            () => deleteLike(like._id).then(()=>{
+              updateLike(listingId)
+            })
+            }>Remove Like</button>
+        </div>
+      ) : (
+        ""
+      )}
       {/* </div> */}
     </div>
   );
