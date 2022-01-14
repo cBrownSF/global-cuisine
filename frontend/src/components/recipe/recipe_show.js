@@ -275,14 +275,17 @@ class RecipeShow extends React.Component {
             </div>
             <div className="like-index-create">
               <div>
-                {this.props.currentUser && Object.keys(this.props.currentUser).length === 0 ? "" : 
-                <CreateLikeContainer
-                  listing={listing}
-                  listingId={listing._id}
-                />
-                }
+                {this.props.currentUser &&
+                Object.keys(this.props.currentUser).length === 0 ? (
+                  ""
+                ) : (
+                  <CreateLikeContainer
+                    listing={listing}
+                    listingId={listing._id}
+                  />
+                )}
               </div>
-                <LikeIndexContainer listingId={listing._id} />
+              <LikeIndexContainer listingId={listing._id} />
             </div>
           </div>
           <div className="detail-padding">
@@ -315,16 +318,28 @@ class RecipeShow extends React.Component {
           </div>
           <div className="lishing-show-ingredient">
             <div className="below-ingredient-title">
-              <div className="ingredients-word">Ingredients</div>
+              <div className="div-ingredientservings">
+                <div className="ingredients-word">Ingredients </div>
+                <div className="servings-show">
+                  ( Servings: {listing.servings} )
+                </div>
+              </div>
               <div
                 className="show-ingredient-inner"
+                style={{ whiteSpace: "pre-wrap" }}
               >
-               <p>{listing.ingredients}</p>
+                {listing.ingredients}
               </div>
             </div>
             <div className="instruction-show">
-              <div className="instruction-word">Instructions</div>
+              <div className="div-instruction-difficulty">
+                <div className="ingredients-word">Instructions </div>
+                <div className="difficulty-show">
+                  ( Difficulty level: {listing.difficulty} )
+                </div>
+              </div>
               <div
+                style={{ whiteSpace: "pre-wrap" }}
                 className="instruction-show-inner"
               >
                 {listing.instruction}
