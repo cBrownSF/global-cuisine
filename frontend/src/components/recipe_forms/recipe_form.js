@@ -145,7 +145,6 @@ class RecipeForm extends React.Component {
                       onChange={this.servingInput("servings")}
                       className="servings-input"
                     />
-                    {/* <p className="letter-count">Up to 20 Servings</p> */}
                   </div>
                 </div>
                 <div className="country-create">
@@ -160,6 +159,13 @@ class RecipeForm extends React.Component {
                       <option value="Italy">Italy</option>
                       <option value="France">France</option>
                       <option value="India">India</option>
+                      <option value="Korea">Korea</option>
+                      <option value="Vietnam">Vietnam</option>
+                      <option value="Mexico">Mexico</option>
+                      <option value="Peru">Peru</option>
+                      <option value="China">China</option>
+                      <option value="Ethopia">Ethopia</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
                 </div>
@@ -222,7 +228,7 @@ class RecipeForm extends React.Component {
                     <textarea
                       onKeyPress={this.handleKeyPress("ingredients")}
                       value={this.state.ingredients}
-                      onChange={this.handleInput("ingredients", 200)}
+                      onChange={this.handleInput("ingredients", 1000)}
                       className="ingredients-input"
                     />
                     <p className="letter-count">

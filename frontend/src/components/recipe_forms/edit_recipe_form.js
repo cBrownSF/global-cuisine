@@ -242,7 +242,6 @@ class EditRecipeForm extends React.Component {
                       src={this.state.picture}
                     />
                   )}
-
                   <div className="edit-picture-create">
                     <div className="edit-picture-text">Upload Picture</div>
                     <div>
@@ -266,7 +265,7 @@ class EditRecipeForm extends React.Component {
                     <textarea
                       onKeyPress={this.handleKeyPress("ingredients")}
                       value={this.state.ingredients || ""}
-                      onChange={this.handleInput("ingredients", 200)}
+                      onChange={this.handleInput("ingredients", 1000)}
                       className="edit-ingredients-input"
                     />
                     <p className="edit-letter-count-ingredient">

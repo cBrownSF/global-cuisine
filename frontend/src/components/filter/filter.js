@@ -1,29 +1,25 @@
 import React from "react";
 import FilterList from "./filter_list";
-import "./filter.css"
+import "./filter.css";
 
-export default class Filter extends React.Component{
+export default class Filter extends React.Component {
+  constructor(props) {
+    super(props);
 
-  constructor(props){
-    super(props)
-  
     this.state = {
       listings: Object.values(this.props.listings),
-      listingsCopy: []
-    }
+      listingsCopy: [],
+    };
     this.handleBtns = this.handleBtns.bind(this);
   }
-
-  countryBtns = () => {
-    
-  }
-  
   handleBtns = (e) => {
     let listingsCopy;
-    if(e.target.value === "All"){
-      listingsCopy = this.props.listings
-    }else{
-      listingsCopy = this.props.listings.filter(listing => listing.country === e.target.value)
+    if (e.target.value === "All") {
+      listingsCopy = this.props.listings;
+    } else {
+      listingsCopy = this.props.listings.filter(
+        (listing) => listing.country === e.target.value
+      );
     }
     this.setState({
       listingsCopy: listingsCopy,
@@ -33,25 +29,42 @@ export default class Filter extends React.Component{
     this.props.getListings();
   }
   render() {
-    let countryArray = ["Italy"];
-    for (let i = 0; i < this.state.listings.length - 1; i++) {
-      if (
-        this.state.listings[i].country !== this.state.listings[i + 1].country
-      ) {
-        countryArray.push(this.state.listings[i].country);
-      }
-    }
     return (
       <div className="filter-index">
         <div className="btns">
           <button value="All" onClick={this.handleBtns}>
             All
           </button>
-          {countryArray.forEach((country) => {
-            <button value={country} onClick={this.handleBtns}>
-              {country}
-            </button>;
-          })}
+          <button value="India" onClick={this.handleBtns}>
+            India
+          </button>
+          <button value="France" onClick={this.handleBtns}>
+            France
+          </button>
+          <button value="Italy" onClick={this.handleBtns}>
+            Italy
+          </button>
+          <button value="Korea" onClick={this.handleBtns}>
+            Korea
+          </button>
+          <button value="Vietnam" onClick={this.handleBtns}>
+            Vietnam
+          </button>
+          <button value="Mexico" onClick={this.handleBtns}>
+            Mexico
+          </button>
+          <button value="Peru" onClick={this.handleBtns}>
+            Peru
+          </button>
+          <button value="China" onClick={this.handleBtns}>
+            China
+          </button>
+          <button value="Ethopia" onClick={this.handleBtns}>
+            Ethopia
+          </button>
+          <button value="Other" onClick={this.handleBtns}>
+            Other
+          </button>
         </div>
         <div className="filter-recipes">
           {this.state.listingsCopy.map((listing) => (

@@ -19,9 +19,11 @@ class RecipeShow extends React.Component {
  
   render() {
     if (!this.props.listing) {
-      return null;
+      return (
+          <div className="all">
+          </div>
+        )
     }
-   
     const listing = this.props.listing;
     const reviews = this.props.reviews;
     const likes = this.props.likes;
@@ -705,7 +707,7 @@ class RecipeShow extends React.Component {
               )}
             </div>
           </div>
-          <div className="break-line-above-reviews"></div>
+          {/* <div className="break-line-above-reviews"></div> */}
           <div className="review-index-show">
             <ReviewIndexContainer listingId={listing._id} />
           </div>
