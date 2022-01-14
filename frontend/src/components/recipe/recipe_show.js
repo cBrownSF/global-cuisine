@@ -367,7 +367,7 @@ class RecipeShow extends React.Component {
           )}
         </div>
       </div>
-      <div className="break-line-above-reviews"></div>
+      {/* <div className="break-line-above-reviews"></div> */}
       <div className="review-index-show">
         <ReviewIndexContainer listingId={listing._id} />
       </div>
