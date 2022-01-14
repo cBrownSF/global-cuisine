@@ -1,4 +1,4 @@
-.signupbtn, .loginbtn, .create, .all-recipes, .profile{
+.signupbtn, .loginbtn, .create, .all-recipes, .profile, .aboutUs{
     text-decoration: none;
 }
 
@@ -22,7 +22,7 @@
     justify-content: space-between;
 }
 
-.signup-div, .login-div, .demoLogin, .all-recipes, .profile, .logoutbtn, .create{
+.signup-div, .login-div, .demoLogin, .all-recipes, .profile, .logoutbtn, .create, .aboutUs{
     background-color: black;
     position: relative;
     border: 1px solid gray;
@@ -58,7 +58,7 @@
 .signup-div{
     background-color: black;
 }
-.p-signup, .p-login, .linktorecipes, .demoLogin, .logout-p, .all-recipes, .profile, .create{
+.p-signup, .p-login, .linktorecipes, .demoLogin, .logout-p, .all-recipes, .profile, .create, .aboutUs{
     color: whitesmoke;
     font-size: 1vw;
 }
