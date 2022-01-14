@@ -1,5 +1,4 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import "./edit_form.css"
 
 class EditRecipeForm extends React.Component {
@@ -184,7 +183,6 @@ class EditRecipeForm extends React.Component {
                       onChange={this.servingInput("servings")}
                       className="edit-servings-input"
                     />
-                    {/* <p className="edit-letter-count">Up to 20 Servings</p> */}
                   </div>
                 </div>
                 <div className="edit-country-create">

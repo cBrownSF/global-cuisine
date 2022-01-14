@@ -164,7 +164,7 @@ class RecipeForm extends React.Component {
                       <option value="Mexico">Mexico</option>
                       <option value="Peru">Peru</option>
                       <option value="China">China</option>
-                      <option value="Ethopia">Ethopia</option>
+                      <option value="Ethiopia">Ethiopia</option>
                       <option value="Other">Other</option>
                     </select>
                   </div>
