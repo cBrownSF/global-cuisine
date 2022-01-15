@@ -1,0 +1,67 @@
+.outerAbout{
+    width: 100%;
+    height: 100vh;
+    background-color: gray;
+    display: flex;
+    justify-content: space-around;
+}
+
+.us{
+    display: flex;
+    position: relative;
+    top: 10vw;
+    right: 10vw;
+    height: 37vw;
+}
+
+.anusha-outer, .cal-outer, .andrew-outer{
+    border: 3px solid black;
+    width: 24.4vw;
+    height: 35vw;
+   
+}
+
+.anusha-pic, .cal-pic, .andrew-pic{
+    width:24.3vw;
+    height: 30vw;
+}
+
+.meet-team{
+    font-size: 3.4vw;
+    font-weight: 700;
+    position: relative;
+    top: 2.5vw;
+    left: 40vw;
+    border: 3px solid black;
+    width: 100%;
+    height: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-us {
+    font-size: 2.4vw;
+    font-weight: 500;
+    background-color: whitesmoke;
+    width:24.3vw;
+}
+
+.title-us p {
+    position: relative;
+    left: 6vw;
+
+}
+
+#github-icon, #linkedIn-icon, #angellist-icon{
+    font-size: 2.3vw;
+    color: black;
+}
+
+.social{
+    width: 10vw;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    left: 8vw;
+}
