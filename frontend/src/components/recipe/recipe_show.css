@@ -54,6 +54,7 @@
 .show-author-p {
   color: white;
   font-size: 1vw;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .right-show {
@@ -103,6 +104,7 @@
   position: relative;
   line-height: 1.2vw;
   top: 1vw;
+  font-family: Arial, Helvetica, sans-serif;
   overflow-wrap: break-word;
   -moz-white-space: pre-wrap;   
   white-space: pre-wrap;
@@ -122,6 +124,7 @@
   position: relative;
   top: 1vw;
   font-size: 0.9vw;
+  font-family: Arial, Helvetica, sans-serif;
   overflow-wrap: break-word;
     -moz-white-space: pre-wrap;   
   white-space: pre-wrap;
@@ -149,11 +152,12 @@
 }
 
 .updateOrdelete {
-  font-size: 1vw;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: .9vw;
   color: whitesmoke;
   position: relative;
   top: 0.2vw;
-  left: 0.6vw;
+  text-align: center;;
 }
 
 .edit-show-link {
@@ -224,7 +228,7 @@
 
 .leave-review-inner{
     position: relative;
-    left: 12vw;
+     text-align:center;
     font-size: 1.7vw;
 }
 
@@ -235,6 +239,7 @@
     font-size: 1.4vw;
     font-weight: 500;
     width: 23vw;
+    font-family: Arial, Helvetica, sans-serif;
     position: relative;
     left: 6vw;
     justify-content: space-evenly;
@@ -243,18 +248,20 @@
 }
 
 .name-input-show, .body-input, .score-input{
+    font-family: Arial, Helvetica, sans-serif;
     border: 1px solid lightgray;
     width: 15vw;
     height: 2vw;
     background-color: black;
     color: white;
+    resize:none;
     font-size: 1vw;
 }
 
 .div-button-review{
     position: relative;
     top: 1.9vw;
-    left: 15vw;
+    left: 13vw;
     width: 9vw;
 }
 
@@ -263,9 +270,17 @@
     height: 3vw;
     background-color: gray;
     font-size: 1.1vw;
+    font-family: Arial, Helvetica, sans-serif;
     border: 2px solid black;
 }
-
+.Create-Review-Button:hover{
+    width: 9vw;
+    height: 3vw;
+    background-color:black;
+    color:whitesmoke;
+    font-size: 1.1vw;
+    border: 2px solid grey;
+}
 .review-errors{
     color: darkred;
     position: relative;
@@ -297,8 +312,8 @@
 
 .no-reviews-show p {
     position: relative;
+    text-align: center;
      font-size: 2vw;
-     left: 1vw;
      top: 0.7vw;
 }
 

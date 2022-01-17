@@ -120,22 +120,27 @@
     position: relative;
 }
 .edit-name-input, .edit-title-input{
+  font-family: Arial, Helvetica, sans-serif;
    width: 13vw;
    height: 2vw;
    background: transparent;
    border: 2px solid black;
    padding: 1%;
-   font-size: 0.8vw;
+   font-size: 1vw;
 }
 .edit-servings-input{
+  font-family:Arial, Helvetica, sans-serif;
    width: 13vw;
    height: 2vw;
    background: transparent;
    border: 2px solid black;
    padding: 1%;
-   font-size: 0.8vw;
+   font-size: 1vw;
 }
 .edit-description-input {
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 1vw;
+  resize:none;
    background: transparent;
    border: 2px solid black;
    width: 30vw;
@@ -143,23 +148,25 @@
    position: relative;
    top: 0.8vw;
    padding: 1%;
-   font-size: 0.8vw;
 }
 .edit-ingredients-input, .edit-instruction-input{
    background: transparent;
+   font-family:Arial, Helvetica, sans-serif;
    border: 2px solid black;
    width: 37vw;
    height: 20vw;
    padding: 1%;
-   font-size: 0.8vw;
+   font-size: 1vw;
+   resize: none;
 }
 .edit-difficulty-input, .edit-country-input{
     width: 13vw;
     height: 2.5vw;
+    font-family:Arial, Helvetica, sans-serif;
     background: transparent;
     border: 2px solid black;
     padding: 1%;
-    font-size: 0.8vw;
+    font-size: 1vw;
 }
 .edit-form-photo{
     width: 30vw;
