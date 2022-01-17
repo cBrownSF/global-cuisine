@@ -13,10 +13,8 @@ import ProfileContainer from './profile/profile_container';
 import ReviewIndexContainer from './review/review_index_container';
 import AboutUs from './about_us.js/about_us';
 const App = () => (
-  <div>
-    <header>
+  <div> 
     <NavBarContainer />
-    </header>
     <Switch>
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
