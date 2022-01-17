@@ -41,7 +41,7 @@ class AboutUs extends React.Component{
                     <p>Frontend Lead</p>
                   </div>
                   <img
-                    src="https://global-cuisine.s3.us-west-1.amazonaws.com/cal.jpeg"
+                    src="https://global-cuisine-bucket-final.s3.us-west-1.amazonaws.com/cal_brown.jpeg"
                     alt="cal"
                     className="cal-pic"
                   ></img>
