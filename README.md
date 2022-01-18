@@ -42,7 +42,7 @@ To build this app we must
 ## Technical Challenges
 
 ### Overview
-Global Cuisine is built with the MERN stack(MongoDB, Express, React, and Node). MongoDB will be used to store user authorization information including emails, passwords, and usernames.
+Global Cuisine is built with the MERN stack(MongoDB, Express, React, and Node). MongoDB will be used to store user authorization information including emails, passwords, and usernames. Amazon Web Services will be used to store images.
 
 MongoDB will also store recipe and review information.  The lack of a fixed schema will make the user’s recipe and review field data fields concise. There will not be an abundance of blank cells for the optional data fields. 
 
@@ -51,7 +51,7 @@ We will use bcrypt to salt the passwords. Validator will be used for validations
 **Backend Technical challenges:**
 
 * Connecting the backend to the front-end while working on two different branches
-* Storing images in the database
+* Storing images in Amazon Web Services
 * Seeding the database in a timely manner
 
 
