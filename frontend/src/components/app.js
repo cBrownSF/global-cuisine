@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route} from "react-router-dom";
 import CreateFormContainer from './recipe_forms/create_form_container'
 import EditFormContainer from './recipe_forms/edit_form_container'
 import RecipeShowContainer from './recipe/recipe_show_container'
@@ -28,8 +28,8 @@ const App = () => (
         component={ReviewIndexContainer}
       />
       <Route path="/about" component={AboutUs}/>
-      <Route exact path="/" component={HomePage} />
-      <Route render={() => <Redirect to={{ pathname: "/" }} />} />
+      <AuthRoute path="/" component={HomePage} />
+      {/* <Route render={() => <Redirect to={{ pathname: "/" }} />} /> */}
     </Switch>
   </div>
 );
