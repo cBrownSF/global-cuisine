@@ -29,7 +29,7 @@ const App = () => (
       />
       <Route path="/about" component={AboutUs}/>
       <Route path="/" component={HomePage} />
-      {/* <Route render={() => <Redirect to={{ pathname: "/" }} />} /> */}
+      <Route render={() => <Redirect to={{ pathname: "/" }} />} />
     </Switch>
   </div>
 );
