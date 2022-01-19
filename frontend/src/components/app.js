@@ -28,7 +28,7 @@ const App = () => (
         component={ReviewIndexContainer}
       />
       <Route path="/about" component={AboutUs}/>
-      <Route path="/" component={HomePage} />
+      <Route exact path="/" component={HomePage} />
       <Route render={() => <Redirect to={{ pathname: "/" }} />} />
     </Switch>
   </div>
