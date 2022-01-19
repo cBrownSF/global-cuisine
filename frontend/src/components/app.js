@@ -28,8 +28,8 @@ const App = () => (
         component={ReviewIndexContainer}
       />
       <Route path="/about" component={AboutUs}/>
-      <AuthRoute path="/" component={HomePage} />
-      <Route render={() => <Redirect to={{ pathname: "/" }} />} />
+      <Route path="/" component={HomePage} />
+      {/* <Route render={() => <Redirect to={{ pathname: "/" }} />} /> */}
     </Switch>
   </div>
 );
