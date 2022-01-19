@@ -13,23 +13,28 @@ import ProfileContainer from './profile/profile_container';
 import ReviewIndexContainer from './review/review_index_container';
 import AboutUs from './about_us.js/about_us';
 const App = () => (
-  <div> 
+  <div>
     <NavBarContainer />
     <Switch>
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
       <ProtectedRoute path="/profile" component={ProfileContainer} />
       <ProtectedRoute path="/recipes/new" component={CreateFormContainer} />
-      <ProtectedRoute path="/recipes/:listingId/edit" component={EditFormContainer} />
+      <ProtectedRoute
+        path="/recipes/:listingId/edit"
+        component={EditFormContainer}
+      />
       <Route path="/recipes/:listingId" component={RecipeShowContainer} />
       <Route path="/recipes" component={RecipeIndexContainer} />
       <Route
         path="/recipes/:recipeId/reviews"
         component={ReviewIndexContainer}
       />
-      <Route path="/about" component={AboutUs}/>
-      <Route exact path="/" component={HomePage} />
-      <Route render={() => <Redirect to={{ pathname: "/" }} />} />
+      <Route path="/about" component={AboutUs} />
+      {/* <Route exact path="/" component={HomePage} />
+      <Route render={() => <Redirect to={{ pathname: "/" }} />} /> */}
+      <AuthRoute path="/" component={HomePage} />
+      {/* <Route render={() => <Redirect to={{ pathname: "/" }} />} /> */}
     </Switch>
   </div>
 );
