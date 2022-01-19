@@ -31,9 +31,9 @@ const App = () => (
         component={ReviewIndexContainer}
       />
       <Route path="/about" component={AboutUs} />
-      {/* <Route exact path="/" component={HomePage} /> */}
-      <Route render={() => <Redirect to={{ pathname: "/" }} />} />
-      <AuthRoute exact path="/" component={HomePage} />
+      <Route exact path="/" component={HomePage} />
+      {/* <Route render={() => <Redirect to={{ pathname: "/" }} />} /> */}
+      {/* <AuthRoute exact path="/" component={HomePage} /> */}
       {/* <Route render={() => <Redirect to={{ pathname: "/" }} />} /> */}
       <Redirect to="/" />
     </Switch>
