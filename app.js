@@ -16,6 +16,13 @@ const passport = require("passport");
 const Listing = require("./models/Listing");
 const likes = require("./routes/api/likes")
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"));
+  app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  });
+}
+
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
@@ -32,12 +39,12 @@ app.use("/api/reviews", reviews)
 app.use("/api/likes", likes)
 app.use(express.static("public"));
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("frontend/build"));
-  app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-  });
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("frontend/build"));
+//   app.get("/", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+//   });
+// }
 
 app.use(cors)
 

@@ -2,7 +2,7 @@
   "name": "globalcuisine",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "server:debug": "nodemon --inspect app.js",
     "start": "node app.js",
