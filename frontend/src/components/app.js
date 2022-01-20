@@ -16,6 +16,7 @@ const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
+      <Route exact path="/" component={HomePage} />
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
       <ProtectedRoute path="/profile" component={ProfileContainer} />
@@ -31,7 +32,6 @@ const App = () => (
         component={ReviewIndexContainer}
       />
       <Route path="/about" component={AboutUs} />
-      <Route exact path="/" component={HomePage} />
       {/* <Route render={() => <Redirect to={{ pathname: "/" }} />} /> */}
       {/* <AuthRoute exact path="/" component={HomePage} /> */}
       {/* <Route render={() => <Redirect to={{ pathname: "/" }} />} /> */}
