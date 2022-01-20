@@ -17,23 +17,21 @@ const App = () => (
     <NavBarContainer />
     <Switch>
       <Route exact path="/" component={HomePage} />
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <ProtectedRoute exact path="/profile" component={ProfileContainer} />
-      <ProtectedRoute exact path="/recipes/new" component={CreateFormContainer} />
+      <AuthRoute path="/login" component={LoginFormContainer} />
+      <AuthRoute path="/signup" component={SignupFormContainer} />
+      <ProtectedRoute path="/profile" component={ProfileContainer} />
+      <ProtectedRoute path="/recipes/new" component={CreateFormContainer} />
       <ProtectedRoute
-        exact
         path="/recipes/:listingId/edit"
         component={EditFormContainer}
       />
-      <Route exact path="/recipes/:listingId" component={RecipeShowContainer} />
-      <Route exact path="/recipes" component={RecipeIndexContainer} />
+      <Route path="/recipes/:listingId" component={RecipeShowContainer} />
+      <Route path="/recipes" component={RecipeIndexContainer} />
       <Route
-        exact
         path="/recipes/:recipeId/reviews"
         component={ReviewIndexContainer}
       />
-      <Route exact path="/about" component={AboutUs} />
+      <Route path="/about" component={AboutUs} />
       {/* <AuthRoute exact path="/" component={HomePage} /> */}
       <Route render={() => <Redirect to={{ pathname: "/" }} />} />
       {/* <Redirect to="/" /> */}
