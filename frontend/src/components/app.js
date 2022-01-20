@@ -22,17 +22,18 @@ const App = () => (
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
       <ProtectedRoute exact path="/recipes/new" component={CreateFormContainer} />
       <ProtectedRoute
+        exact
         path="/recipes/:listingId/edit"
         component={EditFormContainer}
       />
-      <Route path="/recipes/:listingId" component={RecipeShowContainer} />
+      <Route exact path="/recipes/:listingId" component={RecipeShowContainer} />
       <Route exact path="/recipes" component={RecipeIndexContainer} />
       <Route
+        exact
         path="/recipes/:recipeId/reviews"
         component={ReviewIndexContainer}
       />
       <Route exact path="/about" component={AboutUs} />
-      {/* <Route render={() => <Redirect to={{ pathname: "/" }} />} /> */}
       {/* <AuthRoute exact path="/" component={HomePage} /> */}
       <Route render={() => <Redirect to={{ pathname: "/" }} />} />
       {/* <Redirect to="/" /> */}
