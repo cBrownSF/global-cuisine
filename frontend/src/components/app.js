@@ -34,8 +34,8 @@ const App = () => (
       <Route exact path="/about" component={AboutUs} />
       {/* <Route render={() => <Redirect to={{ pathname: "/" }} />} /> */}
       {/* <AuthRoute exact path="/" component={HomePage} /> */}
-      {/* <Route render={() => <Redirect to={{ pathname: "/" }} />} /> */}
-      <Redirect to="/" />
+      <Route render={() => <Redirect to={{ pathname: "/" }} />} />
+      {/* <Redirect to="/" /> */}
     </Switch>
   </div>
 );
