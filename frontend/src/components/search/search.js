@@ -39,7 +39,7 @@ function Search(props) {
       <div className="searchInputs">
         <input
           type="text"
-          placeholder="SEARCH ALL RECIPES"
+          placeholder="Search all recipes"
           onChange={handleChange}
           value={inputWord}
         />

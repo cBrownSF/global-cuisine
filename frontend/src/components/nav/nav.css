@@ -61,6 +61,7 @@
 .p-signup, .p-login, .linktorecipes, .demoLogin, .logout-p, .all-recipes, .profile, .create, .aboutUs{
     color: whitesmoke;
     font-size: 1vw;
+    font-family:Arial, Helvetica, sans-serif
 }
 
 .icon-app-name{
@@ -76,6 +77,7 @@
     top: 5vw;
     right: 1.3vw;
     width: 17vw;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 #global-link{
