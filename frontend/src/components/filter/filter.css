@@ -57,7 +57,8 @@
     color: whitesmoke;
     width: 5.8vw;
     height: 2vw;
-    font-size: 1.2vw;;
+    font-size: 1.2vw;
+    cursor: pointer;
    
 }
 
